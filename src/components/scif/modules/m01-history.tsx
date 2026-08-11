@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout, EntityBadge } from "@/components/scif/view-shell";
 import { EvidenceTag, SourcePill, LifecycleTag, ClaimRef } from "@/components/scif/evidence";
 import { TIMELINE, CLAIMS } from "@/lib/scif/data";
+import { TimelineVisualizer } from "@/components/scif/tools/timeline-visualizer";
 import * as Lucide from "lucide-react";
 
 const ENTITIES = [
@@ -84,6 +85,10 @@ export function Module01History() {
               Next vs Yape como bancos independientes (Next es marca-dentro-banco; Yape es app-de-pagos-dentro-BCP).
             </Callout>
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Visualización interactiva" title="Línea temporal estratégica — explorador">
+          <TimelineVisualizer />
         </ViewSection>
 
         <ViewSection eyebrow="Línea temporal estratégica" title="Eras y eventos clave (1943–2026)">

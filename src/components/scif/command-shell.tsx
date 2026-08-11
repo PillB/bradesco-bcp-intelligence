@@ -41,7 +41,16 @@ export function CommandCenterShell({ children }: { children: React.ReactNode }) 
   const { dark, toggle } = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
+  const [showTop, setShowTop] = React.useState(false);
   const activeModule = MODULES.find((m) => m.id === route) ?? MODULES[0];
+
+  React.useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const filtered = React.useMemo(() => {
     if (!query) return MODULES;
@@ -188,21 +197,44 @@ export function CommandCenterShell({ children }: { children: React.ReactNode }) 
 
         {/* Main content */}
         <main className="min-w-0 flex-1">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</div>
+          <div key={route} className="scif-animate mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</div>
         </main>
       </div>
 
+      {/* Back to top floating button */}
+      {showTop && (
+        <button
+          onClick={scrollTop}
+          className="no-print fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:scale-110 hover:shadow-xl"
+          aria-label="Volver arriba"
+          title="Volver arriba"
+        >
+          <ChevronRight className="h-5 w-5 -rotate-90" />
+        </button>
+      )}
+
       {/* Sticky footer */}
-      <footer className="mt-auto border-t border-border bg-card">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+      <footer className="no-print mt-auto border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-2 text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-            <p className="font-medium">
-              {PROJECT.title} · {PROJECT.framework}
-            </p>
-            <p className="text-muted-foreground/80">
-              Evidence as-of {PROJECT.asOf} · {PROJECT.independence}
-            </p>
+            <div className="flex items-center gap-3">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-500 scif-pulse" title="Live evidence monitoring" />
+              <p className="font-medium">
+                {PROJECT.title}
+              </p>
+              <span className="hidden text-muted-foreground/60 sm:inline">·</span>
+              <span className="hidden text-muted-foreground/80 sm:inline">{PROJECT.framework}</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="rounded-full border border-emerald-300 bg-emerald-50 px-2 py-0.5 text-[9px] font-bold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">
+                {activeModule.number} · {activeModule.title}
+              </span>
+              <p className="text-muted-foreground/80">
+                Evidence as-of {PROJECT.asOf}
+              </p>
+            </div>
           </div>
+          <p className="mt-1 text-[10px] italic text-muted-foreground/60">{PROJECT.independence}</p>
         </div>
       </footer>
     </div>

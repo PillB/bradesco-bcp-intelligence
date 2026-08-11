@@ -2,6 +2,8 @@
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
 import { EvidenceTag, TierBadge, SourcePill, ConfidenceMeter, ClaimRef } from "@/components/scif/evidence";
 import { SOURCES, CLAIMS, CONTRADICTIONS, OPEN_QUESTIONS } from "@/lib/scif/data";
+import { ConfidenceDashboard } from "@/components/scif/tools/confidence-dashboard";
+import { ClaimExplorer } from "@/components/scif/tools/claim-explorer";
 import * as React from "react";
 
 export function Module16Sources() {
@@ -26,6 +28,14 @@ export function Module16Sources() {
               </button>
             ))}
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Dashboard" title="Confianza de evidencia — vista consolidada">
+          <ConfidenceDashboard />
+        </ViewSection>
+
+        <ViewSection eyebrow="Explorador interactivo" title="Grafo de claims y fuentes">
+          <ClaimExplorer />
         </ViewSection>
 
         {tab === "sources" && (
