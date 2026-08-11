@@ -46,7 +46,7 @@ export function Module00Exec() {
               Banco Bradesco S.A. es un banco múltiple brasileño con sede en Osasco (São Paulo), que opera bajo
               dos segmentos reportables: <strong>banca</strong> y <strong>seguros/previsión/capitalización</strong>. Al cierre de 2025,
               los activos totales consolidados bajo IFRS alcanzaron <strong>R$2,33 billones</strong> (trillion en nomenclatura anglosajona),
-              con un resultado recurrente de <strong>R$24,7 mil millones</strong> (+26,1% a/a) y un ROAE de 4T25 de <strong>15,2%</strong> —
+              con un resultado recurrente de <strong>R$24,7 mil millones</strong> (+26,1% a/a) y un ROAE (Retorno sobre Patrimonio Promedio) de 4T25 de <strong>15,2%</strong> —
               la primera vez, según management, que dicho retorno supera el costo de capital de la entidad.
               <ClaimRef claimId="C001" /><ClaimRef claimId="C002" />
             </p>
@@ -125,8 +125,8 @@ export function Module00Exec() {
 
         <ViewSection eyebrow="Ciclo de vida de iniciativas" title="Éxitos, integraciones, sunsets">
           <Grid>
-            <StatBlock label="Iniciativas activas / integradas" value={String(activeInitiatives)} sub="Next, Digio, BIA, Bridge, Inovabra, Seguros" accent="primary" />
-            <StatBlock label="Sunsets confirmados" value={String(sunsetInitiatives)} sub="Bitz (cerrada 2023 → Digio)" accent="primary" />
+            <StatBlock label="Iniciativas activas / integradas" value={String(activeInitiatives)} sub="Bradesco: Next, Digio, BIA, Bridge, Inovabra, Seguros" accent="primary" />
+            <StatBlock label="Sunsets confirmados" value={String(sunsetInitiatives)} sub="Bradesco: Bitz (cerrada 2023 → Digio)" accent="primary" />
             <StatBlock label="Lanzamientos fallidos" value="0" sub="Silencio ≠ fracaso (principio del framework)" accent="muted" />
           </Grid>
           <div className="mt-3">

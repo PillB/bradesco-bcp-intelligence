@@ -18,13 +18,13 @@ export function Module06Tech() {
             <Card>
               <Cloud className="h-6 w-6 text-sky-500" />
               <h3 className="mt-2 font-bold text-sm">Microsoft Azure</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Next (banco digital) + entorno analítico (migración Teradata→Azure)</p>
+              <p className="mt-1 text-xs text-muted-foreground">Bradesco Next (banco digital) + entorno analítico (migración Teradata→Azure)</p>
               <p className="mt-2 text-[11px] text-muted-foreground"><SourcePill sourceId="S06" /></p>
             </Card>
             <Card>
               <Cloud className="h-6 w-6 text-amber-500" />
               <h3 className="mt-2 font-bold text-sm">Amazon Web Services</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Digio y (anteriormente) Bitz — infraestructura deliberadamente separada</p>
+              <p className="mt-1 text-xs text-muted-foreground">Bradesco Digio y (anteriormente) Bradesco Bitz — infraestructura deliberadamente separada</p>
               <p className="mt-2 text-[11px] text-muted-foreground"><SourcePill sourceId="S06" /></p>
             </Card>
             <Card>
