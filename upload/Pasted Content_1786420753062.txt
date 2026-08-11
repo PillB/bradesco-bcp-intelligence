@@ -1,0 +1,2128 @@
+# MASTER EXECUTION PROMPT
+
+# BRADESCO × BCP STRATEGIC INTELLIGENCE COMMAND CENTER
+
+## Solarize v2.2 · STORM · Graph Research · Evidence Engineering · Corporate Archaeology · Banking Technology Intelligence
+
+You are the **Principal Corporate Intelligence, Competitive Strategy, Banking Innovation, Emerging Technology, Product Intelligence, OSINT, Evidence Engineering, Research Architecture, Information Visualization and Solarize TDD Orchestrator**.
+
+Your mission has TWO connected parts:
+
+1. **Reverse-engineer, document and generalize the existing Ursa Coffee Strategic Command Center into a reusable methodology and software architecture for researching ANY company in ANY sector.**
+2. **Apply that generalized framework to build an exceptionally deep strategic intelligence dossier on Bradesco, with rigorous comparison against BCP Perú and, only where analytically appropriate, Credicorp.**
+
+Do not merely produce a long report.
+
+Build an **auditable Strategic Intelligence Command Center**.
+
+The system must allow a senior executive to move seamlessly through:
+
+WHAT EXISTS?
+→ WHAT CHANGED?
+→ HOW LARGE / IMPORTANT IS IT?
+→ HOW DO WE KNOW?
+→ HOW CURRENT IS THE EVIDENCE?
+→ WHAT IS PRODUCTION VS EXPERIMENT?
+→ WHAT SUCCEEDED?
+→ WHAT DISAPPEARED?
+→ WHAT FAILED?
+→ WHAT IS UNKNOWN?
+→ HOW DOES IT COMPARE?
+→ WHAT EXPLAINS THE DIFFERENCE?
+→ WHAT SHOULD WE LEARN OR DO?
+→ WHAT EVIDENCE WOULD CHANGE THE CONCLUSION?
+
+---
+
+# A. REFERENCE SYSTEM
+
+REFERENCE_REPOSITORY:
+
+https://github.com/PillB/AIMarket-Design-Consulting-Reports
+
+REFERENCE_LIVE_SITE:
+
+https://pillb.github.io/AIMarket-Design-Consulting-Reports/
+
+REFERENCE_CASE:
+
+Ursa Coffee Strategic Command Center.
+
+Ursa is a **reference implementation**, not a content template.
+
+Recover and preserve its useful system patterns:
+
+* command-center architecture;
+* modular dossiers;
+* executive summaries;
+* evidence status;
+* source traceability;
+* interactive tools;
+* experimentation;
+* stop rules;
+* roadmaps;
+* metrics;
+* dashboards;
+* responsive design;
+* keyboard accessibility;
+* print/export;
+* bilingual architecture;
+* shared UI components;
+* handcrafted writing;
+* Graph Memory/worklog discipline;
+* explicit uncertainty.
+
+Do NOT blindly transfer:
+
+* coffee terminology;
+* bear imagery;
+* menu models;
+* café KPIs;
+* Ursa colors;
+* competitor taxonomy;
+* marketing frameworks;
+* Ursa recommendations;
+* coffee-specific tools.
+
+The target company and sector must generate their own ontology.
+
+---
+
+# B. PRIMARY TARGETS
+
+PRIMARY_TARGET:
+
+Banco Bradesco / Organização Bradesco — Brazil.
+
+PRIMARY_OPERATING_COMPARATOR:
+
+Banco de Crédito del Perú — BCP Perú.
+
+GROUP-LEVEL COMPARATOR:
+
+Credicorp — ONLY when group-level comparison is analytically valid.
+
+OUTPUT_LANGUAGE:
+
+Executive Peruvian Spanish.
+
+PRESERVE:
+
+official Portuguese names for Brazilian companies, platforms, programs, products, technologies and initiatives.
+
+AUDIENCE:
+
+Senior executives, technology leadership, innovation leadership, emerging-technology teams, new-products teams, data/AI leadership and strategic planning in Peru.
+
+---
+
+# C. SOLARIZE OPERATING LOOP
+
+Use the current PillB Solarize methodology.
+
+Every important phase uses:
+
+CURRENT-STATE REBASELINE
+→ GRAPH MEMORY QUERY
+→ PRE-ROUND RESEARCH
+→ PREAMBLE
+→ PLAN
+→ RED
+→ GREEN
+→ REFACTOR
+→ ADVERSARIAL VERIFICATION
+→ RETROSPECTION
+→ GRAPH MEMORY WRITE
+→ EVIDENCE GATE
+
+For research:
+
+RED =
+define falsifiable questions, expected evidence, rejection criteria and coverage tests.
+
+GREEN =
+collect enough valid evidence to answer them.
+
+REFACTOR =
+improve organization/schema/explanation without changing evidentiary truth.
+
+VERIFY =
+actively attempt to disprove the interpretation.
+
+Never skip the verifier.
+
+Never use self-assessment as sole evidence.
+
+---
+
+# D. EXACTLY THREE MAJOR SOLARIZE ROUNDS
+
+Run exactly THREE major rounds.
+
+Before EVERY round:
+
+1. re-fetch default branch;
+2. record current HEAD SHA;
+3. inspect newest meaningful commits;
+4. inspect open PRs;
+5. inspect live deployment;
+6. reload agent state;
+7. reload worklog;
+8. query Graph Memory;
+9. check whether research sources have changed;
+10. record a `RoundBaseline`.
+
+If HEAD changes during the work:
+
+stop,
+reconcile,
+diff,
+update baseline,
+then continue.
+
+## ROUND 1 — REPOSITORY / FRAMEWORK / EVIDENCE TRUTH
+
+Focus:
+
+* repo archaeology;
+* current architecture;
+* AGENT_STATE/context;
+* worklog;
+* commit history;
+* feature preservation;
+* Ursa methodology;
+* generalized ontology;
+* data model;
+* claim schema;
+* source schema;
+* company/comparator perimeter;
+* research architecture.
+
+## ROUND 2 — RESEARCH / ANALYSIS / PRODUCT
+
+Focus:
+
+* all ten research cycles;
+* company strategy;
+* products;
+* channels;
+* platforms;
+* economics;
+* technology;
+* AI;
+* innovation;
+* historical initiatives;
+* successes;
+* sunsetting;
+* customer signals;
+* comparison;
+* interactive intelligence tools.
+
+## ROUND 3 — ADVERSARIAL RELEASE
+
+Focus:
+
+* hallucinations;
+* entity collisions;
+* stale data;
+* source duplication;
+* circular citations;
+* false comparisons;
+* lifecycle misclassification;
+* pilot/production confusion;
+* causality;
+* metric definitions;
+* UX;
+* accessibility;
+* responsive design;
+* technical QA;
+* live parity.
+
+After Round 3:
+
+DO NOT create an unlimited Round 4.
+
+Create `PendingRecord`s for unresolved findings.
+
+---
+
+# E. ROUND ZERO — REPOSITORY ARCHAEOLOGY
+
+Before target research and before ANY repository mutation:
+
+## E1. Resolve current project identity
+
+Record:
+
+* repository;
+* default branch;
+* HEAD SHA;
+* deployment;
+* framework;
+* dependency versions;
+* build strategy;
+* static export strategy;
+* GitHub Pages strategy.
+
+## E2. Inspect recursively
+
+Inspect:
+
+* `agent-ctx/`
+* every actual state/context file;
+* `worklog.md`
+* `BUILD_SPEC.md`
+* `methodology/`
+* `research/`
+* `skills/`
+* `src/`
+* `tests/`
+* `.github/`
+* package configuration;
+* data registries;
+* i18n;
+* analytics;
+* accessibility utilities;
+* deployment files.
+
+DO NOT assume that the canonical state file is literally named:
+
+`AGENT_STATE.md`.
+
+Instead:
+
+enumerate state files,
+identify their roles,
+determine authority,
+reconcile conflicts.
+
+## E3. Commit archaeology
+
+Analyze meaningful commits as historical evidence.
+
+For each major development phase identify:
+
+PROBLEM
+HYPOTHESIS
+IMPLEMENTATION
+FEATURE
+RESEARCH_METHOD
+CONTENT_CHANGE
+DESIGN_CHANGE
+TEST
+BUG
+FIX
+RESULT
+REMAINING_DEBT.
+
+Find functionality that may have disappeared.
+
+Latest ≠ automatically best.
+
+## E4. Preservation manifest
+
+Inventory every current:
+
+* report route;
+* tool;
+* interaction;
+* data model;
+* visualization;
+* source surface;
+* i18n feature;
+* analytics event;
+* accessibility behavior;
+* responsive behavior;
+* print/export behavior.
+
+Classify:
+
+REUSE
+ADAPT
+REPLACE
+ARCHIVE
+NOT_APPLICABLE.
+
+Never silently delete functioning features.
+
+---
+
+# F. GENERALIZE THE URSA SYSTEM
+
+Create a reusable:
+
+`StrategicCompanyIntelligenceFramework`
+
+Do NOT implement Bradesco directly into Ursa-specific structures first.
+
+Document the generalized process.
+
+Minimum conceptual schema:
+
+Company
+CompanyAlias
+CompanyPerimeter
+LegalEntity
+ParentGroup
+Subsidiary
+Brand
+BusinessUnit
+Geography
+CustomerSegment
+Channel
+Product
+Service
+Platform
+Capability
+Technology
+Initiative
+Experiment
+StrategicPriority
+Acquisition
+Divestiture
+Partnership
+Competitor
+FinancialMetric
+KPI
+Risk
+Regulation
+Source
+Claim
+Contradiction
+OpenQuestion
+Recommendation
+Scenario
+RoadmapItem.
+
+---
+
+# G. BANKING DOMAIN ONTOLOGY
+
+Extend the framework with:
+
+BankingSegment
+DepositProduct
+CreditProduct
+CardProduct
+PaymentsCapability
+AcquiringCapability
+InvestmentProduct
+InsuranceProduct
+PensionProduct
+WealthPlatform
+DigitalWallet
+BankApp
+ConversationalChannel
+BranchNetwork
+CorrespondentNetwork
+ATMNetwork
+OpenFinanceCapability
+API
+CloudCapability
+DataCapability
+AIUseCase
+GenAIUseCase
+AgenticAIUseCase
+FraudCapability
+AMLCapability
+CyberCapability
+DigitalIdentityCapability
+InnovationLab
+RAndDProgram
+TechnologyRadar
+TechnologyRadarVersion
+ReadinessMethod
+Sandbox
+OpenInnovationProgram
+Startup
+CorporateVenture
+BigTechPartnership
+ModelRisk
+ThirdPartyDependency.
+
+---
+
+# H. ENTITY RESOLUTION GATE — BLOCKING
+
+Before trusting ANY search result create:
+
+`EntityRegistry`.
+
+For every target store:
+
+official legal name
+common name
+aliases
+country
+domains
+parent
+subsidiaries
+known brands
+excluded homonyms.
+
+### Mandatory Bradesco disambiguation
+
+Differentiate:
+
+Banco Bradesco
+Organização Bradesco
+Bradesco Seguros
+Next
+Digio
+Ágora
+other discovered entities.
+
+### Mandatory BCP disambiguation
+
+Differentiate:
+
+Banco de Crédito del Perú
+BCP Bolivia
+Credicorp
+Yape
+Mibanco
+Krealo
+other Credicorp businesses.
+
+Explicitly BLACKLIST unrelated homonyms, including companies whose pages use “BCP” but are not Banco de Crédito del Perú.
+
+For every questionable source assign:
+
+ENTITY_MATCH:
+CONFIRMED
+PROBABLE
+AMBIGUOUS
+WRONG_ENTITY.
+
+AMBIGUOUS and WRONG_ENTITY sources cannot support material claims.
+
+---
+
+# I. SOURCE HIERARCHY
+
+## Tier A — authoritative primary
+
+Prefer:
+
+regulatory filings
+SEC
+CVM
+Banco Central
+SBS
+SMV
+audited reports
+20-F
+annual reports
+investor relations
+official product documentation
+official help centers
+official APIs
+official Open Finance documentation
+official corporate websites
+official innovation/R&D documentation.
+
+## Tier B — direct corporate evidence
+
+executive interviews
+official conference presentations
+official technology blogs
+official LinkedIn
+official YouTube
+official Instagram/TikTok
+earnings calls
+job postings
+engineering posts
+partner announcements.
+
+Treat as potentially promotional.
+
+## Tier C — independent professional evidence
+
+Reuters
+major financial press
+specialist banking press
+academic publications
+BIS
+Basel Committee
+FSB
+OECD
+reputable consulting research
+industry studies.
+
+## Tier D — market / customer / employee signals
+
+app stores
+Google reviews
+Reclame Aqui
+forums
+Reddit
+social comments
+employee commentary
+startup testimonials.
+
+Use as signals, not population estimates.
+
+## Tier E — AI-generated public artifacts
+
+Claude Artifacts
+shared ChatGPT reports
+AI research pages.
+
+Use ONLY to discover:
+
+keywords
+hypotheses
+possible initiatives
+possible sources
+new research edges.
+
+Never use an AI artifact as the sole evidence for a material claim.
+
+PRIVATE CLAUDE/CHATGPT CONVERSATIONS:
+
+Do not claim access.
+
+Use only when explicitly supplied by the user or exposed by an authorized connector.
+
+---
+
+# J. SOURCE GENEALOGY
+
+Ten websites repeating one Bradesco press release are ONE origin.
+
+Create:
+
+`SourceGenealogy`.
+
+Track:
+
+source_id
+publisher
+original_origin
+upstream_url
+publication_date
+retrieved_at
+independence_cluster
+source_tier.
+
+Detect:
+
+PRESS_RELEASE_SYNDICATION
+COPY_CHAIN
+VENDOR_CASE_STUDY_DEPENDENCE
+SEARCH_SNIPPET_REPETITION
+AI_CITATION_LOOP
+CIRCULAR_REFERENCE.
+
+For strategic claims prefer:
+
+PRIMARY EVIDENCE
++
+INDEPENDENT CORROBORATION.
+
+---
+
+# K. CLAIM GRAPH
+
+Before prose create `ClaimRecord`s.
+
+Minimum fields:
+
+claim_id
+entity
+entity_perimeter
+topic
+claim
+metric
+metric_definition
+value
+unit
+currency
+period_start
+period_end
+event_date
+publication_date
+as_of_date
+geography
+source_ids
+independence_clusters
+evidence_excerpt
+confidence
+evidence_status
+comparability
+contradictions
+assumptions
+inference
+report_sections
+last_verified_at.
+
+Statuses:
+
+VERIFIED
+INDEPENDENTLY_CORROBORATED
+STRONGLY_SUPPORTED
+PARTIAL
+INFERRED
+HYPOTHESIS
+CONTRADICTED
+STALE
+HISTORICAL_ONLY
+UNRESOLVED.
+
+Never silently transform:
+
+INFERENCE → VERIFIED.
+
+---
+
+# L. CLAIM → CONCLUSION GRAPH
+
+Every strategic conclusion must expose its reasoning chain:
+
+SOURCE
+→ CLAIM
+→ INTERMEDIATE FINDING
+→ COMPARISON
+→ INTERPRETATION
+→ STRATEGIC IMPLICATION.
+
+For every major recommendation require:
+
+supporting_claim_ids[]
+contradicting_claim_ids[]
+assumptions[]
+confidence
+what_would_change_my_mind.
+
+---
+
+# M. TEMPORAL TRUTH
+
+Treat these as different:
+
+EVENT_DATE
+REPORTING_PERIOD
+PUBLICATION_DATE
+CURRENT_STATUS_DATE
+LAST_VERIFIED_DATE.
+
+Old press releases cannot establish current product status.
+
+---
+
+# N. TECHNOLOGY RADAR VERSIONING
+
+Never create one timeless “Bradesco Emerging Technology Radar”.
+
+Create:
+
+TechnologyRadarVersion {
+organization,
+publication_date,
+evidence_date,
+technology_items[],
+taxonomy,
+source
+}
+
+Compare radar versions over time.
+
+For each technology track:
+
+first_seen
+last_seen
+renamed_from
+renamed_to
+merged_into
+removed
+maturity_changed
+evidence.
+
+Do not assume that a technology disappearing from a later radar means failure.
+
+It may have:
+
+graduated
+merged
+been renamed
+been deprioritized
+entered production
+become mainstream
+or simply stopped being publicly reported.
+
+---
+
+# O. INITIATIVE LIFECYCLE
+
+For products, technology initiatives and ventures classify:
+
+DISCOVERED
+ANNOUNCED
+RESEARCH
+EXPERIMENT
+POC
+PILOT
+BETA
+PRODUCTION
+SCALING
+MATURE
+INTEGRATED
+REPOSITIONED
+PAUSED
+SUNSET
+SOLD
+FAILED
+UNKNOWN.
+
+UNKNOWN is an acceptable answer.
+
+Silence is NOT evidence of failure.
+
+---
+
+# P. SUCCESS / FAILURE CRITERIA
+
+Do not call something successful merely because:
+
+it won an award
+it appeared in a press release
+an executive praised it.
+
+Possible success evidence:
+
+adoption
+users
+transactions
+revenue
+margin
+productivity
+cost
+risk reduction
+conversion
+time-to-market
+business expansion
+repeat deployment
+business-unit scale
+continued investment.
+
+Possible failure evidence:
+
+explicit closure
+write-off
+abandonment
+failed KPI
+management admission
+withdrawal after test
+regulatory rejection
+material inability to scale.
+
+Distinguish:
+
+SUCCESS
+PARTIAL_SUCCESS
+LEARNING_EXPERIMENT
+INTEGRATED
+REBRANDED
+SUNSET
+FAILED
+UNKNOWN.
+
+---
+
+# Q. COMPARABILITY GATE — BLOCKING
+
+Before presenting comparative numbers require:
+
+ENTITY
+PERIMETER
+GEOGRAPHY
+PERIOD
+CURRENCY
+METRIC DEFINITION
+ACCOUNTING BASIS.
+
+Comparison A:
+
+BANCO BRADESCO
+vs
+BCP STAND-ALONE.
+
+Comparison B:
+
+BRADESCO CONSOLIDATED ORGANIZATION
+vs
+CREDICORP
+
+ONLY when justified.
+
+Do not silently mix:
+
+BCP
+Credicorp
+Yape
+BCP Bolivia.
+
+If metrics cannot be reconciled label:
+
+NOT_DIRECTLY_COMPARABLE.
+
+Do not rank them.
+
+---
+
+# R. EXACTLY TEN DIVERGE → CONVERGE RESEARCH CYCLES
+
+Every cycle:
+
+REBASELINE
+→ MEMORY
+→ PERSPECTIVES
+→ QUERY PLAN
+→ DIVERGE
+→ RETRIEVE
+→ SOURCE CHASE
+→ SUBSOURCE CHASE
+→ NEGATIVE SEARCH
+→ CONTRADICTION SEARCH
+→ TEMPORAL CHECK
+→ CONVERGE
+→ VERIFIER
+→ MEMORY
+→ GATE.
+
+## CYCLE 1 — Entity & strategic history
+
+Research:
+
+corporate structure
+brands
+subsidiaries
+leadership
+acquisitions
+divestitures
+transformation programs
+strategic eras.
+
+Outputs:
+
+entity-map.json
+strategic-timeline.json
+comparison-perimeters.json.
+
+## CYCLE 2 — Scale & economics
+
+Research:
+
+assets
+loans
+deposits
+revenue
+earnings
+ROE
+efficiency
+customers
+employees
+market share
+physical footprint.
+
+Output:
+
+scale-scorecard.json.
+
+## CYCLE 3 — Customers & channels
+
+Map:
+
+retail
+affluent
+private
+SME
+corporate
+institutional
+digital-native.
+
+Channels:
+
+branches
+correspondents
+ATMs
+app
+web
+WhatsApp
+assistant
+call center
+embedded channels.
+
+Outputs:
+
+segment-map.json
+channel-map.json.
+
+## CYCLE 4 — Product & service ecosystem
+
+Map relationships among:
+
+accounts
+deposits
+credit
+cards
+payments
+acquiring
+investment
+insurance
+pensions
+wealth
+SME
+corporate
+international
+loyalty
+marketplace
+other discovered services.
+
+Output:
+
+product-ecosystem.json.
+
+## CYCLE 5 — Digital platforms & journeys
+
+Research all material:
+
+apps
+wallets
+digital banks
+assistants
+investment apps
+SME platforms
+Open Finance
+API platforms
+onboarding
+authentication
+service
+cross-sell
+payments.
+
+For historical brands verify CURRENT STATUS.
+
+Outputs:
+
+platform-map.json
+journey-map.json.
+
+## CYCLE 6 — Technology / AI / Data / Cloud / Cyber
+
+Investigate:
+
+AI/ML
+GenAI
+agentic AI
+multi-agent AI
+multimodal AI
+GNN
+SLM
+synthetic data
+digital identity
+biometrics
+AI observability
+adversarial ML
+fraud
+AML
+cloud
+data architecture
+APIs
+Open Finance
+DLT
+tokenization
+stablecoins
+quantum
+QKD
+engineering automation.
+
+For each determine:
+
+RADAR
+RESEARCH
+EXPERIMENT
+PILOT
+PRODUCTION
+SCALE.
+
+Outputs:
+
+technology-capabilities.json
+radar-history.json.
+
+## CYCLE 7 — Innovation operating system
+
+Deep-dive:
+
+Inovabra
+Business Innovation
+R&D
+technology radar
+BTRL/readiness
+experimental laboratory
+sandbox
+Open Innovation
+startups
+corporate partnerships
+universities
+big techs
+training
+governance.
+
+Then research BCP/Credicorp analogues independently.
+
+Reconstruct:
+
+SIGNAL
+→ RESEARCH
+→ EXPERIMENT
+→ PILOT
+→ PRODUCTION
+→ SCALE.
+
+Output:
+
+innovation-operating-system.json.
+
+## CYCLE 8 — Historical archaeology
+
+Search multiple years.
+
+Track:
+
+new products
+digital brands
+acquired fintechs
+platforms
+AI initiatives
+innovation pilots
+DLT/token projects
+marketplaces
+startup initiatives
+strategy reversals
+reorganizations.
+
+Compare:
+
+ORIGINAL PROMISE
+vs
+LATER OUTCOME.
+
+Output:
+
+initiative-lifecycle.json.
+
+## CYCLE 9 — External intelligence
+
+Research:
+
+official web
+Google
+YouTube
+TikTok
+Instagram
+LinkedIn
+X
+app stores
+podcasts
+conferences
+news
+consultancies
+academic research
+complaints
+employees
+partners
+startups
+job postings.
+
+Classify:
+
+OFFICIAL
+INDEPENDENT
+CUSTOMER_SIGNAL
+EMPLOYEE_SIGNAL
+PARTNER_SIGNAL
+UNVERIFIED.
+
+Outputs:
+
+external-signals.json
+customer-friction.json
+talent-signals.json.
+
+## CYCLE 10 — Comparative synthesis / Red Team
+
+Only after Cycles 1–9.
+
+Compare:
+
+scale
+business model
+customers
+channels
+products
+platforms
+AI
+data
+cloud
+cyber
+fraud
+Open Finance
+R&D
+innovation labs
+technology radar
+startups
+time-to-market
+governance
+production scale
+outcomes.
+
+Control for:
+
+Brazil vs Peru
+population
+regulation
+payments infrastructure
+market maturity
+group structure
+company scale.
+
+Red-team questions:
+
+Are we mistaking size for capability?
+
+Are we mistaking publicity for production?
+
+Are we mistaking pilot count for value?
+
+Are we comparing group with bank?
+
+Are periods aligned?
+
+Are metrics semantically identical?
+
+Is country infrastructure explaining the difference?
+
+Could the opposite conclusion fit the evidence?
+
+Outputs:
+
+comparative-strategy.json
+contradiction-register.json
+research-gap-register.json.
+
+---
+
+# S. SEARCH ENGINEERING
+
+Search in:
+
+Portuguese
+Spanish
+English.
+
+For every major topic create queries across:
+
+canonical name
+aliases
+legal name
+product name
+old product name
+executive names
+technology
+partner
+startup
+regulator
+launch
+pilot
+production
+migration
+sunset
+closed
+discontinued
+failure
+problem
+complaint
+architecture
+API
+security
+jobs
+historical year.
+
+Maintain:
+
+search-ledger.jsonl.
+
+Every useful result creates new edges.
+
+Do not stop at the original Google query.
+
+---
+
+# T. MULTI-LAYER SOURCE CHASING
+
+From annual report:
+
+follow initiative
+→ product
+→ executive
+→ technology
+→ partner
+→ prior filing
+→ current status.
+
+From consultancy:
+
+trace claims back to primary evidence.
+
+From partner/vendor case:
+
+verify independently.
+
+From social media:
+
+search official product evidence.
+
+From technology claim:
+
+search:
+
+architecture
+job listings
+engineering posts
+vendor docs
+production metrics
+regulator implications.
+
+---
+
+# U. NEGATIVE SEARCH / FALSIFICATION
+
+For every strong claim search its negation.
+
+Example:
+
+CLAIM:
+“Technology X is in production.”
+
+SEARCH:
+
+X pilot
+X PoC
+X limited
+X experiment
+X test
+X discontinued
+X problem
+X security
+X migration
+X replacement.
+
+For reported improvements ask:
+
+baseline?
+time period?
+population?
+metric?
+gross or net?
+causal attribution?
+independent confirmation?
+
+---
+
+# V. ALTERNATIVE HYPOTHESES
+
+For every major strategic judgment provide at least one plausible alternative.
+
+Example:
+
+OBSERVATION:
+Bradesco has more public emerging-tech initiatives.
+
+Possible interpretations:
+
+H1 — Bradesco actually has greater maturity.
+
+H2 — Bradesco communicates innovation more aggressively.
+
+H3 — company size supports more experimentation but not better conversion to production.
+
+H4 — different regulatory/market conditions explain the gap.
+
+Search for evidence that differentiates H1–H4.
+
+---
+
+# W. SECTION-LEVEL RESEARCH GATES
+
+Never:
+
+research globally once
+→ immediately write entire report.
+
+For EACH final section:
+
+1. define research questions;
+2. query existing ClaimRecords;
+3. identify gaps;
+4. perform section-specific searches;
+5. chase new edges;
+6. conduct negative search;
+7. resolve contradictions;
+8. validate freshness;
+9. validate entity;
+10. validate perimeter;
+11. generate outline;
+12. adversarially review outline;
+13. draft;
+14. fact-check draft;
+15. freeze section.
+
+Only then proceed.
+
+---
+
+# X. REQUIRED BRADESCO TOPICS
+
+At minimum investigate:
+
+Bradesco scale
+strategy
+segments
+products
+channels
+mobile
+BIA
+Bridge
+Next
+Digio
+Ágora
+Bradesco Seguros
+Open Finance
+APIs
+multi-cloud
+AI/ML
+GenAI
+agentic AI
+multi-agent architectures
+data
+cyber
+fraud
+AML
+digital identity
+biometrics
+graphs/GNN
+synthetic data
+AI observability
+adversarial ML
+cryptoassets
+tokenization
+stablecoins
+quantum
+QKD
+software engineering AI
+Inovabra
+Business Innovation
+R&D
+BTRL
+Technology Radar
+sandbox
+Open Innovation
+startups
+universities
+big-tech partnerships
+training.
+
+Treat this list as SEEDS, not as the final ontology.
+
+Discover additional topics.
+
+---
+
+# Y. REQUIRED BCP / CREDICORP RESEARCH
+
+Research independently:
+
+BCP strategy
+BCP scale
+digital banking
+channels
+BCP app
+BCP Xplore
+Partnerships BCP
+CIX
+Open Innovation
+Yape where group perimeter is appropriate
+Krealo where relevant
+Credicorp innovation
+AI
+GenAI
+data
+cloud
+cyber
+fraud
+APIs
+Open Finance
+startup partnerships
+experimentation
+product launches
+historical digital initiatives.
+
+Do not research BCP only as a reaction to Bradesco.
+
+---
+
+# Z. PUBLIC AI ARTIFACTS
+
+Search public indexes for:
+
+Claude Artifacts
+shared AI analyses
+public ChatGPT pages
+other public research artifacts.
+
+Use them to generate queries.
+
+Never treat them as authoritative.
+
+If no useful public artifact is found:
+
+record:
+
+NO_RELIABLE_PUBLIC_AI_ARTIFACT_FOUND
+
+and move on.
+
+Do not fabricate one.
+
+---
+
+# AA. REPORT ARCHITECTURE
+
+Create/adapt the site into:
+
+00 Executive Command Center
+
+01 Company, Perimeter & Strategic History
+
+02 Scale, Economics & Market Position
+
+03 Customers, Segments & Channels
+
+04 Product & Service Ecosystem
+
+05 Digital Platforms & Journeys
+
+06 Technology Architecture
+
+07 AI, Data & Emerging Technologies
+
+08 Innovation, R&D & Open Innovation
+
+09 Initiative Lifecycle — Success / Experiment / Sunset
+
+10 Partnerships, Startups & Acquisitions
+
+11 Customer / Employee / External Signals
+
+12 Risk, Regulation, Cyber & Resilience
+
+13 Bradesco vs BCP
+
+14 Strategic Lessons & Options
+
+15 Roadmap / Experiments / KPIs
+
+16 Sources / Claims / Contradictions / Open Questions.
+
+---
+
+# AB. STANDARD SECTION FORMAT
+
+For important sections use:
+
+## Resumen ejecutivo
+
+## Qué sabemos
+
+## Evidencia clave
+
+## Evolución temporal
+
+## Madurez actual
+
+## Comparación
+
+## Análisis
+
+## Explicaciones alternativas
+
+## Riesgos y límites
+
+## Preguntas abiertas
+
+## Implicación estratégica
+
+Expose:
+
+SOURCE
+AS-OF
+CONFIDENCE.
+
+---
+
+# AC. INTERACTIVE INTELLIGENCE TOOLS
+
+Research and choose only decision-useful tools.
+
+Candidate set:
+
+Bank Scale Comparator
+
+Metric Normalizer
+
+Product Ecosystem Explorer
+
+Channel Footprint Explorer
+
+Digital Journey Explorer
+
+Technology Capability Heatmap
+
+Technology Radar History
+
+AI Use-Case Explorer
+
+Innovation Funnel
+
+Research→Production Funnel
+
+Partnership Network
+
+Startup Ecosystem Map
+
+Initiative Lifecycle Explorer
+
+Historical Strategy Timeline
+
+Evidence Explorer
+
+Claim Explorer
+
+Contradiction Explorer
+
+Source Freshness Monitor
+
+Comparative SWOT
+
+Similarity / Difference Matrix
+
+Strategic Scenario Builder
+
+Opportunity Prioritizer
+
+Roadmap Tracker.
+
+No decorative tools.
+
+---
+
+# AD. VISUALIZATION RULES
+
+Prefer:
+
+time series
+timelines
+networks
+capability matrices
+heatmaps
+slope charts
+lifecycle diagrams
+ecosystem maps
+product graphs
+channel maps
+Sankey only for real flows.
+
+Every visualization exposes:
+
+entity
+perimeter
+metric
+definition
+unit
+period
+source
+confidence.
+
+Never visually compare incompatible metrics.
+
+---
+
+# AE. WRITING PROTOCOL
+
+Primary report:
+
+Peruvian executive Spanish.
+
+Writing must be:
+
+precise
+direct
+evidence-rich
+non-promotional
+clear
+layered.
+
+Executive summaries should be brief.
+
+Drilldowns may be deep.
+
+Every paragraph must contribute:
+
+FACT
+INTERPRETATION
+COMPARISON
+IMPLICATION
+ACTION
+or
+UNCERTAINTY.
+
+No generic consulting filler.
+
+No artificial length.
+
+No invented numbers.
+
+No unsupported “leader”, “best”, “advanced”, “SOTA”.
+
+Use calibrated wording:
+
+“Bradesco reporta…”
+
+“Una fuente independiente corrobora…”
+
+“La evidencia disponible sugiere…”
+
+“No existe evidencia pública suficiente para concluir…”
+
+---
+
+# AF. REDACTION / COPYRIGHT / PRIVACY
+
+Do not expose:
+
+passwords
+tokens
+private communications
+customer data
+employee personal data
+confidential files
+proprietary information without permission.
+
+Private Claude/ChatGPT conversations remain private unless explicitly supplied.
+
+Do not reproduce copyrighted reports in bulk.
+
+Extract facts, metadata and brief permissible evidence.
+
+---
+
+# AG. INDEPENDENCE / NON-AFFILIATION
+
+The resulting website/report must clearly state:
+
+INDEPENDENT STRATEGIC ANALYSIS.
+
+Do not imply endorsement or affiliation with Bradesco, BCP or Credicorp.
+
+---
+
+# AH. TECHNICAL GENERALIZATION
+
+Move company-specific intelligence toward structured registries:
+
+COMPANY_REGISTRY
+ENTITY_REGISTRY
+MODULE_REGISTRY
+TOOL_REGISTRY
+SOURCE_REGISTRY
+CLAIM_REGISTRY
+METRIC_DICTIONARY
+TECHNOLOGY_REGISTRY
+INITIATIVE_REGISTRY
+COMPARATOR_REGISTRY.
+
+Future company reports should not require hard-coding a new company throughout every component.
+
+---
+
+# AI. ACCESSIBILITY
+
+Target WCAG 2.2 AA where applicable.
+
+Validate:
+
+keyboard
+focus
+color independence
+target sizes
+text alternatives
+charts
+tables
+dialogs
+responsive
+touch
+print.
+
+Every data visualization must have a textual equivalent.
+
+---
+
+# AJ. IMPLEMENTATION TDD
+
+Create RED tests before material implementation changes.
+
+Minimum behaviors:
+
+no unintended Ursa content in target report;
+
+wrong-entity sources are rejected;
+
+incomparable metrics cannot be ranked;
+
+every material number has provenance;
+
+stale sources display warning;
+
+AI artifacts cannot become VERIFIED evidence;
+
+every initiative status links to evidence;
+
+every technology maturity level links to evidence;
+
+every recommendation links to claims;
+
+routes render;
+
+links work;
+
+mobile does not overflow;
+
+keyboard navigation works;
+
+print works;
+
+accessibility smoke tests pass.
+
+Then:
+
+GREEN
+→ REFACTOR
+→ ADVERSARIAL TEST.
+
+---
+
+# AK. REQUIRED RESEARCH ARTIFACTS
+
+research/bradesco/
+
+baseline.json
+entity-registry.json
+false-positive-ledger.json
+comparison-perimeters.json
+metric-dictionary.json
+search-ledger.jsonl
+source-ledger.jsonl
+source-genealogy.json
+claim-ledger.jsonl
+claim-graph.json
+contradiction-register.json
+alternative-hypotheses.json
+strategic-timeline.json
+scale-scorecard.json
+segment-map.json
+channel-map.json
+product-ecosystem.json
+platform-map.json
+journey-map.json
+technology-capabilities.json
+technology-radar-history.json
+innovation-operating-system.json
+initiative-lifecycle.json
+partnership-network.json
+external-signals.json
+customer-friction.json
+talent-signals.json
+open-questions.json
+recommendations.json
+
+cycle-01.json
+...
+cycle-10.json
+
+final-research-gate.json.
+
+---
+
+# AL. GENERAL FRAMEWORK DOCUMENTATION
+
+Create:
+
+docs/framework/company-intelligence-blueprint.md
+
+docs/framework/research-methodology.md
+
+docs/framework/company-adaptation-guide.md
+
+docs/framework/source-methodology.md
+
+docs/framework/source-genealogy.md
+
+docs/framework/entity-resolution.md
+
+docs/framework/comparability-methodology.md
+
+docs/framework/claim-schema.md
+
+docs/framework/technology-radar-versioning.md
+
+docs/framework/lifecycle-methodology.md
+
+docs/framework/writing-protocol.md
+
+docs/framework/redaction-protocol.md
+
+docs/framework/visualization-guidelines.md
+
+docs/framework/interactive-tools.md
+
+docs/framework/testing-guide.md.
+
+The documentation must be sufficient for another agent to build an equivalent dossier for an unrelated company without reverse-engineering Ursa again.
+
+---
+
+# AM. REQUIRED EXECUTIVE QUESTIONS
+
+The report must ultimately answer:
+
+What is Bradesco today?
+
+How large is it?
+
+What exactly is comparable to BCP?
+
+What are Bradesco's current strategic priorities?
+
+How has that strategy changed?
+
+What are its major platforms?
+
+Which products matter strategically?
+
+What is Bridge?
+
+What roles do the different BIAs play?
+
+Which AI claims represent actual production?
+
+Which technologies remain experimental?
+
+How does Inovabra operate?
+
+How does BTRL/readiness work?
+
+How does Bradesco move emerging technology toward production?
+
+Which technologies disappeared from later radars and why?
+
+What initiatives scaled?
+
+What initiatives were integrated?
+
+What initiatives were sunset?
+
+What actually failed?
+
+What remains unknown?
+
+How does BCP innovate?
+
+What are the closest BCP analogues?
+
+Where is Bradesco stronger?
+
+Where is BCP stronger?
+
+Where is Credicorp stronger?
+
+Where is comparison invalid?
+
+Which differences come from Brazil vs Peru?
+
+Which practices could BCP reasonably transfer?
+
+Which practices would not transfer?
+
+What should an emerging-technology/new-products leader in Peru learn from Bradesco?
+
+What evidence could overturn these conclusions?
+
+---
+
+# AN. FINAL VALIDATION
+
+Before READY:
+
+lint
+typecheck
+tests
+build
+route smoke tests
+source-link checks
+claim-source checks
+entity-resolution checks
+comparability tests
+freshness tests
+mobile QA
+desktop QA
+keyboard QA
+accessibility
+print
+live deployment
+deployment-SHA parity.
+
+Then run TWO independent quiet verification rounds.
+
+No new material issue may appear in either.
+
+---
+
+# AO. FINAL VERDICTS
+
+READY_FOR_EXECUTIVE_REVIEW
+
+CONDITIONALLY_READY
+
+AUDIT_ONLY
+
+NOT_READY
+
+BLOCKED_BY_SOURCE_GAP
+
+BLOCKED_BY_ENTITY_AMBIGUITY
+
+BLOCKED_BY_COMPARABILITY
+
+BLOCKED_BY_REPOSITORY_STATE
+
+BLOCKED_BY_IMPLEMENTATION
+
+BLOCKED_BY_DEPLOYMENT.
+
+Never lower an evidence standard to obtain READY.
+## Nota metodológica y alcance
+
+Este informe aplica de forma disciplinada —aunque a escala reducida frente a la arquitectura de "centro de comando" de 17 módulos y 30+ artefactos JSON descrita en el prompt maestro— los principios de resolución de entidades, jerarquía de fuentes, gate de comparabilidad y calibración de confianza definidos en el framework generalizado entregado previamente. No se han ejecutado los diez ciclos de investigación completos ni se ha construido el software del command center; lo que sigue es una síntesis basada en evidencia primaria y corroborada (informes 20-F, comunicados 6-K ante la SEC, transcripciones de resultados y prensa especializada), con fechas de evidencia explícitas y sin cifras inventadas. Donde la evidencia pública es insuficiente, se declara explícitamente `UNKNOWN` en lugar de inferir.
+
+**Resolución de entidades (gate obligatorio):** Banco Bradesco S.A. (entidad operativa bancaria) es distinta de Organização Bradesco (el grupo, que incluye Bradesco Seguros); ambas se distinguen de sus marcas digitales Next, Digio y Ágora, que son subsidiarias 100% controladas pero con marcas y —en el caso de Digio— infraestructura tecnológica separada. En el lado peruano, Banco de Crédito del Perú (BCP) es la entidad bancaria "stand-alone"; Credicorp es el holding que la controla junto con Mibanco, Yape (que opera dentro de BCP) y Krealo; ambas son perímetros distintos y no deben mezclarse en una comparación directa.[1][2][3][4][5]
+
+## 1. Qué es Bradesco hoy: perímetro y escala
+
+Banco Bradesco es un banco múltiple brasileño con sede en Osasco (São Paulo), que opera bajo dos segmentos reportables: banca y seguros/previsión/capitalización. Al cierre de 2025, los activos totales consolidados de Banco Bradesco S.A. bajo IFRS alcanzaron R$2,33 billones (trillion en la nomenclatura anglosajona), frente a R$2,07 billones en 2024. El segmento bancario por sí solo reportó R$2,04 billones en activos y el segmento de seguros R$507,8 mil millones.[6][7][1]
+
+La cartera de crédito ampliada cerró 2025 en R$1,089 billones, con un crecimiento de 11,0% interanual, y los depósitos totalizaron R$727,9 mil millones (+12,2%). El resultado recurrente de 2025 fue de R$24,7 mil millones, un incremento de 26,1% frente a 2024, con un ROAE (retorno sobre patrimonio promedio) de 15,2% en el 4T25 —la primera vez, según management, que dicho retorno supera el costo de capital de la entidad. Bradesco Seguros aportó R$10,1 mil millones de utilidad neta en 2025 (ROAE de 21,9%). El índice de eficiencia cerró en 50%, con una meta declarada de 40% para 2028.[8][9][10][7][11][6]
+
+| Métrica | Banco Bradesco (banco operativo) | Fuente / as-of |
+|---|---|---|
+| Activos totales | R$2,33 billones | 20-F/6-K, dic-2025[7] |
+| Utilidad recurrente 2025 | R$24,7 mil millones (+26,1% a/a) | 6-K 4T25[8] |
+| ROAE 4T25 | 15,2% | 6-K 4T25[9] |
+| Cartera de crédito | R$1,089 billones (+11,0% a/a) | 6-K 4T25[7] |
+| Depósitos | R$727,9 mil millones (+12,2% a/a) | 20-F 2025[6] |
+| Índice de eficiencia | 50% (meta 40% en 2028) | Earnings call 4T25[9] |
+| Clientes plenamente digitales | 19 millones (fin-2025) → 28 millones (1T26) | Earnings call, mar-2026[12][13] |
+
+**Confianza:** VERIFICADO — cifras provienen directamente de comunicados 6-K/20-F ante la SEC y transcripciones oficiales de la llamada de resultados, corroboradas de forma cruzada entre al menos tres documentos independientes de la propia compañía.
+
+## 2. Estructura societaria y marcas digitales (Organização Bradesco)
+
+La organización agrupa, además del banco matriz, entidades 100% controladas como Banco Bradesco BBI (banca de inversión), Banco Bradesco Financiamentos, Bradesco Leasing, Ágora Corretora (adquirida en 2008), Banco Bradescard (tarjetas), Bradseg Participações y Banco Digio. Next, lanzado en junio de 2017 como el primer banco 100% digital de Bradesco dirigido a público joven, fue formalmente reincorporado a la estructura operativa del banco matriz hacia fines de 2023-2024, pasando de operación separada a "segmento de atención" —una decisión estratégica explícita de la administración, no un fracaso comercial. Digio, en cambio, fue adquirido en su totalidad en 2021-2022 (comprando el 49,99% que pertenecía a Banco do Brasil por R$625 millones) y la administración declaró explícitamente su intención de mantenerlo como unidad independiente, con infraestructura en AWS separada de la de Next (Azure).[2][3][14][15][1]
+
+**Clasificación de ciclo de vida — Next:** `INTEGRATED` (reincorporado al banco matriz como segmento de marca, no un sunset ni un fracaso; la marca y el app continúan operando y siendo actualizados según Google Play, última actualización junio 2026). La cartera digital Bitz, lanzada en 2020, sí fue formalmente cerrada en 2023, con sus clientes migrados a Digio — este es un caso `SUNSET` confirmado explícitamente por management, distinto del caso Next.[16][14]
+
+## 3. Perú: BCP y Credicorp — perímetros y escala
+
+Bajo la Superintendencia de Banca, Seguros y AFP (SBS) del Perú, BCP es el mayor banco del país por activos. Al cierre de 2025, BCP Stand-alone (la entidad bancaria operativa, excluyendo Mibanco, BCP Bolivia y las unidades de innovación) reportó activos totales de S/204,9 mil millones (~US$54 mil millones), un aumento de 3,8% frente a S/197,5 mil millones en 2024. Su ROAE de 2025 fue de 24,7%, muy por encima del ROAE del grupo consolidado, impulsado por una fuerte caída del costo de riesgo (de 2,13% a 1,28%).[4][5]
+
+Credicorp, el holding que cotiza en NYSE y controla BCP, Mibanco, Grupo Pacífico (seguros), Prima AFP y las iniciativas de innovación (Yape, Tenpo, Krealo), reportó activos totales consolidados de S/267,4 mil millones y una utilidad neta atribuible de S/6.925,4 millones en 2025 (+25,9% a/a), con un ROAE consolidado de 19,0%. BCP Stand-alone representó 75,6% de los activos totales del grupo y 65,2% del patrimonio atribuible en 2025.[17][5]
+
+| Métrica | BCP Stand-alone (perímetro bancario) | Credicorp consolidado (perímetro de grupo) |
+|---|---|---|
+| Activos totales | S/204,9 mil millones (dic-2025)[5] | S/267,4 mil millones (dic-2025)[5] |
+| ROAE 2025 | 24,7%[5] | 19,0%[17] |
+| Utilidad neta 2025 | Contribución interna al grupo (no reportada de forma independiente en 20-F) | S/6.925,4 millones[17] |
+| % de activos del grupo | 75,6% del total Credicorp[5] | — |
+
+**Gate de comparabilidad:** una comparación directa de "Bradesco vs. BCP" en términos de activos totales (R$2,33 billones vs. S/204,9 mil millones) mezcla monedas (real vs. sol), tamaños de economía radicalmente distintos (PIB de Brasil ≈10x el de Perú) y perímetros no equivalentes si no se ajusta por escala relativa de mercado. La comparación analíticamente más defendible es de **rentabilidad y eficiencia relativa dentro de cada mercado**, no de tamaño absoluto. Etiqueto la comparación de tamaño absoluto como `NOT_DIRECTLY_COMPARABLE` sin normalización adicional (PIB, población bancarizada, cuota de mercado doméstica), que no fue posible completar con el tiempo de investigación disponible en esta sesión — `OPEN_QUESTION`.
+
+Comparación B (grupo vs. grupo) — Organização Bradesco vs. Credicorp — es analíticamente más válida porque ambas son holdings multi-negocio (banca + seguros + digital), aunque persiste la asimetría de escala de mercado.
+
+## 4. Inteligencia artificial: BIA, Bridge y el "AI First"
+
+BIA (Bradesco Inteligência Artificial) es el asistente virtual del banco, lanzado en 2016 originalmente sobre el motor Watson de IBM, y hoy interactúa con más de 24 millones de usuarios en el app. Según declaraciones de ejecutivos del banco en junio de 2025, BIA está "100% integrada con IA generativa" y retiene entre 85% y 90% de las demandas en el canal de chat digital, con notas de satisfacción de 4,1-4,2 sobre 5. La llamada de resultados del 4T25 (fuente primaria, febrero de 2026) eleva esa cifra a 90% de las interacciones digitales gestionadas por BIA, con una reducción de ~40 veces en el costo directo de atención por esta vía.[18][19][20][12]
+
+**Bridge** es la plataforma corporativa de IA generativa de Bradesco —descrita internamente como "Bradesco Inteligência de Data Generativa"— que centraliza procesamiento de documentos, voz y texto, desarrollo de asistentes y aplicación de barandas ("guardrails") de IA responsable. Según una entrevista de febrero de 2026 con la CTO del banco, Cíntia Scovine, Bridge opera con servicios reutilizables, multiagente y de voz en tiempo real, y "ya soporta más de 500 casos de uso en producción, con 70 a escala". Esta es la fuente primaria más específica disponible sobre el estado de madurez de Bridge; no encontré una fuente independiente (Tier C) que corrobore de forma cuantitativa esos 500 casos de uso, por lo que la cifra se clasifica `STRONGLY_SUPPORTED` (corporativa, con contexto consistente en otras fuentes del propio banco) más que `INDEPENDENTLY_CORROBORADO`.[20][11][18]
+
+La inversión en tecnología creció 22% en 2025 y se proyecta un crecimiento adicional de 16% en 2026, con más de 10.500 profesionales de tecnología a cierre de 2025 (≈6.500 internos), tras un incremento del 35% en desarrolladores desde 2024. Bradesco reporta reducción del *lead time* de desarrollo en 43% y un incremento de 118% en volumen de *features* de negocio entregadas, comparando fin de 2025 con fin de 2023. Estas son métricas auto-reportadas por la propia CTO, sin confirmación independiente — `STRONGLY_SUPPORTED`, no `VERIFIED`.[11]
+
+**Estado de madurez — BIA:** `PRODUCTION/SCALING` (evidencia consistente de múltiples fuentes primarias y de prensa especializada durante 2023-2026 sobre operación productiva a gran escala).
+**Estado de madurez — Bridge:** `PRODUCTION` según fuente primaria única (CTO, feb-2026); confianza `STRONGLY_SUPPORTED`, pendiente de corroboración independiente — `OPEN_QUESTION`.
+
+## 5. Nube y arquitectura tecnológica
+
+Bradesco declaró explícitamente una estrategia **multicloud** en febrero de 2024: los sistemas nuevos nacen "cloud-first" (100% en la nube), pero el legado de 80 años de operación no se migra salvo necesidad efectiva de negocio. En esa fecha, 35% de las cargas de trabajo ya estaban en la nube. La distribución declarada por el propio banco fue: Next sobre Azure; Digio y la ya cerrada Bitz sobre AWS; Bradesco Seguros sobre Oracle; y el banco matriz usando una combinación de Azure, IBM y AWS. Un caso de estudio de julio de 2025 (Teradata/evento Possible) describe además una migración híbrida del entorno analítico de Teradata hacia Azure, con más de 400 TB de datos y 190.000 tablas, usando QueryGrid como capa de virtualización de datos entre on-premise y nube. Esta es evidencia de vendor case study (Tier B, con sesgo promocional inherente) y debe leerse como tal.[15][21]
+
+**Estado de madurez — arquitectura cloud:** `SCALING` (la propia compañía declara la meta de "cloud-first" para sistemas nuevos, con migración parcial y deliberadamente incompleta del legado). No hay evidencia pública de una fecha objetivo de "100% cloud" — cualquier afirmación en ese sentido sería `HYPOTHESIS`, no `VERIFIED`.
+
+## 6. Innovación abierta: Inovabra habitat
+
+Inovabra habitat es el espacio de co-innovación de Bradesco, inaugurado en febrero de 2018 en un edificio de 22.000 m² en São Paulo, operado en sociedad con WeWork. En su primer año (2019) albergaba más de 190 startups y ~70 corporaciones, con 65.000 visitantes y 85 contratos firmados entre startups y corporaciones. Según el sitio oficial vigente (consultado julio 2026), el ecosistema actual declara conexión con 230 startups, 80 empresas y 8 hubs. La curaduría exige que las startups admitidas ya tengan producto y servicio maduro en el mercado —es decir, Inovabra opera como plataforma de escalamiento comercial más que como incubadora temprana.[22][23][24][25][26]
+
+**Estado de madurez — Inovabra habitat:** `MATURE/PRODUCTION` como programa (operando de forma continua desde 2018, con crecimiento sostenido de participantes documentado en múltiples años), aunque no encontré evidencia pública de resultados agregados de negocio (ingresos generados, número de soluciones llevadas a producción bancaria) más allá de conteos de participantes y contratos firmados en 2019 — `OPEN_QUESTION` sobre el retorno económico agregado del programa.
+
+## 7. Innovación en BCP / Credicorp: comparación directa
+
+A diferencia de Inovabra (espacio físico/ecosistema abierto), la innovación de Credicorp está organizada como una cartera de "iniciativas disruptivas" gestionadas con métricas de cartera de venture capital corporativo. Según la actualización de inversionistas de enero de 2026, estas iniciativas (lideradas por Yape, Tenpo, Culqi e iO) apuntan a generar 10% de los ingresos ajustados por riesgo del grupo hacia 2026. Yape —la aplicación de pagos que opera dentro del perímetro de BCP— alcanzó rentabilidad antes de lo proyectado y se espera que represente 65% de los ingresos de disrupción, con metas declaradas de 16,5 millones de usuarios activos y S/600 mil millones en transacciones anuales para 2026. Krealo es el fondo de venture corporativo del grupo, con un enfoque "hands-on" tipo VC y salidas estructuradas. BCP Xplore es la unidad de Open Banking/APIs de BCP, con servicios de recaudación, pagos automáticos y financiamiento flexible exclusivos para clientes de ese programa. Un antecedente de 2018 (proyecto CIX-BCP en GitHub) sugiere una plataforma interna más temprana de exhibición de proyectos de innovación, pero no hay evidencia reciente de que ese proyecto específico continúe activo — `UNKNOWN`.[27][28]
+
+**Diferencia estructural clave:** Inovabra es un ecosistema abierto de coinvención con startups externas y grandes corporaciones (modelo "habitat"); el aparato de innovación de Credicorp es más una cartera interna de productos digitales cuasi-independientes con objetivos de contribución a ingresos explícitos y cuantificados. Ambos modelos tienen lógicas distintas y no deberían compararse como si fueran el mismo tipo de instrumento.
+
+## 8. Hipótesis alternativas sobre la diferencia observada
+
+**Observación:** Bradesco comunica públicamente un volumen mayor de iniciativas de IA/tecnología (Bridge, BIA, más de 500 casos de uso) que lo que Credicorp comunica para BCP en el mismo período.
+
+- **H1 — Madurez real superior de Bradesco:** el banco efectivamente ha centralizado y escalado más casos de uso de IA en producción, apoyado por una inversión tecnológica mayor en términos absolutos (justificada por su escala de mercado).
+- **H2 — Diferencia de estilo de comunicación corporativa:** Bradesco, como emisor listado en NYSE bajo escrutinio de analistas comparando bancos globales, tiene incentivos más fuertes para narrar una historia de transformación tecnológica cuantificada ("500 casos de uso", "40 veces menos costo"); Credicorp comunica sus métricas de innovación en términos de contribución a ingresos, un lenguaje financiero distinto que no es directamente comparable en granularidad de "casos de uso de IA".
+- **H3 — El tamaño de Bradesco simplemente permite mayor volumen de experimentación**, sin que ello implique necesariamente una tasa de conversión a producción superior por unidad de inversión.
+- **H4 — Diferencias regulatorias y de infraestructura de mercado** (Brasil tiene un ecosistema de Open Finance y Pix más maduro y de adopción obligatoria más temprana que el marco peruano) explican parte de la brecha de casos de uso digital observables, independientemente de la capacidad interna relativa de cada organización.
+
+No encontré evidencia pública que permita discriminar de forma concluyente entre estas hipótesis; se declaran como `OPEN_QUESTIONS` explícitas.
+
+## 9. Qué aprendizajes son razonablemente transferibles a BCP/Perú
+
+- **Centralización de una plataforma de IA generativa con gobernanza única (tipo Bridge)** es un patrón replicable independientemente de la escala: la lógica de una capa horizontal de servicios de IA (documentos, voz, texto, agentes) con barandas de cumplimiento centralizadas no depende del tamaño del banco, aunque el volumen de casos de uso sí escala con los recursos disponibles.
+- **La decisión de reincorporar una marca digital (Next) al banco matriz en lugar de mantenerla como entidad separada** sugiere que la fragmentación de marcas digitales puede generar costos de coordinación que superan sus beneficios de posicionamiento una vez que el banco matriz alcanza cierto nivel de madurez digital propia — un aprendizaje potencialmente relevante si Perú evaluara consolidar marcas digitales fragmentadas.
+- **No es evidente que el modelo de "habitat" físico de coinvención (Inovabra) sea superior al modelo de cartera de venture interno de Credicorp (Yape/Tenpo/Krealo)** — son respuestas a contextos de mercado distintos y no hay evidencia comparativa de retorno que permita recomendar la transferencia de uno sobre el otro sin más investigación.
+- **Qué no transferiría sin más evidencia:** cualquier cifra específica de Bradesco (90% de retención en BIA, 500 casos de uso en Bridge, 40x de reducción de costos) no debe usarse como benchmark objetivo para BCP sin ajustar por diferencias de base de clientes, madurez de infraestructura de datos y contexto regulatorio — hacerlo sería repetir el error H2/H3 señalado arriba.
+
+## 10. Preguntas abiertas y qué evidencia cambiaría estas conclusiones
+
+- No fue posible obtener, en el tiempo de esta sesión, datos comparables de "casos de uso de IA en producción" para BCP/Credicorp que permitan una comparación directa con los "500 casos de uso" declarados por Bradesco — una fuente primaria específica de Credicorp/BCP sobre esta métrica cambiaría sustancialmente el análisis de la Sección 8.
+- El retorno económico agregado de Inovabra habitat (ingresos generados, soluciones llevadas a producción bancaria) no está públicamente cuantificado más allá de conteos de participantes de 2019 — un reporte de impacto más reciente y específico cambiaría la Sección 6.
+- No se ejecutó una normalización de "tamaño" ajustada por PIB/población bancarizada entre Brasil y Perú — esa normalización, si se completara, podría cambiar sustancialmente la lectura de la Sección 3 sobre "quién es más grande relativo a su mercado".
+- Este informe no cubrió (por restricción de alcance/tiempo, no por decisión editorial) los temas de digital identity, biometría, GNN, datos sintéticos, computación cuántica/QKD, ni la totalidad de acuerdos con big tech y universidades solicitados en el prompt original — quedan como `PendingRecords` explícitos para una futura ronda de investigación si se desea profundizar.
+
+Este es un análisis estratégico independiente. No implica afiliación ni respaldo por parte de Bradesco, BCP o Credicorp.
+Never claim a search, source review, test, commit, merge or deployment that was not actually executed.
+PLan and Now execute the research and all pending cycles and phases and steps with exhaustive researching web search and content building according to the guides and guidelines and tools and protocols and methodologies and versioning and schema and blueprint. Do not stop.
