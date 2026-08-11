@@ -1018,3 +1018,60 @@ FINAL STATE:
 - SHA parity: 132def493f6feb8be964e4c6cf080ce372b0140a ✅
 - 89 sources, 56 claims, 44 context entries, 30 tools, 17 modules
 - Verdict: CONDITIONALLY_READY → approaching READY_FOR_EXECUTIVE_REVIEW
+
+---
+Task ID: 36 (4-Iteration Playwright Validation + Root Cause Fix)
+Agent: Principal Orchestrator
+Task: Test live site with agent-browser, fix root cause, validate all 17 modules
+
+Work Log:
+- ITERATION 1: Tested live site — found CRITICAL BUG: all modules showed "Centro de Comando Ejecutivo" (hash routing not working)
+  * Root cause: JS bundles loading from /_next/static/... instead of /bradesco-bcp-intelligence/_next/static/...
+  * This caused React to NOT hydrate — no interactivity at all (dark mode, hash routing, tooltips all broken)
+  * Fix: Added basePath=/bradesco-bcp-intelligence and assetPrefix=/bradesco-bcp-intelligence/ to next.config.ts
+  * Committed and pushed: 4903359
+  * GitHub Actions ran: completed success (52s)
+  * Re-tested: ALL interactivity now works ✅
+
+- ITERATION 2: Checked all 17 modules for English text and overflow
+  * No English phrases found (all content in Spanish) ✅
+  * "Error de categoría" in innovation module is correct Spanish phrase ✅
+  * Minor overflow (4-32px) from box-shadow glow on metallic buttons
+  * Fix: Added overflow-x: hidden to body
+  * Committed and pushed: 1a6b787
+  * GitHub Actions ran: completed success (46s)
+
+- ITERATION 3: Validated fixed live site
+  * All 4 tested modules (exec, ai, compare, sources): h1 correct, no overflow ✅
+  * Dark mode toggle: works correctly ✅
+  * Tooltip click: shows [BRADESCO:BIA] with full context ✅
+  * Screenshot taken: /tmp/live-final-exec.png ✅
+
+- ITERATION 4: Final comprehensive validation — ALL 17 MODULES
+  * exec: h1 correct, 31 btns, 33 svgs, no overflow ✅
+  * history: h1 correct, 40 btns, 46 svgs, no overflow ✅
+  * scale: h1 correct, 36 btns, 37 svgs, no overflow ✅
+  * customers: h1 correct, 29 btns, 27 svgs, no overflow ✅
+  * products: h1 correct, 39 btns, 27 svgs, no overflow ✅
+  * platforms: h1 correct, 29 btns, 27 svgs, no overflow ✅
+  * tech: h1 correct, 35 btns, 33 svgs, no overflow ✅
+  * ai: h1 correct, 32 btns, 45 svgs, no overflow ✅
+  * innovation: h1 correct, 29 btns, 32 svgs, no overflow ✅
+  * lifecycle: h1 correct, 31 btns, 29 svgs, no overflow ✅
+  * partnerships: h1 correct, 29 btns, 29 svgs, no overflow ✅
+  * signals: h1 correct, 29 btns, 27 svgs, no overflow ✅
+  * risk: h1 correct, 41 btns, 36 svgs, no overflow ✅
+  * compare: h1 correct, 39 btns, 57 svgs, no overflow ✅
+  * lessons: h1 correct, 40 btns, 45 svgs, no overflow ✅
+  * roadmap: h1 correct, 33 btns, 45 svgs, no overflow ✅
+  * sources: h1 correct, 154 btns, 51 svgs, no overflow ✅
+
+FINAL RESULTS:
+- ✅ ALL 17 MODULES PASS — no overflow, correct titles, interactive
+- ✅ Dark mode works
+- ✅ Hash routing works (all 17 modules navigable)
+- ✅ Tooltips work (click shows full context panel)
+- ✅ No English text (all content in Spanish)
+- ✅ SHA parity: 1a6b787a354343c96476c63398c072023a7b05ca (local = remote)
+- ✅ GitHub Actions: auto-deploy working (completed success)
+- ✅ Live site: https://pillb.github.io/bradesco-bcp-intelligence/ (HTTP 200)
