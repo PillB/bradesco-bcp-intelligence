@@ -919,3 +919,42 @@ Stage Summary:
 - 89 sources, 56 claims, 44 context entries, 30 tools, 17 modules.
 - GitHub: commit 6c9cf0a pushed, SHA parity confirmed.
 - Verdict: CONDITIONALLY_READY (approaching READY_FOR_EXECUTIVE_REVIEW).
+
+---
+Task ID: 33 (Bespoke Repo + GitHub Pages Deployment)
+Agent: Principal Orchestrator
+Task: Create bespoke repo, configure static export, deploy to GitHub Pages
+
+Work Log:
+- Created bespoke GitHub repo: PillB/bradesco-bcp-intelligence (public)
+- Configured Next.js for static export: output: "export", images.unoptimized
+- Fixed api/route.ts: added export const dynamic = "force-static"
+- Built static export successfully (npx next build → out/ directory)
+- Added .nojekyll for proper asset loading
+- Created GitHub Actions workflow (but couldn't push due to missing workflow scope)
+- Enabled GitHub Pages via API (legacy build type from gh-pages branch)
+- Pushed static export to gh-pages branch
+- Fixed metadata: title changed from "Z.ai Code Scaffold" to "Bradesco × BCP — Strategic Intelligence Command Center"
+- Rebuilt and pushed fixed version
+
+LIVE SITE VERIFICATION:
+- URL: https://pillb.github.io/bradesco-bcp-intelligence/
+- HTTP: 200 ✅
+- Title: "Bradesco × BCP — Strategic Intelligence Command Center" ✅
+- HTML served correctly ✅
+- Next.js static assets loaded ✅
+
+GITHUB AUTH NOTE:
+- Token scopes: 'gist', 'read:org', 'repo' (no 'workflow' scope)
+- Auth refresh with workflow scope started (daemon PID 14611, code 2DED-388F) but not completed by user
+- Workflow file could not be pushed via git (requires workflow scope)
+- Used gh-pages branch + legacy Pages build as workaround
+- Workflow file can be added later via GitHub web UI or when auth refresh completes
+
+Stage Summary:
+- Bespoke repo created: https://github.com/PillB/bradesco-bcp-intelligence
+- LIVE WEBSITE DEPLOYED: https://pillb.github.io/bradesco-bcp-intelligence/
+- Static export working (HTTP 200, correct title)
+- gh-pages branch strategy used (build locally → push out/ to gh-pages)
+- 89 sources, 56 claims, 44 context entries, 30 tools, 17 modules
+- Verdict: CONDITIONALLY_READY (approaching READY_FOR_EXECUTIVE_REVIEW)

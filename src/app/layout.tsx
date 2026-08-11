@@ -14,23 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Z.ai Code Scaffold - AI-Powered Development",
-  description: "Modern Next.js scaffold optimized for AI-powered development with Z.ai. Built with TypeScript, Tailwind CSS, and shadcn/ui.",
-  keywords: ["Z.ai", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
-  authors: [{ name: "Z.ai Team" }],
+  title: "Bradesco × BCP — Strategic Intelligence Command Center",
+  description: "Auditable strategic intelligence dossier: Banco Bradesco (Brasil) vs BCP Perú. 89 fuentes, 56 claims, 30 herramientas interactivas, 17 módulos. Análisis estratégico independiente.",
+  keywords: ["Bradesco", "BCP", "Credicorp", "inteligencia estratégica", "banca", "IA", "GenAI", "Bridge", "BIA", "Clara", "Yape", "Inovabra", "comparación bancaria"],
+  authors: [{ name: "Strategic Intelligence Command Center" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/logo.svg",
   },
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "Bradesco × BCP Strategic Intelligence",
+    description: "Auditable strategic intelligence dossier: Banco Bradesco vs BCP Perú",
+    url: "https://pillb.github.io/bradesco-bcp-intelligence/",
+    siteName: "Bradesco × BCP Intelligence",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
+    title: "Bradesco × BCP Strategic Intelligence",
     description: "AI-powered development with modern React stack",
   },
 };

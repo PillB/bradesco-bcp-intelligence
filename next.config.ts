@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/bradesco-bcp-intelligence",
-  assetPrefix: "/bradesco-bcp-intelligence/",
   typescript: {
     ignoreBuildErrors: true,
   },
