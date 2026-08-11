@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  /* config options here */
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
+  basePath: "/bradesco-bcp-intelligence",
+  assetPrefix: "/bradesco-bcp-intelligence/",
   typescript: {
     ignoreBuildErrors: true,
   },
