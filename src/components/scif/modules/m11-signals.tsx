@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { TierBadge } from "@/components/scif/evidence";
 import { EXTERNAL_SIGNALS } from "@/lib/scif/data";
 

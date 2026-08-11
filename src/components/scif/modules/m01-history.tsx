@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout, EntityBadge } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, SourcePill, LifecycleTag, ClaimRef } from "@/components/scif/evidence";
 import { TIMELINE, CLAIMS } from "@/lib/scif/data";
 import { TimelineVisualizer } from "@/components/scif/tools/timeline-visualizer";
@@ -126,7 +127,7 @@ export function Module01History() {
           <Card>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2"><span className="text-red-500">✕</span><span><strong>BCP</strong> — excluye BCP Bolivia (subsidiaria, perímetro distinto), Border Control Point (aeropuerto), Bulk Copy Program (SQL Server)</span></li>
-              <li className="flex items-start gap-2"><span className="text-red-500">✕</span><span><strong>Next</strong> — excluye Nextel (telecom), Next.js (framework)</span></li>
+              <li className="flex items-start gap-2"><span className="text-red-500">✕</span><span><strong><ContextTooltip term="NEXT">Next</ContextTooltip></strong> — excluye Nextel (telecom), Next.js (framework)</span></li>
               <li className="flex items-start gap-2"><span className="text-red-500">✕</span><span><strong>Bridge</strong> — excluye otras empresas tecnológicas nombradas Bridge no relacionadas con la plataforma GenAI de Bradesco</span></li>
             </ul>
           </Card>

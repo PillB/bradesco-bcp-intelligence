@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, SourcePill, LifecycleTag } from "@/components/scif/evidence";
 import { INITIATIVES } from "@/lib/scif/data";
 import { InitiativeFunnel } from "@/components/scif/tools/initiative-funnel";

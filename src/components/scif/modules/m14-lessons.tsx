@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { ConfidenceMeter } from "@/components/scif/evidence";
 import { RECOMMENDATIONS } from "@/lib/scif/data";
 import { ScenarioBuilder } from "@/components/scif/tools/scenario-builder";

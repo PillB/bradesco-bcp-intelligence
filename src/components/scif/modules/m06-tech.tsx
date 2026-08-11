@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, SourcePill, ConfidenceMeter, ClaimRef } from "@/components/scif/evidence";
 import { TECH_CAPABILITIES, CLAIMS } from "@/lib/scif/data";
 import { TechHeatmap } from "@/components/scif/tools/tech-heatmap";

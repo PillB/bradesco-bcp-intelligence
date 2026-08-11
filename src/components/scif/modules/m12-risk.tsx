@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, LifecycleTag, SourcePill } from "@/components/scif/evidence";
 import { ShieldCheck, Lock, Fingerprint, Scale, AlertTriangle } from "lucide-react";
 import { RiskHeatmap } from "@/components/scif/tools/risk-heatmap";

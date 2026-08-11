@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, SourcePill } from "@/components/scif/evidence";
 import { PARTNERSHIPS } from "@/lib/scif/data";
 import { PartnershipNetwork } from "@/components/scif/tools/partnership-network";

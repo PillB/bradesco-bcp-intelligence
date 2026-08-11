@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, SourcePill } from "@/components/scif/evidence";
 import { ROADMAP, KPIS } from "@/lib/scif/data";
 import { KpiGaugeDashboard } from "@/components/scif/tools/kpi-gauge-dashboard";
