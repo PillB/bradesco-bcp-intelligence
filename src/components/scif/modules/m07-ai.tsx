@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
 import { EvidenceTag, SourcePill, ConfidenceMeter, ClaimRef, LifecycleTag } from "@/components/scif/evidence";
 import { RADAR_VERSIONS, CLAIMS } from "@/lib/scif/data";
+import { RadarChart } from "@/components/scif/tools/radar-chart";
 import { BrainCircuit, Bot, MessageSquare, ShieldCheck, GitBranch, Database as DatabaseIcon, Cpu } from "lucide-react";
 import { theme } from "@/lib/scif/theme";
 
@@ -82,6 +83,10 @@ export function Module07AI() {
               </div>
             </Card>
           </Grid>
+        </ViewSection>
+
+        <ViewSection eyebrow="Visualización interactiva" title="Radar de tecnología — comparación versionada">
+          <RadarChart />
         </ViewSection>
 
         <ViewSection eyebrow="Radar versionado" title="Historia del radar de tecnología (reconstruido)">

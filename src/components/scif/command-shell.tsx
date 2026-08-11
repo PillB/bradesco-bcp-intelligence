@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Building2, TrendingUp, Users, Package, Smartphone,
   Server, BrainCircuit, Lightbulb, GitBranch, Handshake, Radio,
   ShieldCheck, Scale, GraduationCap, Map, FileSearch,
-  Menu, X, Search, ChevronRight, Shield,
+  Menu, X, Search, ChevronRight, Shield, Moon, Sun, Printer,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MODULES, PROJECT } from "@/lib/scif/data";
@@ -16,8 +16,29 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   ShieldCheck, Scale, GraduationCap, Map, FileSearch,
 };
 
+function useTheme() {
+  const [dark, setDark] = React.useState(false);
+  React.useEffect(() => {
+    const stored = localStorage.getItem("scif-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = stored ? stored === "dark" : prefersDark;
+    setDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, []);
+  const toggle = React.useCallback(() => {
+    setDark((prev) => {
+      const next = !prev;
+      document.documentElement.classList.toggle("dark", next);
+      localStorage.setItem("scif-theme", next ? "dark" : "light");
+      return next;
+    });
+  }, []);
+  return { dark, toggle };
+}
+
 export function CommandCenterShell({ children }: { children: React.ReactNode }) {
   const { route, navigate } = useHashRoute();
+  const { dark, toggle } = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
   const activeModule = MODULES.find((m) => m.id === route) ?? MODULES[0];
@@ -66,9 +87,25 @@ export function CommandCenterShell({ children }: { children: React.ReactNode }) 
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Buscar módulo..."
-                className="w-48 rounded-md border border-border bg-muted/40 py-1.5 pl-8 pr-2 text-sm outline-none focus:border-primary focus:bg-background md:w-64"
+                className="w-48 rounded-md border border-border bg-muted/40 py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:border-primary focus:bg-background md:w-64"
               />
             </div>
+            <button
+              onClick={() => window.print()}
+              className="no-print rounded-md border border-border p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              aria-label="Imprimir / Exportar PDF"
+              title="Imprimir / Exportar PDF"
+            >
+              <Printer className="h-4 w-4" />
+            </button>
+            <button
+              onClick={toggle}
+              className="no-print rounded-md border border-border p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              aria-label="Cambiar tema"
+              title={dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            >
+              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <span className="hidden rounded-full border border-amber-300 bg-amber-50 px-2.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-300 md:inline-block">
               Análisis independiente
             </span>

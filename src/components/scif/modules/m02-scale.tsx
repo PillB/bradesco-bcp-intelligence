@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, StatBlock, Callout } from "@/components/scif/view-shell";
 import { EvidenceTag, SourcePill, ConfidenceMeter } from "@/components/scif/evidence";
 import { SCALE_ENTITIES, CLAIMS } from "@/lib/scif/data";
+import { ScaleComparator } from "@/components/scif/tools/scale-comparator";
 import * as React from "react";
 
 export function Module02Scale() {
@@ -72,6 +73,10 @@ export function Module02Scale() {
             Brasil y Perú. La diferencia puede reflejar <strong>ciclo y estructura, no solo capacidad operativa</strong>.
             Etiquetado COMPARABLE (dimensión) con nota explícita.
           </Callout>
+        </ViewSection>
+
+        <ViewSection eyebrow="Herramienta interactiva" title="Comparador de escala con normalización (OQ04)">
+          <ScaleComparator />
         </ViewSection>
 
         <ViewSection eyebrow="Comparación B" title="Organização Bradesco vs Credicorp (grupo)">

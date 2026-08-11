@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
 import { EvidenceTag, SourcePill } from "@/components/scif/evidence";
 import { PARTNERSHIPS } from "@/lib/scif/data";
+import { PartnershipNetwork } from "@/components/scif/tools/partnership-network";
 
 function evidenceList(e: string | string[]): string[] {
   if (Array.isArray(e)) return e;
@@ -55,6 +56,10 @@ export function Module10Partnerships() {
               </Card>
             ))}
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Visualización interactiva" title="Grafo de alianzas y ecosistema">
+          <PartnershipNetwork />
         </ViewSection>
 
         <ViewSection eyebrow="M&A histórico" title="Adquisiciones y divestitures clave">

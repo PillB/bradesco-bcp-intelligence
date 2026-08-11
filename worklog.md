@@ -41,3 +41,36 @@ Stage Summary:
 - Sticky footer confirmed. Responsive sidebar (mobile drawer + desktop sticky). Search filter works.
 - PendingRecords explicitly declared: GNN, synthetic data, quantum/QKD, DLT/tokenization, BTRL formal existence, CIX-BCP current status, BCP AI use-case count.
 - Independence statement visible in footer and module 16.
+
+---
+Task ID: 9 (webDevReview round 1)
+Agent: Principal Orchestrator (cron-triggered webDevReview)
+Task: QA all modules, fix bugs, add new interactive tools, enhance styling
+
+Work Log:
+- Reviewed worklog: project had 17 modules built, CONDITIONALLY_READY verdict, all rendering.
+- QA via agent-browser: all 17 modules confirmed rendering (h1 + main content > 0, zero crashes, zero console errors).
+- Built 5 new interactive tools in src/components/scif/tools/:
+  1. scale-comparator.tsx — Bank Scale Comparator with normalization toggle (% PIB vs USD absoluto). Addresses OQ04. Shows Bradesco/BCP/Credicorp with FX conversion, GDP normalization, per-capita. Interactive insight: Bradesco ~21% PIB, BCP ~19% PIB, Credicorp ~25% PIB — comparable domestic dominance despite 8.5× absolute size gap.
+  2. tech-heatmap.tsx — Technology Capability Heatmap with category filter (IA y Datos / Cloud / Pagos / Seguridad / Emergentes). Color-coded by maturity score (amber→emerald→green). Hover tooltips show evidence + confidence + notes.
+  3. comparative-swot.tsx — Comparative SWOT with Bradesco/BCP toggle. 4 quadrants (Strengths/Weaknesses/Opportunities/Threats) with priority dots and claim references.
+  4. radar-chart.tsx — SVG Radar Chart comparing 3 radar versions (2022/2024/2026) across 6 technology axes (BIA, Cloud, GenAI/Bridge, Open Finance, Agentic AI, Data Architecture). Toggleable versions, grid rings, axis labels, interpretation panel.
+  5. partnership-network.tsx — SVG Network Graph with 14 nodes (banks + vendors + partners) and 14 edges. Hover shows relationship status. Divided into Bradesco ecosystem (left) vs BCP/Credicorp (right).
+- Integrated tools into modules: ScaleComparator→m02, TechHeatmap→m06, RadarChart→m07, ComparativeSWOT→m13, PartnershipNetwork→m10.
+- Styling enhancements:
+  - globals.css: custom crimson primary palette (oklch 0.52 0.21 12), refined dark mode with proper card/sidebar colors, custom scrollbar (crimson hover), smooth focus ring, print stylesheet (@media print hides sidebar/buttons, break-inside avoid for cards), entrance animations (scif-fade-up, scif-pulse), font smoothing.
+  - view-shell.tsx ViewHero: gradient background with blurred primary glows, gradient number badge with shadow + pulse dot, improved typography.
+  - view-shell.tsx Card: added hover:shadow-md transition.
+  - view-shell.tsx StatBlock: gradient background with accent glow, hover:shadow-md.
+  - command-shell.tsx: added dark mode toggle (Moon/Sun icon, localStorage persistence, respects prefers-color-scheme), print button (Printer icon), no-print class on controls.
+- Fixed bug: scale-comparator.tsx initial Write failed (tools dir didn't exist); recreated after mkdir.
+- QA verification: all 17 modules render (content lengths increased: scale 4123→5297, ai 5295→6184, compare 4809→6265, partnerships 2228→2878); SVG visualizations confirmed (3 radar polygons, 27 network circles, 31 SVGs in AI module); ESLint passes clean.
+
+Stage Summary:
+- 5 new interactive tools integrated and verified.
+- Dark mode toggle functional with persistence.
+- Print/export stylesheet added.
+- Custom crimson theme applied throughout (banking palette, not Ursa).
+- All animations and hover effects working.
+- Verdict remains CONDITIONALLY_READY — evidence base unchanged, but presentation layer significantly enhanced.
+- Next focus areas (for future rounds): deeper web research to fill evidence gaps (Inovabra ROI, BCP AI use-case count, Bridge independent corroboration), expanded PendingRecord research (quantum/QKD, GNN, synthetic data, DLT/tokenization).

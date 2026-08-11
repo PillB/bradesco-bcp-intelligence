@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
 import { EvidenceTag, SourcePill, ConfidenceMeter, ClaimRef } from "@/components/scif/evidence";
 import { TECH_CAPABILITIES, CLAIMS } from "@/lib/scif/data";
+import { TechHeatmap } from "@/components/scif/tools/tech-heatmap";
 import { Cloud, Database, Server, GitBranch, Cpu } from "lucide-react";
 import { theme } from "@/lib/scif/theme";
 
@@ -102,41 +103,15 @@ export function Module06Tech() {
           </Card>
         </ViewSection>
 
-        <ViewSection eyebrow="Heatmap de capacidades" title="Madurez tecnológica — vista consolidada">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border bg-muted/40 text-left">
-                  <th className="px-3 py-2 font-semibold">Capacidad</th>
-                  <th className="px-3 py-2 font-semibold">Categoría</th>
-                  <th className="px-3 py-2 font-semibold">Madurez</th>
-                  <th className="px-3 py-2 font-semibold">Confianza</th>
-                  <th className="px-3 py-2 font-semibold">Evidencia</th>
-                </tr>
-              </thead>
-              <tbody>
-                {TECH_CAPABILITIES.map((t) => {
-                  const cfg = theme.lifecycle[t.maturity as keyof typeof theme.lifecycle] ?? theme.lifecycle.UNKNOWN;
-                  return (
-                    <tr key={t.tech_id} className="border-b border-border/50 align-middle">
-                      <td className="px-3 py-2 font-medium">{t.name}</td>
-                      <td className="px-3 py-2 text-xs text-muted-foreground">{t.category}</td>
-                      <td className="px-3 py-2">
-                        <span className="inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-bold uppercase text-white" style={{ backgroundColor: cfg.color }}>{cfg.label}</span>
-                      </td>
-                      <td className="px-3 py-2"><ConfidenceMeter value={t.confidence} /></td>
-                      <td className="px-3 py-2"><div className="flex items-center gap-1"><EvidenceTag status={t.evidence_status} /></div></td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+        <ViewSection eyebrow="Herramienta interactiva" title="Heatmap de capacidades tecnológicas">
+          <TechHeatmap />
+          <div className="mt-3">
           <Callout type="warn" title="PendingRecords — tecnologías UNKNOWN">
             GNN (fraude), datos sintéticos, quantum/QKD, y DLT/tokenization están clasificados UNKNOWN. No hay evidencia
             pública específica de Bradesco en esta ronda. <strong>Silencio no es evidencia de ausencia</strong> — estos temas
             quedan como PendingRecords (OQ07) para futuras rondas de investigación.
           </Callout>
+          </div>
         </ViewSection>
 
         <ViewSection eyebrow="Claims de soporte" title="Trazabilidad">

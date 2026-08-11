@@ -16,11 +16,14 @@ export function ViewHero({
   children?: React.ReactNode;
 }) {
   return (
-    <header className="border-b border-border/60 bg-gradient-to-br from-card to-background">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <header className="relative overflow-hidden border-b border-border/60 bg-gradient-to-br from-card via-background to-muted/30">
+      <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-primary/5 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-1/4 h-24 w-64 rounded-full bg-primary/3 blur-3xl" />
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex items-start gap-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-2xl font-black text-primary-foreground shadow-sm">
+          <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 text-2xl font-black text-primary-foreground shadow-lg shadow-primary/20">
             {number}
+            <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-background bg-primary scif-pulse" />
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold uppercase tracking-widest text-primary">{subtitle}</p>
@@ -76,7 +79,7 @@ export function ViewSection({
 
 export function Card({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={cn("rounded-xl border border-border bg-card p-4 shadow-sm sm:p-5", className)}>{children}</div>
+    <div className={cn("rounded-xl border border-border bg-card p-4 shadow-sm transition-shadow hover:shadow-md sm:p-5", className)}>{children}</div>
   );
 }
 
@@ -98,13 +101,13 @@ export function StatBlock({
   className?: string;
 }) {
   const colorMap = {
-    primary: "border-l-primary",
-    teal: "border-l-[#0F766E]",
-    gold: "border-l-[#B08D57]",
-    muted: "border-l-muted-foreground",
+    primary: { border: "border-l-primary", glow: "from-primary/5" },
+    teal: { border: "border-l-[#0F766E]", glow: "from-[#0F766E]/5" },
+    gold: { border: "border-l-[#B08D57]", glow: "from-[#B08D57]/5" },
+    muted: { border: "border-l-muted-foreground", glow: "from-muted/10" },
   };
   return (
-    <div className={cn("rounded-lg border border-border border-l-4 bg-card p-4", colorMap[accent], className)}>
+    <div className={cn("group relative overflow-hidden rounded-lg border border-border border-l-4 bg-gradient-to-br to-card p-4 transition-all hover:shadow-md", colorMap[accent].border, colorMap[accent].glow, className)}>
       <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">{label}</p>
       <p className="mt-1 text-2xl font-bold tabular-nums text-foreground">{value}</p>
       {sub && <p className="mt-1 text-xs text-muted-foreground">{sub}</p>}
