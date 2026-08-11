@@ -958,3 +958,35 @@ Stage Summary:
 - gh-pages branch strategy used (build locally → push out/ to gh-pages)
 - 89 sources, 56 claims, 44 context entries, 30 tools, 17 modules
 - Verdict: CONDITIONALLY_READY (approaching READY_FOR_EXECUTIVE_REVIEW)
+
+---
+Task ID: 34 (GitHub Auth Workflow Scope + Live Site Validation)
+Agent: Principal Orchestrator
+Task: Refresh auth with workflow scope, validate live site parity
+
+Work Log:
+- Started auth refresh with workflow scope via Python double-fork daemon (PID 16432).
+- Device code: 0FED-BFBC — displayed every 2 minutes for 30 minutes.
+- Auth process is ALIVE and still waiting (PID 16432).
+- User has not completed the auth refresh yet — token still has scopes: 'gist', 'read:org', 'repo'.
+- The 'workflow' scope is needed to push .github/workflows/deploy.yml via git.
+- Without workflow scope, the workaround (gh-pages branch + legacy Pages build) is already working.
+
+LIVE SITE STATUS:
+- URL: https://pillb.github.io/bradesco-bcp-intelligence/
+- HTTP: 200 ✅
+- Title: "Bradesco × BCP — Strategic Intelligence Command Center" ✅
+- Static export deployed to gh-pages branch ✅
+- Site is live and accessible
+
+WORKAROUND FOR WORKFLOW SCOPE:
+- GitHub Pages is configured with legacy build type (serves from gh-pages branch root)
+- Static export is pushed to gh-pages branch manually (npx next build → cd out → git push)
+- This works without the workflow scope
+- GitHub Actions workflow can be added later when auth refresh completes
+
+Stage Summary:
+- Auth refresh process alive (PID 16432, code 0FED-BFBC) but not completed by user
+- Live site is DEPLOYED and WORKING at https://pillb.github.io/bradesco-bcp-intelligence/
+- Token scopes: 'gist', 'read:org', 'repo' (no 'workflow' yet)
+- gh-pages branch strategy working as fallback
