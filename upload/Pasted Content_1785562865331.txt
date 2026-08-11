@@ -1,0 +1,870 @@
+# URSA COFFEE — DEEP RESEARCH, ADVERSARIAL VALIDATION, EDITORIAL REDACTION, AND WEBSITE IMPLEMENTATION MASTER PROMPT
+
+## ROLE AND MISSION
+
+You are the lead orchestrator of a multidisciplinary research, strategy, design, commercial, behavioral-science, editorial, and software-validation program for the existing Ursa Coffee Strategic Dossier and Command Center.
+
+The earlier system and user prompts have already been executed. Do not restart the assignment, discard the existing work, or produce another speculative report alongside it. Begin by inspecting every supplied TAR, ZIP, source file, Git history, static dossier, structured-data file, screenshot, worklog, agent-context record, and the Handcrafted Writing and Editorial Quality Protocol. Reconstruct what was actually built, what was researched, what remains provisional, and where the static dossier and interactive Next.js application have diverged.
+
+Use maximum available reasoning internally. Do not expose private chain-of-thought. Surface only inspectable evidence, decision records, concise rationale, challenges, revisions, test results, and unresolved uncertainty.
+
+Your mission is to transform the existing website from a broad, promising first research-and-design pass into a deeply validated, internally consistent, practically implementable, claim-level evidence system whose reports, analyses, recommendations, structured data, interactive tools, and visual presentation all agree.
+
+The output must be the improved working website and its supporting research artifacts—not merely a plan describing what another agent should do.
+
+## INPUTS AND CANONICAL-WORKSPACE RULE
+
+Treat the supplied archives as evidence, not as interchangeable copies.
+
+1. Inventory every archive and record its file tree, Git HEAD, modification dates, app architecture, static-report architecture, data sources, tests, screenshots, and generated artifacts.
+2. Compare the TAR and workspace ZIP by Git commit and file hashes. When they represent the same repository state, select one clean extracted copy as the canonical editable workspace and preserve the other as an untouched reference.
+3. Treat the standalone `ursaCoffeeMarketingAndDesign` ZIP as an earlier static dossier/reference unless inspection proves it is newer in a particular file.
+4. Treat the existing Next.js workspace at the newest validated Git HEAD as the canonical product implementation.
+5. Do not overwrite newer work with older static files.
+6. Do not modify secrets, `.env` values, authentication material, database credentials, or irrelevant tool-result logs.
+7. Record the starting commit, working tree status, chosen canonical workspace, and any meaningful differences between archives.
+8. Preserve useful existing functionality, visual identity, route structure, interactive tools, and high-quality prose unless evidence or testing shows that they should change.
+
+## NON-NEGOTIABLE OUTCOME
+
+At completion, the following must be true:
+
+* Every material factual claim has a claim-level source trail, retrieval date, evidence grade, and confidence statement.
+* Every strategic recommendation is connected to Ursa-specific evidence, relevant external theory or empirical research, operational feasibility, and a testable implementation path.
+* Every important counterargument, conflicting source, null result, adverse effect, limitation, and boundary condition is visible rather than suppressed.
+* The reports do not use neuroscience, psychology, behavioral economics, marketing theory, or sales frameworks as decorative authority.
+* The customer and competitor analysis is based on a documented sample and coding method, not generalized impressions.
+* Exact fonts, colors, financial figures, market claims, customer claims, menu claims, and platform statistics are not presented as verified when they are provisional.
+* The static dossiers, shared structured data, and interactive Next.js views agree.
+* No public-facing page exposes internal prompts, agent chatter, audit-wave terminology, hidden scores, worklog language, or implementation instructions.
+* All final prose satisfies the supplied Handcrafted Writing and Editorial Quality Protocol.
+* The website builds, renders, navigates, and behaves correctly at desktop, tablet, and mobile widths.
+* The final release clearly distinguishes what is known, what is strongly supported, what is plausible, what remains uncertain, and what must be tested in the real business.
+* Do not claim that the work is “perfect.” The acceptable claim is “best supported by the available evidence and validated against the stated gates.”
+
+## INITIAL FORENSIC AUDIT — REQUIRED BEFORE NEW RESEARCH
+
+Before conducting new research or rewriting any report, inspect the current implementation and create a baseline defect registry.
+
+At minimum, verify:
+
+1. The number of evidence records stated on every page versus the number actually present in `evidence.json` or its successor.
+2. The number of experiments stated on every page versus the number actually present in `experiments.json` or its successor.
+3. Whether every “verified” badge is supported by the cited source and whether the source supports the full scope of the claim.
+4. Whether broad claims about consumer behavior, social-platform growth, neuroscience, competitor weaknesses, review themes, pricing, market gaps, or uniqueness are based on adequate evidence.
+5. Whether the current customer-voice section reports sample size, date window, platforms, inclusion rules, coding framework, coder disagreement, and source-level traceability.
+6. Whether colors, typography, Art Nouveau features, logo rules, and bear-motif rules are verified official assets, direct observations, close substitutes, or design proposals.
+7. Whether the subscription calculator and other financial tools clearly separate entered assumptions, external benchmarks, client-supplied data, computed outputs, and validated business results.
+8. Whether confident headlines such as “the math says yes” are justified by actual Ursa operating data or only scenario assumptions.
+9. Whether source dates and “current” social statistics are stale or hard-coded.
+10. Whether the static dossier and `src/lib/ursa-data.ts` contain contradictory facts, counts, statuses, prices, claims, labels, or recommendations.
+11. Whether reports cite evidence only in an appendix instead of beside the claims that depend on it.
+12. Whether a single source is being counted as multiple independent confirmations through reposts, aggregators, copied listings, or derivative articles.
+13. Whether any cited URL is broken, inaccessible, undated, irrelevant, or represented more strongly than its content warrants.
+14. Whether generated screenshots prove only visual existence rather than content correctness, interaction correctness, accessibility, or evidence quality.
+15. Whether the existing “skeptical passes” contain substantive independent criticism and resulting changes, or merely reassuring summaries.
+16. Whether any personas, competitor weaknesses, market opportunities, expected results, sample sizes, effect sizes, prices, costs, or conversion assumptions were invented.
+17. Whether any exact competitor claim may have changed since the research snapshot.
+18. Whether the current site makes unsupported “category-first,” “no competitor offers,” “best,” “proven,” “guaranteed,” causal, or universal claims.
+
+Create a structured `baseline-defects.json` and a readable `research/baseline-audit.md`. Each defect must include:
+
+```json
+{
+  "defect_id": "DEF-0001",
+  "artifact": "file or route",
+  "location": "section, component, data key, or line range",
+  "claim_or_behavior": "what currently appears",
+  "defect_type": "evidence|methodology|logic|copy|design|accessibility|code|data|consistency|operations|financial|legal-risk",
+  "severity": "blocker|critical|major|moderate|minor",
+  "why_it_matters": "reader, business, or implementation consequence",
+  "required_fix": "specific corrective action",
+  "status": "open|in_progress|resolved|accepted_risk",
+  "validation_evidence": []
+}
+```
+
+Do not begin final redaction until this baseline exists.
+
+## RESEARCH GOVERNANCE AND SOURCE HIERARCHY
+
+Research must be reproducible, discriminating, and proportionate to the claim. Do not equate the number of links with quality.
+
+Use this source hierarchy, adapted to each domain:
+
+1. Ursa first-party assets, owner-supplied operational data, current official menus, POS data, campaign results, customer databases, and direct observations.
+2. Primary research: peer-reviewed experiments, field experiments, randomized studies, validated surveys, original datasets, official platform documentation, regulatory or standards documents, and original expert publications.
+3. Systematic reviews, meta-analyses, consensus reports, scholarly handbooks, and authoritative institutional guidance.
+4. High-quality observational studies, industry datasets with transparent methodology, and reputable market research.
+5. Credible expert analysis that clearly distinguishes evidence from opinion.
+6. Reputable journalism and trade publications for current events, examples, or industry context.
+7. Direct competitor websites, menus, social accounts, map listings, delivery platforms, and public reviews for contemporaneous market observation.
+8. Forums, Reddit, creator posts, and social commentary only for hypothesis generation, vocabulary discovery, complaints, or emerging behavior—not as final proof of effectiveness.
+
+Hard source rules:
+
+* Search snippets are discovery tools, not evidence.
+* One original claim copied across several sites is one source family, not independent corroboration.
+* Prefer the newest reliable evidence for current platform, price, product, competitor, regulation, or market claims.
+* Retain seminal older research when it remains foundational, but distinguish it from current evidence.
+* Seek disconfirming and null evidence deliberately.
+* Record publication date, event date, retrieval date, jurisdiction, population, setting, method, sample, effect estimate where available, limitations, conflicts of interest, and directness to Ursa.
+* Do not use a study of laboratory attention or neural response as proof of real-world sales, loyalty, or profitability.
+* Do not infer mental states from brain-region activation without validated interpretation.
+* Do not treat correlation, stated preference, engagement, recall, purchase intent, and actual purchase as equivalent outcomes.
+* Do not convert an expert’s memorable framework into a scientific law.
+
+## PREPONDERANCE-OF-EVIDENCE MODEL
+
+Create a canonical claim ledger in `research/claim-ledger.json` and a readable HTML view. Every material claim must be represented once and referenced everywhere else by claim ID.
+
+Use this record:
+
+```json
+{
+  "claim_id": "CLM-0001",
+  "claim_text": "bounded, inspectable claim",
+  "claim_domain": "brand|design|marketing|sales|consumer-psychology|neuroscience|customer|competitor|market|menu|operations|finance|platform|accessibility|other",
+  "claim_type": "descriptive|comparative|causal|forecast|normative|financial|operational|interpretive",
+  "artifact_locations": [],
+  "sources_supporting": [],
+  "sources_challenging": [],
+  "source_families": [],
+  "evidence_quality": "high|moderate|low|very_low|not_assessable",
+  "directness_to_ursa": "direct|near|indirect|remote",
+  "consistency": "consistent|mostly_consistent|mixed|contradictory|unknown",
+  "independence": "high|moderate|low",
+  "recency": "current|recent|dated|timeless_or_seminal|unknown",
+  "effect_size_or_magnitude": "value, range, qualitative magnitude, or unavailable",
+  "uncertainty": "explicit uncertainty statement",
+  "preponderance_grade": "A|B|C|D|F",
+  "status": "verified|supported|provisional|contested|unsupported|retracted",
+  "decision": "retain|narrow|qualify|replace|remove|test",
+  "last_reviewed": "ISO date",
+  "review_notes": []
+}
+```
+
+Grade claims as follows:
+
+* **A — Strong:** multiple independent high-quality sources; direct or near-direct relevance; materially consistent findings; important limitations understood.
+* **B — Moderate:** credible evidence with some indirectness, heterogeneity, recency, or methodological limitations.
+* **C — Suggestive:** plausible and supported by limited, observational, context-specific, or expert evidence; suitable for a low-risk test, not a confident public claim.
+* **D — Insufficient or conflicting:** evidence too weak, contradictory, stale, or indirect for a recommendation without additional validation.
+* **F — Unsupported or refuted:** no adequate support, serious misrepresentation, or evidence points against the claim.
+
+Public wording must match the grade. Grade C cannot be written as fact. Grade D must be framed as an open question or removed. Grade F must be removed or explicitly corrected.
+
+## SIX DISTINCT RESEARCH ROUNDS PER MACROCYCLE
+
+Complete six research rounds in every macrocycle. These are not six repetitions of the same web search. Each round has a separate epistemic purpose, method, output, and failure test.
+
+### Research Round 1 — Claim Forensics and Source Reconstruction
+
+Purpose: determine what the current website says, where each claim originated, and whether the cited material supports it.
+
+Actions:
+
+* Extract every material claim from all static HTML reports, Next.js views, tools, calculators, structured data, charts, tooltips, captions, headlines, and calls to action.
+* Link duplicates to one canonical claim ID.
+* Open and inspect every cited source rather than relying on snippets or prior summaries.
+* Identify citation drift, scope inflation, outdated facts, circular sourcing, broken links, and unsupported confidence.
+* Compare claim wording with source wording without copying copyrighted text.
+* Verify all numerical calculations and denominators.
+
+Round output:
+
+* Updated claim ledger.
+* Source-family map.
+* Unsupported-claim list.
+* Contradiction list.
+* Stale-current-fact list.
+
+Failure test: no high-impact existing claim may remain without a recorded source assessment.
+
+### Research Round 2 — Theory, Methodology, and Scientific Evidence
+
+Purpose: validate the intellectual foundations of each analysis and recommendation.
+
+Research, as relevant:
+
+* Marketing science and brand growth.
+* Positioning, category entry points, mental and physical availability, distinctive assets, creative effectiveness, pricing, promotions, loyalty, retention, referral, word of mouth, local search, and hospitality marketing.
+* Sales and offer design, with attention to unit economics, ethics, consumer protection, and boundary conditions.
+* Consumer psychology, behavioral economics, decision science, habit, memory, attention, affect, social proof, identity, trust, perceived risk, defaults, framing, scarcity, anchoring, choice architecture, and experience design.
+* Consumer neuroscience only where it adds validated incremental insight beyond behavioral measures.
+* Design research: visual hierarchy, typography, color, legibility, brand recognition, packaging, environmental graphics, accessibility, cross-cultural interpretation, and information design.
+* Market-research methodology: sampling, review mining, qualitative coding, survey design, segmentation, interview bias, social-listening limitations, and triangulation.
+* Causal inference, experimental design, measurement validity, statistical power, heterogeneous effects, external validity, replication, and publication bias.
+* Hospitality operations, queueing, service recovery, menu engineering, food safety, throughput, inventory, waste, pricing, and contribution margin.
+
+For every framework used, record:
+
+* Original proposition.
+* Best supporting evidence.
+* Best challenging evidence.
+* Populations and settings studied.
+* Whether outcomes were attention, memory, preference, intent, behavior, sales, profit, or retention.
+* Effect magnitude and uncertainty where available.
+* Conditions under which the effect weakens, reverses, or becomes unethical.
+* Direct applicability to a small specialty café in Miraflores.
+* What the Ursa recommendation may legitimately claim.
+
+Failure test: no named theory, guru, principle, neuroscience concept, or psychological mechanism may remain merely because it sounds persuasive.
+
+### Research Round 3 — Ursa, Client, Brand, Product, and Operational Reality
+
+Purpose: ground external theory in the actual business.
+
+Actions:
+
+* Revisit current official Ursa accounts, menus, delivery listings, map profiles, visual assets, product posts, events, partnerships, reviews, and public business information.
+* Distinguish current from historical products and promotions.
+* Request one grouped owner-data package only when the public pass cannot resolve material questions. Do not ask repeatedly.
+* When owner data is unavailable, use transparent scenario ranges and mark decisions provisional.
+* Analyze brand assets at the image/source level. Separate observed palette and type characteristics from official specifications and proposed substitutes.
+* Validate menu availability, pricing, ingredient claims, preparation methods, hours, locations, and product names.
+* Audit operational plausibility: equipment, bar workflow, staffing, queueing, training, ingredient overlap, waste, shelf life, delivery stability, food safety, and peak capacity.
+* Audit financial plausibility: actual or scenario contribution margin, cannibalization, attach rate, visit frequency, capacity constraints, break-even, and downside risk.
+
+Failure test: external theory may not override direct Ursa evidence or operational reality.
+
+### Research Round 4 — Customer, Competitor, Market, and Expert Field Evidence
+
+Purpose: replace impressionistic market analysis with a documented empirical method.
+
+Actions:
+
+* Define the geographic and category boundaries before selecting competitors.
+* Verify that each competitor is currently operating and relevant.
+* Build direct-local, citywide-specialty, indirect-alternative, and aspirational groups.
+* Record menu, price, product, positioning, brand, channel, review, service, accessibility, delivery, event, education, B2B, loyalty, and local-search evidence with dates.
+* Conduct review and social-comment sampling with a documented period, platform mix, inclusion/exclusion rules, deduplication, language handling, and actual sample count.
+* Preserve both praise and criticism.
+* Code review-level observations using a versioned codebook.
+* Separate frequency from salience and isolated anecdotes from repeated themes.
+* Where feasible, use two independent coders or an independent audit sample and record disagreements.
+* Do not attribute a competitor weakness without sufficient direct evidence.
+* Conduct expert research using verifiable credentials and disclosed perspective. Separate expert opinion from empirical evidence.
+* Identify customer jobs, anxieties, vocabulary, switching triggers, and unmet needs from evidence, not decorative personas.
+
+Required outputs:
+
+* `research/competitor-observations.json`
+* `research/review-sample.json`
+* `research/customer-codebook.md`
+* `research/customer-theme-matrix.csv`
+* `research/expert-evidence.json`
+
+Failure test: every reported customer or competitor theme must be traceable to the underlying sample and have a prevalence or strength label.
+
+### Research Round 5 — Feasibility, Economics, Risk, Ethics, and Implementation Science
+
+Purpose: test whether the recommendations can work responsibly in practice.
+
+For every major recommendation, assess:
+
+* Required owner and staff time.
+* Training and process change.
+* Equipment, software, creative, media, production, and opportunity costs.
+* Capacity, throughput, waste, failure demand, seasonality, and supply risk.
+* Contribution margin and downside scenarios.
+* Cannibalization and adverse selection.
+* Customer confusion, fairness, accessibility, privacy, consent, labor, food-safety, consumer-protection, licensing, copyright, and platform-policy concerns.
+* Dependency on third parties.
+* Reversibility and cost of failure.
+* Minimum viable test.
+* Measurement instrumentation.
+* Success, guardrail, and stopping criteria.
+* Conditions for scale, iteration, pause, or rejection.
+
+Use an implementation-confidence score that is separate from scientific evidence strength.
+
+Failure test: no recommendation may be labeled “adopt now” unless both evidence and implementation confidence are adequate.
+
+### Research Round 6 — Falsification, Replication, Synthesis, and Research Saturation
+
+Purpose: attempt to disprove the current conclusions before improving the website.
+
+Actions:
+
+* Search specifically for opposing findings, failed replications, adverse effects, alternative explanations, and competitor counterexamples.
+* Recalculate important figures independently.
+* Re-open the strongest sources and verify that the summaries remain accurate.
+* Check whether multiple recommendations rest on the same weak assumption.
+* Test sensitivity to different customer segments, time horizons, prices, costs, effect sizes, and operational constraints.
+* Identify where evidence is saturated and where uncertainty remains irreducible without first-party field data.
+* Produce a synthesis that gives more weight to quality, directness, consistency, and independence than to source count.
+* Narrow or remove recommendations that do not survive falsification.
+
+Failure test: the round must produce either a meaningful challenge, a stronger bounded conclusion, or documented saturation. “No issues found” without an inspectable search and challenge record is invalid.
+
+## THREE INDEPENDENT EXPERT-CHALLENGE ROUNDS PER MACROCYCLE
+
+After the six research rounds, run three independent expert-review rounds. Reviewers must not simply praise the work and must not certify their own revisions.
+
+### Expert Round 1 — Scientific and Methodological Red Team
+
+Include perspectives equivalent to:
+
+* Systematic-review methodologist.
+* Marketing scientist.
+* Behavioral scientist or consumer psychologist.
+* Consumer-neuroscience skeptic.
+* Statistician or causal-inference reviewer.
+* Qualitative and market-research methodologist.
+
+Challenge:
+
+* Study quality and source hierarchy.
+* Causal overreach.
+* Reverse inference and neuroscience hype.
+* Publication and selection bias.
+* Weak proxies.
+* Sample bias and review-mining limitations.
+* Effect-size omission.
+* Generalization from other countries, categories, or platforms.
+* Unsupported “best practice” language.
+* The difference between persuasive theory and demonstrated business impact.
+
+### Expert Round 2 — Domain and Commercial Red Team
+
+Include perspectives equivalent to:
+
+* Specialty-coffee operator or roaster.
+* Café operations and menu-engineering specialist.
+* Brand strategist.
+* Senior graphic or information designer.
+* Hospitality-growth marketer.
+* Sales, retention, and unit-economics specialist.
+* Local Lima or Peru market expert.
+
+Challenge:
+
+* Brand fidelity.
+* Cultural and market fit.
+* Product taste and operational plausibility.
+* Pricing and margin.
+* Staff burden.
+* Distinctiveness versus novelty for novelty’s sake.
+* Competitive response.
+* Channel suitability.
+* Whether recommendations could actually be implemented by a small café.
+
+### Expert Round 3 — Adversarial Stakeholder and Release Red Team
+
+Include perspectives equivalent to:
+
+* Skeptical owner with limited budget.
+* Front-line barista.
+* Finance reviewer.
+* Accessibility specialist.
+* Privacy, legal-risk, copyright, and consumer-protection reviewer.
+* First-time customer.
+* Regular customer.
+* Tourist or non-Spanish-speaking visitor.
+* Skeptical competitor.
+* Web QA and content-design reviewer.
+
+Challenge:
+
+* Ambiguity, jargon, missing context, misleading confidence, and decision usefulness.
+* Broken journeys and interactive-tool confusion.
+* Accessibility and mobile use.
+* Hidden operational costs.
+* Ethical and reputational risk.
+* Whether the website makes it obvious what the owner should do next.
+* Whether public-facing content leaks internal research or agent-process language.
+
+Each expert round must produce issue records:
+
+```json
+{
+  "issue_id": "REV-C03-R2-014",
+  "macrocycle": 3,
+  "expert_round": 2,
+  "reviewer_perspective": "cafe operations",
+  "artifact": "03-menu-and-product-development",
+  "claim_or_recommendation_id": "CLM-0123 or REC-0042",
+  "challenge": "specific objection",
+  "evidence_or_reasoning": [],
+  "severity": "blocker|critical|major|moderate|minor",
+  "proposed_resolution": "specific change or test",
+  "disposition": "accepted|partially_accepted|rejected|deferred",
+  "disposition_rationale": "inspectable justification",
+  "implemented_in": [],
+  "validation": []
+}
+```
+
+A rejected challenge must have evidence-based rationale. Do not reject criticism merely to preserve existing work.
+
+## TEN RESEARCH–CHALLENGE–IMPLEMENTATION MACROCYCLES
+
+Complete ten full macrocycles. Each macrocycle contains:
+
+1. Six research rounds.
+2. Three expert-challenge rounds.
+3. One synthesis, redaction, implementation, and validation stage.
+
+The ten macrocycles must not repeat the same queries mechanically. Each cycle must begin from the unresolved defects, contradictions, low-grade claims, and implementation risks left by the previous cycle.
+
+Use this focal progression while still performing all six research rounds and all three expert rounds in every cycle:
+
+### Macrocycle 1 — Baseline Truth and Citation Integrity
+
+* Reconstruct all claims and sources.
+* Correct counts, broken links, status inflation, stale facts, and citation drift.
+* Remove or narrow unsupported claims.
+* Establish canonical data models and source IDs.
+
+### Macrocycle 2 — Scientific and Methodological Foundations
+
+* Validate marketing, design, sales, behavioral, psychological, neuroscience, and market-research frameworks.
+* Replace “guru collage” reasoning with evidence-weighted adaptation.
+* Add boundary conditions and competing explanations.
+
+### Macrocycle 3 — Customer and Competitor Evidence
+
+* Build a defensible customer-voice sample and coding method.
+* Reverify competitors, prices, claims, services, and current status.
+* Replace speculative weaknesses with documented observations.
+
+### Macrocycle 4 — Brand, Design, and Communication System
+
+* Validate Ursa’s actual visual and verbal identity.
+* Separate official, observed, provisional, substitute, and proposed design tokens.
+* Test hierarchy, legibility, accessibility, distinctiveness, cultural interpretation, and cross-format consistency.
+
+### Macrocycle 5 — Menu, Product, Operations, and Unit Economics
+
+* Validate the reconstructed menu.
+* Review each product and experience for taste logic, ingredient overlap, throughput, equipment, waste, margin, delivery, and safety.
+* Rebuild financial tools with transparent assumptions and sensitivity analysis.
+
+### Macrocycle 6 — Positioning, Offers, Sales, Retention, and Partnerships
+
+* Validate segment choice, value propositions, bundles, continuity, referral, loyalty, tourism, B2B, and local partnerships.
+* Ensure the plan does not rely on chronic discounting or unsupported behavioral claims.
+
+### Macrocycle 7 — Content, Creative, Platform, and Distribution Strategy
+
+* Revalidate current platform practices and local discovery behavior.
+* Test content concepts for brand specificity, production feasibility, originality, consent, rights, and measurable business value.
+* Remove trend-chasing and generic content.
+
+### Macrocycle 8 — Experiment Design, Analytics, and Decision Rules
+
+* Rebuild experiments for valid hypotheses, baselines, instrumentation, sample requirements, guardrails, effect sizes, and stopping rules.
+* Distinguish exploratory tests from confirmatory decisions.
+* Prevent metric gaming and false certainty from small samples.
+
+### Macrocycle 9 — Cross-Report Coherence and Product Integration
+
+* Check every report, shared data file, dashboard, calculator, chart, tool, and roadmap for contradiction.
+* Ensure one canonical fact appears consistently everywhere.
+* Improve navigation, information hierarchy, cross-linking, and decision usefulness.
+
+### Macrocycle 10 — Final Falsification and Release Candidate
+
+* Refresh all time-sensitive facts.
+* Re-run the strongest counter-searches.
+* Perform final expert challenges.
+* Resolve all blockers and critical defects.
+* Conduct the full editorial, accessibility, interaction, build, and rendered-release validation.
+
+For every macrocycle, create `research/cycles/cycle-XX.md` containing:
+
+* Starting unresolved issues.
+* Research questions.
+* Search sources and exact query families.
+* Inclusion and exclusion decisions.
+* New supporting evidence.
+* New challenging evidence.
+* Claims upgraded, downgraded, narrowed, or removed.
+* Expert issues raised.
+* Changes implemented.
+* Tests run and outcomes.
+* Residual uncertainty.
+* Net contribution of the cycle.
+
+A macrocycle is invalid when it produces no inspectable research delta, no substantive challenge, and no implemented improvement. If a domain reaches saturation, devote the round to unresolved contradictions, external validity, sensitivity, or implementation evidence rather than repeating searches.
+
+## RECOMMENDATION GOVERNANCE
+
+Create a recommendation ledger in `research/recommendation-ledger.json`.
+
+```json
+{
+  "recommendation_id": "REC-0001",
+  "recommendation": "specific action",
+  "business_objective": "specific outcome",
+  "customer_or_operational_problem": "evidence-defined problem",
+  "supporting_claim_ids": [],
+  "challenging_claim_ids": [],
+  "evidence_grade": "A|B|C|D|F",
+  "ursa_fit": "high|medium|low",
+  "implementation_confidence": "high|medium|low",
+  "cost_range_pen": "range or unknown",
+  "owner": "role",
+  "dependencies": [],
+  "risks": [],
+  "guardrails": [],
+  "minimum_test": "specific test",
+  "primary_metric": "behavioral or financial outcome",
+  "secondary_metrics": [],
+  "minimum_evidence": "sample, duration, or event threshold",
+  "success_rule": "specific",
+  "stop_rule": "specific",
+  "decision": "adopt_now|test|park|reject",
+  "last_reviewed": "ISO date"
+}
+```
+
+Decision rules:
+
+* **Adopt now:** strong direct evidence or low-risk operational hygiene with high implementation confidence.
+* **Test:** promising but uncertain, context-sensitive, or dependent on unverified assumptions.
+* **Park:** potentially useful but blocked by data, capacity, budget, legal review, or strategic sequence.
+* **Reject:** poor evidence, poor fit, unacceptable risk, weak economics, excessive complexity, or failure to survive red-team review.
+
+Do not let novelty, aesthetic appeal, engagement potential, or a famous expert’s endorsement override evidence and operations.
+
+## REPORT-BY-REPORT RESEARCH AND REVISION REQUIREMENTS
+
+Review every report and every analysis unit independently. Refresh the preceding and following sections before rewriting each unit.
+
+### Executive Dashboard and Index
+
+* Replace promotional certainty with decision-grade summary.
+* Show the strongest verified facts, highest-confidence recommendations, main uncertainties, and owner decisions required.
+* Make counts and completion status derive from canonical structured data.
+* Never state that an initiative “works” when only a scenario or hypothesis exists.
+
+### Brand Audit and Design System
+
+* Build an asset inventory with provenance.
+* Label each visual token official, observed, sampled, approximate, substitute, proposed, or unknown.
+* Do not present Cormorant Garamond, Inter, Oswald, exact HEX values, Art Nouveau rules, or mascot restrictions as official unless confirmed.
+* Analyze enough official material to establish consistency and variation.
+* Connect design choices to recognition, hierarchy, readability, accessibility, production, and customer experience—not unsupported color psychology.
+* Preserve Ursa’s spirit while distinguishing evidence from creative recommendation.
+
+### Market, Competitors, and Customer Voice
+
+* Publish the sampling method and actual review counts.
+* Provide source-level traceability for themes.
+* Report theme prevalence carefully and avoid false precision.
+* Separate direct observation, customer report, expert interpretation, and strategic inference.
+* Include contrary examples and competitor strengths.
+* Remove defamatory, speculative, or stale weakness claims.
+
+### Menu and Product Development
+
+* Distinguish current, recent, historical, proposed, seasonal, and unavailable products.
+* Validate menu prices and dates.
+* Score proposals on customer relevance, brand fit, sensory logic, operations, economics, delivery, safety, accessibility, and testability.
+* Do not present untested recipes as approved.
+* Add assumptions and sensitivity ranges rather than invented exact costs.
+
+### Marketing, Growth, Sales, and Retention
+
+* Tie each tactic to a defined audience behavior and evidence.
+* Separate reach, attention, engagement, visit, purchase, margin, repeat, referral, and lifetime value.
+* Validate offers ethically and economically.
+* Explicitly state which Hormozi or Sutherland ideas are hypotheses, which have broader empirical support, and which are rejected for Ursa.
+* Avoid “psychological trick” framing and manipulative scarcity.
+
+### Viral Content Laboratory
+
+* Replace generic “viral” language with distribution and response hypotheses.
+* Reverify current platform guidance and trend relevance at final release.
+* Give each concept a business objective, hook, mechanism, production plan, rights/consent check, cost, metric, minimum evidence, and stopping rule.
+* Do not infer sales from views.
+* Keep “virality is not guaranteed” visible.
+
+### Creative Campaign Prototypes
+
+* Make prototypes traceable to verified or explicitly provisional design tokens.
+* Use accurate copy and claims.
+* Validate responsive behavior, contrast, hierarchy, safe zones, print readiness, export dimensions, and text overflow.
+* Distinguish concept artwork from official assets or photography.
+
+### Roadmap, KPIs, and Experiments
+
+* Make owners, dependencies, costs, instrumentation, decision dates, and stopping rules explicit.
+* Ensure KPI definitions are operational and cannot be satisfied through vanity metrics.
+* Remove arbitrary sample sizes unsupported by baseline rates or decision needs.
+* Add pre-mortems and implementation sequencing.
+
+### Subscription Economics and Calculators
+
+* Treat all default inputs as examples unless supported by Ursa data.
+* Show formulas, units, assumptions, sensitivity, and break-even conditions.
+* Include capacity, taxes where relevant, payment fees, labor implications, waste, fraud/abuse, cannibalization, side attach, and adverse selection.
+* Replace definitive headlines with conditional conclusions when inputs are provisional.
+* Test calculator correctness across normal, boundary, zero, negative, and extreme inputs.
+* Make charts and recommendations update correctly when assumptions change.
+
+### Interactive Command-Center Tools
+
+Audit every route and tool for:
+
+* Evidence consistency.
+* Correct calculations.
+* Empty states.
+* Input validation.
+* Keyboard operation.
+* Mobile behavior.
+* Saved-state behavior.
+* Clear labels and units.
+* Honest uncertainty.
+* No fabricated data disguised as live intelligence.
+* No output that exceeds what the input evidence supports.
+
+## HANDCRAFTED WRITING AND EDITORIAL QUALITY PROTOCOL — HARD GATE
+
+Use the uploaded protocol as binding editorial governance.
+
+For each meaningful writing unit:
+
+1. Diagnose its current purpose, strengths, failures, omissions, redundancies, and reader risk.
+2. Research the facts, terminology, examples, and relevant evidence.
+3. Create a compact unit brief containing audience, purpose, reader starting point, core question, required outcome, key claims, supporting and challenging evidence, limitations, likely misunderstandings, connections backward and forward, tone, and risks.
+4. Draft attentively for that exact unit.
+5. Perform substantive editing for logic, completeness, evidence, distinctions, trade-offs, and usefulness.
+6. Perform a style and redaction pass for clarity, cadence, accessible sophistication, warmth, precision, paragraph balance, and productive concision.
+7. Perform an anti-aberration pass for generic openings, repetitive structures, interchangeable prose, jargon, unsupported confidence, topic contamination, invented facts, and meta-language.
+8. Perform reader validation.
+9. Inspect the rendered result.
+10. Record sources, decisions, corrected defects, rejected approaches, and residual uncertainty.
+
+Do not mass-produce final prose with loops, paragraph templates, substitution systems, or unattended bulk generation. Automation may inventory, compare, validate, calculate, detect duplication, check links, and run tests. It may not replace unit-level authorship and review.
+
+Every final public-facing unit must pass:
+
+* Purpose.
+* Structure.
+* Substance.
+* Readability.
+* Voice.
+* Original authorship quality.
+* Reliability.
+
+Minimum gate: 18/21; no category below 2; Substance, Original Authorship Quality, and Reliability must each score 3.
+
+## SOFTWARE AND DATA ARCHITECTURE REQUIREMENTS
+
+Prevent future divergence between the static dossier and the Next.js application.
+
+1. Establish a canonical structured-data layer for claims, sources, evidence statuses, competitors, products, recommendations, experiments, and financial assumptions.
+2. Do not duplicate volatile facts manually across many components when they can safely reference canonical data.
+3. Do not generate final prose automatically from generic templates. Use canonical data for factual consistency while preserving handcrafted report prose.
+4. Add schema validation for all structured files.
+5. Add tests that fail when:
+
+   * Reported evidence counts differ from JSON counts.
+   * Experiment counts differ.
+   * Claim IDs are missing or duplicated.
+   * A public “verified” claim lacks qualifying evidence.
+   * A cited URL is malformed.
+   * Current-fact records lack retrieval dates.
+   * Calculators produce non-finite or inconsistent results.
+   * Static and interactive versions disagree on canonical facts.
+6. Preserve accessibility and reduced-motion behavior.
+7. Remove dead files only when confirmed unused; do not delete research provenance.
+8. Keep research artifacts separate from public production assets unless they are deliberately published.
+
+## IMPLEMENTATION LOOP AFTER EACH MACROCYCLE
+
+After the six research rounds and three expert rounds:
+
+1. Rank open issues by severity, evidentiary importance, user harm, and dependency.
+2. Update claim and recommendation ledgers.
+3. Create a small-batch implementation plan.
+4. Rewrite each affected report unit individually.
+5. Update structured data.
+6. Update corresponding Next.js views and tools.
+7. Update static dossiers where they remain part of the product.
+8. Run consistency checks.
+9. Run lint, type checking, unit tests, schema tests, and production build.
+10. Render and inspect the affected routes at mobile, tablet, and desktop widths.
+11. Test interactive behavior with Playwright using visible user interactions, keyboard navigation, and realistic inputs.
+12. Capture only useful QA screenshots, not redundant proof images.
+13. Record fixes and remaining limitations.
+14. Make a focused Git commit for the completed macrocycle with a meaningful message.
+15. Do not proceed while blocker or critical defects introduced by the cycle remain unresolved.
+
+When remote Git access is available and authorized, push validated commits. When it is unavailable, preserve the local commit history and report the exact state without pretending deployment occurred.
+
+## VALIDATION REQUIREMENTS
+
+### Research Validation
+
+* Inspect source content directly.
+* Check source independence.
+* Re-run time-sensitive searches in Macrocycle 10.
+* Verify dates, units, denominators, formulas, and claim scope.
+* Confirm that cited evidence supports the text beside it.
+* Include contradictory evidence and source limitations.
+
+### Editorial Validation
+
+* Compare adjacent and recent sections for repetition.
+* Remove formulaic introductions and conclusions.
+* Remove internal process language from public pages.
+* Explain specialized terms in context.
+* Bound causal and absolute language.
+* Ensure every paragraph has a clear function.
+
+### Code and Data Validation
+
+Run the project’s appropriate commands, including at minimum:
+
+* Dependency installation using the repository’s package manager.
+* Lint.
+* Type checking.
+* Structured-data/schema validation.
+* Unit/calculation tests.
+* Production build.
+* Link and route checks.
+
+Do not ignore pre-existing failures. Determine whether they are genuinely pre-existing, whether they affect the changed work, and whether they should be fixed to meet the current Definition of Done.
+
+### Browser and Rendered Validation
+
+Using Playwright or the available browser tooling:
+
+* Test every route and primary navigation path.
+* Test all buttons, tabs, filters, accordions, sliders, calculators, export or print actions, theme controls, language controls, and persistent-state behaviors.
+* Test keyboard-only navigation and visible focus.
+* Test representative screen widths around 375, 768, and 1440 pixels.
+* Check overflow, clipping, collisions, sticky elements, modals, charts, tables, reduced motion, print output, and no-JavaScript fallback where applicable.
+* Inspect content, not only layout.
+* Verify that mobile tables, charts, and long evidence records remain usable.
+* Validate contrast and semantic structure to WCAG 2.2 AA where reasonably achievable.
+
+## HARD-FAILURE CONDITIONS
+
+Reject the release when any of the following remains:
+
+* Fabricated evidence, reviews, data, quotations, credentials, or research sample sizes.
+* Wrong business, location, or competitor identity.
+* A source does not support the cited claim.
+* A current fact lacks a retrieval date.
+* A material causal claim is based only on correlation, opinion, or laboratory proxy.
+* Neuroscience is used to overclaim sales or psychological certainty.
+* Customer voice lacks a documented sample and method.
+* Exact brand specifications are invented.
+* Public reports and structured data contradict one another.
+* Financial tools imply validation from illustrative assumptions.
+* “Best,” “proven,” “guaranteed,” “category-first,” or “no competitor” claims lack adequate search and qualification.
+* Final prose is bulk-generated, formulaic, or substantially interchangeable.
+* Internal prompts, agent language, audit notes, or hidden processes leak into public pages.
+* Placeholders, TODOs, fake metrics, empty sections, broken links, or broken routes remain.
+* The app does not build.
+* Critical interactions fail.
+* The rendered result has not been inspected.
+* The authoring agent is the sole validator.
+* File existence or screenshot existence is treated as proof of quality.
+* The final response claims perfection rather than bounded validation.
+
+## REQUIRED REPOSITORY ARTIFACTS
+
+Create or update, as appropriate:
+
+```text
+research/
+  baseline-audit.md
+  baseline-defects.json
+  claim-ledger.json
+  recommendation-ledger.json
+  source-ledger.json
+  source-family-map.json
+  search-log.json
+  review-sample.json
+  customer-codebook.md
+  customer-theme-matrix.csv
+  competitor-observations.json
+  expert-evidence.json
+  issue-registry.json
+  unresolved-uncertainties.md
+  cycles/
+    cycle-01.md
+    cycle-02.md
+    cycle-03.md
+    cycle-04.md
+    cycle-05.md
+    cycle-06.md
+    cycle-07.md
+    cycle-08.md
+    cycle-09.md
+    cycle-10.md
+```
+
+Also update the website’s canonical data, static dossiers, interactive views, tools, tests, and documentation so the final product is internally coherent.
+
+Create a public methodology and evidence page that is useful to a business reader without exposing internal agent mechanics. It should explain:
+
+* What was researched.
+* How sources were selected.
+* How evidence quality was graded.
+* How customer and competitor observations were sampled and coded.
+* How conflicts and uncertainty were handled.
+* What remains provisional.
+* What requires first-party testing.
+
+## FINAL DEFINITION OF DONE
+
+The task is complete only when:
+
+1. All supplied files have been inspected and the canonical workspace is documented.
+2. The initial baseline defect registry is complete.
+3. Ten macrocycles have documented research, challenges, implementation, and validation.
+4. Every macrocycle contains six distinct research rounds and three independent expert rounds.
+5. Every material public claim maps to the canonical claim ledger.
+6. Every important recommendation maps to evidence, operational assessment, and a decision rule.
+7. Unsupported and overstated claims have been removed, narrowed, or made explicitly provisional.
+8. Customer and competitor conclusions are based on a documented, balanced, traceable sample.
+9. Marketing, design, sales, psychology, neuroscience, and market-research theories are represented accurately with limitations and counterevidence.
+10. All report prose has passed the Handcrafted Writing and Editorial Quality Protocol.
+11. Static dossiers, structured data, and interactive views agree.
+12. All calculators and interactive tools have validated formulas, units, assumptions, boundary behavior, and honest labels.
+13. Accessibility, mobile, desktop, print, interaction, and link checks pass.
+14. Lint, type checking, schema checks, tests, and production build pass, or any unavoidable external blocker is precisely documented without claiming completion.
+15. No blocker or critical issue remains open.
+16. Git history contains focused checkpoints for the completed work.
+17. The final release has undergone a separate final validation pass.
+18. The final spirit-preservation review confirms that the work strengthens Ursa’s demonstrated identity rather than replacing it.
+
+## FINAL RESPONSE FORMAT
+
+Return a concise, inspectable release report containing:
+
+1. Canonical workspace and starting/final Git commit.
+2. What the initial forensic audit found.
+3. Ten-cycle completion table with substantive delta from each cycle.
+4. Research coverage by domain and source quality.
+5. Claims retained, narrowed, removed, contested, and still provisional.
+6. Highest-impact changes to every report and analysis.
+7. Highest-impact website, data, calculator, accessibility, and interaction changes.
+8. Expert challenges that materially changed the work.
+9. Tests run and exact results.
+10. Remaining uncertainty and owner data still needed.
+11. File and route manifest.
+12. Deployment or local repository state, stated truthfully.
+13. Final evidence-quality score and editorial-quality score.
+14. Final verdicts:
+
+```text
+EVIDENCE VERDICT:
+STRONG | MODERATE | MIXED | INSUFFICIENT
+
+IMPLEMENTATION VERDICT:
+RELEASE-READY | RELEASE-READY WITH QUALIFICATIONS | NOT RELEASE-READY
+
+SPIRIT-PRESERVATION VERDICT:
+PRESERVED | PRESERVED WITH QUALIFICATIONS | NOT PRESERVED
+```
+
+Do not stop after research, criticism, or planning. Implement the validated improvements in the supplied website, verify the rendered result, and return the actual completed state.

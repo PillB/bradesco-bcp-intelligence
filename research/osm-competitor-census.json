@@ -1,0 +1,25 @@
+{
+  "schema": "ursa-osm-census/v1",
+  "compiled": "2026-08-01",
+  "source": "OpenStreetMap Overpass API",
+  "total_pois": 176,
+  "key_new_findings": [
+    {"name": "Milimetrica Coffee Co", "distance_m": 35, "type": "cafe", "note": "35m from Ursa - NOT in previous census! Critical proximity."},
+    {"name": "Dulce Ciudad", "distance_m": 50, "type": "cafe"},
+    {"name": "Pan Atelier", "distance_m": 64, "type": "bakery"},
+    {"name": "Just Protein", "distance_m": 61, "type": "fast_food"},
+    {"name": "Caficulto", "distance_m": 83, "type": "cafe"},
+    {"name": "Cardinal Cafe", "distance_m": 89, "type": "cafe"},
+    {"name": "Holy Plants", "distance_m": 106, "type": "fast_food"},
+    {"name": "Bla Coffee", "distance_m": 185, "type": "cafe"},
+    {"name": "La Cafetera", "distance_m": 180, "type": "cafe"},
+    {"name": "Liberta Cafe", "distance_m": 197, "type": "cafe"},
+    {"name": "Howm", "distance_m": 278, "type": "cafe"},
+    {"name": "Juan Valdez Cafe", "distance_m": 390, "type": "cafe"},
+    {"name": "Kulcafe", "distance_m": 543, "type": "cafe"},
+    {"name": "Tostadores Cafe", "distance_m": 617, "type": "cafe"},
+    {"name": "Pausa Cafe", "distance_m": 686, "type": "cafe"}
+  ],
+  "confirmed_from_census": ["Ursa Coffee Roasters (22m)", "Milenaria Cafe (15m)", "Puku Puku (356m)", "Estacion 329 (679m)", "True Artisan Cafe (468m)", "Arabica Espresso Bar (675m)", "Amauta Coffee (133m)", "RAIZ Coffee (487m)"],
+  "implication": "OSM reveals 60+ additional businesses. Ursa operates in one of Lima's most cafe-saturated blocks. Key gap: Milimetrica Coffee Co at 35m was completely missed in manual census."
+}

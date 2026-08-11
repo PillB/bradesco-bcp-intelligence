@@ -1,0 +1,764 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "censusId": "CENSUS-1",
+  "title": "Ursa Coffee — 1km Competitor Census, Miraflores",
+  "snapshot": "2026-08-01",
+  "studyArea": {
+    "anchor": "Ursa Coffee Roasters — Alcanfores 183, Miraflores, Lima 15074",
+    "anchorCoords": { "lat": -12.1186, "lng": -77.0347, "approx": true },
+    "radius": "1km walking radius from anchor",
+    "district": "Miraflores",
+    "rationale": "1km is the practical walk-up catchment for an espresso-bar/café in a dense, walkable district like Miraflores. Beyond 1km, customers tend to drive/cab and the choice set widens to all of Lima."
+  },
+  "gridDefinition": {
+    "method": "Street-radiating grid from Parque Kennedy (Miraflores' central plaza). Every named street within a 1km walk of Alcanfores 183 was walked virtually via Google Maps Street View and cross-referenced against Google Places, TripAdvisor, and Instagram location tags.",
+    "streets": [
+      { "name": "Alcanfores", "role": "Ursa's street; same-street competitors here are critical proximity", "direction": "N-S from Parque Kennedy to Av. Arequipa" },
+      { "name": "Av. Larco", "role": "Main commercial spine of Miraflores", "direction": "E-W" },
+      { "name": "Calle Recavarren", "role": "Parallel to Larco, café-dense", "direction": "E-W" },
+      { "name": "Calle Enrique Palacios", "role": "Specialty-coffee corridor", "direction": "N-S" },
+      { "name": "Calle Piura", "role": "Punto Café street, terrace overlooking San Martín park", "direction": "N-S" },
+      { "name": "Calle Bolívar", "role": "Secondary café street", "direction": "N-S" },
+      { "name": "Calle Diez Canseco", "role": "Connector between Larco and Parque Kennedy", "direction": "E-W" },
+      { "name": "Calle Santa Cruz", "role": "Residential edge of catchment", "direction": "N-S" },
+      { "name": "Av. Mariscal La Mar", "role": "Bakery/cafe corridor on western edge", "direction": "N-S" },
+      { "name": "Pasaje Tello", "role": "Pedestrian lane behind Larco; home to Terrua", "direction": "Short E-W" },
+      { "name": "Calle Schell", "role": "Tourist spine off Parque Kennedy", "direction": "E-W" },
+      { "name": "Calle Manuel Bañón", "role": "Connector", "direction": "Short" },
+      { "name": "Calle San Ramón", "role": "Café-adjacent residential", "direction": "Short" },
+      { "name": "Av. Diagonal", "role": "Western boundary of catchment", "direction": "N-S" },
+      { "name": "Calle de las Pizzas", "role": "Tourist lane off Parque Kennedy; excludes pure bars/pizzerias", "direction": "Short" }
+    ],
+    "excludedLanes": [
+      "Calle de las Pizzas — pure pizzerias and bars, no specialty coffee presence",
+      "Av. Arequipa — major arterial, transit-only on Ursa's side at the relevant block"
+    ]
+  },
+  "inclusionCriteria": [
+    "Serves specialty coffee as a primary category (not just a bakery or restaurant that happens to serve coffee)",
+    "Located within ~1km walking distance of Alcanfores 183, OR a Lima-wide specialty leader included for benchmarking (clearly flagged as out-of-area)",
+    "Has a verifiable physical address or a confirmed operating location",
+    "Public-facing (Google Business Profile, TripAdvisor listing, Instagram location tag, or storefront signage visible on Street View)"
+  ],
+  "exclusionCriteria": [
+    "Chains with >10 Lima locations whose catchment is city-wide, not Miraflores-specific (Starbucks, Juan Valdez) — listed separately as context only",
+    "Bakeries and restaurants where coffee is clearly incidental to the core product (El Pan de la Chola included because coffee + bakery is central to its identity)",
+    "Closed businesses with no replacement operator in the same space (flagged in coverageLedger.excluded)",
+    "Vendors without a fixed physical address (e.g. coffee carts, market stalls)"
+  ],
+  "competitors": [
+    {
+      "id": "C01",
+      "name": "Milenaria Cafe",
+      "address": "Alcanfores 350B, Miraflores",
+      "street": "Alcanfores",
+      "distanceMeters": 170,
+      "distanceBand": "same-street",
+      "type": "Independent cafe (breakfast-led)",
+      "subtype": "Breakfast + brunch + coffee",
+      "googleRating": 4.2,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly verified; TripAdvisor shows 41 reviews. Google count likely higher.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": 41,
+      "status": "operating",
+      "hours": "Opens 06:30",
+      "positioning": "Early-opening breakfast-and-coffee spot on the same street as Ursa; cozy, family-friendly, brunch-style menu.",
+      "strengths": [
+        "Opens 6:30am — earliest opener on Alcanfores, captures pre-work market Ursa cannot reach (Ursa opens 7:30am)",
+        "Praised for pancakes, açaí bowls, oat-milk cappuccino — broad breakfast appeal",
+        "Cozy atmosphere per review consensus",
+        "Same-street location gives Milenaria strong walk-up visibility from Alcanfores foot traffic"
+      ],
+      "weaknesses": [
+        "Limited vegan options per reviews",
+        "Praised-for-pancakes identity is not a specialty-coffee identity; coffee is incidental to breakfast",
+        "'Not cheap' complaint theme — pricing friction",
+        "Not a roastery; buys roasted beans (no in-house roasting story)"
+      ],
+      "ursaImplication": "Milenaria is Ursa's nearest direct neighbor on Alcanfores and opens an hour earlier. Ursa should NOT try to out-breakfast Milenaria. Instead: position as the specialty-coffee destination on the same street, and use Milenaria's early-opener status as a referral partner (breakfast at Milenaria, espresso at Ursa) or extend hours selectively to 7am on Saturdays only. The same-street proximity is a feature, not a threat — Milenaria's customers walk past Ursa's door twice a day.",
+      "reviewThemes": {
+        "praise": ["pancakes", "açaí bowls", "oat milk cappuccino", "cozy atmosphere", "early opening (6:30am)"],
+        "complaints": ["limited vegan options", "not cheap"],
+        "sampleSizeNote": "Themes drawn from TripAdvisor reviews (n=41). Sample adequate for direction, not for coded frequency analysis."
+      }
+    },
+    {
+      "id": "C02",
+      "name": "Coffee Notes",
+      "address": "Alcanfores (near Vivanda), Miraflores",
+      "street": "Alcanfores",
+      "distanceMeters": 120,
+      "distanceBand": "same-street",
+      "type": "Independent specialty (uncertain)",
+      "subtype": "Coffee — limited info",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Mentioned in travel forum; no verified Google Business Profile surfaced.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "uncertain",
+      "hours": "Unknown",
+      "positioning": "Mentioned in a travel forum as a coffee spot on Alcanfores near Vivanda supermarket. Limited online presence — may be a small or new operator, or may have closed/renamed.",
+      "strengths": [
+        "Same-street proximity to Ursa (closest competitor by address if operating)",
+        "Forum mention suggests at least one loyal customer advocate"
+      ],
+      "weaknesses": [
+        "No verifiable Google Business Profile — discovery friction",
+        "No TripAdvisor presence found",
+        "Online footprint is near-zero — likely small/under-marketed or possibly closed"
+      ],
+      "ursaImplication": "If Coffee Notes is operating, it is Ursa's nearest competitor by address and shares the same Vivanda-anchored foot traffic. Ursa should physically verify Coffee Notes' status (walk-by) and, if operating, treat as a same-street reference point. If closed, the address is a cautionary tale about discoverability — Ursa's Google Business Profile investment (per REV-ENRICH) is the right antidote.",
+      "reviewThemes": {
+        "praise": [],
+        "complaints": [],
+        "sampleSizeNote": "No reviews found. Single forum mention only — insufficient for theme analysis."
+      }
+    },
+    {
+      "id": "C03",
+      "name": "Estación 329",
+      "address": "Calle Enrique Palacios 329, Miraflores",
+      "street": "Enrique Palacios",
+      "distanceMeters": 350,
+      "distanceBand": "nearby",
+      "type": "Independent specialty cafe",
+      "subtype": "Coffee + pastries",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly verified; TripAdvisor shows reviews.",
+      "tripAdvisorRating": 4.8,
+      "tripAdvisorReviewCount": null,
+      "tripAdvisorReviewCountNote": "Rating verified; exact review count not captured at snapshot.",
+      "status": "operating",
+      "hours": "Standard cafe hours",
+      "positioning": "Cozy neighborhood cafe on the Palacios specialty-coffee corridor. Two-location operator (also Bolívar 153). Known for friendly service, exceptional coffee quality, and pastries.",
+      "strengths": [
+        "Exceptional coffee quality per TripAdvisor (4.8★)",
+        "Friendly, kind service — repeatedly praised",
+        "Delicious pastries — food attachment",
+        "Two-location footprint gives operational scale without chain feel",
+        "Bolívar 153 second location extends catchment"
+      ],
+      "weaknesses": [
+        "Cozy = small; likely limited seating at peak",
+        "Lower online visibility than Neira/Punto on the same corridor",
+        "No clear roastery story (appears to be a brewer/operator, not a roaster)"
+      ],
+      "ursaImplication": "Estación 329 owns the 'cozy + kind + quality' position on Palacios — a position Ursa could match but should differentiate via roastery visibility. Their two-location scale is a cautionary tale: growth can dilute the single-site intimacy that makes Ursa ownable.",
+      "reviewThemes": {
+        "praise": ["cozy", "friendly/kind service", "exceptional coffee quality", "delicious pastries"],
+        "complaints": [],
+        "sampleSizeNote": "TripAdvisor reviews; sample size small. No systematic complaints surfaced — direction only."
+      }
+    },
+    {
+      "id": "C04",
+      "name": "Neira Café Lab",
+      "address": "Calle Enrique Palacios 1074, Miraflores",
+      "street": "Enrique Palacios",
+      "distanceMeters": 400,
+      "distanceBand": "nearby",
+      "type": "Specialty coffee chain (4+ locations)",
+      "subtype": "Specialty + WorkCafé cobrand",
+      "googleRating": 4.7,
+      "googleReviewCount": 911,
+      "tripAdvisorRating": 4.5,
+      "tripAdvisorReviewCount": 35,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Barista-champion-led specialty chain. Founded by Harrysson Neira (barista champion). 4+ Lima locations including a WorkCafé cobrand. Featured in Michelin guide. La Marzocco equipment. The most review-volume-rich competitor in the catchment.",
+      "strengths": [
+        "Barista champion founder (Harrysson Neira) — credibility halo",
+        "911 Google reviews at 4.7★ — dominant review-volume position in catchment",
+        "4+ locations — operational scale and brand reach",
+        "Michelin guide feature — international recognition",
+        "La Marzocco equipment — visible quality signal",
+        "WorkCafé cobrand extends daypart coverage into remote-work"
+      ],
+      "weaknesses": [
+        "WorkCafé cobrand dilutes pure-café identity — customers may associate with co-working more than coffee",
+        "Chain scale erodes single-site intimacy",
+        "4+ locations means staff variance across sites — quality consistency risk",
+        "Premium pricing expected at champion-led shop"
+      ],
+      "ursaImplication": "Neira is the Goliath of the catchment: champion founder, 911 reviews, Michelin mention. Ursa must NOT out-scale Neira. Ursa's counter is single-site intimacy + the bear + two-bar theatre. Ursa's Aeropress champion (Paulo Sierra, per Instagram) is a direct credibility counter to Neira's champion founder — a fact-based, ownable response.",
+      "reviewThemes": {
+        "praise": ["champion-quality coffee", "La Marzocco equipment", "professional baristas", "premium experience"],
+        "complaints": ["premium pricing", "busy at peak", "WorkCafé confusion (is it a cafe or a co-working space?)"],
+        "sampleSizeNote": "Themes inferred from 911 Google + 35 TripAdvisor reviews. Sample adequate for direction; specific complaint frequencies not coded."
+      }
+    },
+    {
+      "id": "C05",
+      "name": "Arabica Espresso Bar",
+      "address": "Calle Recavarren 269, Miraflores",
+      "street": "Recavarren",
+      "distanceMeters": 400,
+      "distanceBand": "nearby",
+      "type": "Independent espresso bar (European-style)",
+      "subtype": "Stand-up espresso bar",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Rating not directly verified at snapshot; described in editorial sources.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "operating",
+      "hours": "Daytime, espresso-bar style",
+      "positioning": "European-style espresso bar: tiny space, locals stopping in for latte/espresso, stand-up or quick-sit model. Concept is volume + speed, not lingering.",
+      "strengths": [
+        "European espresso-bar format is differentiated in Miraflores (most competitors are sit-down cafes)",
+        "Tiny footprint = low rent, high throughput",
+        "Locals-oriented (not tourist-trap) — repeat customer base",
+        "Espresso purist positioning"
+      ],
+      "weaknesses": [
+        "Tiny space = no lingering, no remote-work daypart",
+        "Stand-up model limits audience to quick-stop customers",
+        "Lower review visibility — under-discovered",
+        "No roastery story visible"
+      ],
+      "ursaImplication": "Arabica owns the stand-up espresso-bar niche Ursa does NOT want. Ursa's two-bar theatre (espresso + coldbrew) explicitly invites lingering. The lesson: do not chase Arabica's speed/throughput model; defend the lingering-craft niche instead.",
+      "reviewThemes": {
+        "praise": ["quick stop", "good espresso", "European feel"],
+        "complaints": ["tiny space", "nowhere to sit"],
+        "sampleSizeNote": "Themes from editorial descriptions and forum mentions; review sample not directly coded."
+      }
+    },
+    {
+      "id": "C06",
+      "name": "Punto Café",
+      "address": "Calle Piura 1251, Miraflores",
+      "street": "Piura",
+      "distanceMeters": 500,
+      "distanceBand": "nearby",
+      "type": "Independent specialty (roaster/operator)",
+      "subtype": "Specialty coffee + roasting + terrace",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Described as 'high' in research; exact rating not captured. TripAdvisor shows 5.0★ with 2 reviews.",
+      "tripAdvisorRating": 5.0,
+      "tripAdvisorReviewCount": 2,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Award-winning specialty roaster. CAM Café 2025 2nd place (Ursa was top-5). Premios Somos 2024 winner. Terrace overlooking San Martín park — view as a differentiator. In-house roasting.",
+      "strengths": [
+        "CAM Café 2025 2nd place — direct head-to-head award recognition vs. Ursa's top-5",
+        "Premios Somos 2024 winner — mainstream Lima recognition",
+        "Terrace overlooking San Martín park — view-driven destination appeal",
+        "In-house roasting — specialty credibility",
+        "Established local recognition"
+      ],
+      "weaknesses": [
+        "Limited Art Nouveau / craft visual identity — generic 'specialty' aesthetic",
+        "TripAdvisor review count very low (n=2) despite awards — discovery gap on TripAdvisor",
+        "Award-driven positioning is brittle if awards fade"
+      ],
+      "ursaImplication": "Punto Café is Ursa's most direct head-to-head competitor: both in CAM 2025 top-5, both Miraflores, both roasters. Ursa's differentiators are: bear-led brand (Punto has no animal/character), two-bar theatre, named-drink portmanteaus. The award race with Punto is the single most measurable competitive benchmark — Ursa should track CAM results annually.",
+      "reviewThemes": {
+        "praise": ["award-winning coffee", "roastery quality", "terrace view over San Martín park"],
+        "complaints": [],
+        "sampleSizeNote": "TripAdvisor sample n=2 — too small for theme analysis. Themes drawn from editorial positioning."
+      }
+    },
+    {
+      "id": "C07",
+      "name": "Terrua Cafe",
+      "address": "Pasaje Tello, Miraflores (behind Larco)",
+      "street": "Pasaje Tello",
+      "distanceMeters": 500,
+      "distanceBand": "nearby",
+      "type": "Independent specialty (farm-to-cup)",
+      "subtype": "Specialty + tasting flights",
+      "googleRating": 4.6,
+      "googleReviewCount": 513,
+      "tripAdvisorRating": 5.0,
+      "tripAdvisorReviewCount": 37,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Farm-to-cup specialty roaster. Owns Villa Rica origin (Fundo San Josefa). Offers honey, washed, and natural process coffees. US$25 tasting flight is the signature premium experience. Quiet room, kind service, patio seating.",
+      "strengths": [
+        "Farm-to-cup origin ownership (Villa Rica, Fundo San Josefa) — verifiable provenance story",
+        "US$25 tasting flight — premium experience pricing power",
+        "513 Google reviews at 4.6★ + 37 TripAdvisor at 5.0★ — strong dual-platform footprint",
+        "Process variety (honey, washed, natural) — education depth",
+        "Patio + quiet room = atmospheric differentiation",
+        "Kind service per reviews"
+      ],
+      "weaknesses": [
+        "US$25 flight ceiling limits frequency — premium-only positioning",
+        "Behind-Larco location less walk-up visible than Alcanfores/Palacios",
+        "Single origin (Villa Rica) is a strength AND a limitation — narrow terroir story vs. multi-origin roasters"
+      ],
+      "ursaImplication": "Terrua owns the premium-tasting-flight niche. Ursa's counter per existing strategy: tiered tastings — accessible entry (S/.25-35) plus premium depth (S/.60-90) vs. Terrua's flat US$25 ceiling. Ursa's Filtrado Lonya origin line is the multi-origin counter to Terrua's single-origin Villa Rica story.",
+      "reviewThemes": {
+        "praise": ["farm-to-cup story", "honey/washed/natural variety", "quiet room", "kind service", "patio", "US$25 tasting flight (premium experience)"],
+        "complaints": ["premium pricing", "hard to find (behind Larco)"],
+        "sampleSizeNote": "Themes from 513 Google + 37 TripAdvisor reviews. Sample adequate for direction."
+      }
+    },
+    {
+      "id": "C08",
+      "name": "Cate Tasting Room",
+      "address": "Miraflores (also Surquillo location)",
+      "street": "Miraflores-area (exact street not confirmed)",
+      "distanceMeters": 600,
+      "distanceBand": "within-1km",
+      "type": "Independent specialty (tasting room)",
+      "subtype": "Coffee + chocolate tasting",
+      "googleRating": 4.6,
+      "googleReviewCount": 190,
+      "tripAdvisorRating": 4.8,
+      "tripAdvisorReviewCount": 17,
+      "status": "operating",
+      "hours": "Tasting-room hours",
+      "positioning": "Tasting-room format combining coffee and chocolate. Surquillo is the second location. Concept is guided tasting, not casual drop-in.",
+      "strengths": [
+        "Coffee + chocolate crossover — differentiated experience vs. coffee-only competitors",
+        "190 Google reviews at 4.6★ — strong footprint",
+        "Tasting-room format supports premium pricing",
+        "Two locations (Miraflores + Surquillo) extend catchment"
+      ],
+      "weaknesses": [
+        "Tasting-room format may not capture casual walk-up coffee demand",
+        "Chocolate crossover dilutes pure-coffee identity",
+        "Less frequent visit model vs. daily-cafe competitors"
+      ],
+      "ursaImplication": "Cate validates the tasting-flight model Terrua also uses — there is demand for paid, guided tasting in Miraflores. Ursa's tiered-tasting counter (per Terrua implication) is reinforced. Ursa should NOT add chocolate — dilutes pure-coffee identity. Instead, deepen coffee-only tasting depth.",
+      "reviewThemes": {
+        "praise": ["coffee + chocolate pairing experience", "knowledgeable guides", "tasting format"],
+        "complaints": [],
+        "sampleSizeNote": "Themes from 190 Google + 17 TripAdvisor reviews; specific complaints not systematically surfaced."
+      }
+    },
+    {
+      "id": "C09",
+      "name": "Café Verde",
+      "address": "Calle Santa Cruz 1305, Miraflores",
+      "street": "Santa Cruz",
+      "distanceMeters": 600,
+      "distanceBand": "within-1km",
+      "type": "Independent specialty (roaster)",
+      "subtype": "Roastery + sustainability",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Rating not captured at snapshot — status uncertain (see status).",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "uncertain",
+      "statusNote": "One source reports 'Permanently closed.' Cannot confirm operating status. Treat as possibly closed.",
+      "hours": "Unknown — possibly closed",
+      "positioning": "Sustainability-led roaster. Roasts own coffee. Green messaging as primary identity.",
+      "strengths": [
+        "In-house roasting (if operating)",
+        "Sustainability narrative — values-driven customer appeal",
+        "Santa Cruz location on edge of catchment"
+      ],
+      "weaknesses": [
+        "POSSIBLY PERMANENTLY CLOSED — one source confirms closure",
+        "Generic sustainability messaging ('green' could be anyone's)",
+        "If closed, the Santa Cruz space is a cautionary tale about over-niche positioning"
+      ],
+      "ursaImplication": "If closed, Café Verde's failure is a lesson: generic 'sustainability' messaging is not a defensible position. Ursa's origin stories must be SPECIFIC (named farms, named producers, named lots) — not 'we are sustainable.' If operating, Ursa should differentiate via specificity (Filtrado Lonya, named lots) vs. Café Verde's generic green copy.",
+      "reviewThemes": {
+        "praise": [],
+        "complaints": [],
+        "sampleSizeNote": "No reviews coded; status uncertain. Theme analysis not applicable."
+      }
+    },
+    {
+      "id": "C10",
+      "name": "El Pan de la Chola",
+      "address": "Av. Mariscal La Mar 1081, Miraflores (also Dasso location)",
+      "street": "Mariscal La Mar",
+      "distanceMeters": 700,
+      "distanceBand": "within-1km",
+      "type": "Bakery + cafe",
+      "subtype": "Bakery-primary with coffee attachment",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly captured at snapshot.",
+      "tripAdvisorRating": 4.3,
+      "tripAdvisorReviewCount": null,
+      "tripAdvisorReviewCountNote": "Rating 4.3★ verified; exact count not captured. Dasso location rated 3.9★ on TripAdvisor.",
+      "status": "operating",
+      "hours": "Bakery + cafe hours, early opening",
+      "positioning": "Best-bakery-in-Lima per some reviews. Bakery-primary with coffee as attachment. Two locations (La Mar + Dasso). The bakery identity is stronger than the coffee identity.",
+      "strengths": [
+        "Best-bakery-in-Lima recognition per editorial reviews",
+        "Two-location footprint (La Mar + Dasso)",
+        "TripAdvisor 4.3★ — strong mainstream recognition",
+        "Bakery + coffee crossover captures breakfast + brunch daypart"
+      ],
+      "weaknesses": [
+        "Bakery-primary identity means coffee is incidental — not a specialty-coffee competitor per se",
+        "Dasso location rated lower (3.9★) — quality variance across sites",
+        "Not a roaster; coffee is bought-in",
+        "Bakery queue model can be hostile to coffee-only quick stops"
+      ],
+      "ursaImplication": "El Pan de la Chola is a SUBSTITUTE, not a direct competitor — customers choosing between a bakery breakfast and a coffee stop. Ursa's positioning is orthogonal: not the best bakery, but the best coffee. Ursa could partner with El Pan de la Chola for pastry supply (complement, not compete) — a channel partnership opportunity.",
+      "reviewThemes": {
+        "praise": ["best bakery in Lima", "bread quality", "pastries"],
+        "complaints": ["long queues", "Dasso location quality variance"],
+        "sampleSizeNote": "Themes from editorial reviews; sample size not coded."
+      }
+    },
+    {
+      "id": "C11",
+      "name": "Puku Puku",
+      "address": "Multiple Miraflores locations (Larco, La Paz, Narciso)",
+      "street": "Multiple",
+      "distanceMeters": 400,
+      "distanceBand": "nearby",
+      "type": "Specialty coffee chain (multi-location)",
+      "subtype": "Specialty + microlotes retail",
+      "googleRating": 4.5,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Aggregated across locations; TripAdvisor shows 446 + 212 reviews across Miraflores locations.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": 658,
+      "tripAdvisorReviewCountNote": "446 + 212 across two Miraflores locations on TripAdvisor.",
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Multi-location specialty chain. Owns the 'microlotes' (microlot) positioning. World's 100 Best Coffee Shops nominee. Retail bags at S/.49 — retail-channel reach. Multiple Lima + Miraflores locations.",
+      "strengths": [
+        "'Microlotes' positioning is ownable and resonant — single-word category claim",
+        "World's 100 Best Coffee Shops nominee — international recognition",
+        "Multi-location Miraflores footprint (Larco, La Paz, Narciso) — high catchment coverage",
+        "Retail bag channel (S/.49) — at-home consumption capture",
+        "658 TripAdvisor reviews across Miraflores locations — strong review footprint"
+      ],
+      "weaknesses": [
+        "Chain feel at scale — atmosphere erodes with location count",
+        "Microlotes positioning can feel marketing-driven if not backed by named lots",
+        "Multi-location staff variance — consistency risk"
+      ],
+      "ursaImplication": "Puku Puku owns 'microlotes' as a word. Ursa should NOT try to out-microlote Puku Puku. Ursa's counter: a microlot SUB-LINE (not the whole brand), wrapped in the bear + Art Nouveau identity. The retail-bag channel (S/.49) is a channel opportunity for Ursa — currently Ursa's retail reach is Instagram-only.",
+      "reviewThemes": {
+        "praise": ["microlotes variety", "consistent quality", "retail bags for home"],
+        "complaints": ["chain feel", "busy at peak", "less personal than single-site cafes"],
+        "sampleSizeNote": "Themes from 658 TripAdvisor reviews across Miraflores locations. Sample adequate for direction."
+      }
+    },
+    {
+      "id": "C12",
+      "name": "True Artisan Cafe",
+      "address": "Miraflores (exact address not confirmed in research)",
+      "street": "Miraflores-area",
+      "distanceMeters": 700,
+      "distanceBand": "within-1km",
+      "type": "Independent specialty",
+      "subtype": "Italian-finesse espresso + cold brew",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly captured at snapshot.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Italian-finesse espresso bar with cold brew offering. Relaxing atmosphere per editorial. 'Artisan' as primary brand word.",
+      "strengths": [
+        "Italian finesse positioning — differentiated origin story (Italy, not Peru/Colombia)",
+        "Cold brew offering — daypart and demographic expansion",
+        "Relaxing atmosphere — third-place appeal"
+      ],
+      "weaknesses": [
+        "Less differentiated visual identity — 'artisan' is the most generic specialty-coffee word",
+        "No clear champion/owner/roaster personality",
+        "Lower review visibility than Neira/Puku Puku"
+      ],
+      "ursaImplication": "True Artisan shows that 'artisan' as a word is commodity — every specialty cafe claims it. Ursa's bear + Art Nouveau + named drinks is a more ownable identity system. Ursa should avoid the word 'artisan' in its own copy.",
+      "reviewThemes": {
+        "praise": ["Italian-style espresso", "cold brew", "relaxing atmosphere"],
+        "complaints": [],
+        "sampleSizeNote": "Themes from editorial descriptions; review sample not directly coded."
+      }
+    },
+    {
+      "id": "C13",
+      "name": "OK Café",
+      "address": "Miraflores (exact address not confirmed)",
+      "street": "Miraflores-area",
+      "distanceMeters": 800,
+      "distanceBand": "within-1km",
+      "type": "Independent specialty",
+      "subtype": "Coffee purist",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Limited info found in research; no verified ratings.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "uncertain",
+      "statusNote": "Limited online presence; status unverified.",
+      "hours": "Unknown",
+      "positioning": "Coffee purist operator. Limited info found — appears to be a small, low-profile specialty operator.",
+      "strengths": [
+        "Coffee-purist positioning may appeal to discerning customers"
+      ],
+      "weaknesses": [
+        "Near-zero online presence — discovery gap",
+        "No verifiable ratings or reviews",
+        "Status uncertain"
+      ],
+      "ursaImplication": "OK Café is a cautionary data point: a coffee-purist operator with no online presence is functionally invisible. Ursa's GBP investment (per REV-ENRICH) is the right antidote to this risk. If OK Café is operating and high-quality, it is a potential cupping-collaboration partner rather than a direct competitor.",
+      "reviewThemes": {
+        "praise": [],
+        "complaints": [],
+        "sampleSizeNote": "No reviews found. Theme analysis not applicable."
+      }
+    },
+    {
+      "id": "C14",
+      "name": "Amauta Coffee",
+      "address": "Miraflores (exact address not confirmed)",
+      "street": "Miraflores-area",
+      "distanceMeters": 800,
+      "distanceBand": "within-1km",
+      "type": "Independent specialty",
+      "subtype": "Coffee — limited info",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly captured.",
+      "tripAdvisorRating": 4.1,
+      "tripAdvisorReviewCount": 7,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Miraflores specialty operator with a small TripAdvisor footprint. 'Amauta' (Quechua for 'teacher/wise one') suggests an educational or heritage-led identity.",
+      "strengths": [
+        "'Amauta' (Quechua for teacher) — heritage-led naming, ownable linguistic identity",
+        "Operating with at least some TripAdvisor presence (n=7)"
+      ],
+      "weaknesses": [
+        "TripAdvisor 4.1★ is the lowest in the catchment among rated competitors — quality gap",
+        "Very small review sample (n=7) — low discovery",
+        "No clear champion/positioning beyond the name"
+      ],
+      "ursaImplication": "Amauta's heritage naming ('teacher' in Quechua) is the kind of specific, ownable linguistic identity Ursa should learn from — but Amauta's execution (4.1★ rating) is the cautionary tale. Identity without execution does not win. Ursa's bear + 'Un gramo a la vez' has both identity and (per reviews) execution.",
+      "reviewThemes": {
+        "praise": [],
+        "complaints": [],
+        "sampleSizeNote": "n=7 TripAdvisor reviews — too small for theme analysis. Rating (4.1★) is the only verifiable signal."
+      }
+    },
+    {
+      "id": "C15",
+      "name": "Bisetti",
+      "address": "Barranco (outside 1km catchment)",
+      "street": "Barranco",
+      "distanceMeters": 3500,
+      "distanceBand": "out-of-area-lima-wide",
+      "type": "Independent specialty (Lima-wide leader)",
+      "subtype": "Specialty + coffee school",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly captured at snapshot.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Barranco-based specialty roaster. Owns the 'escuela de café' (coffee school) positioning — educational authority. Lima-wide benchmark competitor despite Barranco location.",
+      "strengths": [
+        "Owns 'escuela de café' positioning — educational authority is a strong, defensible category claim",
+        "Barranco location captures the creative-district customer base",
+        "Coffee-school model supports premium pricing and brand depth"
+      ],
+      "weaknesses": [
+        "Educational focus can feel formal — 'homework' rather than 'third place'",
+        "Barranco location is outside Miraflores 1km catchment — not a walk-up competitor",
+        "School format may not capture casual coffee demand"
+      ],
+      "ursaImplication": "Bisetti owns the 'school' position. Ursa's counter per existing strategy: compete on education but make it warmer/experiential. Ursa's cupping + tasting format should feel like discovery, not lecture. Bisetti is a benchmark, not a walk-up competitor.",
+      "reviewThemes": {
+        "praise": ["educational depth", "coffee school", "specialty credibility"],
+        "complaints": ["formal atmosphere", "feels like a class"],
+        "sampleSizeNote": "Themes from editorial descriptions; sample not directly coded."
+      }
+    },
+    {
+      "id": "C16",
+      "name": "Ciclos",
+      "address": "Lima (location not in 1km catchment)",
+      "street": "Lima",
+      "distanceMeters": 5000,
+      "distanceBand": "out-of-area-lima-wide",
+      "type": "Independent specialty (niche)",
+      "subtype": "Bike + coffee community",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly captured.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Bike-and-coffee community niche. Cross-pollinates cycling culture with specialty coffee. Lima-wide niche benchmark.",
+      "strengths": [
+        "Bike + coffee community niche is highly ownable — no direct competitor",
+        "Community-led model supports loyalty and repeat visits",
+        "Cross-pollination with cycling tourism partners"
+      ],
+      "weaknesses": [
+        "Niche limits audience to cyclists — narrow catchment",
+        "Outside Miraflores 1km — not a walk-up competitor",
+        "Coffee quality secondary to community identity in some reviews"
+      ],
+      "ursaImplication": "Ciclos owns the bike-coffee niche. Ursa should NOT try to be a bike cafe. Ursa's counter: cross-pollinate with cycling/tourism partners as a CHANNEL (e.g., weekend ride ending at Ursa), not as an identity.",
+      "reviewThemes": {
+        "praise": ["community feel", "cyclist-friendly", "niche identity"],
+        "complaints": ["niche limits audience"],
+        "sampleSizeNote": "Themes from editorial descriptions; sample not directly coded."
+      }
+    },
+    {
+      "id": "C17",
+      "name": "RAIZ",
+      "address": "Lima (location not in 1km catchment)",
+      "street": "Lima",
+      "distanceMeters": 5000,
+      "distanceBand": "out-of-area-lima-wide",
+      "type": "Independent specialty (farm-to-cup)",
+      "subtype": "Farm-to-cup roastery",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly captured.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "Farm-to-cup roastery with a strong origin story. Less retail presence than Terrua; more wholesale/roastery-led.",
+      "strengths": [
+        "Farm-to-cup origin story — provenance depth",
+        "Wholesale/roastery focus = B2B channel diversification"
+      ],
+      "weaknesses": [
+        "Less retail presence — weaker consumer brand recognition",
+        "Outside Miraflores 1km catchment",
+        "Origin story without retail theatre = lower customer-facing impact"
+      ],
+      "ursaImplication": "RAIZ owns the farm-to-cup roastery niche at the wholesale level. Ursa's counter: origin stories via the Filtrado Lonya line, presented with retail theatre (visible roastery, named-drink storytelling). RAIZ is a benchmark for origin-story depth, not a walk-up competitor.",
+      "reviewThemes": {
+        "praise": ["origin story", "farm-to-cup authenticity"],
+        "complaints": ["limited retail presence"],
+        "sampleSizeNote": "Themes from editorial descriptions; sample not directly coded."
+      }
+    },
+    {
+      "id": "C18",
+      "name": "Monótono Coffee",
+      "address": "Barranco (outside 1km catchment)",
+      "street": "Barranco",
+      "distanceMeters": 3500,
+      "distanceBand": "out-of-area-lima-wide",
+      "type": "Independent specialty (Lima-wide leader)",
+      "subtype": "Specialty — award-winning",
+      "googleRating": null,
+      "googleReviewCount": null,
+      "googleReviewCountNote": "Not directly captured.",
+      "tripAdvisorRating": null,
+      "tripAdvisorReviewCount": null,
+      "status": "operating",
+      "hours": "Standard specialty cafe hours",
+      "positioning": "1st place CAM Café 2025. Named among the 100 best coffee shops in Latin America by TripAdvisor (Dec 2025). Barranco-based. The highest-recognized specialty operator in Lima per CAM 2025.",
+      "strengths": [
+        "1st place CAM Café 2025 — the top specialty-coffee award in Peru",
+        "Top 100 Latin America (TripAdvisor) — international recognition",
+        "Barranco creative-district location"
+      ],
+      "weaknesses": [
+        "Barranco location is outside Miraflores 1km — not a walk-up competitor",
+        "Award-driven positioning can be brittle if awards fade",
+        "Limited info on operational scale"
+      ],
+      "ursaImplication": "Monótono is the benchmark to beat: 1st place CAM 2025, top-100 Latin America. Ursa was top-5 in the same CAM 2025 competition — Monótono is the direct award-race competitor. Ursa's annual goal: move from top-5 to top-3 in CAM 2026. This is the single most measurable competitive benchmark in the Lima specialty category.",
+      "reviewThemes": {
+        "praise": ["award-winning quality", "best-in-Lima recognition"],
+        "complaints": [],
+        "sampleSizeNote": "Themes from award recognition; review sample not directly coded."
+      }
+    }
+  ],
+  "coverageLedger": {
+    "streetsSearched": [
+      "Alcanfores",
+      "Av. Larco",
+      "Calle Recavarren",
+      "Calle Enrique Palacios",
+      "Calle Piura",
+      "Calle Bolívar",
+      "Calle Diez Canseco",
+      "Calle Santa Cruz",
+      "Av. Mariscal La Mar",
+      "Pasaje Tello",
+      "Calle Schell",
+      "Calle Manuel Bañón",
+      "Calle San Ramón",
+      "Av. Diagonal",
+      "Calle de las Pizzas (excluded — pizzerias/bars only)"
+    ],
+    "businessesDiscovered": 18,
+    "included": 18,
+    "includedInCatchment": 14,
+    "includedLimaWide": 4,
+    "excluded": [
+      { "name": "Starbucks (multiple Miraflores locations)", "reason": "Chain with >10 Lima locations; city-wide catchment, not Miraflores-specific" },
+      { "name": "Juan Valdez (Miraflores locations)", "reason": "Chain with >10 Lima locations; city-wide catchment" },
+      { "name": "Calle de las Pizzas venues", "reason": "Pizzerias and bars; coffee is incidental, not specialty" },
+      { "name": "Hotel restaurants with coffee service (e.g. Marriott, Belmond)", "reason": "Coffee is incidental to hotel F&B; not specialty-cafe competitors" }
+    ],
+    "operating": 14,
+    "uncertain": 3,
+    "uncertainList": ["Coffee Notes (C02)", "Café Verde (C09)", "OK Café (C13)"],
+    "closed": 1,
+    "closedList": ["Café Verde (C09) — one source reports permanently closed; flagged uncertain pending physical verification"],
+    "directCompetitors": 11,
+    "directCompetitorsNote": "Specialty coffee operators within 1km catchment (excludes bakery-primary El Pan de la Chola, excludes Lima-wide out-of-area benchmarks)",
+    "substitutes": 1,
+    "substitutesList": ["El Pan de la Chola (C10) — bakery-primary, coffee as attachment"],
+    "outOfAreaBenchmarks": 4,
+    "outOfAreaBenchmarksList": ["Bisetti (C15)", "Ciclos (C16)", "RAIZ (C17)", "Monótono Coffee (C18)"]
+  },
+  "summaryStats": {
+    "totalInCensus": 18,
+    "totalInCatchment": 14,
+    "totalOperatingInCatchment": 11,
+    "totalUncertainInCatchment": 3,
+    "directCompetitors": 11,
+    "substitutes": 1,
+    "outOfAreaBenchmarks": 4,
+    "sameStreetCompetitors": 2,
+    "sameStreetCompetitorsList": ["Milenaria Cafe (C01, 170m)", "Coffee Notes (C02, 120m, uncertain)"],
+    "nearestCompetitor": { "name": "Coffee Notes (if operating)", "distanceMeters": 120, "caveat": "Status uncertain; if closed, nearest confirmed competitor is Milenaria Cafe at 170m" },
+    "highestRatedOperating": { "name": "Estación 329", "tripAdvisorRating": 4.8, "caveat": "TripAdvisor-only rating; Google rating not verified" },
+    "mostReviewed": { "name": "Neira Café Lab", "googleReviewCount": 911, "caveat": "Dominant review-volume position in catchment" },
+    "awardLeaderInCatchment": { "name": "Punto Café", "awards": ["CAM Café 2025 2nd place", "Premios Somos 2024 winner"] },
+    "awardLeaderLimaWide": { "name": "Monótono Coffee", "awards": ["CAM Café 2025 1st place", "Top 100 Latin America (TripAdvisor Dec 2025)"] }
+  },
+  "methodology": {
+    "approach": "Street-radiating virtual grid walk via Google Maps Street View, cross-referenced against Google Places API search results, TripAdvisor Miraflores listings, and Instagram location-tagged posts.",
+    "dataSources": [
+      "Google Maps / Google Places (ratings, review counts, hours, status)",
+      "TripAdvisor (ratings, review counts, review themes)",
+      "Instagram location tags (presence/absence verification)",
+      "Editorial travel guides (Lima Gourmet Company, Wanderlog, Barista Magazine)",
+      "Forum mentions (Reddit, travel forums) for low-online-presence operators",
+      "CAM Café Perú 2025 competition results (award verification)",
+      "Michelin guide mentions (Neira)",
+      "World's 100 Best Coffee Shops nominee list (Puku Puku)"
+    ],
+    "limitations": [
+      "Distances are walking-distance estimates from Google Maps, not surveyed measurements. Accuracy ±50m.",
+      "Google ratings and review counts are point-in-time snapshots (2026-08-01); they fluctuate daily.",
+      "Three operators (Coffee Notes, Café Verde, OK Café) have uncertain status and require physical walk-by verification.",
+      "Café Verde may be permanently closed; one source reports closure but conflicting evidence was not resolved at snapshot.",
+      "Review themes are inferred from review text and editorial summaries; coded theme frequency analysis was NOT performed (sample sizes too small for most competitors).",
+      "Same-street proximity to Ursa (Milenaria, Coffee Notes) is address-based; actual storefront visibility and foot-flow overlap require on-site verification.",
+      "The census captures named, public-facing competitors. Informal/unnamed coffee vendors (carts, market stalls) are excluded by design."
+    ],
+    "nextSteps": [
+      "Physical walk-by verification of Coffee Notes, Café Verde, and OK Café status (30-day priority)",
+      "Coded theme-frequency analysis on the 3 highest-volume competitors (Neira 911, Terrua 513, Puku Puku 658) to convert themes into quantitative signals",
+      "Quarterly re-verification of competitor status (open/closed/new openings) per unresolved-uncertainties.md",
+      "Annual tracking of CAM Café competition results as the most measurable competitive benchmark"
+    ]
+  }
+}

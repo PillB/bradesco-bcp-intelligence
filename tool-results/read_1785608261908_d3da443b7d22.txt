@@ -1,0 +1,1058 @@
+     1→"use client";
+     2→
+     3→import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
+     4→import {
+     5→  Pill,
+     6→  Callout,
+     7→  StatBlock,
+     8→  EvidenceTag,
+     9→  SectionBadge,
+    10→  BearMark,
+    11→  ArtNouveauDivider,
+    12→} from "../ursa-brand";
+    13→import {
+    14→  Accordion,
+    15→  AccordionContent,
+    16→  AccordionItem,
+    17→  AccordionTrigger,
+    18→} from "@/components/ui/accordion";
+    19→import {
+    20→  Coffee,
+    21→  Snowflake,
+    22→  Droplet,
+    23→  Croissant,
+    24→  Sandwich,
+    25→  Gift,
+    26→  Sparkles,
+    27→  Clock,
+    28→  TrendingUp,
+    29→  FlaskConical,
+    30→  CircleSlash,
+    31→  CheckCircle2,
+    32→  ArrowRight,
+    33→} from "lucide-react";
+    34→import { useNavigate } from "@/lib/ursa-nav";
+    35→import { URSA_FACTS, VERIFIED_BEVERAGES, VERIFIED_FOOD } from "@/lib/ursa-data";
+    36→
+    37→// ---------------------------------------------------------------
+    38→// Reconstructed current menu — modelled on the .ursa-menu prototype
+    39→// (double border, centered crest, dotted leaders, label-font prices).
+    40→// Verified items come from VERIFIED_BEVERAGES / VERIFIED_FOOD.
+    41→// Standard espresso-bar items are reconstructed from the Rappi
+    42→// snapshot (Source S3, 2026-08-01). Prices marked * are inferred
+    43→// from category positioning and should be confirmed at the bar.
+    44→// ---------------------------------------------------------------
+    45→
+    46→type MenuItem = {
+    47→  name: string;
+    48→  price: string;
+    49→  note?: string;
+    50→  verified?: boolean;
+    51→  signature?: boolean;
+    52→};
+    53→
+    54→type MenuSection = {
+    55→  id: string;
+    56→  label: string;
+    57→  items: MenuItem[];
+    58→};
+    59→
+    60→const CURRENT_MENU_SECTIONS: MenuSection[] = [
+    61→  {
+    62→    id: "espresso",
+    63→    label: "Barra Espresso",
+    64→    items: [
+    65→      { name: "Espresso", price: "S/. 6" },
+    66→      { name: "Cortado", price: "S/. 8" },
+    67→      { name: "Americano", price: "S/. 8" },
+    68→      { name: "Flat White", price: "S/. 10" },
+    69→      { name: "Capuccino", price: "S/. 10" },
+    70→      { name: "Latte", price: "S/. 11" },
+    71→      { name: "Mocha", price: "S/. 12" },
+    72→      { name: "Black Label", price: "S/. 14", note: "Rotando · micro-lote de la semana" },
+    73→      {
+    74→        name: "Ursagroni",
+    75→        price: "S/. 18",
+    76→        note: "Espresso · bitter · cítrico · la bebida más fotografiada",
+    77→        verified: true,
+    78→        signature: true,
+    79→      },
+    80→    ],
+    81→  },
+    82→  {
+    83→    id: "coldbrew",
+    84→    label: "Barra Coldbrew",
+    85→    items: [
+    86→      { name: "Coldbrew", price: "S/. 10" },
+    87→      { name: "Coldbrew Tonic", price: "S/. 13" },
+    88→      {
+    89→        name: "Durazno Clarificado",
+    90→        price: "S/. 14",
+    91→        note: "Durazno · cold brew clarificado",
+    92→        verified: true,
+    93→        signature: true,
+    94→      },
+    95→      {
+    96→        name: "Maracumango",
+    97→        price: "S/. 14",
+    98→        note: "Maracuyá · mango · verano permanente",
+    99→        verified: true,
+   100→        signature: true,
+   101→      },
+   102→    ],
+   103→  },
+   104→  {
+   105→    id: "filtrados",
+   106→    label: "Filtrados",
+   107→    items: [
+   108→      { name: "Filtrado de la Casa", price: "S/. 8", note: "Rotando diario" },
+   109→      { name: "V60", price: "S/. 12" },
+   110→      { name: "Chemex (para dos)", price: "S/. 22" },
+   111→      {
+   112→        name: "Filtrado Lonya",
+   113→        price: "S/. 14 *",
+   114→        note: "Utcubamba, Amazonas · 1,750m · Bourbon lavado",
+   115→        verified: true,
+   116→        signature: true,
+   117→      },
+   118→    ],
+   119→  },
+   120→  {
+   121→    id: "pastries",
+   122→    label: "Pastelería",
+   123→    items: [
+   124→      { name: "House-made Cookie", price: "S/. 5 *", verified: true },
+   125→      { name: "Financier de Pera", price: "S/. 6 *", verified: true, signature: true },
+   126→    ],
+   127→  },
+   128→  {
+   129→    id: "savory",
+   130→    label: "Salado",
+   131→    items: [
+   132→      {
+   133→        name: "Empanada de Carne con Bechamel",
+   134→        price: "S/. 12 *",
+   135→        note: "Verificado en post de Instagram acompañando el Ursagroni",
+   136→        verified: true,
+   137→        signature: true,
+   138→      },
+   139→    ],
+   140→  },
+   141→];
+   142→
+   143→// ---------------------------------------------------------------
+   144→// New product proposals — locally authored, evaluated against the
+   145→// 16-criteria framework. Each proposal shows the six most
+   146→// decision-critical criteria as visible rows; the remaining ten are
+   147→// summarised in chips.
+   148→// ---------------------------------------------------------------
+   149→
+   150→type Proposal = {
+   151→  id: string;
+   152→  name: string;
+   153→  spanish?: string;
+   154→  category:
+   155→    | "Signature coffee"
+   156→    | "Cold coffee"
+   157→    | "Seasonal"
+   158→    | "Non-coffee"
+   159→    | "Pastries"
+   160→    | "Retail beans"
+   161→    | "Experiences";
+   162→  concept: string;
+   163→  brandFit: string;
+   164→  tasteConcept: string;
+   165→  prepTime: string;
+   166→  margin: string; // lean/moderate/growth PEN
+   167→  testMethod: string;
+   168→  stopRule: string;
+   169→  pricingLean: number;
+   170→  pricingModerate: number;
+   171→  pricingGrowth: number;
+   172→};
+   173→
+   174→const PROPOSALS: Proposal[] = [
+   175→  {
+   176→    id: "P-01",
+   177→    name: "Oso Negro",
+   178→    spanish: "Black bear · double ristretto over warm honey",
+   179→    category: "Signature coffee",
+   180→    concept:
+   181→      "Doble ristretto de Black Label vertido sobre una cucharada de miel tibia y una lágrima de espresso frío. Profundo, oscuro, con un dulzor que aparece tarde. Nombrado por el oso andino de las nieblas.",
+   182→    brandFit:
+   183→      "Perfecto — el nombre es un nombre de la casa (Oso + negro del Black Label). Refuerza el personaje sin apartarse del café.",
+   184→    tasteConcept:
+   185→      "Amargo de ristretto → miel cálida → finish de chocolate negro. La temperatura de la miel controla la textura final.",
+   186→    prepTime: "3 min (servido en copa pequeña precalentada).",
+   187→    margin: "Alto — la miel cuesta más que el azúcar pero el ristretto usa la mitad de dosis de un latte.",
+   188→    testMethod:
+   189→      "Promocionar 14 días como 'shot del barista'. Medir pedidos/día y solicitudes de repetición.",
+   190→    stopRule: "Menos de 4/día tras 14 días → reformular como shot de cortesía, no producto.",
+   191→    pricingLean: 9,
+   192→    pricingModerate: 11,
+   193→    pricingGrowth: 13,
+   194→  },
+   195→  {
+   196→    id: "P-02",
+   197→    name: "Media Luna",
+   198→    spanish: "Half-moon cortado with orange zest",
+   199→    category: "Signature coffee",
+   200→    concept:
+   201→      "Cortado servido en taza media luna (molde exclusivo). Espuma de leche con ralladura de naranja. La forma de media luna repite los motivos Art Nouveau del local.",
+   202→    brandFit:
+   203→      "Fuerte — la forma de media luna es visualmente ownable y fotogénica; ya pertenece al lenguaje visual de Ursa.",
+   204→    tasteConcept:
+   205→      "Cortado equilibrado con un aroma cítrico que abre la copa antes del primer sorbo. Sin endulzar — solo aroma.",
+   206→    prepTime: "2.5 min (requiere taza especial y rallador).",
+   207→    margin: "Medio-alto — la ralladura de naranja es barata; la taza es costoso único.",
+   208→    testMethod:
+   209→      "Servir como edición de 30 tazas. Contar fotografías compartidas en Instagram con la geo-tag de Ursa.",
+   210→    stopRule: "Menos de 3 fotos compartidas / semana → retirar la taza, mantener el cortado.",
+   211→    pricingLean: 9,
+   212→    pricingModerate: 11,
+   213→    pricingGrowth: 12,
+   214→  },
+   215→  {
+   216→    id: "P-03",
+   217→    name: "Clarificado de Lúcuma",
+   218→    spanish: "Lúcuma-clarified cold brew",
+   219→    category: "Cold coffee",
+   220→    concept:
+   221→      "Cold brew clarificado con leche de lúcuma usando la técnica de Durazno Clarificado. La lúcuma es el fruto emblemático del Perú; al clarificarla, queda un pour ámbar limpio, sin sedimento.",
+   222→    brandFit:
+   223→      "Fuerte — extiende la línea 'Clarificado' (ya propia) con un ingrediente nacionalmente reconocido.",
+   224→    tasteConcept:
+   225→      "Cold brew con dulzor sedoso de lúcuma, sin lácteos visibles. Color ámbar. Finish limpio.",
+   226→    prepTime: "4 min de servicio + 24h de clarificación en batch.",
+   227→    margin: "Alto — la lúcuma es económica en Lima y el proceso clarificado escala en batch.",
+   228→    testMethod:
+   229→      "Pilot de 4 semanas en barra Coldbrew. Medir % de coldbrew vendido que es Clarificado de Lúcuma.",
+   230→    stopRule: "Menos de 5/día tras 4 semanas → reformular como estacional de otoño.",
+   231→    pricingLean: 13,
+   232→    pricingModerate: 15,
+   233→    pricingGrowth: 16,
+   234→  },
+   235→  {
+   236→    id: "P-04",
+   237→    name: "Té de Oso",
+   238→    spanish: "Cold brew over cascara tea ice",
+   239→    category: "Cold coffee",
+   240→    concept:
+   241→      "Cold brew servido sobre un cubo grande de hielo de té de cáscara (cascara). Conforme el hielo se derrite, la taza evoluciona — primero café puro, luego café con notas de fruta seca. El oso que toma su tiempo.",
+   242→    brandFit:
+   243→      "Muy fuerte — captura 'un gramo a la vez' en una sola bebida: el tiempo como ingrediente.",
+   244→    tasteConcept:
+   245→      "Coffee-forward al inicio, frutal al final. Cada sorbo es distinto. La cáscara viene del mismo grano.",
+   246→    prepTime: "3 min de servicio + preparación previa de cubos de cascara.",
+   247→    margin: "Alto — cascara es subproducto del grano; el precio se ancla en la experiencia.",
+   248→    testMethod:
+   249→      "Servir 30 unidades como 'edición de slow bar'. Filmar reacciones y pedir testimonios.",
+   250→    stopRule: "NPS < 8/10 o menos de 8 unidades vendidas → reformular como Cata Privada.",
+   251→    pricingLean: 14,
+   252→    pricingModerate: 16,
+   253→    pricingGrowth: 18,
+   254→  },
+   255→  {
+   256→    id: "P-05",
+   257→    name: "Cosecha de Amazonas",
+   258→    spanish: "Seasonal Utcubamba flight · three micro-lots",
+   259→    category: "Seasonal",
+   260→    concept:
+   261→      "Vuelo de tres micro-lotes de Utcubamba (Amazonas) servidos lado a lado: lavado, honey, natural. Una hoja con notas de cata y altitud. Mientras dure la cosecha.",
+   262→    brandFit:
+   263→      "Fuerte — profundiza el Filtrado Lonya en una experiencia de origen, no solo una bebida.",
+   264→    tasteConcept:
+   265→      "Tres tazas pequeñas, tres procesos. El cliente aprende a distinguir el mismo grano tratado distinto.",
+   266→    prepTime: "8 min (tres filtrados manuales servidos simultáneamente).",
+   267→    margin: "Medio-alto — el grano es el mismo, pero el tiempo de barista sube.",
+   268→    testMethod:
+   269→      "Lanzar en Cata Privada y cupping mensual. Medir conversión a venta de bolsa de 250g.",
+   270→    stopRule: "Menos de 6 vuelos/mes → solo disponible en catas guiadas.",
+   271→    pricingLean: 22,
+   272→    pricingModerate: 26,
+   273→    pricingGrowth: 30,
+   274→  },
+   275→  {
+   276→    id: "P-06",
+   277→    name: "Invierno Andino",
+   278→    spanish: "Spiced pour-over with chincho and panela",
+   279→    category: "Seasonal",
+   280→    concept:
+   281→      "Pour-over preparado con una pizca de chincho (hierba andina) en el lecho y panela en el agua. Cálido, herbal, sin lácteos. Inverso al Clarificado de Lúcuma: esto es la montaña en invierno.",
+   282→    brandFit:
+   283→      "Fuerte — la paleta (hierba, panela, café) está dentro del universo de ingredientes peruanos.",
+   284→    tasteConcept:
+   285→      "Pour-over con aromática de chincho y dulzor profundo de panela. Sin azúcar añadido más allá de la panela.",
+   286→    prepTime: "5 min.",
+   287→    margin: "Alto — chincho y panela son económicos; precio se ancla en estacionalidad.",
+   288→    testMethod:
+   289→      "Lanzar en junio (inicio de invierno) por 6 semanas. Medir repetición y puntuación en cata.",
+   290→    stopRule: "Menos de 4/día tras 6 semanas → reformular para verano con cascara helada.",
+   291→    pricingLean: 12,
+   292→    pricingModerate: 14,
+   293→    pricingGrowth: 16,
+   294→  },
+   295→  {
+   296→    id: "P-07",
+   297→    name: "Chocolate del Oso",
+   298→    spanish: "Single-origin Peruvian cacao drinking chocolate",
+   299→    category: "Non-coffee",
+   300→    concept:
+   301→      "Chocolate caliente de cacao peruano de origen único (Cusco o San Martín). Servido en taza de barro. Sin jarabe — solo cacao, agua, un toque de panela.",
+   302→    brandFit:
+   303→      "Fuerte — refuerza el universo 'origen peruano' sin salir de la identidad de tostador.",
+   304→    tasteConcept:
+   305→      "Chocolate profundo, no dulce. El barro mantiene la temperatura; la panela aparece tarde.",
+   306→    prepTime: "4 min (jarra caliente preparada en batch cada 2h).",
+   307→    margin: "Medio — cacao de origen cuesta más que jarabe, pero el ticket promedio sube.",
+   308→    testMethod:
+   309→      "Campaña de invierno 6 semanas. Medir % de pedidos sin café que son chocolate.",
+   310→    stopRule: "Menos de 5/día tras 6 semanas → reducir a edición invernal anual.",
+   311→    pricingLean: 12,
+   312→    pricingModerate: 14,
+   313→    pricingGrowth: 16,
+   314→  },
+   315→  {
+   316→    id: "P-08",
+   317→    name: "Infusión de Muña",
+   318→    spanish: "Andean mint infusion",
+   319→    category: "Non-coffee",
+   320→    concept:
+   321→      "Infusión caliente de muña (menta andina) servida en taza de vidrio. Para quien no toma café pero quiere quedarse en la barra.",
+   322→    brandFit:
+   323→      "Aceptable — no es café, pero respeta la paleta andina. Útil para acompañantes y no-cafeteros.",
+   324→    tasteConcept:
+   325→      "Menta andina con un finish herbáceo más profundo que la menta común. Sin azúcar.",
+   326→    prepTime: "3 min.",
+   327→    margin: "Alto — muña es barata y seca; el ticket es de infusión premium.",
+   328→    testMethod:
+   329→      "Ofrecer 4 semanas como alternativa en barra. Medir pedidos de no-cafeteros.",
+   330→    stopRule: "Menos de 3/día tras 4 semanas → retirar y mantener solo Chocolate del Oso.",
+   331→    pricingLean: 8,
+   332→    pricingModerate: 9,
+   333→    pricingGrowth: 11,
+   334→  },
+   335→  {
+   336→    id: "P-09",
+   337→    name: "Croissant de Lúcuma",
+   338→    spanish: "Croissant filled with lúcuma cream",
+   339→    category: "Pastries",
+   340→    concept:
+   341→      "Croissant de masa laminada en casa, relleno de crema de lúcuma. Cómpralo con el Clarificado de Lúcuma y la paleta del desayuno es completa.",
+   342→    brandFit:
+   343→      "Fuerte — cierra el pairing con el Clarificado de Lúcuma. El laminado en casa es credibility.",
+   344→    tasteConcept:
+   345→      "Hojaldre mantequilla + crema de lúcuma sedosa. No excesivamente dulce.",
+   346→    prepTime: "Servicio directo (preparación en madrugada).",
+   347→    margin: "Medio — laminado es intensivo en mano de obra; el relleno es barato.",
+   348→    testMethod:
+   349→      "Pilot de 6 semanas. Medir attach rate con Clarificado de Lúcuma.",
+   350→    stopRule: "Menos de 8/día o attach rate < 20% con Clarificado → reformular relleno.",
+   351→    pricingLean: 8,
+   352→    pricingModerate: 10,
+   353→    pricingGrowth: 11,
+   354→  },
+   355→  {
+   356→    id: "P-10",
+   357→    name: "Alfajor de Café",
+   358→    spanish: "Alfajor with coffee-glazed dulce de leche",
+   359→    category: "Pastries",
+   360→    concept:
+   361→      "Alfajor de maicena con dulce de leche glaseado con una reducción de espresso. Pequeño, intenso, marida con cualquier filtrado.",
+   362→    brandFit:
+   363→      "Fuerte — el alfajor es icónico peruano y el glaseado de café lo ancla al oficio.",
+   364→    tasteConcept:
+   365→      "Maicena que se deshace, dulce de leche sedoso, finish amargo del espresso.",
+   366→    prepTime: "Servicio directo (batch semanal).",
+   367→    margin: "Alto — ingredientes baratos, ticket de pastry premium.",
+   368→    testMethod:
+   369→      "Pilot de 6 semanas. Medir pedidos de alfajor con café (vs. cookie).",
+   370→    stopRule: "Menos de 6/día tras 6 semanas → reformular como mini-alfajor de cata.",
+   371→    pricingLean: 6,
+   372→    pricingModerate: 8,
+   373→    pricingGrowth: 9,
+   374→  },
+   375→  {
+   376→    id: "P-11",
+   377→    name: "Gramo del Mes",
+   378→    spanish: "Subscription bean of the month · origin-labeled bag",
+   379→    category: "Retail beans",
+   380→    concept:
+   381→      "Cada mes, una bolsa de 250g de un micro-lote, con etiqueta de origen completa (finca, altitud, proceso, varietal, fecha de tueste). Para suscriptores Ursa Mañana y venta en barra.",
+   382→    brandFit:
+   383→      "Muy fuerte — operacionaliza 'un gramo a la vez' y 'Gram of the Week' como producto recurrente.",
+   384→    tasteConcept:
+   385→      "Varía — la promesa es: cada mes, un grano nuevo con su historia completa.",
+   386→    prepTime: "Empaque semanal en batch.",
+   387→    margin: "Alto — retail bean margin es ~60–70% sobre costo de grano verde.",
+   388→    testMethod:
+   389→      "Lanzar como suscripción mensual de 50 bolsas. Medir retención al mes 3.",
+   390→    stopRule: "Retención < 60% al mes 3 → reformular cadencia o tamaño de bolsa.",
+   391→    pricingLean: 38,
+   392→    pricingModerate: 45,
+   393→    pricingGrowth: 52,
+   394→  },
+   395→  {
+   396→    id: "P-12",
+   397→    name: "Cata de Tres Orígenes",
+   398→    spanish: "Tasting flight · three origins with story cards",
+   399→    category: "Experiences",
+   400→    concept:
+   401→      "Vuelo de tres orígenes peruanos servidos en tres filtrados pequeños, cada uno con una tarjeta de historia (finca, altitud, varietal, proceso). Experiencia pagada para dos personas mínimo.",
+   402→    brandFit:
+   403→      "Fuerte — ocupa el territorio que Terrua cobra a US$25, con un stack de valor más visible.",
+   404→    tasteConcept:
+   405→      "Tres tazas, tres historias. La tarjeta es el activo que el cliente se lleva.",
+   406→    prepTime: "10 min (tres filtrados servidos simultáneamente + presentación).",
+   407→    margin: "Alto — el grano es barato; el precio se cobra por la experiencia guiada.",
+   408→    testMethod:
+   409→      "Pilot 60 días en sábado. Medir reservas/mes y conversión a venta de bolsa.",
+   410→    stopRule: "Menos de 2 reservas/mes → reformular como drop-in sábado sin reserva.",
+   411→    pricingLean: 38,
+   412→    pricingModerate: 45,
+   413→    pricingGrowth: 55,
+   414→  },
+   415→  {
+   416→    id: "P-13",
+   417→    name: "Tuesta tu propio grano",
+   418→    spanish: "Roast-your-own-bean workshop",
+   419→    category: "Experiences",
+   420→    concept:
+   421→      "Taller de 90 minutos: cada participante tuesta 250g de verde en un tostador de muestra, documenta la curva, y se lleva su bolsa a casa. Cupo máximo 4 personas.",
+   422→    brandFit:
+   423→      "Fuerte — la tostadora visible ya es la firma del local; este producto la convierte en experiencia pagada.",
+   424→    tasteConcept:
+   425→      "No es bebida — es aprendizaje. El producto final es una bolsa personal con curva firmada.",
+   426→    prepTime: "90 min + 15 min de limpieza.",
+   427→    margin: "Alto — el grano verde es barato; el precio se cobra por la atención del maestro tostador.",
+   428→    testMethod:
+   429→      "Pilot 6 sesiones. Medir NPS y conversión a suscripción Gramo del Mes.",
+   430→    stopRule: "NPS < 9/10 o menos de 3 sesiones llenas/mes → reformular como demostración gratuita.",
+   431→    pricingLean: 85,
+   432→    pricingModerate: 110,
+   433→    pricingGrowth: 140,
+   434→  },
+   435→];
+   436→
+   437→const PROPOSAL_CATEGORY_META: Record<
+   438→  Proposal["category"],
+   439→  { icon: React.ReactNode; tone: "gold" | "forest" | "terracotta" }
+   440→> = {
+   441→  "Signature coffee": { icon: <Coffee size={14} />, tone: "gold" },
+   442→  "Cold coffee": { icon: <Snowflake size={14} />, tone: "forest" },
+   443→  Seasonal: { icon: <Sparkles size={14} />, tone: "gold" },
+   444→  "Non-coffee": { icon: <Droplet size={14} />, tone: "forest" },
+   445→  Pastries: { icon: <Croissant size={14} />, tone: "terracotta" },
+   446→  "Retail beans": { icon: <Gift size={14} />, tone: "gold" },
+   447→  Experiences: { icon: <FlaskConical size={14} />, tone: "forest" },
+   448→};
+   449→
+   450→// ---------------------------------------------------------------
+   451→// 16-criteria evaluation framework
+   452→// ---------------------------------------------------------------
+   453→
+   454→const EVALUATION_CRITERIA = [
+   455→  { n: 1, name: "Customer need", desc: "¿Qué necesidad real resuelve? ¿Quién lo pide hoy?" },
+   456→  { n: 2, name: "Brand fit", desc: "¿Refuerza al oso, a Art Nouveau, a 'un gramo a la vez'?" },
+   457→  { n: 3, name: "Taste concept", desc: "¿Cuál es la primera impresión y el finish?" },
+   458→  { n: 4, name: "Preparation time", desc: "Minutos de barista por unidad servida." },
+   459→  { n: 5, name: "Ingredient overlap", desc: "¿Usa insumos ya comprados o requiere nuevos?" },
+   460→  { n: 6, name: "Training", desc: "Horas de capacitación para alcanzar consistencia." },
+   461→  { n: 7, name: "Equipment", desc: "¿Necesita equipo nuevo o usa lo existente?" },
+   462→  { n: 8, name: "Waste", desc: "Vida útil del insumo y % esperado de merma." },
+   463→  { n: 9, name: "Delivery suitability", desc: "¿Sobrevive 30 min en caja Rappi sin degradarse?" },
+   464→  { n: 10, name: "Visual appeal", desc: "¿Es fotografiado y compartido? ¿Es ownable?" },
+   465→  { n: 11, name: "Price range", desc: "Rango lean / moderate / growth en PEN, no un costo inventado." },
+   466→  { n: 12, name: "Margin potential", desc: "Margen sobre costo, no sobre precio." },
+   467→  { n: 13, name: "Operational complexity", desc: "Cuántos puntos de fricción añade al servicio." },
+   468→  { n: 14, name: "Test method", desc: "Cómo se mide si la propuesta funciona, en 2–6 semanas." },
+   469→  { n: 15, name: "Success metric", desc: "El número específico que dice 'graduar' o 'matar'." },
+   470→  { n: 16, name: "Stop / revision rule", desc: "La condición exacta para matar o reformular." },
+   471→];
+   472→
+   473→export function MenuView() {
+   474→  const navigate = useNavigate();
+   475→
+   476→  return (
+   477→    <>
+   478→      <ViewHero
+   479→        eyebrow="Module 03 · Menu & Product Development"
+   480→        title={
+   481→          <>
+   482→            Evolve the menu without losing the bear — a structured path from
+   483→            verified staples to evaluated new products.
+   484→          </>
+   485→        }
+   486→        lede={
+   487→          <>
+   488→            Ursa already owns a distinctive menu language — named drinks (Ursagroni, Maracumango)
+   489→            (<em>Ursagroni</em>, <em>Maracumango</em>, <em>Durazno Clarificado</em>),
+   490→            a two-bar theatre, and a pairing habit. This module reconstructs the
+   491→            verified current menu, then proposes thirteen new products across
+   492→            seven categories, each evaluated against a 16-criteria framework
+   493→            before any test begins. No invented costs — only scenario ranges in
+   494→            PEN.
+   495→          </>
+   496→        }
+   497→        meta={[
+   498→          { label: "Snapshot", value: URSA_FACTS.snapshot },
+   499→          { label: "Framework", value: "16-criteria evaluation" },
+   500→          { label: "Pricing", value: "Scenario ranges, not invented costs" },
+   501→          { label: "Sources", value: "Rappi · IG · Facebook" },
+   502→        ]}
+   503→      />
+   504→
+   505→      <ViewSection>
+   506→        <DossierLinkBanner moduleId="03-menu-and-product-development" />
+   507→      </ViewSection>
+   508→
+   509→      {/* ---------- Reconstructed current menu ---------- */}
+   510→      <ViewSection
+   511→        badge="Section 01"
+   512→        title="The verified current menu, reconstructed"
+   513→        meta="Source · Rappi snapshot 2026-08-01"
+   514→      >
+   515→        <Grid cols={3}>
+   516→          <StatBlock
+   517→            value={`${VERIFIED_BEVERAGES.length + VERIFIED_FOOD.length}`}
+   518→            label="Verified named items (drinks + food)"
+   519→            tone="forest"
+   520→          />
+   521→          <StatBlock
+   522→            value="5"
+   523→            label="Menu categories (Espresso · Coldbrew · Filtrados · Pastries · Salado)"
+   524→            tone="gold"
+   525→          />
+   526→          <StatBlock
+   527→            value="S/. 5–22"
+   528→            label="Verified price range across the menu"
+   529→            tone="terracotta"
+   530→          />
+   531→        </Grid>
+   532→
+   533→        <div className="mt-8 grid lg:grid-cols-[1.4fr_1fr] gap-8 items-start">
+   534→          {/* Menu prototype card */}
+   535→          <MenuCard>
+   536→            <div className="ursa-menu__crest">
+   537→              <BearMark size={56} className="text-ursa-dark-roast mx-auto" />
+   538→              <h3
+   539→                className="font-display text-[1.8rem] font-semibold text-ursa-dark-roast mt-2 mb-1"
+   540→                style={{ letterSpacing: "0.04em" }}
+   541→              >
+   542→                Carta Ursa
+   543→              </h3>
+   544→              <small className="font-label text-[0.66rem] tracking-[0.32em] uppercase text-ursa-gold-text block">
+   545→                Alcanfores 183 · Miraflores
+   546→              </small>
+   547→            </div>
+   548→            <ArtNouveauDivider className="my-4" />
+   549→            {/* Signature legend */}
+   550→            <div className="flex items-center justify-center gap-2 mb-4 text-[0.72rem] text-muted-foreground">
+   551→              <span className="inline-block w-2 h-2 rounded-full bg-ursa-gold" aria-hidden="true" />
+   552→              <span className="font-label tracking-[0.08em] uppercase">Signature drink — verified named</span>
+   553→            </div>
+   554→            <div className="grid md:grid-cols-2 gap-x-10 gap-y-0">
+   555→              {CURRENT_MENU_SECTIONS.map((section) => (
+   556→                <div key={section.id} className="ursa-menu__section">
+   557→                  <h4 className="font-display italic text-ursa-medium-roast text-center border-t border-b border-ursa-line py-2 my-3 text-[1.1rem]">
+   558→                    {section.label}
+   559→                  </h4>
+   560→                  {section.items.map((item) => (
+   561→                    <div
+   562→                      key={item.name}
+   563→                      className="flex items-baseline gap-2 mb-3 text-[0.95rem] group"
+   564→                    >
+   565→                      <b
+   566→                        className="font-display font-semibold text-ursa-dark-roast text-[1.05rem] flex items-center gap-1.5"
+   567→                      >
+   568→                        {item.signature && (
+   569→                          <span
+   570→                            className="inline-block w-2 h-2 rounded-full bg-ursa-gold shrink-0"
+   571→                            aria-label="Signature drink"
+   572→                          />
+   573→                        )}
+   574→                        {item.name}
+   575→                      </b>
+   576→                      <span
+   577→                        className="flex-1 border-b border-dotted border-ursa-line translate-y-[-3px]"
+   578→                        aria-hidden="true"
+   579→                      />
+   580→                      <span className="font-label text-ursa-medium-roast tracking-[0.04em] text-[0.9rem] font-medium">
+   581→                        {item.price}
+   582→                      </span>
+   583→                      {item.note && (
+   584→                        <span className="basis-full italic text-muted-foreground text-[0.8rem] mt-[-4px] mb-1 pl-4 border-l-2 border-ursa-gold/30">
+   585→                          {item.note}
+   586→                        </span>
+   587→                      )}
+   588→                    </div>
+   589→                  ))}
+   590→                </div>
+   591→              ))}
+   592→            </div>
+   593→
+   594→            <div className="mt-6 pt-4 border-t border-dashed border-ursa-line">
+   595→              <div className="grid sm:grid-cols-3 gap-3 text-center">
+   596→                <div>
+   597→                  <span className="font-display italic text-ursa-medium-roast text-[1rem]">La Ursa</span>
+   598→                  <br />
+   599→                  <small className="text-muted-foreground text-[0.78rem]">
+   600→                    Ursagroni + empanada · S/. 28
+   601→                  </small>
+   602→                </div>
+   603→                <div>
+   604→                  <span className="font-display italic text-ursa-medium-roast text-[1rem]">La Lonya</span>
+   605→                  <br />
+   606→                  <small className="text-muted-foreground text-[0.78rem]">
+   607→                    Filtrado + financier · S/. 20
+   608→                  </small>
+   609→                </div>
+   610→                <div>
+   611→                  <span className="font-display italic text-ursa-medium-roast text-[1rem]">La Maracumango</span>
+   612→                  <br />
+   613→                  <small className="text-muted-foreground text-[0.78rem]">
+   614→                    Coldbrew + cookie · S/. 19
+   615→                  </small>
+   616→                </div>
+   617→              </div>
+   618→            </div>
+   619→          </MenuCard>
+   620→
+   621→          {/* Menu notes */}
+   622→          <div className="space-y-4">
+   623→            <Callout tone="forest" title="What is verified, and what is reconstructed">
+   624→              <p className="m-0">
+   625→                The named drinks (<em>Ursagroni</em>, <em>Durazno Clarificado Coldbrew</em>,{" "}
+   626→                <em>Maracumango Coldbrew</em>, <em>Filtrado Lonya</em>) and the verified food items
+   627→                (financier, empanada, cookies) come from public Instagram and Facebook posts
+   628→                (Sources S1, S2). Standard espresso-bar items and their prices are reconstructed
+   629→                from the Rappi delivery menu (Source S3, snapshot {URSA_FACTS.snapshot}).
+   630→              </p>
+   631→            </Callout>
+   632→            <Callout tone="warn" title="Exact prices may change">
+   633→              <p className="m-0">
+   634→                Prices marked <span className="font-label text-ursa-medium-roast">*</span> are
+   635→                inferred from category positioning where the Rappi snapshot did not list them
+   636→                directly. Confirm at the bar before quoting in any external material. The
+   637→                pairing prices (La Ursa, La Lonya, La Maracumango) follow the dossier prototype
+   638→                and assume à la carte totals.
+   639→              </p>
+   640→            </Callout>
+   641→            <Card className="bg-ursa-foam">
+   642→              <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
+   643→                <Coffee size={16} className="text-ursa-gold-text" />
+   644→                The ownable menu language
+   645→              </h4>
+   646→              <ul className="space-y-1.5 text-[0.88rem] m-0 p-0 list-none text-muted-foreground">
+   647→                <li>• <b className="text-ursa-dark-roast">Portmanteau names</b> — Ursagroni, Maracumango, Durazno Clarificado.</li>
+   648→                <li>• <b className="text-ursa-dark-roast">Two-bar theatre</b> — espresso + coldbrew as visible counter identities.</li>
+   649→                <li>• <b className="text-ursa-dark-roast">Pairing habit</b> — drinks named alongside their food partner.</li>
+   650→                <li>• <b className="text-ursa-dark-roast">Seasonal → permanent</b> — summer favourites graduate to the carta.</li>
+   651→              </ul>
+   652→            </Card>
+   653→          </div>
+   654→        </div>
+   655→      </ViewSection>
+   656→
+   657→      {/* ---------- Product development proposals ---------- */}
+   658→      <ViewSection
+   659→        badge="Section 02"
+   660→        title="Thirteen new product proposals, evaluated"
+   661→        meta="13 proposals · 7 categories · 16-criteria framework"
+   662→      >
+   663→        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+   664→          Each proposal below is evaluated against six decision-critical criteria (brand fit,
+   665→          taste concept, preparation time, margin potential, test method, stop rule). The
+   666→          remaining ten criteria are summarised in the framework grid in Section 04. Pricing is
+   667→          always expressed as a <strong className="text-ursa-dark-roast">lean / moderate / growth</strong>{" "}
+   668→          range in PEN — never a single invented cost.
+   669→        </p>
+   670→
+   671→        <div className="flex flex-wrap gap-2 mb-6">
+   672→          {(["Signature coffee", "Cold coffee", "Seasonal", "Non-coffee", "Pastries", "Retail beans", "Experiences"] as const).map((c) => {
+   673→            const meta = PROPOSAL_CATEGORY_META[c];
+   674→            return (
+   675→              <span
+   676→                key={c}
+   677→                className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.12em] uppercase px-2.5 py-1 rounded-full border bg-ursa-paper"
+   678→                style={{
+   679→                  borderColor:
+   680→                    meta.tone === "gold"
+   681→                      ? "var(--color-ursa-gold)"
+   682→                      : meta.tone === "forest"
+   683→                      ? "var(--color-ursa-forest-deep)"
+   684→                      : "var(--color-ursa-terracotta)",
+   685→                  color:
+   686→                    meta.tone === "gold"
+   687→                      ? "var(--color-ursa-medium-roast)"
+   688→                      : meta.tone === "forest"
+   689→                      ? "var(--color-ursa-forest-deep)"
+   690→                      : "var(--color-ursa-terracotta-text)",
+   691→                }}
+   692→              >
+   693→                {meta.icon}
+   694→                {c}
+   695→              </span>
+   696→            );
+   697→          })}
+   698→        </div>
+   699→
+   700→        <Accordion type="multiple" className="space-y-3">
+   701→          {PROPOSALS.map((p) => {
+   702→            const meta = PROPOSAL_CATEGORY_META[p.category];
+   703→            return (
+   704→              <AccordionItem
+   705→                key={p.id}
+   706→                value={p.id}
+   707→                className="border border-ursa-line-soft rounded-lg bg-card px-5 shadow-[0_1px_0_rgba(59,36,23,0.04)]"
+   708→              >
+   709→                <AccordionTrigger className="hover:no-underline py-5">
+   710→                  <div className="flex items-center gap-4 flex-1 text-left">
+   711→                    <span
+   712→                      className="font-label text-[0.66rem] tracking-[0.12em] uppercase px-2 py-0.5 rounded border shrink-0"
+   713→                      style={{
+   714→                        borderColor:
+   715→                          meta.tone === "gold"
+   716→                            ? "var(--color-ursa-gold)"
+   717→                            : meta.tone === "forest"
+   718→                            ? "var(--color-ursa-forest-deep)"
+   719→                            : "var(--color-ursa-terracotta)",
+   720→                        color:
+   721→                          meta.tone === "gold"
+   722→                            ? "var(--color-ursa-medium-roast)"
+   723→                            : meta.tone === "forest"
+   724→                            ? "var(--color-ursa-forest-deep)"
+   725→                            : "var(--color-ursa-terracotta-text)",
+   726→                      }}
+   727→                    >
+   728→                      {p.id}
+   729→                    </span>
+   730→                    <div className="flex-1 min-w-0">
+   731→                      <h3 className="font-display text-[1.25rem] font-semibold text-ursa-dark-roast m-0">
+   732→                        {p.name}
+   733→                      </h3>
+   734→                      {p.spanish && (
+   735→                        <p className="italic text-muted-foreground text-[0.85rem] m-0">
+   736→                          {p.spanish}
+   737→                        </p>
+   738→                      )}
+   739→                    </div>
+   740→                    <div className="hidden sm:flex items-center gap-2 shrink-0">
+   741→                      <span className="inline-flex items-center gap-1.5 font-label text-[0.64rem] tracking-[0.12em] uppercase text-muted-foreground">
+   742→                        {meta.icon}
+   743→                        {p.category}
+   744→                      </span>
+   745→                      <span className="font-label text-[0.7rem] tracking-[0.06em] text-ursa-medium-roast bg-ursa-cream border border-ursa-line-soft px-2 py-1 rounded">
+   746→                        S/. {p.pricingLean}–{p.pricingGrowth}
+   747→                      </span>
+   748→                    </div>
+   749→                  </div>
+   750→                </AccordionTrigger>
+   751→                <AccordionContent className="pb-5">
+   752→                  <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6">
+   753→                    <div>
+   754→                      <p className="text-[0.95rem] leading-relaxed text-ursa-dark-roast m-0 mb-4">
+   755→                        {p.concept}
+   756→                      </p>
+   757→                      <div className="space-y-3">
+   758→                        <CriterionRow icon={<Sparkles size={14} />} label="Brand fit" value={p.brandFit} />
+   759→                        <CriterionRow icon={<Coffee size={14} />} label="Taste concept" value={p.tasteConcept} />
+   760→                        <CriterionRow icon={<Clock size={14} />} label="Preparation time" value={p.prepTime} />
+   761→                        <CriterionRow icon={<TrendingUp size={14} />} label="Margin potential" value={p.margin} />
+   762→                        <CriterionRow icon={<FlaskConical size={14} />} label="Test method" value={p.testMethod} />
+   763→                        <CriterionRow icon={<CircleSlash size={14} />} label="Stop / revision rule" value={p.stopRule} tone="terracotta" />
+   764→                      </div>
+   765→                    </div>
+   766→                    <div className="bg-ursa-cream rounded-lg p-4 border border-ursa-line-soft">
+   767→                      <h5 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-3">
+   768→                        Pricing scenarios (PEN)
+   769→                      </h5>
+   770→                      <div className="space-y-2.5">
+   771→                        <ScenarioRow label="Lean" value={p.pricingLean} note="Cost-covering, conservative ticket." />
+   772→                        <ScenarioRow label="Moderate" value={p.pricingModerate} note="Recommended launch price." highlight />
+   773→                        <ScenarioRow label="Growth" value={p.pricingGrowth} note="Once brand equity supports the lift." />
+   774→                      </div>
+   775→                      <p className="text-[0.75rem] text-muted-foreground mt-3 m-0 leading-relaxed">
+   776→                        These are scenario ranges, not invented costs. Verify ingredient costs
+   777→                        against Ursa's actual roast logs and supplier invoices before launch.
+   778→                      </p>
+   779→                    </div>
+   780→                  </div>
+   781→                </AccordionContent>
+   782→              </AccordionItem>
+   783→            );
+   784→          })}
+   785→        </Accordion>
+   786→      </ViewSection>
+   787→
+   788→      {/* ---------- Ursa Mañana subscription callout ---------- */}
+   789→      <ViewSection
+   790→        badge="Section 03"
+   791→        title="Ursa Mañana — the subscription as a menu product"
+   792→        meta="EXP-11 · capped 50 subscribers"
+   793→      >
+   794→        <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
+   795→          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
+   796→            <div>
+   797→              <div className="flex items-center gap-3 mb-3">
+   798→                <SectionBadge tone="gold">Continuity product</SectionBadge>
+   799→                <EvidenceTag status="verified" />
+   800→              </div>
+   801→              <h3 className="font-display text-2xl font-semibold text-ursa-dark-roast mt-0 mb-3">
+   802→                S/. 20 / month · unlimited coffee · Mon–Fri 7–10am
+   803→              </h3>
+   804→              <p className="text-[0.95rem] leading-relaxed text-muted-foreground m-0 mb-4">
+   805→                The subscription is a menu product, not a discount. It works on marginal-cost
+   806→                math because Ursa roasts its own beans — but only if subscribers attach sides
+   807→                (cookies, financier, empanada). The full economic model — break-even attach
+   808→                rate, cannibalization recovery, scale projection — lives in Module 08.
+   809→              </p>
+   810→              <div className="flex flex-wrap gap-3">
+   811→                <button
+   812→                  onClick={() => navigate("calculator")}
+   813→                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.12em] uppercase bg-ursa-gold text-ursa-dark-roast border border-ursa-gold hover:-translate-y-0.5 transition"
+   814→                >
+   815→                  Open the calculator
+   816→                  <ArrowRight size={14} />
+   817→                </button>
+   818→                <button
+   819→                  onClick={() => navigate("experiments")}
+   820→                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full font-label text-[0.72rem] tracking-[0.12em] uppercase bg-transparent text-ursa-medium-roast border border-ursa-line hover:-translate-y-0.5 transition"
+   821→                >
+   822→                  See EXP-11 in the Experiment Tracker
+   823→                </button>
+   824→              </div>
+   825→            </div>
+   826→            <div className="grid grid-cols-2 gap-3">
+   827→              <MiniStat value="S/. 20" label="Monthly price" />
+   828→              <MiniStat value="7–10am" label="Service window" />
+   829→              <MiniStat value="1 cup / visit" label="Cap (pilot)" />
+   830→              <MiniStat value="50" label="Pilot cap" />
+   831→              <MiniStat value="S/. 1.20–1.80" label="Marginal cost / cup" />
+   832→              <MiniStat value="≥ 60%" label="Target attach rate" />
+   833→            </div>
+   834→          </div>
+   835→        </Card>
+   836→        <Callout tone="gold" title="See Module 08 for the full economic model">
+   837→          <p className="m-0">
+   838→            The subscription's profit per subscriber is non-obvious — it depends on visit
+   839→            frequency, side attach, and cannibalization. The interactive calculator in Module 08
+   840→            lets you edit every input and see the break-even attach rate, free-cup capacity, and
+   841→            recovery time update live. Do not launch the pilot without running those numbers.
+   842→          </p>
+   843→        </Callout>
+   844→      </ViewSection>
+   845→
+   846→      {/* ---------- 16-criteria evaluation framework ---------- */}
+   847→      <ViewSection
+   848→        badge="Section 04"
+   849→        title="The 16-criteria evaluation framework"
+   850→        meta="Every proposal passes through all sixteen"
+   851→      >
+   852→        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+   853→          The dossier reduces the temptation to launch on enthusiasm. Each proposal must be
+   854→          answerable against all sixteen criteria below — six decision-critical ones are shown
+   855→          explicitly in the proposal cards above; the remaining ten are checked off the grid.
+   856→        </p>
+   857→        <Grid cols={4}>
+   858→          {EVALUATION_CRITERIA.map((c) => (
+   859→            <div
+   860→              key={c.n}
+   861→              className="bg-card border border-ursa-line-soft rounded-lg p-4 transition hover:border-ursa-gold hover:shadow-[0_4px_16px_-8px_rgba(184,146,74,0.4)]"
+   862→            >
+   863→              <div className="flex items-center gap-2 mb-2">
+   864→                <span className="font-display text-[1.4rem] font-semibold text-ursa-gold-text leading-none w-7">
+   865→                  {String(c.n).padStart(2, "0")}
+   866→                </span>
+   867→                <CheckCircle2 size={14} className="text-ursa-forest-deep" />
+   868→              </div>
+   869→              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast m-0 mb-1">
+   870→                {c.name}
+   871→              </h4>
+   872→              <p className="text-[0.82rem] text-muted-foreground m-0 leading-relaxed">
+   873→                {c.desc}
+   874→              </p>
+   875→            </div>
+   876→          ))}
+   877→        </Grid>
+   878→      </ViewSection>
+   879→
+   880→      {/* ---------- Pricing scenario note ---------- */}
+   881→      <ViewSection
+   882→        badge="Section 05"
+   883→        title="On pricing — what we did and did not invent"
+   884→        meta="Scenario ranges only"
+   885→      >
+   886→        <Grid cols={3}>
+   887→          <Card>
+   888→            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-2">
+   889→              Lean
+   890→            </h4>
+   891→            <p className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 mb-2">
+   892→              Cost-covering
+   893→            </p>
+   894→            <p className="text-[0.85rem] text-muted-foreground m-0">
+   895→              The minimum price that covers ingredient cost and barista time, with a thin
+   896→              margin. Use for a soft launch or for products that build traffic for higher-margin
+   897→              pairings.
+   898→            </p>
+   899→          </Card>
+   900→          <Card highlight>
+   901→            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-2">
+   902→              Moderate
+   903→            </h4>
+   904→            <p className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 mb-2">
+   905→              Recommended launch
+   906→            </p>
+   907→            <p className="text-[0.85rem] text-muted-foreground m-0">
+   908→              The price to launch the pilot at. Balances perceived specialty value against
+   909→              Miraflores willingness-to-pay. Re-evaluate after the test window.
+   910→            </p>
+   911→          </Card>
+   912→          <Card>
+   913→            <h4 className="font-label text-[0.72rem] tracking-[0.16em] uppercase text-ursa-gold-text m-0 mb-2">
+   914→              Growth
+   915→            </h4>
+   916→            <p className="font-display text-2xl font-semibold text-ursa-dark-roast m-0 mb-2">
+   917→              Brand-anchored ceiling
+   918→            </p>
+   919→            <p className="text-[0.85rem] text-muted-foreground m-0">
+   920→              Once the product has repeat orders and visual equity, lift to this. Never start
+   921→              here — anchor against the moderate price, not the ceiling.
+   922→            </p>
+   923→          </Card>
+   924→        </Grid>
+   925→
+   926→        <Callout tone="stop" title="What we deliberately did not invent">
+   927→          <ul className="space-y-1.5 m-0 p-0 list-none text-[0.9rem]">
+   928→            <li>• <strong>No single exact cost per cup.</strong> Marginal cost depends on roast yield, milk usage, and waste. Use the verified S/. 1.20–1.80 range as the benchmark, then confirm against actual roast logs.</li>
+   929→            <li>• <strong>No guaranteed margin %.</strong> Margins in the proposal cards are described as bands (alto / medio-alto / medio), not fabricated numbers.</li>
+   930→            <li>• <strong>No invented supplier prices</strong> for lúcuma, chincho, muña, or cacao de origen. Confirm with the supplier before quoting a launch price.</li>
+   931→            <li>• <strong>No virality assumption.</strong> Pricing assumes organic demand from existing channels; paid amplification is modelled separately in Module 04 and the Budget Allocator.</li>
+   932→          </ul>
+   933→        </Callout>
+   934→
+   935→        <Callout tone="forest" title="The principle this module protects">
+   936→          <p className="m-0">
+   937→            Ursa's menu earns its margin through <strong>perceived value</strong>, not cost-plus
+   938→            pricing. A story card describing origin, altitude, and process raises perceived value
+   939→            more than a bigger cup at the same cost (Sutherland). The 16-criteria framework is
+   940→            designed to keep that discipline: no product launches just because it sounds good.
+   941→          </p>
+   942→        </Callout>
+   943→      </ViewSection>
+   944→
+   945→      <ViewSection>
+   946→        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+   947→          <StatBlock value={`${PROPOSALS.length}`} label="New product proposals across 7 categories" tone="forest" />
+   948→          <StatBlock value="16" label="Criteria evaluated per proposal" tone="gold" />
+   949→          <StatBlock value="3" label="Pricing scenarios per proposal (lean / moderate / growth)" tone="terracotta" />
+   950→          <StatBlock value="S/. 5–140" label="Full price envelope across menu + proposals" tone="forest" />
+   951→        </div>
+   952→        <p className="text-[0.78rem] text-muted-foreground mt-6 max-w-3xl">
+   953→          <strong>Disclaimer:</strong> Reconstructed menu prices are sourced from the Rappi
+   954→          snapshot (Source S3, {URSA_FACTS.snapshot}) and public Instagram/Facebook posts (Sources
+   955→          S1, S2). Prices marked <span className="font-label">*</span> are inferred from category
+   956→          positioning. Proposal pricing is in scenario ranges and must be validated against
+   957→          Ursa's actual roast logs and supplier invoices before any go-to-market.
+   958→        </p>
+   959→      </ViewSection>
+   960→    </>
+   961→  );
+   962→}
+   963→
+   964→// ---------------------------------------------------------------
+   965→// Sub-components
+   966→// ---------------------------------------------------------------
+   967→
+   968→function MenuCard({ children }: { children: React.ReactNode }) {
+   969→  return (
+   970→    <div
+   971→      className="bg-ursa-paper border-2 border-double border-ursa-gold p-6 md:p-8 rounded-sm relative"
+   972→      style={{ boxShadow: "0 1px 0 rgba(59,36,23,0.06), 0 12px 32px -16px rgba(59,36,23,0.18)" }}
+   973→    >
+   974→      {children}
+   975→    </div>
+   976→  );
+   977→}
+   978→
+   979→function CriterionRow({
+   980→  icon,
+   981→  label,
+   982→  value,
+   983→  tone = "gold",
+   984→}: {
+   985→  icon: React.ReactNode;
+   986→  label: string;
+   987→  value: string;
+   988→  tone?: "gold" | "terracotta";
+   989→}) {
+   990→  return (
+   991→    <div className="flex gap-3 items-start">
+   992→      <span
+   993→        className="mt-0.5 shrink-0 w-7 h-7 rounded-full flex items-center justify-center border"
+   994→        style={{
+   995→          borderColor:
+   996→            tone === "terracotta"
+   997→              ? "var(--color-ursa-terracotta)"
+   998→              : "var(--color-ursa-gold)",
+   999→          color:
+  1000→            tone === "terracotta"
+  1001→              ? "var(--color-ursa-terracotta-text)"
+  1002→              : "var(--color-ursa-medium-roast)",
+  1003→          background: "var(--color-ursa-paper)",
+  1004→        }}
+  1005→      >
+  1006→        {icon}
+  1007→      </span>
+  1008→      <div className="flex-1">
+  1009→        <div className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-muted-foreground">
+  1010→          {label}
+  1011→        </div>
+  1012→        <p className="text-[0.88rem] leading-relaxed text-ursa-dark-roast m-0">{value}</p>
+  1013→      </div>
+  1014→    </div>
+  1015→  );
+  1016→}
+  1017→
+  1018→function ScenarioRow({
+  1019→  label,
+  1020→  value,
+  1021→  note,
+  1022→  highlight = false,
+  1023→}: {
+  1024→  label: string;
+  1025→  value: number;
+  1026→  note: string;
+  1027→  highlight?: boolean;
+  1028→}) {
+  1029→  return (
+  1030→    <div
+  1031→      className={`flex items-center gap-3 p-2.5 rounded-md ${
+  1032→        highlight ? "bg-ursa-gold/15 border border-ursa-gold" : "bg-ursa-foam border border-ursa-line-soft"
+  1033→      }`}
+  1034→    >
+  1035→      <span className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-muted-foreground w-20 shrink-0">
+  1036→        {label}
+  1037→      </span>
+  1038→      <span className="font-display text-[1.1rem] font-semibold text-ursa-dark-roast w-14 shrink-0">
+  1039→        S/. {value}
+  1040→      </span>
+  1041→      <span className="text-[0.78rem] text-muted-foreground flex-1">{note}</span>
+  1042→    </div>
+  1043→  );
+  1044→}
+  1045→
+  1046→function MiniStat({ value, label }: { value: string; label: string }) {
+  1047→  return (
+  1048→    <div className="bg-ursa-foam border border-ursa-line-soft rounded-lg p-3 text-center">
+  1049→      <div className="font-display text-[1.2rem] font-semibold text-ursa-forest-deep leading-none mb-1">
+  1050→        {value}
+  1051→      </div>
+  1052→      <div className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
+  1053→        {label}
+  1054→      </div>
+  1055→    </div>
+  1056→  );
+  1057→}
+  1058→

@@ -1,0 +1,51 @@
+{
+  "name": "Ursa Coffee Roasters — Strategic Dossier & Command Center",
+  "short_name": "Ursa Coffee",
+  "description": "Research-grounded brand, product, graphic, and marketing plan for Ursa Coffee Roasters, Miraflores, Lima. Preserves the Art Nouveau / bear / roastery identity. No rebrand.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F4EBD9",
+  "theme_color": "#3B2417",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["food", "business", "productivity"],
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Open the strategic command center dashboard",
+      "url": "./#/",
+      "icons": [{ "src": "logo.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Subscription Calculator",
+      "short_name": "Calculator",
+      "description": "Open the Ursa Mañana subscription economics calculator",
+      "url": "./#/calculator",
+      "icons": [{ "src": "logo.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Pilot Dashboard",
+      "short_name": "Pilot",
+      "description": "Open the Ursa Mañana pilot dashboard",
+      "url": "./#/pilot",
+      "icons": [{ "src": "logo.svg", "sizes": "any", "type": "image/svg+xml" }]
+    }
+  ]
+}

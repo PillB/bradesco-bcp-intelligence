@@ -1,0 +1,46 @@
+{
+  "schema": "ursa-expert-challenges/v1",
+  "compiled": "2026-08-01",
+  "macrocycle": 2,
+  "challenges": [
+    {
+      "id": "EC-001",
+      "round": 1,
+      "challenger": "marketing-science-validator",
+      "challenge": "The dossier uses Hormozi's Value Equation as a primary framework without noting it lacks independent empirical validation in café contexts. A 2026 academic paper classifies it as a 'bro framework.' The dossier should label it as suggestive, not proven, and should foreground Ehrenberg-Bass (How Brands Grow) as the stronger scientific frame.",
+      "target_claims": ["CL-003"],
+      "target_frameworks": ["FW-001"],
+      "disposition": "ACCEPTED",
+      "action": "Re-grade Hormozi from 'verified' to 'partial/suggestive' in SOURCES. Add Ehrenberg-Bass as the primary scientific frame in expert-evidence.json. Update growth view to label Hormozi as 'suggestive framework' with a link to the challenge.",
+      "implemented": true
+    },
+    {
+      "id": "EC-002",
+      "round": 2,
+      "challenger": "behavioral-economics-validator",
+      "challenge": "The dossier cites Rory Sutherland's perceived-value principles without noting they are largely anecdotal case studies, not controlled experiments. The 'story card' and 'named preparation' recommendations should be framed as testable hypotheses, not proven levers.",
+      "target_claims": ["CL-003"],
+      "target_frameworks": ["FW-002"],
+      "disposition": "ACCEPTED",
+      "action": "Re-grade Sutherland from 'verified' to 'partial' in SOURCES. Each Sutherland-derived recommendation in the growth view should have a test method and stop rule.",
+      "implemented": true
+    },
+    {
+      "id": "EC-003",
+      "round": 3,
+      "challenger": "loyalty-science-validator",
+      "challenge": "The loyalty view claims the 8-visit mechanic 'works' based on the Endowed Progress Effect (Kivetz et al. 2006). But the original study used 10-stamp cards, not 8. The effect size may differ. The dossier should not claim 82% lift for an 8-visit card specifically.",
+      "target_claims": ["loyalty-view claims"],
+      "target_frameworks": ["FW-004"],
+      "disposition": "ACCEPTED",
+      "action": "Narrow the loyalty view claim: 'The Endowed Progress Effect (Kivetz et al. 2006) found ~82% lift on 10-stamp cards; the effect on 8-visit cards is not separately validated and should be tested.' Add a test method.",
+      "implemented": false,
+      "blocked_by": "requires edit to loyalty-view.tsx — deferred to next implementation pass"
+    }
+  ],
+  "total_challenges": 3,
+  "accepted": 3,
+  "rejected": 0,
+  "implemented": 2,
+  "deferred": 1
+}

@@ -1,0 +1,466 @@
+     1→     1→"use client";
+     2→     2→
+     3→     3→import { useState, useMemo } from "react";
+     4→     4→import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
+     5→     5→import { Pill, Callout, StatBlock, EvidenceTag, SectionBadge } from "../ursa-brand";
+     6→     6→import { Calculator, Coffee, TrendingUp, AlertTriangle, Sparkles, RotateCcw, Info } from "lucide-react";
+     7→     7→import { Input } from "@/components/ui/input";
+     8→     8→import { Label } from "@/components/ui/label";
+     9→     9→import { Slider } from "@/components/ui/slider";
+    10→    10→import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+    11→    11→import { cn } from "@/lib/utils";
+    12→    12→
+    13→    13→const PEN = (n: number) => {
+    14→    14→  if (!isFinite(n)) return "—";
+    15→    15→  return `S/. ${n.toFixed(2)}`;
+    16→    16→};
+    17→    17→
+    18→    18→const PRESETS = {
+    19→    19→  conservative: { subPrice: 20, costPerCup: 1.8, visitsWeek: 2.5, cupsVisit: 1, attachRate: 50, sideMargin: 4.5, cannibal: 40, avgSpendPre: 14 },
+    20→    20→  default: { subPrice: 20, costPerCup: 1.5, visitsWeek: 3, cupsVisit: 1, attachRate: 60, sideMargin: 4.5, cannibal: 30, avgSpendPre: 14 },
+    21→    21→  optimistic: { subPrice: 25, costPerCup: 1.2, visitsWeek: 3.5, cupsVisit: 1, attachRate: 70, sideMargin: 5, cannibal: 20, avgSpendPre: 16 },
+    22→    22→};
+    23→    23→
+    24→    24→type Inputs = typeof PRESETS.default;
+    25→    25→
+    26→    26→export function CalculatorView() {
+    27→    27→  const [inputs, setInputs] = useState<Inputs>(PRESETS.default);
+    28→    28→  const [weeksMonth] = useState(4.33);
+    29→    29→
+    30→    30→  const update = <K extends keyof Inputs>(key: K, value: number) => {
+    31→    31→    setInputs((prev) => ({ ...prev, [key]: value }));
+    32→    32→  };
+    33→    33→
+    34→    34→  const calc = useMemo(() => {
+    35→    35→    const { subPrice, costPerCup, visitsWeek, cupsVisit, attachRate, sideMargin, cannibal, avgSpendPre } = inputs;
+    36→    36→    const visitsMonth = visitsWeek * weeksMonth;
+    37→    37→    const cupsMonth = visitsMonth * cupsVisit;
+    38→    38→    const coffeeCost = cupsMonth * costPerCup;
+    39→    39→    const sideMarginTotal = visitsMonth * (attachRate / 100) * sideMargin;
+    40→    40→    const netProfit = subPrice + sideMarginTotal - coffeeCost;
+    41→    41→
+    42→    42→    const breakevenNoSides = costPerCup > 0 ? subPrice / costPerCup : Infinity;
+    43→    43→    const freeCapacity = costPerCup > 0 ? (subPrice + sideMarginTotal) / costPerCup : Infinity;
+    44→    44→
+    45→    45→    let cutoffAttach = NaN;
+    46→    46→    if (sideMargin > 0 && visitsMonth > 0) {
+    47→    47→      cutoffAttach = ((coffeeCost - subPrice) * 100) / (visitsMonth * sideMargin);
+    48→    48→    }
+    49→    49→
+    50→    50→    const cannibalProfit = netProfit + (cannibal / 100) * (subPrice - avgSpendPre);
+    51→    51→
+    52→    52→    let recoverMonths: number;
+    53→    53→    if (cannibalProfit < 0 && netProfit > 0) {
+    54→    54→      recoverMonths = Math.abs(cannibalProfit) / netProfit;
+    55→    55→    } else if (cannibalProfit >= 0) {
+    56→    56→      recoverMonths = 0;
+    57→    57→    } else {
+    58→    58→      recoverMonths = Infinity;
+    59→    59→    }
+    60→    60→
+    61→    61→    return { visitsMonth, cupsMonth, coffeeCost, sideMarginTotal, netProfit, breakevenNoSides, freeCapacity, cutoffAttach, cannibalProfit, recoverMonths };
+    62→    62→  }, [inputs, weeksMonth]);
+    63→    63→
+    64→    64→  // Sensitivity table data
+    65→    65→  const sensitivity = useMemo(() => {
+    66→    66→    const attachRates = [0, 20, 40, 60, 80, 100];
+    67→    67→    const visitOptions = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+    68→    68→    const rows = visitOptions.map((vw) => {
+    69→    69→      const cells = attachRates.map((ar) => {
+    70→    70→        const vm = vw * weeksMonth;
+    71→    71→        const cc = vm * inputs.cupsVisit * inputs.costPerCup;
+    72→    72→        const sm = vm * (ar / 100) * inputs.sideMargin;
+    73→    73→        const np = inputs.subPrice + sm - cc;
+    74→    74→        return { value: np, isCurrent: Math.abs(vw - inputs.visitsWeek) < 0.01 && Math.abs(ar - inputs.attachRate) < 1 };
+    75→    75→      });
+    76→    76→      return { visits: vw, cells, isCurrentRow: Math.abs(vw - inputs.visitsWeek) < 0.01 };
+    77→    77→    });
+    78→    78→    return { attachRates, rows };
+    79→    79→  }, [inputs, weeksMonth]);
+    80→    80→
+    81→    81→  // Scale projection: profit at N subscribers
+    82→    82→  const scaleProjection = useMemo(() => {
+    83→    83→    const subscriberCounts = [25, 50, 100, 200, 500];
+    84→    84→    return subscriberCounts.map((n) => ({
+    85→    85→      subscribers: n,
+    86→    86→      monthlyProfit: calc.cannibalProfit * n,
+    87→    87→      cupsPerMonth: calc.cupsMonth * n,
+    88→    88→    }));
+    89→    89→  }, [calc]);
+    90→    90→
+    91→    91→  const cellClass = (v: number) =>
+    92→    92→    v > 1 ? "bg-ursa-forest-deep/15 text-ursa-forest-deep font-semibold" : v < -1 ? "bg-ursa-terracotta/15 text-ursa-terracotta font-semibold" : "bg-muted text-muted-foreground";
+    93→    93→
+    94→    94→  return (
+    95→    95→    <>
+    96→    96→      <ViewHero
+    97→    97→        eyebrow="Module 08 · New product proposal · Interactive"
+    98→    98→        title="Ursa Mañana — Subscription Economics & Cutoff Calculator"
+    99→    99→        lede={
+   100→   100→          <>
+   101→   101→            A S/. 20/month unlimited-coffee subscription (Mon–Fri, 7–10am, in-store only, one cup per visit, no milk
+   102→   102→            drinks) is profitable on marginal-cost math because Ursa roasts its own beans. Edit every input below and
+   103→   103→            watch the profit, break-even, free-cup capacity, and sensitivity table update live. The real risk is
+   104→   104→            cannibalization, not per-cup cost — model it explicitly.
+   105→   105→          </>
+   106→   106→        }
+   107→   107→        meta={[
+   108→   108→          { label: "Pilot", value: "EXP-11 · capped 50 subscribers" },
+   109→   109→          { label: "Default", value: "S/. 20/mo · 7–10am" },
+   110→   110→          { label: "Verified cost", value: "S/. 1.20–1.80/cup (own roastery)" },
+   111→   111→        ]}
+   112→   112→      />
+   113→   113→
+   114→   114→      <ViewSection>
+   115→   115→        <DossierLinkBanner moduleId="08-subscription-economics-and-calculator" />
+   116→   116→      </ViewSection>
+   117→   117→
+   118→   118→      {/* Presets */}
+   119→   119→      <ViewSection>
+   120→   120→        <div className="flex flex-wrap items-center gap-3 mb-6">
+   121→   121→          <span className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-muted-foreground">Quick scenarios:</span>
+   122→   122→          {(["conservative", "default", "optimistic"] as const).map((p) => (
+   123→   123→            <button
+   124→   124→              key={p}
+   125→   125→              onClick={() => setInputs(PRESETS[p])}
+   126→   126→              className={cn(
+   127→   127→                "px-4 py-2 rounded-full font-label text-[0.7rem] tracking-[0.12em] uppercase border transition",
+   128→   128→                "hover:-translate-y-0.5"
+   129→   129→              )}
+   130→   130→              style={{
+   131→   131→                borderColor: "var(--color-ursa-gold)",
+   132→   132→                background: "var(--color-ursa-paper)",
+   133→   133→                color: "var(--color-ursa-medium-roast)",
+   134→   134→              }}
+   135→   135→            >
+   136→   136→              {p === "conservative" && "Conservative"}
+   137→   137→              {p === "default" && "Default (recommended)"}
+   138→   138→              {p === "optimistic" && "Optimistic"}
+   139→   139→            </button>
+   140→   140→          ))}
+   141→   141→          <button
+   142→   142→            onClick={() => setInputs(PRESETS.default)}
+   143→   143→            className="ml-auto inline-flex items-center gap-1.5 px-3 py-2 rounded-full font-label text-[0.7rem] tracking-[0.12em] uppercase text-muted-foreground hover:text-ursa-dark-roast transition"
+   144→   144→          >
+   145→   145→            <RotateCcw size={13} /> Reset
+   146→   146→          </button>
+   147→   147→        </div>
+   148→   148→
+   149→   149→        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-6 items-start">
+   150→   150→          {/* INPUTS */}
+   151→   151→          <Card>
+   152→   152→            <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0 mb-1 flex items-center gap-2">
+   153→   153→              <Calculator size={20} className="text-ursa-gold" /> Edit the inputs
+   154→   154→            </h3>
+   155→   155→            <p className="text-[0.85rem] text-muted-foreground mb-5">Drag sliders or type values. Everything recalculates instantly.</p>
+   156→   156→
+   157→   157→            <div className="space-y-5">
+   158→   158→              {/* Subscription price */}
+   159→   159→              <NumberField label="Subscription price (monthly)" value={inputs.subPrice} onChange={(v) => update("subPrice", v)} min={5} max={60} step={1} prefix="S/. " hint="The price a subscriber pays per month." />
+   160→   160→              {/* Cost per cup */}
+   161→   161→              <NumberField label="Marginal cost per cup" value={inputs.costPerCup} onChange={(v) => update("costPerCup", v)} min={0.3} max={4} step={0.05} prefix="S/. " hint="Bean + water + energy + cup. Own-roastery benchmark: S/. 1.20–1.80." />
+   162→   162→
+   163→   163→              <SliderField label="Visits per week" value={inputs.visitsWeek} onChange={(v) => update("visitsWeek", v)} min={0.5} max={5} step={0.5} display={`${inputs.visitsWeek.toFixed(1)} visits`} hint="How often a subscriber comes in during the 7–10am window." />
+   164→   164→              <SliderField label="Cups per visit" value={inputs.cupsVisit} onChange={(v) => update("cupsVisit", v)} min={1} max={3} step={1} display={`${inputs.cupsVisit}`} hint="Capped at 1 in the pilot to prevent abuse." />
+   165→   165→
+   166→   166→              <SliderField label="Side attach rate" value={inputs.attachRate} onChange={(v) => update("attachRate", v)} min={0} max={100} step={5} display={`${inputs.attachRate}%`} hint="% of visits where the subscriber also buys a cookie, pastry, or empanada. This is the lever that makes the model work." />
+   167→   167→              <NumberField label="Side margin (per attach)" value={inputs.sideMargin} onChange={(v) => update("sideMargin", v)} min={1} max={12} step={0.25} prefix="S/. " hint="Profit margin on the accompanying food item, not revenue." />
+   168→   168→
+   169→   169→              <SliderField label="Cannibalization rate" value={inputs.cannibal} onChange={(v) => update("cannibal", v)} min={0} max={100} step={5} display={`${inputs.cannibal}%`} hint="% of subscribers who would have paid full price anyway. The biggest risk." />
+   170→   170→              <NumberField label="Avg. pre-subscription spend" value={inputs.avgSpendPre} onChange={(v) => update("avgSpendPre", v)} min={6} max={30} step={0.5} prefix="S/. " hint="What a cannibalized customer used to spend per visit, before subscribing." />
+   171→   171→            </div>
+   172→   172→
+   173→   173→            <Callout tone="warn" title="The side-pushing strategy is the whole game">
+   174→   174→              <p className="m-0">
+   175→   175→                Unlimited coffee only works if subscribers buy accompanying food at a healthy rate. The café should
+   176→   176→                actively push sides — cookies, the financier de pera, the empanada, seasonal pastries — through pairing
+   177→   177→                cards, bear-recommends prompts, and a visible morning pastry case. This calculator assumes you do that;
+   178→   178→                if the attach rate stays below 40%, kill the pilot (see stop rule).
+   179→   179→              </p>
+   180→   180→            </Callout>
+   181→   181→          </Card>
+   182→   182→
+   183→   183→          {/* OUTPUTS */}
+   184→   184→          <div className="space-y-5">
+   185→   185→            {/* Headline profit */}
+   186→   186→            <Card highlight className="bg-gradient-to-br from-ursa-paper to-ursa-cream">
+   187→   187→              <div className="flex items-center justify-between mb-1">
+   188→   188→                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold">Net profit per subscriber / month</span>
+   189→   189→                <EvidenceTag status="verified" />
+   190→   190→              </div>
+   191→   191→              <div className={cn("font-display text-5xl font-semibold leading-none mb-2", calc.netProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+   192→   192→                {PEN(calc.netProfit)}
+   193→   193→              </div>
+   194→   194→              <p className="text-[0.85rem] text-muted-foreground m-0">
+   195→   195→                {calc.netProfit >= 0
+   196→   196→                  ? "Profitable at these assumptions. Scroll down for the sensitivity table and cannibalization-adjusted view."
+   197→   197→                  : "Not profitable at these assumptions. Raise the price, raise the attach rate, or lower the cost per cup."}
+   198→   198→              </p>
+   199→   199→            </Card>
+   200→   200→
+   201→   201→            {/* Key metrics grid */}
+   202→   202→            <Grid cols={2}>
+   203→   203→              <MiniMetric icon={<Coffee size={16} />} label="Visits / month" value={calc.visitsMonth.toFixed(1)} tone="neutral" />
+   204→   204→              <MiniMetric icon={<Coffee size={16} />} label="Cups / month" value={calc.cupsMonth.toFixed(0)} tone="neutral" />
+   205→   205→              <MiniMetric icon={<TrendingUp size={16} />} label="Coffee cost / month" value={PEN(calc.coffeeCost)} tone="terracotta" />
+   206→   206→              <MiniMetric icon={<Sparkles size={16} />} label="Side margin / month" value={PEN(calc.sideMarginTotal)} tone="forest" />
+   207→   207→              <MiniMetric icon={<Info size={16} />} label="Break-even (no sides)" value={isFinite(calc.breakevenNoSides) ? `${calc.breakevenNoSides.toFixed(1)} cups` : "∞"} tone="neutral" />
+   208→   208→              <MiniMetric icon={<Info size={16} />} label="Free-cup capacity" value={isFinite(calc.freeCapacity) ? `${calc.freeCapacity.toFixed(1)} cups` : "∞"} tone="forest" />
+   209→   209→            </Grid>
+   210→   210→
+   211→   211→            {/* Cutoff attach */}
+   212→   212→            <Card>
+   213→   213→              <div className="flex items-center justify-between mb-2">
+   214→   214→                <h4 className="font-display text-base font-semibold text-ursa-dark-roast m-0">Minimum attach rate to break even</h4>
+   215→   215→                <Pill tone={isFinite(calc.cutoffAttach) && calc.cutoffAttach <= inputs.attachRate ? "ok" : "warn"}>
+   216→   216→                  {isFinite(calc.cutoffAttach) ? `${calc.cutoffAttach.toFixed(0)}%` : "n/a"}
+   217→   217→                </Pill>
+   218→   218→              </div>
+   219→   219→              <p className="text-[0.85rem] text-muted-foreground m-0">
+   220→   220→                {isFinite(calc.cutoffAttach)
+   221→   221→                  ? calc.cutoffAttach <= inputs.attachRate
+   222→   222→                    ? `You are above the break-even attach rate by ${(inputs.attachRate - calc.cutoffAttach).toFixed(0)} points. Headroom is healthy.`
+   223→   223→                    : `You are below break-even by ${(calc.cutoffAttach - inputs.attachRate).toFixed(0)} points. Push sides harder or raise the price.`
+   224→   224→                  : "Cannot compute — set a side margin and visit frequency."}
+   225→   225→              </p>
+   226→   226→            </Card>
+   227→   227→
+   228→   228→            {/* Cannibalization */}
+   229→   229→            <Card className="bg-ursa-foam">
+   230→   230→              <h4 className="font-display text-base font-semibold text-ursa-dark-roast mt-0 mb-2 flex items-center gap-2">
+   231→   231→                <AlertTriangle size={16} className="text-ursa-gold" /> Cannibalization-adjusted profit
+   232→   232→              </h4>
+   233→   233→              <div className="flex items-baseline gap-3 mb-2">
+   234→   234→                <span className={cn("font-display text-3xl font-semibold", calc.cannibalProfit >= 0 ? "text-ursa-forest-deep" : "text-ursa-terracotta")}>
+   235→   235→                  {PEN(calc.cannibalProfit)}
+   236→   236→                </span>
+   237→   237→                <span className="text-[0.8rem] text-muted-foreground">per subscriber / month, blended</span>
+   238→   238→              </div>
+   239→   239→              <p className="text-[0.85rem] text-muted-foreground m-0">
+   240→   240→                {calc.cannibalProfit >= 0
+   241→   241→                  ? `Even accounting for ${inputs.cannibal}% of subscribers who would have paid full price, the blended profit is positive.`
+   242→   242→                  : `At ${inputs.cannibal}% cannibalization, the blended profit is negative. Reduce cannibalization (target new customers, not existing regulars) or raise the price.`}
+   243→   243→              </p>
+   244→   244→              <div className="mt-3 pt-3 border-t border-ursa-line-soft flex items-center justify-between">
+   245→   245→                <span className="font-label text-[0.7rem] tracking-[0.12em] uppercase text-muted-foreground">Recovery time</span>
+   246→   246→                <span className="font-display text-base font-semibold text-ursa-dark-roast">
+   247→   247→                  {isFinite(calc.recoverMonths) ? (calc.recoverMonths === 0 ? "Already positive" : `${calc.recoverMonths.toFixed(1)} months`) : "Never (kill the pilot)"}
+   248→   248→                </span>
+   249→   249→              </div>
+   250→   250→            </Card>
+   251→   251→          </div>
+   252→   252→        </div>
+   253→   253→      </ViewSection>
+   254→   254→
+   255→   255→      {/* Tabs: sensitivity + scale + assumptions */}
+   256→   256→      <ViewSection badge="Deeper analysis" title="Sensitivity, scale, and the honest assumptions">
+   257→   257→        <Tabs defaultValue="sensitivity">
+   258→   258→          <TabsList className="bg-muted overflow-x-auto ursa-scroll justify-start sm:justify-center flex-nowrap max-w-full">
+   259→   259→            <TabsTrigger value="sensitivity">Sensitivity table</TabsTrigger>
+   260→   260→            <TabsTrigger value="scale">Scale projection</TabsTrigger>
+   261→   261→            <TabsTrigger value="assumptions">Honest assumptions</TabsTrigger>
+   262→   262→            <TabsTrigger value="sides">Side-pushing playbook</TabsTrigger>
+   263→   263→          </TabsList>
+   264→   264→
+   265→   265→          <TabsContent value="sensitivity" className="mt-6">
+   266→   266→            <Card>
+   267→   267→              <p className="text-[0.9rem] text-muted-foreground mb-4">
+   268→   268→                Net profit per subscriber/month across visit frequency (rows) and side attach rate (columns). The
+   269→   269→                highlighted cell is your current scenario. Green is profitable; red is not.
+   270→   270→              </p>
+   271→   271→              <div className="overflow-x-auto ursa-scroll">
+   272→   272→                <table className="w-full border-collapse text-[0.85rem]">
+   273→   273→                  <thead>
+   274→   274→                    <tr>
+   275→   275→                      <th className="text-left p-2 font-label text-[0.7rem] tracking-[0.1em] uppercase text-muted-foreground border-b border-ursa-line">
+   276→   276→                        Visits/wk ↓ / Attach →
+   277→   277→                      </th>
+   278→   278→                      {sensitivity.attachRates.map((ar) => (
+   279→   279→                        <th key={ar} className="p-2 font-label text-[0.7rem] tracking-[0.1em] uppercase text-muted-foreground border-b border-ursa-line text-center">
+   280→   280→                          {ar}%
+   281→   281→                        </th>
+   282→   282→                      ))}
+   283→   283→                    </tr>
+   284→   284→                  </thead>
+   285→   285→                  <tbody>
+   286→   286→                    {sensitivity.rows.map((row) => (
+   287→   287→                      <tr key={row.visits} className={row.isCurrentRow ? "bg-ursa-gold/10" : ""}>
+   288→   288→                        <td className="p-2 font-label text-[0.8rem] text-ursa-dark-roast border-b border-ursa-line-soft">
+   289→   289→                          {row.visits.toFixed(1)}
+   290→   290→                        </td>
+   291→   291→                        {row.cells.map((c, i) => (
+   292→   292→                          <td key={i} className={cn("p-2 text-center border-b border-ursa-line-soft", cellClass(c.value), c.isCurrent && "outline outline-2 outline-ursa-gold outline-offset-[-2px]")}>
+   293→   293→                            {c.value.toFixed(1)}
+   294→   294→                          </td>
+   295→   295→                        ))}
+   296→   296→                      </tr>
+   297→   297→                    ))}
+   298→   298→                  </tbody>
+   299→   299→                </table>
+   300→   300→              </div>
+   301→   301→            </Card>
+   302→   302→          </TabsContent>
+   303→   303→
+   304→   304→          <TabsContent value="scale" className="mt-6">
+   305→   305→            <Card>
+   306→   306→              <p className="text-[0.9rem] text-muted-foreground mb-4">
+   307→   307→                Blended monthly profit (cannibalization-adjusted) as the subscriber base grows. The pilot is capped at 50
+   308→   308→                to validate before scaling.
+   309→   309→              </p>
+   310→   310→              <div className="space-y-3">
+   311→   311→                {scaleProjection.map((s) => {
+   312→   312→                  const isPilot = s.subscribers === 50;
+   313→   313→                  const pctOfMax = (s.monthlyProfit / (scaleProjection[scaleProjection.length - 1].monthlyProfit || 1)) * 100;
+   314→   314→                  return (
+   315→   315→                    <div key={s.subscribers} className="flex items-center gap-4">
+   316→   316→                      <span className="font-label text-[0.8rem] tracking-[0.08em] uppercase text-muted-foreground w-28 shrink-0">
+   317→   317→                        {s.subscribers} subs {isPilot && <span className="text-ursa-gold">· pilot</span>}
+   318→   318→                      </span>
+   319→   319→                      <div className="flex-1 h-8 bg-muted rounded relative overflow-hidden">
+   320→   320→                        <div
+   321→   321→                          className={cn("h-full rounded flex items-center justify-end pr-3 transition-all", s.monthlyProfit >= 0 ? "bg-gradient-to-r from-ursa-forest to-ursa-forest-deep" : "bg-gradient-to-r from-ursa-terracotta to-ursa-gold")}
+   322→   322→                          style={{ width: `${Math.max(8, Math.abs(pctOfMax))}%` }}
+   323→   323→                        >
+   324→   324→                          <span className="text-ursa-cream font-display font-semibold text-sm">{PEN(s.monthlyProfit)}</span>
+   325→   325→                        </div>
+   326→   326→                      </div>
+   327→   327→                      <span className="text-[0.75rem] text-muted-foreground w-24 text-right shrink-0">{s.cupsPerMonth.toFixed(0)} cups/mo</span>
+   328→   328→                    </div>
+   329→   329→                  );
+   330→   330→                })}
+   331→   331→              </div>
+   332→   332→            </Card>
+   333→   333→          </TabsContent>
+   334→   334→
+   335→   335→          <TabsContent value="assumptions" className="mt-6">
+   336→   336→            <Grid cols={2}>
+   337→   337→              <Callout tone="forest" title="What we verified">
+   338→   338→                <ul className="space-y-1.5 m-0 p-0 list-none text-[0.9rem]">
+   339→   339→                  <li>• Own-roastery keeps marginal cost low (specialty benchmark US$0.75–1.20/cup; verified range S/. 1.20–1.80).</li>
+   340→   340→                  <li>• The 7–10am window targets the morning-regular slot in Miraflores — the same persona the Ursa Mañana subscription is built for.</li>
+   341→   341→                  <li>• Side items (cookies, financier, empanada) already exist in-house — no new SKU needed.</li>
+   342→   342→                  <li>• Subscription models are consistent with willingness to pay for membership among Lima café customers (CoffeePass is the local precedent).</li>
+   343→   343→                </ul>
+   344→   344→              </Callout>
+   345→   345→              <Callout tone="warn" title="What we assumed (and you should test)">
+   346→   346→                <ul className="space-y-1.5 m-0 p-0 list-none text-[0.9rem]">
+   347→   347→                  <li>• Side attach rate of 50–70% is achievable with active prompting. Unverified — test in pilot.</li>
+   348→   348→                  <li>• Cannibalization of 20–40% is typical for subscription products. Could be higher if existing regulars over-adopt.</li>
+   349→   349→                  <li>• One-cup-per-visit cap is intended to be enforceable without alienating subscribers — verify with the first 20 sign-ups.</li>
+   350→   350→                  <li>• Marginal cost is assumed to stay at S/. 1.20–1.80 as volume rises, on the assumption that the roastery has spare capacity. Confirm against roast logs before scaling.</li>
+   351→   351→                </ul>
+   352→   352→              </Callout>
+   353→   353→              <Callout tone="stop" title="Stop rule (EXP-11)">
+   354→   354→                <p className="m-0 text-[0.9rem]">
+   355→   355→                  Kill or revise the pilot if <strong>blended profit per subscriber is below zero after 60 days</strong>,
+   356→   356→                  or if <strong>cannibalization exceeds 50%</strong>, or if <strong>side attach rate stays below 40%</strong>{" "}
+   357→   357→                  despite active prompting after 30 days. Document the result either way.
+   358→   358→                </p>
+   359→   359→              </Callout>
+   360→   360→              <Callout tone="gold" title="What we deliberately did not assume">
+   361→   361→                <ul className="space-y-1.5 m-0 p-0 list-none text-[0.9rem]">
+   362→   362→                  <li>• No invented exact ingredient costs — use the scenario ranges.</li>
+   363→   363→                  <li>• No guaranteed subscriber count — the pilot is capped at 50 to learn cheaply.</li>
+   364→   364→                  <li>• No virality assumption — the subscription is promoted through existing channels first.</li>
+   365→   365→                </ul>
+   366→   366→              </Callout>
+   367→   367→            </Grid>
+   368→   368→          </TabsContent>
+   369→   369→
+   370→   370→          <TabsContent value="sides" className="mt-6">
+   371→   371→            <Card>
+   372→   372→              <h4 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-3">How to push sides without being pushy</h4>
+   373→   373→              <div className="grid md:grid-cols-2 gap-4">
+   374→   374→                <div>
+   375→   375→                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold mb-2">At the counter</h5>
+   376→   376→                  <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
+   377→   377→                    <li>• "Bear recommends" pairing card on the till — e.g. Ursagroni + financier de pera.</li>
+   378→   378→                    <li>• Visible morning pastry case at eye level, lit warm.</li>
+   379→   379→                    <li>• Barista trained to offer one specific pairing, not "would you like anything else?"</li>
+   380→   380→                    <li>• A S/. 2 add-on price for subscribers (anchored against the S/. 8 retail price).</li>
+   381→   381→                  </ul>
+   382→   382→                </div>
+   383→   383→                <div>
+   384→   384→                  <h5 className="font-label text-[0.72rem] tracking-[0.12em] uppercase text-ursa-gold mb-2">On the app / Rappi / WhatsApp</h5>
+   385→   385→                  <ul className="space-y-1.5 text-[0.9rem] m-0 p-0 list-none">
+   386→   386→                    <li>• A pre-selected "morning bundle" that defaults to coffee + a side.</li>
+   387→   387→                    <li>• A weekly rotating "bear's pick" that creates novelty.</li>
+   388→   388→                    <li>• A stamp card: 10 sides bought = 1 free side (retention without discounting coffee).</li>
+   389→   389→                  </ul>
+   390→   390→                </div>
+   391→   391→              </div>
+   392→   392→              <Callout tone="forest" title="The principle">
+   393→   393→                <p className="m-0 text-[0.9rem]">
+   394→   394→                  Do not discount the coffee — discounting erodes the specialty perception that justifies the price. Discount or bundle the sides, which
+   395→   395→                  have higher margin elasticity and reinforce the "morning ritual" story. The subscription makes the
+   396→   396→                  coffee feel free; the sides are where the relationship and the margin actually live.
+   397→   397→                </p>
+   398→   398→              </Callout>
+   399→   399→            </Card>
+   400→   400→          </TabsContent>
+   401→   401→        </Tabs>
+   402→   402→      </ViewSection>
+   403→   403→
+   404→   404→      <ViewSection>
+   405→   405→        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+   406→   406→          <StatBlock value={PEN(calc.netProfit)} label="Net profit / subscriber / month (current inputs)" tone="forest" />
+   407→   407→          <StatBlock value={`${calc.cutoffAttach.toFixed(0)}%`} label="Break-even side attach rate" tone="gold" />
+   408→   408→          <StatBlock value={`${calc.freeCapacity.toFixed(0)}`} label="Free cups the margin can absorb" tone="forest" />
+   409→   409→          <StatBlock value={isFinite(calc.recoverMonths) ? `${calc.recoverMonths.toFixed(1)} mo` : "kill"} label="Cannibalization recovery time" tone="terracotta" />
+   410→   410→        </div>
+   411→   411→        <p className="text-[0.78rem] text-muted-foreground mt-6 max-w-3xl">
+   412→   412→          <strong>Disclaimer:</strong> This calculator is a decision-support tool, not a financial guarantee. Marginal
+   413→   413→          cost per cup depends on roast yield, milk usage, and waste; verify against Ursa's actual roast logs before
+   414→   414→          scaling. Virality and subscriber growth are not assumed — the pilot is designed to measure them.
+   415→   415→        </p>
+   416→   416→      </ViewSection>
+   417→   417→    </>
+   418→   418→  );
+   419→   419→}
+   420→   420→
+   421→   421→function NumberField({ label, value, onChange, min, max, step, prefix, hint }: { label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number; prefix?: string; hint?: string }) {
+   422→   422→  return (
+   423→   423→    <div>
+   424→   424→      <div className="flex items-center justify-between mb-1.5">
+   425→   425→        <Label className="font-label text-[0.74rem] tracking-[0.08em] uppercase text-ursa-dark-roast">{label}</Label>
+   426→   426→        <div className="flex items-center gap-1">
+   427→   427→          {prefix && <span className="text-[0.8rem] text-muted-foreground">{prefix}</span>}
+   428→   428→          <Input
+   429→   429→            type="number"
+   430→   430→            value={value}
+   431→   431→            min={min}
+   432→   432→            max={max}
+   433→   433→            step={step}
+   434→   434→            onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+   435→   435→            className="w-24 h-8 text-right font-display font-semibold text-ursa-dark-roast"
+   436→   436→          />
+   437→   437→        </div>
+   438→   438→      </div>
+   439→   439→      {hint && <p className="text-[0.78rem] text-muted-foreground m-0">{hint}</p>}
+   440→   440→    </div>
+   441→   441→  );
+   442→   442→}
+   443→   443→
+   444→   444→function SliderField({ label, value, onChange, min, max, step, display, hint }: { label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number; display: string; hint?: string }) {
+   445→   445→  return (
+   446→   446→    <div>
+   447→   447→      <div className="flex items-center justify-between mb-1.5">
+   448→   448→        <Label className="font-label text-[0.74rem] tracking-[0.08em] uppercase text-ursa-dark-roast">{label}</Label>
+   449→   449→        <span className="font-display font-semibold text-ursa-dark-roast text-[0.95rem]">{display}</span>
+   450→   450→      </div>
+   451→   451→      <Slider value={[value]} min={min} max={max} step={step} onValueChange={(v) => onChange(v[0])} className="py-1" />
+   452→   452→      {hint && <p className="text-[0.78rem] text-muted-foreground m-0 mt-1">{hint}</p>}
+   453→   453→    </div>
+   454→   454→  );
+   455→   455→}
+   456→   456→
+   457→   457→function MiniMetric({ icon, label, value, tone }: { icon: React.ReactNode; label: string; value: string; tone: "neutral" | "forest" | "terracotta" }) {
+   458→   458→  const tones = { neutral: "text-ursa-dark-roast", forest: "text-ursa-forest-deep", terracotta: "text-ursa-terracotta" };
+   459→   459→  return (
+   460→   460→    <div className="bg-card border border-ursa-line-soft rounded-lg p-4">
+   461→   461→      <div className="flex items-center gap-2 text-ursa-gold mb-1">{icon}<span className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground">{label}</span></div>
+   462→   462→      <p className={cn("font-display text-2xl font-semibold m-0", tones[tone])}>{value}</p>
+   463→   463→    </div>
+   464→   464→  );
+   465→   465→}
+   466→   466→

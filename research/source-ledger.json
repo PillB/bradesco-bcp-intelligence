@@ -1,0 +1,28 @@
+{
+  "schema": "ursa-source-ledger/v1",
+  "compiled": "2026-08-01",
+  "sources": [
+    { "id": "S-IG", "name": "Instagram @ursacoffeeperu", "url": "https://www.instagram.com/ursacoffeeperu/", "type": "social-media", "retrieved": "2026-08-01", "family": "ursacoffee-first-party", "evidence_items": ["E-01","E-02","E-03","E-04","E-05","E-06"] },
+    { "id": "S-FB", "name": "Facebook /UrsaCoffeePeru", "url": "https://www.facebook.com/UrsaCoffeePeru/", "type": "social-media", "retrieved": "2026-08-01", "family": "ursacoffee-first-party", "evidence_items": ["E-01"] },
+    { "id": "S-RP", "name": "Rappi — Ursa Coffee Roasters", "url": "https://www.rappi.com.pe/restaurantes/77182-ursa-coffee-roasters", "type": "delivery-platform", "retrieved": "2026-08-01", "family": "ursacoffee-first-party", "evidence_items": ["E-04","E-05","E-08"] },
+    { "id": "S-CP", "name": "CoffeePass Perú — Ursa", "url": "https://coffeepass.pe/marcas/ursa-coffee-roasters/", "type": "membership-platform", "retrieved": "2026-08-01", "family": "ursacoffee-first-party", "evidence_items": ["E-09"] },
+    { "id": "S-TA", "name": "TripAdvisor — Ursa Coffee Roasters", "url": "https://www.tripadvisor.com.pe/Restaurant_Review-g294316-d32878304-Reviews-Ursa_Coffee_Roasters-Lima_Lima_Region.html", "type": "review-platform", "retrieved": "2026-08-01", "family": "ursacoffee-first-party", "evidence_items": ["E-07","E-11"] },
+    { "id": "S-ACQ-OFFERS", "name": "Acquisition.com — Offers training", "url": "https://www.acquisition.com/training/offers", "type": "framework-reference", "retrieved": "2026-08-01", "family": "hormozi-framework", "evidence_items": ["E-12"] },
+    { "id": "S-FS-RORY", "name": "FS.blog — Rory Sutherland Knowledge Project", "url": "https://fs.blog/knowledge-project-podcast/rory-sutherland-2/", "type": "framework-reference", "retrieved": "2026-08-01", "family": "sutherland-framework", "evidence_items": ["E-13"] },
+    { "id": "S-FC-2025", "name": "Fresh Cup — 2025 café trends", "url": "https://www.freshcup.com/", "type": "industry-publication", "retrieved": "2026-08-01", "family": "industry-context", "evidence_items": ["E-14","E-15"] },
+    { "id": "S-WR-PUNTO", "name": "World's 100 Best Coffee Shops nomination", "url": "n/a", "type": "industry-award", "retrieved": "2026-08-01", "family": "industry-context", "evidence_items": ["E-20"] },
+    { "id": "S-SOMOS", "name": "Premios Somos 2024", "url": "n/a", "type": "industry-award", "retrieved": "2026-08-01", "family": "industry-context", "evidence_items": ["E-21"] },
+    { "id": "S-COMP-PUNTO", "name": "Punto Café (competitor)", "url": "n/a", "type": "competitor-observation", "retrieved": "2026-08-01", "family": "competitor-miraflores", "evidence_items": ["E-16","E-20","E-21"] },
+    { "id": "S-COMP-NEIRA", "name": "Neira Café Lab (competitor)", "url": "n/a", "type": "competitor-observation", "retrieved": "2026-08-01", "family": "competitor-miraflores", "evidence_items": ["E-16","E-18","E-22","E-23"] },
+    { "id": "S-COMP-BISETTI", "name": "Tostaduría Bisetti (competitor)", "url": "n/a", "type": "competitor-observation", "retrieved": "2026-08-01", "family": "competitor-lima", "evidence_items": ["E-16","E-17","E-19","E-26"] },
+    { "id": "S-COMP-PUKU", "name": "Puku Puku (competitor)", "url": "n/a", "type": "competitor-observation", "retrieved": "2026-08-01", "family": "competitor-miraflores", "evidence_items": ["E-16","E-20","E-24","E-27"] },
+    { "id": "S-COMP-TERRUA", "name": "Terrua Café (competitor)", "url": "n/a", "type": "competitor-observation", "retrieved": "2026-08-01", "family": "competitor-miraflores", "evidence_items": ["E-16","E-25"] },
+    { "id": "S-COMP-URQU", "name": "Urqu Coffee Shop (competitor, TripAdvisor)", "url": "n/a", "type": "competitor-observation", "retrieved": "2026-08-01", "family": "competitor-miraflores", "evidence_items": ["E-11"] },
+    { "id": "S-BENCH-COST", "name": "Specialty coffee marginal cost benchmark", "url": "n/a", "type": "industry-benchmark", "retrieved": "2026-08-01", "family": "industry-context", "evidence_items": ["E-28"] },
+    { "id": "S-BENCH-SUB", "name": "Lima subscription market gap", "url": "n/a", "type": "market-observation", "retrieved": "2026-08-01", "family": "industry-context", "evidence_items": ["E-29"] },
+    { "id": "S-OWNER-BRIEF", "name": "Owner-described brand direction", "url": "n/a", "type": "owner-statement", "retrieved": "2026-08-01", "family": "owner-unverified", "evidence_items": ["E-10"] }
+  ],
+  "total_sources": 19,
+  "total_families": 7,
+  "notes": "The interactive app's SOURCES array (ursa-data.ts) contains only 10 of these 19 sources. 9 sources are missing from the interactive view. See baseline-defect BD-01."
+}

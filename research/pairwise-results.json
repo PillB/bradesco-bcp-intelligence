@@ -1,0 +1,218 @@
+{
+  "totalColors": 101,
+  "totalPairs": 5050,
+  "totalFailures": 3014,
+  "criticalFailures": 2624,
+  "failures": [
+    {
+      "a": "color-ursa-light-roast",
+      "b": "chart-3",
+      "hexA": "#8B6240",
+      "hexB": "#8B6240",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "primary",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "secondary-foreground",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "accent-foreground",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "sidebar-accent",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "secondary_dark",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "muted_dark",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "accent_dark",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "input_dark",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-dark-roast",
+      "b": "sidebar-border_dark",
+      "hexA": "#3B2417",
+      "hexB": "#3B2417",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "color-ursa-paper",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "color-ursa-ink",
+      "hexA": "#211208",
+      "hexB": "#1A140C",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "color-ursa-bg",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "foreground",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "card-foreground",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "popover-foreground",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "sidebar-primary-foreground",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "background_dark",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "primary-foreground_dark",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "sidebar-primary-foreground_dark",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "color-ursa-paper_dark",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-espresso",
+      "b": "color-ursa-bg_dark",
+      "hexA": "#211208",
+      "hexB": "#211208",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-forest-deep",
+      "b": "chart-4",
+      "hexA": "#2D4A36",
+      "hexB": "#2D4A36",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-forest-deep",
+      "b": "bear_forest",
+      "hexA": "#2D4A36",
+      "hexB": "#2D4A36",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-forest",
+      "b": "chart-1",
+      "hexA": "#3E6149",
+      "hexB": "#3E6149",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-sage",
+      "b": "color-ursa-sage-text",
+      "hexA": "#8FA68B",
+      "hexB": "#8FA68B",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-sage",
+      "b": "chart-1_dark",
+      "hexA": "#8FA68B",
+      "hexB": "#8FA68B",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-sage",
+      "b": "color-ursa-sage-text_dark",
+      "hexA": "#8FA68B",
+      "hexB": "#8FA68B",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-leaf",
+      "b": "chart-4_dark",
+      "hexA": "#B7C9A8",
+      "hexB": "#B7C9A8",
+      "ratio": 1
+    },
+    {
+      "a": "color-ursa-cream",
+      "b": "color-ursa-bg-alt",
+      "hexA": "#2D2417",
+      "hexB": "#2D2417",
+      "ratio": 1
+    }
+  ]
+}

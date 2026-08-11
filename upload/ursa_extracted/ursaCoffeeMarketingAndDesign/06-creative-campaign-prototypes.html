@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 · Creative Campaign Prototypes — Ursa Coffee Roasters Dossier</title>
+<meta name="description" content="HTML, CSS, and SVG prototypes for Ursa Coffee Roasters: social posts, carousels, Stories, Reel covers, posters, menus, product cards, table signs, loyalty cards, packaging labels, bean info cards, event materials, Google and delivery imagery, landing pages, and email headers. Three brand-evolution levels with recommendation. Does not alter the official logo.">
+<link rel="stylesheet" href="assets/ursa.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' aria-hidden="true"><circle cx='16' cy='16' r='15' fill='%233B2417'/><circle cx='16' cy='16' r='13' fill='none' stroke='%23B8924A' stroke-width='1'/><text x='16' y='22' font-family='Georgia' font-size='16' fill='%23F4EBD9' text-anchor='middle'>U</text></svg>">
+<style>
+/* Prototype-specific styles in addition to ursa.css */
+.ig-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:6px; max-width:340px; margin:0 auto}
+.ig-grid > div{aspect-ratio:1; border-radius:4px; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center}
+.email-header{background:linear-gradient(135deg,#3B2417,#2D4A36); color:#F4EBD9; padding:32px; border-radius:6px; text-align:center; position:relative; overflow:hidden}
+.email-header svg{position:absolute; opacity:0.12}
+.landing-hero{background:radial-gradient(ellipse at top right,rgba(143,166,139,0.3),transparent 60%),linear-gradient(180deg,#FAF5EC,#F4EBD9); padding:64px 32px; border-radius:8px; text-align:center; position:relative; overflow:hidden}
+.table-card{aspect-ratio:5/3; padding:18px; border-radius:4px; background:#FAF5EC; border:1px solid #C9B68C; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden}
+.loyalty-card{aspect-ratio:8/5; padding:20px; border-radius:8px; background:linear-gradient(135deg,#2D4A36,#3B2417); color:#F4EBD9; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between}
+.paw-punch{display:flex; gap:8px; justify-content:space-between; margin-top:12px}
+.paw-punch span{width:22px; height:22px; border-radius:50%; border:1.5px solid rgba(244,235,217,0.5); display:grid; place-items:center; font-size:10px}
+.paw-punch span.filled{background:#B8924A; border-color:#B8924A; color:#3B2417}
+.reel-cover{aspect-ratio:9:16; max-width:200px; background:linear-gradient(180deg,#3B2417,#211208); color:#F4EBD9; padding:18px; border-radius:14px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end}
+.reel-cover .play{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:50px; height:50px; border-radius:50%; background:rgba(244,235,217,0.15); display:grid; place-items:center; backdrop-filter:blur(4px)}
+.poster{aspect-ratio:2/3; max-width:340px; margin:0 auto; background:linear-gradient(135deg,#3E6149,#2D4A36); color:#F4EBD9; padding:36px 28px; border-radius:4px; position:relative; overflow:hidden; display:flex; flex-direction:column}
+.event-flyer{aspect-ratio:1; max-width:340px; margin:0 auto; background:#FAF5EC; border:2px solid #B8924A; padding:32px; border-radius:4px; text-align:center; position:relative; overflow:hidden}
+.product-card{aspect-ratio:5/7; max-width:260px; background:#FAF5EC; border:1px solid #C9B68C; padding:20px; border-radius:6px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between}
+.gbp-hero{aspect-ratio:16/9; max-width:480px; background:linear-gradient(135deg,#3B2417,#2D4A36); color:#F4EBD9; padding:24px; border-radius:8px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header class="ursa-header">
+  <div class="ursa-header__row">
+    <a href="index.html" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+      <span class="ursa-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img" aria-label="Ursa mark">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#3B2417" stroke-width="1.4"/>
+          <circle cx="14" cy="14" r="3" fill="#3B2417"/>
+          <circle cx="26" cy="14" r="3" fill="#3B2417"/>
+          <circle cx="20" cy="22" r="9" fill="#3B2417"/>
+          <circle cx="17" cy="21" r="1.1" fill="#F4EBD9"/>
+          <circle cx="23" cy="21" r="1.1" fill="#F4EBD9"/>
+          <path d="M18 25 Q20 27 22 25" stroke="#F4EBD9" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>
+        <div class="ursa-header__title">Ursa Coffee Roasters</div>
+        <div class="ursa-header__sub">Module 06 · Creative Prototypes</div>
+      </span>
+    </a>
+    <nav class="ursa-header__nav" aria-label="Dossier sections">
+      <a href="index.html">Index</a>
+      <a href="01-brand-audit-and-design-system.html">01 · Brand</a>
+      <a href="02-market-competitors-and-customer-voice.html">02 · Market</a>
+      <a href="03-menu-and-product-development.html">03 · Menu</a>
+      <a href="04-marketing-growth-and-retention-plan.html">04 · Growth</a>
+      <a href="05-viral-content-laboratory.html">05 · Viral Lab</a>
+      <a href="06-creative-campaign-prototypes.html" aria-current="page">06 · Creative</a>
+      <a href="07-implementation-roadmap-and-kpis.html">07 · Roadmap</a>
+      <a href="08-subscription-economics-and-calculator.html">08 · Sub &amp; Calc</a>
+      <a href="sources-and-evidence.html">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="ursa-hero">
+  <div class="ursa-wrap">
+    <span class="ursa-hero__eyebrow">Module 06 · Creative Campaign Prototypes</span>
+    <h1 class="ursa-hero__title">Prototypes you can click, copy, and hand to a printer.</h1>
+    <p class="ursa-hero__lede">This module builds working HTML, CSS, and SVG prototypes for fifteen touchpoints — social posts, carousels, Stories, Reel covers, posters, menus, product cards, table signs, loyalty cards, packaging labels, bean info cards, event materials, Google and delivery imagery, landing pages, and email headers. The official logo is never altered or counterfeited; the geometric bear glyph used here is an original concept mark for prototype demonstration only.</p>
+    <div class="ursa-hero__meta">
+      <span><b>Prototypes</b> · 15 touchpoints</span>
+      <span><b>Format</b> · HTML + CSS + SVG</span>
+      <span><b>Brand evolution</b> · 3 levels with recommendation</span>
+      <span><b>Print-ready</b> · Yes</span>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-callout ursa-callout--warn">
+      <h2>Asset disclaimer — read before any production</h2>
+      <p style="margin:0">The geometric bear glyph used throughout this module is an <strong>original concept mark</strong> designed for dossier navigation and prototype demonstration. It is <strong>not</strong> the official Ursa Coffee Roasters logo. The official logo must be sourced from the owner-supplied asset pack (open question Q6 in Sources &amp; Evidence) before any production artwork is finalized. All prototypes below use the concept mark as a placeholder; in production, the official mark replaces it. No prototype in this module alters, parodies, or counterfeits the official logo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.1</span>
+      <h2 class="ursa-section__title">Social post — single image (1:1)</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.1 · Single image post</span>
+      <div style="max-width:380px; margin:0 auto; background:#FAF5EC; border-radius:6px; overflow:hidden; border:1px solid #C9B68C">
+        <div style="aspect-ratio:1; background:linear-gradient(135deg, #3E6149 0%, #2D4A36 100%); position:relative; display:flex; align-items:center; justify-content:center">
+          <!-- Bear silhouette watermark -->
+          <svg width="180" height="180" viewBox="0 0 60 60" style="position:absolute; opacity:0.18" aria-hidden="true">
+            <g fill="#F4EBD9">
+              <circle cx="20" cy="20" r="5"/>
+              <circle cx="40" cy="20" r="5"/>
+              <path d="M10 35 Q10 22 30 22 Q50 22 50 35 Q50 48 30 48 Q10 48 10 35 Z"/>
+            </g>
+          </svg>
+          <div style="text-align:center; color:#F4EBD9; padding:24px; position:relative; z-index:2">
+            <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:0.24em; text-transform:uppercase; color:#D9BC7E; margin-bottom:14px">Barra Coldbrew</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2rem; line-height:1.1; margin-bottom:8px">Maracumango</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.78rem; opacity:0.85">Maracuyá · Mango · Coldbrew</div>
+          </div>
+        </div>
+        <div style="padding:14px; display:flex; gap:10px; align-items:center; border-top:1px solid #E2D4B0">
+          <div style="width:32px; height:32px; border-radius:50%; background:#3B2417; display:grid; place-items:center; flex:0 0 32px">
+            <span style="font-family:'Cormorant Garamond',serif; color:#F4EBD9; font-size:0.9rem">U</span>
+          </div>
+          <div style="flex:1">
+            <div style="font-family:'Inter',sans-serif; font-weight:600; font-size:0.82rem; color:#3B2417">ursacoffeeperu</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#5C4A35">Alcanfores 183, Miraflores</div>
+          </div>
+        </div>
+        <div style="padding:0 14px 14px; font-family:'Inter',sans-serif; font-size:0.78rem; color:#3B2417">
+          <strong>ursacoffeeperu</strong> Maracumango Coldbrew. Maracuyá + mango + coldbrew de la casa. La bebida favorita del verano, ahora en carta permanente. <em>Un gramo a la vez.</em> ☕
+        </div>
+      </div>
+      <p class="prototype-frame__note">Single-image post template. Bear silhouette watermark at 18% opacity behind a centered drink name. Caption uses warm-expert voice, ends with the verified tagline and a single coffee emoji per the §1.7 rules.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.2</span>
+      <h2 class="ursa-section__title">Carousel — 5 slides (1:1 each)</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.2 · Carousel "Si es tu primera vez"</span>
+      <div style="display:flex; gap:8px; overflow-x:auto; padding:8px 0">
+        <!-- Slide 1 -->
+        <div style="min-width:200px; aspect-ratio:1; background:#3B2417; color:#F4EBD9; padding:18px; border-radius:6px; display:flex; flex-direction:column; justify-content:center; text-align:center">
+          <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.24em; text-transform:uppercase; color:#D9BC7E; margin-bottom:10px">Ursa · Primera visita</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.3rem; line-height:1.15">Si es tu primera vez</div>
+          <div style="margin-top:14px; font-size:0.65rem; opacity:0.7; font-family:'Inter',sans-serif">Desliza →</div>
+        </div>
+        <!-- Slide 2 -->
+        <div style="min-width:200px; aspect-ratio:1; background:#F4EBD9; color:#3B2417; padding:18px; border-radius:6px; display:flex; flex-direction:column; justify-content:space-between">
+          <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#6F4A2E">¿Tengo frío?</div>
+          <div style="text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem">Filtrado Lonya</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.65rem; color:#5C4A35; margin-top:4px">+ financier de pera</div>
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.16em; color:#B8924A; text-transform:uppercase">Amazonas · 1750m</div>
+        </div>
+        <!-- Slide 3 -->
+        <div style="min-width:200px; aspect-ratio:1; background:#2D4A36; color:#F4EBD9; padding:18px; border-radius:6px; display:flex; flex-direction:column; justify-content:space-between">
+          <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#B7C9A8">¿Tengo calor?</div>
+          <div style="text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem">Maracumango</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.65rem; opacity:0.85; margin-top:4px">Coldbrew</div>
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.16em; color:#D9BC7E; text-transform:uppercase">Barra Coldbrew</div>
+        </div>
+        <!-- Slide 4 -->
+        <div style="min-width:200px; aspect-ratio:1; background:#C16E4B; color:#FAF5EC; padding:18px; border-radius:6px; display:flex; flex-direction:column; justify-content:space-between">
+          <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; opacity:0.9">¿Antojo dulce?</div>
+          <div style="text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem">Ursagroni</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.65rem; opacity:0.9; margin-top:4px">+ empanada de carne</div>
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.16em; opacity:0.85; text-transform:uppercase">Barra Espresso</div>
+        </div>
+        <!-- Slide 5 -->
+        <div style="min-width:200px; aspect-ratio:1; background:#FAF5EC; color:#3B2417; padding:18px; border-radius:6px; display:flex; flex-direction:column; justify-content:center; text-align:center; border:1px solid #C9B68C">
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; line-height:1.2; margin-bottom:10px">O pide la Doble Barra Ursa</div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#5C4A35; margin-bottom:12px">Espresso + Coldbrew + Pastry</div>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:#B8924A">Alcanfores 183 · Un gramo a la vez</div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">5-slide carousel implementing Concept #10 from §5.1. Each slide carries one mood + one recommended order. Color rotation signals the two-bar distinction: dark brown = espresso bar, deep green = coldbrew bar, terracotta = sweet/cocktail. CTA on final slide.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.3</span>
+      <h2 class="ursa-section__title">Instagram Story — single frame (9:16)</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.3 · Story — Black Label drop</span>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; justify-content:center">
+        <div class="ursa-story">
+          <div class="ursa-story__progress"></div>
+          <div class="ursa-story__brand">Ursa · Barra Espresso</div>
+          <div style="margin-top:auto">
+            <div style="font-family:'Oswald',sans-serif; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:#D9BC7E; margin-bottom:6px">24 horas antes</div>
+            <div class="ursa-story__title">Black Label</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.95rem; opacity:0.9; margin-bottom:14px">Perú · Yuraq Yaku · Cusco</div>
+            <span class="ursa-story__cta">Únete a la lista →</span>
+          </div>
+        </div>
+        <div class="ursa-story" style="background:linear-gradient(180deg,#3B2417,#6F4A2E)">
+          <div class="ursa-story__progress" style="width:62%"></div>
+          <div class="ursa-story__brand">Ursa · Cata del sábado</div>
+          <div style="margin-top:auto">
+            <div style="font-family:'Oswald',sans-serif; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:#D9BC7E; margin-bottom:6px">Sábado 11am · Gratis</div>
+            <div class="ursa-story__title">Cata en barra</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.95rem; opacity:0.9; margin-bottom:14px">3 orígenes · 20 min · 6 cupos</div>
+            <span class="ursa-story__cta">Reserva por WhatsApp</span>
+          </div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">Two Story variants. Left: Bean Drop announcement (warm-expert tone, scarcity without urgency theater). Right: Saturday cupping announcement (event-booking CTA). Both follow the §1.7 voice rules: max two emoji per caption (none used here because the visual already carries the brand), Spanish as spoken in Lima.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.4</span>
+      <h2 class="ursa-section__title">Reel cover (9:16)</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.4 · Reel cover — Un Gramo a la Vez series</span>
+      <div style="display:flex; gap:18px; flex-wrap:wrap; justify-content:center">
+        <div class="reel-cover">
+          <div style="position:absolute; top:18px; left:18px; right:18px; display:flex; justify-content:space-between; align-items:center; font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:#D9BC7E">
+            <span>Ursa</span><span>Ep. 01</span>
+          </div>
+          <div class="play">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3 L17 10 L5 17 Z" fill="#F4EBD9"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; line-height:1; margin-bottom:6px">Un gramo<br>a la vez</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; opacity:0.8">V60 · 18g · 1:16</div>
+          </div>
+        </div>
+        <div class="reel-cover" style="background:linear-gradient(180deg,#2D4A36,#1A2A1F)">
+          <div style="position:absolute; top:18px; left:18px; right:18px; display:flex; justify-content:space-between; align-items:center; font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:#B7C9A8">
+            <span>Ursa</span><span>Ep. 02</span>
+          </div>
+          <div class="play">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3 L17 10 L5 17 Z" fill="#F4EBD9"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; line-height:1; margin-bottom:6px">Un gramo<br>a la vez</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; opacity:0.8">Aeropress · 14g · 1:14</div>
+          </div>
+        </div>
+        <div class="reel-cover" style="background:linear-gradient(180deg,#6F4A2E,#3B2417)">
+          <div style="position:absolute; top:18px; left:18px; right:18px; display:flex; justify-content:space-between; align-items:center; font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:#D9BC7E">
+            <span>Ursa</span><span>Ep. 03</span>
+          </div>
+          <div class="play">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3 L17 10 L5 17 Z" fill="#F4EBD9"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; line-height:1; margin-bottom:6px">Un gramo<br>a la vez</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; opacity:0.8">Chemex · 30g · 1:17</div>
+          </div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">Three Reel covers from Series A (Un Gramo a la Vez). Same composition, same hook phrase, same end card — different brew method and ratio per episode. Color rotation across the series (dark brown / forest / medium roast) keeps the grid visually fresh while the typographic system stays rigidly consistent.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.5</span>
+      <h2 class="ursa-section__title">Storefront poster (2:3)</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.5 · Storefront poster — Two-bar announcement</span>
+      <div class="poster">
+        <!-- Botanical bracket top -->
+        <svg width="100%" height="50" viewBox="0 0 240 50" style="opacity:0.4" aria-hidden="true">
+          <g fill="none" stroke="#B7C9A8" stroke-width="0.8" stroke-linecap="round">
+            <path d="M20 40 Q20 12 60 8 Q80 6 100 8"/>
+            <ellipse cx="48" cy="28" rx="5" ry="2.5" transform="rotate(-30 48 28)" fill="#B7C9A8" stroke="none"/>
+            <ellipse cx="72" cy="14" rx="5" ry="2.5" transform="rotate(-20 72 14)" fill="#B7C9A8" stroke="none"/>
+          </g>
+          <g fill="none" stroke="#B7C9A8" stroke-width="0.8" stroke-linecap="round" transform="translate(240 0) scale(-1 1)">
+            <path d="M20 40 Q20 12 60 8 Q80 6 100 8"/>
+            <ellipse cx="48" cy="28" rx="5" ry="2.5" transform="rotate(-30 48 28)" fill="#B7C9A8" stroke="none"/>
+            <ellipse cx="72" cy="14" rx="5" ry="2.5" transform="rotate(-20 72 14)" fill="#B7C9A8" stroke="none"/>
+          </g>
+        </svg>
+
+        <div style="text-align:center; margin-top:20px">
+          <div style="font-family:'Oswald',sans-serif; font-size:0.62rem; letter-spacing:0.28em; text-transform:uppercase; color:#B7C9A8; margin-bottom:18px">Ursa Coffee Roasters</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2.2rem; line-height:1.05; margin-bottom:14px">Dos barras.<br>Una casa.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.82rem; opacity:0.85; max-width:80%; margin:0 auto 22px">Barra espresso por la mañana. Barra coldbrew por la tarde. Un gramo a la vez.</div>
+          <div style="display:flex; gap:14px; justify-content:center; font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:#D9BC7E">
+            <span>Espresso</span>
+            <span style="opacity:0.4">·</span>
+            <span>Coldbrew</span>
+            <span style="opacity:0.4">·</span>
+            <span>Filtrado</span>
+          </div>
+        </div>
+
+        <div style="text-align:center; font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#F4EBD9; opacity:0.7; margin-top:auto">
+          Alcanfores 183 · Miraflores<br>Lun–Sab 7:30am · Dom 8:30am
+        </div>
+      </div>
+      <p class="prototype-frame__note">Storefront poster announcing the two-bar concept. Forest-green background positions Ursa in its bear-habitat palette. Botanical brackets (§1.6 Art Nouveau components) frame the headline. Print at A2 or A3.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.6</span>
+      <h2 class="ursa-section__title">Print menu (single page)</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.6 · Print menu — two-column, paired bars</span>
+      <div class="ursa-menu" style="max-width:560px; margin:0 auto">
+        <div class="ursa-menu__crest">
+          <svg width="60" height="60" viewBox="0 0 60 60" style="margin:0 auto 8px; display:block" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="none" stroke="#B8924A" stroke-width="0.8"/>
+            <circle cx="30" cy="30" r="24" fill="none" stroke="#B8924A" stroke-width="0.4"/>
+            <g fill="#3B2417">
+              <circle cx="22" cy="22" r="3.5"/>
+              <circle cx="38" cy="22" r="3.5"/>
+              <path d="M14 32 Q14 22 30 22 Q46 22 46 32 Q46 42 30 42 Q14 42 14 32 Z"/>
+            </g>
+            <circle cx="26" cy="31" r="1.2" fill="#F4EBD9"/>
+            <circle cx="34" cy="31" r="1.2" fill="#F4EBD9"/>
+          </svg>
+          <h3>Ursa Coffee Roasters</h3>
+          <small>Un gramo a la vez · Alcanfores 183</small>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+          <div>
+            <div class="ursa-menu__section">
+              <h4>Barra Espresso</h4>
+              <div class="ursa-menu__item"><b>Espresso</b><span class="dots"></span><span class="price">S/. 6</span></div>
+              <div class="ursa-menu__item"><b>Cortado</b><span class="dots"></span><span class="price">S/. 8</span></div>
+              <div class="ursa-menu__item"><b>Flat White</b><span class="dots"></span><span class="price">S/. 10</span></div>
+              <div class="ursa-menu__item"><b>Capuccino</b><span class="dots"></span><span class="price">S/. 10</span></div>
+              <div class="ursa-menu__item"><b>Latte</b><span class="dots"></span><span class="price">S/. 11</span></div>
+              <div class="ursa-menu__item"><b>Americano</b><span class="dots"></span><span class="price">S/. 8</span></div>
+              <div class="ursa-menu__item"><b>Mocha</b><span class="dots"></span><span class="price">S/. 12</span></div>
+              <div class="ursa-menu__item"><b>Black Label <small>rotando</small></b><span class="dots"></span><span class="price">S/. 14</span></div>
+              <div class="ursa-menu__item" style="margin-top:10px"><b>Ursagroni</b><span class="dots"></span><span class="price">S/. 18</span>
+                <small>Espresso · bitter · cítrico</small>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="ursa-menu__section">
+              <h4>Barra Coldbrew</h4>
+              <div class="ursa-menu__item"><b>Coldbrew</b><span class="dots"></span><span class="price">S/. 10</span></div>
+              <div class="ursa-menu__item"><b>Coldbrew Tonic</b><span class="dots"></span><span class="price">S/. 13</span></div>
+              <div class="ursa-menu__item"><b>Durazno Clarificado</b><span class="dots"></span><span class="price">S/. 14</span></div>
+              <div class="ursa-menu__item"><b>Maracumango</b><span class="dots"></span><span class="price">S/. 14</span>
+                <small>Maracuyá · mango</small>
+              </div>
+            </div>
+            <div class="ursa-menu__section">
+              <h4>Filtrados</h4>
+              <div class="ursa-menu__item"><b>V60</b><span class="dots"></span><span class="price">S/. 12</span></div>
+              <div class="ursa-menu__item"><b>Chemex (para dos)</b><span class="dots"></span><span class="price">S/. 22</span></div>
+              <div class="ursa-menu__item"><b>Filtrado de la Casa</b><span class="dots"></span><span class="price">S/. 8</span>
+                <small>Rotando diario</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ursa-menu__section">
+          <h4>Pairings</h4>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; font-size:0.85rem; text-align:center">
+            <div><b style="font-family:'Cormorant Garamond',serif; font-style:italic">La Ursa</b><br><small class="muted">Ursagroni + empanada · S/. 28</small></div>
+            <div><b style="font-family:'Cormorant Garamond',serif; font-style:italic">La Lonya</b><br><small class="muted">Filtrado + financier · S/. 22</small></div>
+            <div><b style="font-family:'Cormorant Garamond',serif; font-style:italic">La Maracumango</b><br><small class="muted">Coldbrew + cookie · S/. 18</small></div>
+          </div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">Print menu implementing the §3.2 architecture. Two-column layout operationalizes the two-bar concept. Pairings section completes the menu story. Bear crest at top uses the original concept mark as placeholder for the official logo. Print at A4 portrait, double-sided if needed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.7</span>
+      <h2 class="ursa-section__title">Product card &amp; table sign</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.7 · Product card (left) · Table sign (right)</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:580px; margin:0 auto">
+        <div class="product-card">
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#B8924A">Single Origin · Amazonas</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.4rem; color:#3B2417; margin-top:6px">Lonya</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#5C4A35; margin-top:4px">Utcubamba · 1,750 m</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.72rem; color:#3B2417; line-height:1.5">
+            <div><strong>Proceso</strong> Lavado</div>
+            <div><strong>Tueste</strong> Medio-alto</div>
+            <div><strong>Notas</strong> Azúcar panela, manzana verde, final de cacao</div>
+            <div><strong>Método</strong> V60 · 18g · 1:16</div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px solid #E2D4B0">
+            <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:0.06em; color:#3B2417">S/. 32 · 250g</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.78rem; color:#B8924A">Un gramo a la vez</div>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#B8924A">Si es tu primera vez</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:#3B2417; margin-top:8px; line-height:1.15">Doble Barra Ursa</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#5C4A35; line-height:1.5">
+            1 espresso + 1 coldbrew + 1 pastry<br>
+            <strong style="color:#3B2417">S/. 26</strong> · en vez de S/. 34
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:#5C4A35; text-align:right">Pregunta en barra</div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">Left: retail bean product card with origin transparency (P-02 / bean card system). Right: first-visit bundle table card implementing EXP-01. Both follow the §1.7 voice rules and the §1.4 bear-motif grammar (no bear on these surfaces; the bear appears only on the menu crest and bean bag label per §1.4 rules).</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.8</span>
+      <h2 class="ursa-section__title">Loyalty / membership card</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.8 · Loyalty card — paw punch</span>
+      <div style="max-width:420px; margin:0 auto">
+        <div class="loyalty-card">
+          <!-- Bear constellation top -->
+          <svg width="100%" height="40" viewBox="0 0 200 40" style="opacity:0.45" aria-hidden="true">
+            <g stroke="#D9BC7E" stroke-width="0.6" fill="#D9BC7E">
+              <line x1="20" y1="20" x2="50" y2="14"/>
+              <line x1="50" y1="14" x2="80" y2="18"/>
+              <line x1="80" y1="18" x2="110" y2="12"/>
+              <line x1="80" y1="18" x2="90" y2="30"/>
+              <line x1="90" y1="30" x2="120" y2="32"/>
+              <line x1="90" y1="30" x2="60" y2="34"/>
+              <circle cx="20" cy="20" r="1.4"/>
+              <circle cx="50" cy="14" r="1.6"/>
+              <circle cx="80" cy="18" r="1.8"/>
+              <circle cx="110" cy="12" r="1.4"/>
+              <circle cx="90" cy="30" r="1.8"/>
+              <circle cx="120" cy="32" r="1.4"/>
+              <circle cx="60" cy="34" r="1.4"/>
+            </g>
+          </svg>
+
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.24em; text-transform:uppercase; color:#D9BC7E; margin-bottom:6px">Ursa Loyalty</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.4rem; color:#F4EBD9; line-height:1.1">Un gramo a la vez</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#B7C9A8; margin-top:6px">8 bebidas. La 9va va por cuenta de la casa.</div>
+          </div>
+
+          <div>
+            <div class="paw-punch">
+              <span class="filled">🐻</span>
+              <span class="filled">🐻</span>
+              <span class="filled">🐻</span>
+              <span>·</span>
+              <span>·</span>
+              <span>·</span>
+              <span>·</span>
+              <span>·</span>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:#D9BC7E; margin-top:14px; display:flex; justify-content:space-between">
+              <span>3 / 8</span>
+              <span>Alcanfores 183</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">Physical loyalty card implementing R1. Constellation (Ursa Major) at top connects the bear identity to the loyalty program. Paw print per punch (concept mark; in production use a custom bear-paw stamp). Cost: ~S/. 0.40/card at local print.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.9</span>
+      <h2 class="ursa-section__title">Bean bag label &amp; bean info card</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.9 · Bean bag label (Level-2 system)</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:580px; margin:0 auto; align-items:start">
+        <div class="ursa-beanbag">
+          <div class="ursa-beanbag__seal">
+            Tueste<br>27·07·26
+          </div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#D9BC7E; margin-bottom:10px">Ursa · Black Label</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.7rem; line-height:1; margin-bottom:6px">Lonya</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#B7C9A8">Utcubamba · Amazonas · Perú</div>
+          </div>
+          <div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 14px; font-family:'Inter',sans-serif; font-size:0.65rem; color:#F4EBD9; padding-top:10px; border-top:1px solid rgba(217,188,126,0.3)">
+              <div><span style="opacity:0.7">Altitud</span><br>1,750 m</div>
+              <div><span style="opacity:0.7">Proceso</span><br>Lavado</div>
+              <div><span style="opacity:0.7">Variedad</span><br>Bourbon, Caturra</div>
+              <div><span style="opacity:0.7">Peso</span><br>250 g</div>
+            </div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.78rem; color:#D9BC7E; margin-top:10px; text-align:right">Un gramo a la vez</div>
+          </div>
+        </div>
+
+        <div class="product-card" style="background:#FFFCF6">
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#B8924A">Bean info card · inside bag</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:#3B2417; margin-top:6px">La historia de Lonya</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.72rem; color:#3B2417; line-height:1.55">
+            <p style="margin:0 0 8px">Lonya es un caserío en Utcubamba, Amazonas. A 1,750 metros, las noches son frías y los días son largos. Ese contraste es lo que da a este café su dulzor de panela y su acidez de manzana verde.</p>
+            <p style="margin:0 0 8px"><strong>Para preparar en casa</strong></p>
+            <p style="margin:0; font-family:ui-monospace,monospace; font-size:0.7rem; background:#F4EBD9; padding:8px; border-radius:4px">V60 · 18g · 300g agua · 92°C · 1:16<br>Molienda media-fina · 2:45 total</p>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.78rem; color:#B8924A; text-align:right; padding-top:8px; border-top:1px solid #E2D4B0">— El tostador, Ursa</div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">Left: Level-2 bean bag label (Concept from §1.9). Forest-to-espresso gradient evokes the field-to-cup story. Gold seal with roast date functions as both a freshness signal (Sutherland: perceived value via transparency) and a limited-edition feel. Right: bean info card inserted inside the bag — origin story + home-brew recipe. Together they implement EXP-02 (bean origin story card A/B test).</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.10</span>
+      <h2 class="ursa-section__title">Event flyer &amp; email header</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.10 · Event flyer (left) · Email header (right)</span>
+      <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:24px; max-width:720px; margin:0 auto; align-items:start">
+        <div class="event-flyer">
+          <svg width="40" height="40" viewBox="0 0 40 40" style="margin:0 auto 14px; display:block" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="#B8924A" stroke-width="0.8"/>
+            <g fill="#3B2417">
+              <circle cx="14" cy="14" r="3"/>
+              <circle cx="26" cy="14" r="3"/>
+              <path d="M8 22 Q8 14 20 14 Q32 14 32 22 Q32 30 20 30 Q8 30 8 22 Z"/>
+            </g>
+          </svg>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.24em; text-transform:uppercase; color:#B8924A; margin-bottom:8px">Sábado · 11:00 &amp; 16:00</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.5rem; line-height:1.1; color:#3B2417; margin-bottom:10px">Cata en barra</div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.75rem; color:#5C4A35; line-height:1.5; margin-bottom:14px">
+            Tres orígenes peruanos.<br>
+            Veinte minutos.<br>
+            Seis cupos por sesión.<br>
+            <strong>Gratis.</strong>
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:#5C4A35">Alcanfores 183 · Miraflores<br>WhatsApp para reservar</div>
+        </div>
+
+        <div class="email-header" style="aspect-ratio:auto; min-height:200px">
+          <svg width="100%" height="100%" viewBox="0 0 600 200" style="position:absolute; inset:0; opacity:0.12" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g stroke="#B8924A" stroke-width="0.5" fill="none">
+              <path d="M0 100 Q100 60 200 100 T400 100 T600 100"/>
+              <path d="M0 130 Q100 90 200 130 T400 130 T600 130"/>
+            </g>
+          </svg>
+          <div style="position:relative; z-index:2">
+            <svg width="48" height="48" viewBox="0 0 40 40" style="margin:0 auto 14px; display:block" aria-hidden="true">
+              <circle cx="20" cy="20" r="18" fill="none" stroke="#D9BC7E" stroke-width="1"/>
+              <g fill="#F4EBD9">
+                <circle cx="14" cy="14" r="3"/>
+                <circle cx="26" cy="14" r="3"/>
+                <path d="M8 22 Q8 14 20 14 Q32 14 32 22 Q32 30 20 30 Q8 30 8 22 Z"/>
+              </g>
+            </svg>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.28em; text-transform:uppercase; color:#D9BC7E; margin-bottom:8px">Ursa Coffee Roasters · Newsletter</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.8rem; line-height:1.1; margin-bottom:8px">El grano de esta semana</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.82rem; opacity:0.85; max-width:38ch; margin:0 auto">Lonya, Utcubamba, Amazonas — en barra hoy. Un gramo a la vez.</div>
+          </div>
+        </div>
+      </div>
+      <p class="prototype-frame__note">Left: event flyer for Saturday cupping (EXP-03 / P-08). Bear concept mark at top as placeholder for official logo. Print at A6 for in-store handout, A5 for window posting. Right: email header for weekly newsletter announcing the new bean drop. Reusable HTML template; only the headline and origin name change weekly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.11</span>
+      <h2 class="ursa-section__title">Google Business Profile hero &amp; Rappi listing imagery</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.11 · GBP hero image (16:9)</span>
+      <div class="gbp-hero">
+        <svg width="80" height="80" viewBox="0 0 40 40" style="position:absolute; top:24px; right:24px; opacity:0.4" aria-hidden="true">
+          <g fill="#F4EBD9">
+            <circle cx="14" cy="14" r="3"/>
+            <circle cx="26" cy="14" r="3"/>
+            <path d="M8 22 Q8 14 20 14 Q32 14 32 22 Q32 30 20 30 Q8 30 8 22 Z"/>
+          </g>
+        </svg>
+        <div>
+          <div style="font-family:'Oswald',sans-serif; font-size:0.6rem; letter-spacing:0.24em; text-transform:uppercase; color:#D9BC7E; margin-bottom:10px">Ursa Coffee Roasters · Miraflores</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2rem; line-height:1.1; margin-bottom:8px">Dos barras. Una casa.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.78rem; opacity:0.85; max-width:40ch">Tostadores de café de especialidad. Alcanfores 183, Miraflores. Lun–Sab 7:30am · Dom 8:30am.</div>
+        </div>
+        <div style="display:flex; gap:14px; font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; color:#B7C9A8">
+          <span>Espresso</span><span style="opacity:0.4">·</span>
+          <span>Coldbrew</span><span style="opacity:0.4">·</span>
+          <span>Filtrado</span><span style="opacity:0.4">·</span>
+          <span>Rappi</span>
+        </div>
+      </div>
+      <p class="prototype-frame__note">GBP hero image implementing EXP-07. 16:9 aspect ratio fills Google Business Profile cover slot. Hero conveys the two-bar identity, address, hours, and delivery availability in a single glance. Bear concept mark as watermark; in production replace with official mark.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.12</span>
+      <h2 class="ursa-section__title">Landing page — Bean Drop waitlist</h2>
+    </div>
+
+    <div class="prototype-frame">
+      <span class="prototype-frame__label">Prototype 6.12 · Landing page — above the fold</span>
+      <div class="landing-hero">
+        <svg width="60" height="60" viewBox="0 0 60 60" style="margin:0 auto 18px; display:block; opacity:0.6" aria-hidden="true">
+          <g fill="#3B2417">
+            <circle cx="22" cy="22" r="5"/>
+            <circle cx="38" cy="22" r="5"/>
+            <path d="M14 32 Q14 22 30 22 Q46 22 46 32 Q46 44 30 44 Q14 44 14 32 Z"/>
+          </g>
+        </svg>
+        <div style="font-family:'Oswald',sans-serif; font-size:0.62rem; letter-spacing:0.28em; text-transform:uppercase; color:#B8924A; margin-bottom:14px">Ursa Coffee Roasters · Miraflores</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2.4rem; line-height:1.05; color:#3B2417; margin-bottom:14px">Recibe el grano<br>24 horas antes.</div>
+        <div style="font-family:'Inter',sans-serif; font-size:0.92rem; color:#5C4A35; max-width:42ch; margin:0 auto 24px">Una lista de WhatsApp. Cada nuevo origen llega primero a quienes ya son de la casa. Sin spam. Sin costo. Solo café.</div>
+        <div style="display:flex; gap:8px; max-width:380px; margin:0 auto">
+          <input type="email" placeholder="tu@correo.com" style="flex:1; padding:10px 14px; border:1px solid #C9B68C; border-radius:99px; font-family:'Inter',sans-serif; font-size:0.85rem; background:#FFFCF6">
+          <button style="padding:10px 18px; background:#3B2417; color:#F4EBD9; border:none; border-radius:99px; font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer">Únete</button>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.78rem; color:#B8924A; margin-top:24px">Un gramo a la vez.</div>
+      </div>
+      <p class="prototype-frame__note">Landing page implementing the WhatsApp Bean Drop list (EXP-06). Single conversion goal — collect email/WhatsApp opt-in. Above-the-fold only; full page would include social proof, FAQ, and origin preview. Works without a build process — pure HTML + CSS, no JavaScript framework.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.13</span>
+      <h2 class="ursa-section__title">Three brand-evolution levels — visual comparison</h2>
+    </div>
+
+    <p>The three evolution levels from §1.9 are visualized below using the same prototype (single-image social post) so the difference is immediately visible.</p>
+
+    <div class="ursa-grid ursa-grid--3">
+      <!-- Level 1 -->
+      <div class="ursa-card">
+        <span class="ursa-pill ursa-pill--ok">Level 1 · Conservative</span>
+        <h3 class="mt-2">Single image — Level 1</h3>
+        <div style="aspect-ratio:1; background:#FAF5EC; border:1px solid #C9B68C; padding:24px; display:flex; flex-direction:column; justify-content:center; text-align:center; border-radius:6px">
+          <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#6F4A2E; margin-bottom:12px">Ursa Coffee Roasters</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; color:#3B2417; line-height:1.1; margin-bottom:8px">Maracumango</div>
+          <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#5C4A35">Maracuyá · Mango · Coldbrew</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.7rem; color:#B8924A; margin-top:18px">Un gramo a la vez</div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0">Paper background, no watermark, no flourish. Identity carried entirely by typography and tagline. Lowest risk.</p>
+      </div>
+      <!-- Level 2 -->
+      <div class="ursa-card">
+        <span class="ursa-pill ursa-pill--warn">Level 2 · Distinctive</span>
+        <h4 class="mt-2">Single image — Level 2</h4>
+        <div style="aspect-ratio:1; background:linear-gradient(135deg,#3E6149,#2D4A36); padding:24px; display:flex; flex-direction:column; justify-content:center; text-align:center; border-radius:6px; position:relative; overflow:hidden">
+          <svg width="120" height="120" viewBox="0 0 60 60" style="position:absolute; opacity:0.16; top:50%; left:50%; transform:translate(-50%,-50%)" aria-hidden="true">
+            <g fill="#F4EBD9">
+              <circle cx="20" cy="20" r="5"/>
+              <circle cx="40" cy="20" r="5"/>
+              <path d="M10 35 Q10 22 30 22 Q50 22 50 35 Q50 48 30 48 Q10 48 10 35 Z"/>
+            </g>
+          </svg>
+          <div style="position:relative; z-index:2">
+            <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#B7C9A8; margin-bottom:12px">Barra Coldbrew</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; color:#F4EBD9; line-height:1.1; margin-bottom:8px">Maracumango</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#B7C9A8">Maracuyá · Mango · Coldbrew</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.7rem; color:#D9BC7E; margin-top:18px">Un gramo a la vez</div>
+          </div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0">Forest gradient, bear silhouette watermark at 16%, accent color shifts to leaf green. Distinctive at thumbnail size. Recommended growth skin from month 4.</p>
+      </div>
+      <!-- Level 3 -->
+      <div class="ursa-card">
+        <span class="ursa-pill ursa-pill--stop">Level 3 · Experimental</span>
+        <h4 class="mt-2">Single image — Level 3 (seasonal)</h4>
+        <div style="aspect-ratio:1; background:linear-gradient(180deg,#211208,#3B2417); padding:24px; display:flex; flex-direction:column; justify-content:space-between; text-align:center; border-radius:6px; position:relative; overflow:hidden">
+          <svg width="100%" height="60" viewBox="0 0 200 60" style="opacity:0.7" aria-hidden="true">
+            <g stroke="#D9BC7E" stroke-width="0.7" fill="#D9BC7E">
+              <line x1="20" y1="30" x2="50" y2="22"/>
+              <line x1="50" y1="22" x2="80" y2="26"/>
+              <line x1="80" y1="26" x2="110" y2="18"/>
+              <line x1="80" y1="26" x2="90" y2="42"/>
+              <line x1="90" y1="42" x2="120" y2="44"/>
+              <line x1="90" y1="42" x2="60" y2="46"/>
+              <circle cx="20" cy="30" r="1.4"/>
+              <circle cx="50" cy="22" r="1.6"/>
+              <circle cx="80" cy="26" r="1.8"/>
+              <circle cx="110" cy="18" r="1.4"/>
+              <circle cx="90" cy="42" r="1.8"/>
+              <circle cx="120" cy="44" r="1.4"/>
+              <circle cx="60" cy="46" r="1.4"/>
+            </g>
+          </svg>
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:#D9BC7E; margin-bottom:8px">Estación Invernal · Edición limitada</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; color:#F4EBD9; line-height:1.05; margin-bottom:6px">Cassiopeia</div>
+            <div style="font-family:'Inter',sans-serif; font-size:0.7rem; color:#D9BC7E">Cacao · Especias · Coldbrew de invierno</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.7rem; color:#D9BC7E">Un gramo a la vez · N° 042 / 200</div>
+        </div>
+        <p class="muted small" style="margin:8px 0 0">Espresso-black background, inverted Ursa Major constellation as the bear's celestial cousin, numbered limited edition. Summer/winter season only.</p>
+      </div>
+    </div>
+
+    <div class="ursa-callout ursa-callout--ok">
+      <h4>Recommendation — confirmed</h4>
+      <p style="margin:0"><strong>Level 1 as the permanent system, Level 2 as a growth skin from month 4, Level 3 only as seasonal expression.</strong> The visual comparison makes the reason clear: Level 1 protects identity at zero risk, Level 2 makes Ursa unmistakable at thumbnail size (where 90% of social impressions happen), and Level 3 stretches the system for limited periods without breaking it. Skipping Level 1 in pursuit of Level 2 is the single most common reason rebrands fail; this plan does not skip.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">6.14</span>
+      <h2 class="ursa-section__title">Skeptical revision pass</h2>
+    </div>
+    <div class="ursa-grid ursa-grid--3">
+      <div class="ursa-card">
+        <h3>Skeptic 1</h3>
+        <p><strong>"These are HTML prototypes, not production files. How does the owner use them?"</strong></p>
+        <p class="muted">Each prototype is print-ready via the browser's print-to-PDF function (validated in §6.15). For social posts and Stories, screenshots at 2x resolution produce production-grade JPEGs. For packaging and printed materials, the HTML/CSS serves as a precise spec for any designer or printer — exact colors (hex), fonts (named), and dimensions (aspect ratios) are all in the source. The owner can hand a screenshot to a printer and say "match this".</p>
+      </div>
+      <div class="ursa-card">
+        <h4>Skeptic 2</h4>
+        <p><strong>"You used a generic bear in the prototypes. The real bear might look totally different."</strong></p>
+        <p class="muted">Correct — and stated explicitly in the asset disclaimer at the top of this module. The geometric bear used here is a placeholder concept mark for navigation and prototype demonstration. The owner-supplied asset pack (open question Q6) is required before any production artwork is finalized. Once the official bear is sourced, it replaces the concept mark in every prototype without changing the layout, palette, or typography.</p>
+      </div>
+      <div class="ursa-card">
+        <h4>Skeptic 3</h4>
+        <p><strong>"Level 3 with inverted constellation and numbered editions is too cute for a small café."</strong></p>
+        <p class="muted">Fair concern — which is why Level 3 is restricted to seasonal expression and explicitly recommended as optional. If the owner finds it too cute, the plan degrades gracefully: Level 1 + Level 2 alone produce a complete, distinctive system. Level 3 exists for the moment when the owner wants to celebrate a season, an anniversary, or a limited origin — never as a permanent register.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ursa-footer">
+  <div class="ursa-wrap">
+    <div class="ursa-footer__row">
+      <div>
+        <h4>Ursa Coffee Roasters — Strategic Dossier</h4>
+        <p style="font-size:0.92rem">Module 06 · Creative Campaign Prototypes. Compiled 2026-08-01. HTML, CSS, and SVG prototypes for 15 touchpoints across three brand-evolution levels. The official Ursa logo is not altered or counterfeited; the geometric bear glyph used in prototypes is an original concept mark for demonstration only.</p>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <p style="font-size:0.88rem">
+          <a href="index.html">Index</a><br>
+          <a href="01-brand-audit-and-design-system.html">01 · Brand Audit</a><br>
+          <a href="02-market-competitors-and-customer-voice.html">02 · Market &amp; Voice</a><br>
+          <a href="03-menu-and-product-development.html">03 · Menu &amp; Product</a><br>
+          <a href="04-marketing-growth-and-retention-plan.html">04 · Growth &amp; Retention</a><br>
+          <a href="05-viral-content-laboratory.html">05 · Viral Lab</a><br>
+          <a href="07-implementation-roadmap-and-kpis.html">07 · Roadmap &amp; KPIs</a> →
+        </p>
+      </div>
+      <div>
+        <h4>More</h4>
+        <p style="font-size:0.88rem">
+          <a href="sources-and-evidence.html">Sources &amp; Evidence</a>
+        </p>
+      </div>
+    </div>
+    <div class="ursa-footer__small">
+      <button data-action="print" style="background:transparent; border:1px solid var(--ursa-gold-soft); color:var(--ursa-gold-soft); padding:6px 14px; border-radius:99px; font-family:var(--f-label); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer">Print this module</button>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ursa.js"></script>
+</body>
+</html>

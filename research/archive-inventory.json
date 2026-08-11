@@ -1,0 +1,101 @@
+{
+  "schema": "ursa-archive-inventory/v1",
+  "compiled": "2026-08-01",
+  "archives": [
+    {
+      "id": "ARC-01",
+      "name": "ursaCoffeeMarketingAndDesign.zip",
+      "path": "upload/ursaCoffeeMarketingAndDesign.zip",
+      "md5": "fd10b7830aa1a038f2ffa51c775757d4",
+      "size_bytes": 154252,
+      "type": "static-dossier",
+      "contents": [
+        "index.html",
+        "01-brand-audit-and-design-system.html",
+        "02-market-competitors-and-customer-voice.html",
+        "03-menu-and-product-development.html",
+        "04-marketing-growth-and-retention-plan.html",
+        "05-viral-content-laboratory.html",
+        "06-creative-campaign-prototypes.html",
+        "07-implementation-roadmap-and-kpis.html",
+        "08-subscription-economics-and-calculator.html",
+        "sources-and-evidence.html",
+        "assets/ursa.css",
+        "assets/ursa.js",
+        "assets/evidence.json",
+        "assets/experiments.json"
+      ],
+      "status": "reference-copy",
+      "notes": "Original static dossier. Copied to public/dossier/ in the interactive app. All files byte-identical."
+    },
+    {
+      "id": "ARC-02",
+      "name": "ursa_extracted/",
+      "path": "upload/ursa_extracted/ursaCoffeeMarketingAndDesign/",
+      "type": "extracted-archive",
+      "status": "reference-copy",
+      "notes": "Extraction of ARC-01. Identical content."
+    },
+    {
+      "id": "ARC-03",
+      "name": "Handcrafted Writing and Editorial Quality Protocol.docx",
+      "path": "upload/Handcrafted Writing and Editorial Quality Protocol.docx",
+      "size_bytes": 23330,
+      "type": "editorial-protocol",
+      "status": "reference",
+      "notes": "Editorial quality protocol. Extracted text to upload/docx_extract/ in prior round."
+    },
+    {
+      "id": "ARC-04",
+      "name": "Pasted Content_1785532837493.txt",
+      "path": "upload/Pasted Content_1785532837493.txt",
+      "size_bytes": 34740,
+      "type": "prompt-history",
+      "status": "reference",
+      "notes": "Earlier system prompt (Ursa Coffee Brand, Product, Graphic, and Marketing Orchestrator)."
+    },
+    {
+      "id": "ARC-05",
+      "name": "Pasted Content_1785562865331.txt",
+      "path": "upload/Pasted Content_1785562865331.txt",
+      "size_bytes": 47176,
+      "type": "prompt-history",
+      "status": "reference",
+      "notes": "Deep-research master prompt (intermediate version)."
+    },
+    {
+      "id": "ARC-06",
+      "name": "Pasted Content_1785564538397.txt",
+      "path": "upload/Pasted Content_1785564538397.txt",
+      "size_bytes": 35851,
+      "type": "execution-prompt",
+      "status": "canonical-prompt",
+      "notes": "Current execution prompt: Ten-Cycle Ursa Research, Challenge, Redaction, and Implementation Program."
+    },
+    {
+      "id": "ARC-07",
+      "name": "Interactive Next.js app",
+      "path": "/home/z/my-project",
+      "type": "interactive-application",
+      "status": "canonical-workspace",
+      "git_commits": 13,
+      "latest_commit": "cc99ad4",
+      "view_count": 25,
+      "notes": "Canonical editable workspace. 25 views: 1 dashboard + 8 dossier + 15 tools + 1 landing. Dev server on port 3000."
+    }
+  ],
+  "missing_archives": [
+    "Pasted text(26).txt",
+    "workspace-56d257a3-476b-4b2f-8aca-2615c87e944e(1).tar",
+    "workspace-56d257a3-476b-4b2f-8aca-2615c87e944e.zip",
+    "ursaCoffeeMarketingAndDesign(1).zip"
+  ],
+  "duplicates": [
+    {
+      "items": ["ARC-01", "ARC-02"],
+      "relationship": "ARC-02 is the extraction of ARC-01. Identical content."
+    }
+  ],
+  "canonical_workspace": "ARC-07",
+  "workspace_justification": "The Next.js app is the only editable, version-controlled, running workspace. It contains both the interactive app and a copy of the static dossier. 13 Git commits document progressive development."
+}

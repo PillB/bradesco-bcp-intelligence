@@ -1,0 +1,49 @@
+{
+  "schema": "ursa-search-log/v1",
+  "compiled": "2026-08-01",
+  "searches": [
+    {
+      "id": "SR-001",
+      "query": "Ursa Coffee Roasters Miraflores Lima Alcanfores 183 specialty coffee 2025 2026",
+      "date": "2026-08-01",
+      "engine": "z-ai web_search",
+      "results_returned": 8,
+      "key_findings": [
+        "TripAdvisor listing confirms Alcanfores 183, Miraflores; 'open until 9:00 PM'; 'specialty coffees sourced by our roastery and fresh baked goods'",
+        "Corner.inc listing (updated Dec 26, 2025) describes 'Intimate Peruvian roastery where they source, roast, and brew Peruvian specialty beans on-site'; 'baristas double as coffee educators'",
+        "Phone conflict: mindtrip.ai lists +51 938 636 645; Instagram post lists +51 973 619 428",
+        "CoffeePass listing confirms Ursa as partner brand"
+      ],
+      "new_evidence": ["CAM Café EXPERIENCE 2025 competition mention"]
+    },
+    {
+      "id": "SR-002",
+      "query": "Ursa Coffee Roasters TripAdvisor reviews Lima 2025 2026 rating",
+      "date": "2026-08-01",
+      "engine": "z-ai web_search",
+      "results_returned": 5,
+      "key_findings": [
+        "TripAdvisor still shows 'No reviews for this property yet' as of 2026 search — E-07/E-11 claim holds",
+        "Competitor Uywa Coffee has 5.0 rating with reviews — review channel is viable for Lima cafés"
+      ],
+      "new_evidence": []
+    },
+    {
+      "id": "SR-003",
+      "query": "CAM Café Perú 2025 competition best coffee shops Lima winners Ursa",
+      "date": "2026-08-01",
+      "engine": "z-ai web_search",
+      "results_returned": 5,
+      "key_findings": [
+        "MAJOR NEW FACT: Ursa Coffee Roasters is in the TOP 5 of the CAM Café EXPERIENCE 2025 Competition, Specialty Coffee Shop category",
+        "1st place: Monótono Coffee (Barranco); 2nd place: Punto Café; top 5 included Ursa Coffee",
+        "Evaluation: specialized jury, unannounced visits to 40+ establishments across 17 districts",
+        "Published Dec 10, 2025 by camcafeperu.com.pe"
+      ],
+      "new_evidence": ["E-30 (new): Ursa top-5 in CAM Café EXPERIENCE 2025 Specialty Coffee Shop category"]
+    }
+  ],
+  "total_searches": 3,
+  "new_evidence_items": 1,
+  "notes": "The CAM Café 2025 top-5 placement is a material new fact that should be added to the dossier. It upgrades Ursa's competitive position from 'unrecognized' to 'award-recognized' and changes the competitor analysis (Ursa is now closer to Punto Café's award positioning than previously stated)."
+}

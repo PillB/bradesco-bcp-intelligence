@@ -1,0 +1,78 @@
+{
+  "schema": "ursa-source-family-map/v1",
+  "compiled": "2026-08-01",
+  "families": [
+    {
+      "family_id": "F-URSA-1P",
+      "name": "ursacoffee-first-party",
+      "description": "Ursa's own public-facing channels (Instagram, Facebook, Rappi, CoffeePass, TripAdvisor listing). These are first-party observations, not independent verification.",
+      "source_count": 5,
+      "sources": ["S-IG", "S-FB", "S-RP", "S-CP", "S-TA"],
+      "evidence_item_count": 12,
+      "independence_grade": "first-party-observation",
+      "note": "Observing Ursa's own Instagram bio is first-party observation. It confirms what Ursa says about itself, not what independent sources report. Multiple first-party channels do not increase independence."
+    },
+    {
+      "family_id": "F-OWNER",
+      "name": "owner-unverified",
+      "description": "Statements from the owner brief (Art Nouveau, browns/greens, bear motif). These are owner descriptions, not independently verified.",
+      "source_count": 1,
+      "sources": ["S-OWNER-BRIEF"],
+      "evidence_item_count": 1,
+      "independence_grade": "unverified-owner-statement",
+      "note": "The owner brief is a starting lead, not evidence. Visual identity claims require first-party visual inspection."
+    },
+    {
+      "family_id": "F-HORMOZI",
+      "name": "hormozi-framework",
+      "description": "Acquisition.com materials (Alex Hormozi's frameworks). One source family.",
+      "source_count": 1,
+      "sources": ["S-ACQ-OFFERS"],
+      "evidence_item_count": 1,
+      "independence_grade": "framework-reference",
+      "note": "Hormozi's Value Equation is a framework, not an empirically validated law. Treat as suggestive."
+    },
+    {
+      "family_id": "F-SUTHERLAND",
+      "name": "sutherland-framework",
+      "description": "Rory Sutherland's behavioral marketing principles (via FS.blog). One source family.",
+      "source_count": 1,
+      "sources": ["S-FS-RORY"],
+      "evidence_item_count": 1,
+      "independence_grade": "framework-reference",
+      "note": "Sutherland's principles are influential but not café-specific empirical evidence."
+    },
+    {
+      "family_id": "F-INDUSTRY",
+      "name": "industry-context",
+      "description": "Industry publications (Fresh Cup), awards (Premios Somos, World's 100 Best), benchmarks (marginal cost), and market observations (subscription gap).",
+      "source_count": 5,
+      "sources": ["S-FC-2025", "S-WR-PUNTO", "S-SOMOS", "S-BENCH-COST", "S-BENCH-SUB"],
+      "evidence_item_count": 6,
+      "independence_grade": "industry-context",
+      "note": "Industry publications provide context but are not Ursa-specific evidence. Award nominations are verifiable facts about competitors."
+    },
+    {
+      "family_id": "F-COMP-MIRA",
+      "name": "competitor-miraflores",
+      "description": "Direct Miraflores competitors (Punto Café, Neira, Puku Puku, Terrua, Urqu). Observed via their public listings.",
+      "source_count": 5,
+      "sources": ["S-COMP-PUNTO", "S-COMP-NEIRA", "S-COMP-PUKU", "S-COMP-TERRUA", "S-COMP-URQU"],
+      "evidence_item_count": 12,
+      "independence_grade": "competitor-observation",
+      "note": "Competitor observations are based on their public listings at a point in time. May be stale."
+    },
+    {
+      "family_id": "F-COMP-LIMA",
+      "name": "competitor-lima",
+      "description": "Lima-wide competitors (Bisetti). Observed via public listing.",
+      "source_count": 1,
+      "sources": ["S-COMP-BISETTI"],
+      "evidence_item_count": 4,
+      "independence_grade": "competitor-observation",
+      "note": "Bisetti is a Barranco pioneer, not a direct Miraflores competitor."
+    }
+  ],
+  "total_families": 7,
+  "deduplication_note": "Several evidence items that appear to cite different sources (e.g., E-20 and E-21 both reference Punto Café awards) belong to the same source family. Counting them as independent corroboration would inflate the evidence base. The 29 evidence items map to 7 source families and 19 distinct sources."
+}

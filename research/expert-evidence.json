@@ -1,0 +1,66 @@
+{
+  "schema": "ursa-expert-evidence/v1",
+  "compiled": "2026-08-01",
+  "macrocycle": 2,
+  "frameworks": [
+    {
+      "id": "FW-001",
+      "name": "Hormozi Value Equation",
+      "source": "Acquisition.com / $100M Offers (Alex Hormozi)",
+      "actual_principle": "Value = (Dream Outcome × Perceived Likelihood of Achievement) / (Time Delay + Effort & Sacrifice). Increase value by raising the numerator or lowering the denominator.",
+      "independent_empirical_support": "weak",
+      "supporting_evidence": "Popular in entrepreneurial/gym/SaaS contexts; anecdotal case studies from Hormozi's own businesses",
+      "challenging_evidence": "2026 academic paper (\"Bro frameworks and the changing logics of managerial capitalism\") classifies it as a 'bro framework' — a neat formula translating sales psychology without independent empirical validation. No peer-reviewed RCTs in café/hospitality contexts.",
+      "applicable_to_ursa": "The denominator reduction (decrease time/effort) maps to Ursa's fast morning service. The numerator (dream outcome) is a stretch for coffee — 'become a person who knows good coffee' is plausible but unverified.",
+      "not_applicable": "The 'grand slam offer' / value-stacking approach risks eroding specialty-coffee credibility if applied as discount stacking. Ursa's craft positioning requires restraint.",
+      "uncertainty_experiment": "A/B test: offer a bundled pairing (drink + side + story card) vs à la carte control. Measure attach rate and ticket lift over 14 days. Stop if attach rate < 40%.",
+      "disposition": "label_as_suggestive",
+      "evidence_grade": "suggestive"
+    },
+    {
+      "id": "FW-002",
+      "name": "Rory Sutherland Perceived Value",
+      "source": "FS.blog Knowledge Project / Ogilvy (Rory Sutherland)",
+      "actual_principle": "Perceived value can be as satisfying as objective value; low-cost psychological changes (framing, context, story) often beat expensive rational improvements.",
+      "independent_empirical_support": "moderate",
+      "supporting_evidence": "Behavioral economics literature broadly supports framing effects (Kahneman & Tversky, Thaler). Sutherland's case studies (train toilets, Eurostar, cereal) are illustrative.",
+      "challenging_evidence": "Largely anecdotal; few controlled experiments in hospitality contexts. Perceived-value interventions can feel manipulative if overused. Risk of 'psychological tricks' eroding trust if customers detect them.",
+      "applicable_to_ursa": "Story cards, named preparations, the bear as a recurring character — these are perceived-value levers at near-zero cost. The Art Nouveau context (the two-bar theatre, the visible roaster) is exactly the kind of environmental design Sutherland advocates.",
+      "not_applicable": "Sutherland's 'irrationality is rational' framing should not be used to justify deceptive pricing or artificial scarcity. Ursa's craft credibility requires honesty about what the customer is paying for.",
+      "uncertainty_experiment": "Add an origin story card to pour-over service for 14 days. Measure perceived-value proxy (willingness to pay, social shares, return rate) vs control period.",
+      "disposition": "adopt_with_caveats",
+      "evidence_grade": "moderate"
+    },
+    {
+      "id": "FW-003",
+      "name": "Ehrenberg-Bass Distinctive Brand Assets",
+      "source": "How Brands Grow (Byron Sharp, Ehrenberg-Bass Institute, 2010)",
+      "actual_principle": "Brands grow by building mental availability (being thought of in buying situations) and physical availability (being easy to buy). Distinctive brand assets (colors, characters, logos) are shortcuts to mental availability. Category buyers are more important than loyal buyers.",
+      "independent_empirical_support": "strong",
+      "supporting_evidence": "Decades of single-source panel data across 40+ categories. Replicated by independent researchers. The 'double jeopardy' law and 'duplication of purchase' law are empirical regularities.",
+      "challenging_evidence": "Some critics argue it underweights emotional/loyalty effects; less tested in B2B and experiential/hospitality contexts. May not fully apply to neighborhood cafés where loyalty and frequency matter more than in FMCG categories.",
+      "applicable_to_ursa": "The bear, the Art Nouveau language, the two-bar layout, 'Un gramo a la vez' — these are distinctive brand assets. Ursa's job is to make them consistently recognizable (mental availability) and easy to find (physical availability via Google, reviews, hotel cards). The 'distribution gap' finding (CL-002) is an Ehrenberg-Bass physical-availability problem.",
+      "not_applicable": "The 'reach all category buyers, not just loyalists' prescription needs adaptation — Ursa is a single-site café, not an FMCG brand. Physical availability = local discoverability, not national distribution.",
+      "uncertainty_experiment": "Track branded search volume ('ursa coffee miraflores') and Google Business Profile interactions monthly. If branded search grows after the GBP + review push, mental availability is improving.",
+      "disposition": "adopt_as_primary_scientific_frame",
+      "evidence_grade": "strong"
+    },
+    {
+      "id": "FW-004",
+      "name": "Endowed Progress Effect",
+      "source": "Kivetz, Urminsky & Zheng (2006, JCR)",
+      "actual_principle": "Giving customers a head start on a loyalty card (e.g., 2 free stamps on a 10-stamp card) increases completion rates by ~82% because it creates the illusion of progress.",
+      "independent_empirical_support": "moderate",
+      "supporting_evidence": "Original Kivetz et al. (2006) experiments replicated in multiple contexts (car wash, coffee, software trials). The goal-gradient effect (customers accelerate as they near the goal) is well-documented.",
+      "challenging_evidence": "Effect sizes vary by context; may not replicate identically in digital wallet contexts. Some customers may perceive 'free stamps' as manipulative if not framed honestly.",
+      "applicable_to_ursa": "Directly applicable to the itsloyaleats 8-visit wallet card. Giving 1-2 'welcome' stamps to new members is a low-cost, evidence-based retention lever.",
+      "not_applicable": "The effect assumes the customer values the reward. If the free coffee is unattractive (e.g., restricted to a drink they don't like), the effect weakens.",
+      "uncertainty_experiment": "A/B test: new wallet-card members get 0 stamps (control) vs 1 'welcome' stamp (treatment). Track completion rate over 90 days.",
+      "disposition": "adopt",
+      "evidence_grade": "moderate"
+    }
+  ],
+  "total_frameworks_audited": 4,
+  "grade_distribution": { "strong": 1, "moderate": 2, "suggestive": 1 },
+  "primary_scientific_frame": "Ehrenberg-Bass (How Brands Grow) — the strongest evidence-based marketing science framework. Ursa's strategy should be reframed around mental availability (distinctive assets) and physical availability (distribution/dicoverability), with Hormozi and Sutherland as tactical supplements, not primary theory."
+}

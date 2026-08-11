@@ -1,0 +1,322 @@
+{
+  "schema": "ursa-dossier-evidence-v1",
+  "compiled_on": "2026-08-01",
+  "subject": {
+    "legal_name": "Ursa Coffee Roasters",
+    "public_account": "https://www.instagram.com/ursacoffeeperu/",
+    "address": "Calle Alcanfores 183, Miraflores, Lima 15074, Peru",
+    "hours_verified": {
+      "mon_sat": "07:30 - 21:00",
+      "sun": "08:30 - 20:00",
+      "source": "Instagram bio (snapshot 2026-08-01); corroborated by Rappi listing (08:00-20:30 delivery window) and Corner.inc"
+    },
+    "tagline_verified": "Un gramo a la vez.",
+    "bio_verified": "Tostadores de café de especialidad. #SpecialtyCoffee",
+    "instagram_followers_snapshot": 4746,
+    "instagram_following_snapshot": 268,
+    "instagram_posts_snapshot": 206,
+    "disambiguation_note": "There is an unrelated 'URSA' (ursabpt.com) in Bridgeport, CT, USA — a roastery/gallery. NOT the Peruvian brand. Do not conflate.",
+    "coffeepass_brand_statement": "Ursa Coffee Roasters – Nace con la idea de explorar el café, partiendo del tueste como el punto de conexión entre el campo y la taza. Exploramos diversos orígenes, adaptando perfiles de tueste únicos."
+  },
+  "evidence_items": [
+    {
+      "id": "E-01",
+      "claim": "Ursa operates as a roaster-café in Miraflores at Alcanfores 183.",
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/ursacoffeeperu/",
+        "https://www.rappi.com.pe/restaurantes/77182-ursa-coffee-roasters",
+        "https://coffeepass.pe/marcas/ursa-coffee-roasters",
+        "https://www.tripadvisor.com.pe/Restaurant_Review-g294316-d32878304-Reviews-Ursa_Coffee_Roasters-Lima_Lima_Region.html",
+        "https://www.facebook.com/UrsaCoffeePeru",
+        "https://www.corner.inc/place/pqGK5KMpViS2",
+        "https://www.mapquest.com/pe/lima/ursa-coffee-roasters-800710718"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Address consistent across seven independent public sources."
+    },
+    {
+      "id": "E-02",
+      "claim": "Tagline in use is 'Un gramo a la vez.' (One gram at a time.)",
+      "status": "verified",
+      "sources": ["https://www.instagram.com/ursacoffeeperu/"],
+      "verified_on": "2026-08-01",
+      "notes": "Positioned in the Instagram bio. Reinforces roasting-precision and craft identity."
+    },
+    {
+      "id": "E-03",
+      "claim": "Two operational bars: an espresso bar and a coldbrew bar, both promoted with a 20% off discount.",
+      "status": "verified",
+      "sources": ["https://www.facebook.com/UrsaCoffeePeru"],
+      "verified_on": "2026-08-01",
+      "notes": "Facebook post mentions '20% off en espresso bar y coldbrew bar' at Alcanfores 183 Miraflores."
+    },
+    {
+      "id": "E-04",
+      "claim": "Specific beverages in current/recent rotation: Ursagroni; Filtrado Lonya (Utcubamba, Amazonas); Durazno Clarificado Coldbrew; Maracumango Coldbrew.",
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/ursacoffeeperu/?hl=en",
+        "https://www.facebook.com/UrsaCoffeePeru"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Ursagroni appears to be a Ursa-branded espresso-cocktail (portmanteau of Ursa + Negroni/espresso-martini). Lonya is a coffee-growing area in Amazonas; Utcubamba is the province. Maracumango combines maracuyá (passion fruit) and mango."
+    },
+    {
+      "id": "E-05",
+      "claim": "Pastry and savory program is in-house: financier de pera, empanada de carne con bechamel, cookies 'hechas por nosotros'.",
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/ursacoffeeperu/?hl=en",
+        "https://www.facebook.com/UrsaCoffeePeru"
+      ],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-06",
+      "claim": "Gift / retail product line includes branded mug + whole-bean coffee + house-made cookies in a basket format.",
+      "status": "verified",
+      "sources": ["https://www.facebook.com/UrsaCoffeePeru"],
+      "verified_on": "2026-08-01",
+      "notes": "Used as Mother's Day gift mechanic ('Para mamá, algo rico y bien hecho')."
+    },
+    {
+      "id": "E-07",
+      "claim": "TripAdvisor listing exists but has zero published reviews at time of research.",
+      "status": "verified",
+      "sources": ["https://www.tripadvisor.com.pe/Restaurant_Review-g294316-d32878304-Reviews-Ursa_Coffee_Roasters-Lima_Lima_Region.html"],
+      "verified_on": "2026-08-01",
+      "notes": "Listing shows 'No reviews for this property yet.' Represents an unmanaged/under-leveraged review channel."
+    },
+    {
+      "id": "E-08",
+      "claim": "Active Rappi delivery presence with at least two listing IDs (60286 and 77182) — suggests historic re-listing or dual-zone coverage.",
+      "status": "verified",
+      "sources": [
+        "https://www.rappi.com.pe/restaurantes/77182-ursa-coffee-roasters",
+        "https://www.rappi.com.pe/lima/restaurantes/delivery/60286-ursa-coffee-roasters"
+      ],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-09",
+      "claim": "CoffeePass Perú lists Ursa as a partner brand with multiple 'Cafetería Ursa' sub-listings (5, 9, 14).",
+      "status": "verified",
+      "sources": ["https://coffeepass.pe/marcas/ursa-coffee-roasters"],
+      "verified_on": "2026-08-01",
+      "notes": "CoffeePass is a Peruvian coffee-membership / discovery platform; presence there is an underused acquisition channel."
+    },
+    {
+      "id": "E-10",
+      "claim": "Owner-described Art Nouveau visual language, browns-and-greens palette, bear motif, and warm/crafted atmosphere.",
+      "status": "partial",
+      "sources": ["Owner brief (project input)"],
+      "verified_on": "2026-08-01",
+      "notes": "Could not be directly verified through public text snippets from Instagram, Facebook, or third-party sites because visual brand assets (logo, packaging imagery) cannot be parsed from search-result snippets. Treated as owner-provided and corroborated indirectly by the 'Tostadores de café de especialidad' bio, gift-basket imagery references, and 'Un gramo a la vez' tagline. Visual verification requires owner-supplied brand asset pack."
+    },
+    {
+      "id": "E-11",
+      "claim": "TripAdvisor currently has no Ursa reviews; competitor Urqu Coffee Shop has 4.8 (15 reviews), Origen tostadores de café has 4.6 (25 reviews), Neira Café Lab has 4.5 (35 reviews).",
+      "status": "verified",
+      "sources": [
+        "https://www.tripadvisor.com/Restaurant_Review-g294316-d16733194-Reviews-Urqu_Coffee_Shop-Lima_Lima_Region.html",
+        "https://www.tripadvisor.com/Restaurant_Review-g294316-d4611536-Reviews-Origen_tostadores_de_cafe-Lima_Lima_Region.html",
+        "https://www.tripadvisor.com/Restaurant_Review-g294316-d12719100-Reviews-Neira_Cafe_Lab-Lima_Lima_Region.html"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Miraflores specialty customer voice is therefore best approximated from competitor reviews. Direct Ursa customer voice must be reconstructed from Instagram comments and Facebook engagement until review channels are seeded."
+    },
+    {
+      "id": "E-12",
+      "claim": "Hormozi's Value Equation: Value = (Dream Outcome × Perceived Likelihood of Achievement) ÷ (Time Delay × Effort and Sacrifice).",
+      "status": "verified",
+      "sources": [
+        "https://www.acquisition.com/training/offers",
+        "https://alexhormozi.wiki/frameworks/value-equation-explained",
+        "https://www.reddit.com/r/alexhormozi/comments/1qz6c5v/"
+      ],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-13",
+      "claim": "Rory Sutherland's core thesis: perceived value can be as satisfying as 'real' value; inexpensive psychological interventions often outperform expensive rational ones.",
+      "status": "verified",
+      "sources": [
+        "https://insidebe.com/experts/rory-sutherland",
+        "https://thoughteconomics.com/rory-sutherland",
+        "https://thedecisionlab.com/insights/business/the-value-perception-dilemma"
+      ],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-14",
+      "claim": "Coffee-shop Instagram accounts that grew consistently in 2025-26 did it through identity, not trend-hopping.",
+      "status": "verified",
+      "sources": ["https://www.socialmon.ai/blog/63-coffee-shop-instagram-post-ideas-with-examples"],
+      "verified_on": "2026-08-01",
+      "notes": "Empirical observation across multiple accounts. Reinforces the conservative-refinement direction for Ursa."
+    },
+    {
+      "id": "E-15",
+      "claim": "Fresh Cup (2025): Instagram still matters for coffee shops; the 2025 playbook favours step-by-step drink builds with exact ingredients so viewers can recreate them at home.",
+      "status": "verified",
+      "sources": ["https://freshcup.com/how-cafes-can-get-the-most-out-of-instagram-in-2025"],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-16",
+      "claim": "Direct Miraflores specialty-coffee competitors include Punto Café, Neira Café Lab, Terrua Cafe, True Artisan Cafe, Café Verde, Arabica Espresso & Slow Bar, Puku Puku, Cate Tasting Room, Urqu Coffee Shop, Origen tostadores de café, and Estación 329.",
+      "status": "verified",
+      "sources": [
+        "https://www.tripadvisor.com/Restaurants-g294316-c8-zfn21002094-Lima_Lima_Region.html",
+        "https://practicalwanderlust.com/the-best-third-wave-coffee-shops-lima-peru",
+        "https://talesfromthelens.com/speciality-coffee-guide-lima",
+        "https://theworlds100bestcoffeeshops.com/locales-south/punto-cafe",
+        "https://theworlds100bestcoffeeshops.com/locales-south/neira-cafe-lab",
+        "https://www.doubleskinnymacchiato.com/2018/10/lima-peru-speciality-coffee-shop-guide-reviews-miraflores-barranco.html"
+      ],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-17",
+      "claim": "Lima-wide specialty leaders cited for benchmarking: Tostaduría Bisetti (Barranco), Ciclos Café, RAIZ Coffee.",
+      "status": "verified",
+      "sources": ["https://www.baristamagazine.com/4-of-the-best-cafes-to-visit-in-lima-peru"],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-18",
+      "claim": "Neira Café Lab is founded by barista champion Harrysson Neira; uses La Marzocco; positions as a 'pilgrimage site' for serious coffee lovers, not for laptop work.",
+      "status": "verified",
+      "sources": [
+        "https://theworlds100bestcoffeeshops.com/locales-south/neira-cafe-lab",
+        "https://curiousspoon.app/spot/lima/neira-cafe-lab",
+        "https://www.tripadvisor.com.pe/Restaurant_Review-g294316-d12719100-Reviews-Neira_Cafe_Lab-Lima_Lima_Region.html"
+      ],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-19",
+      "claim": "Tostaduría Bisetti is a Barranco pioneer of specialty coffee in Lima; positions as a 'coffee laboratory' in a beautiful old building.",
+      "status": "verified",
+      "sources": ["https://curiousspoon.app/spot/lima/tostaduria-bisetti"],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-20",
+      "claim": "Punto Café and Puku Puku (both Miraflores) were nominated for The World's 100 Best Coffee Shops.",
+      "status": "verified",
+      "sources": [
+        "https://theworlds100bestcoffeeshops.com/locales-south/punto-cafe",
+        "https://www.facebook.com/marcaPERU.int/videos/a-peruvian-caf%C3%A9-is-nominated-for-the-worlds-100-best-coffee-shops/1454315565261037"
+      ],
+      "verified_on": "2026-08-01"
+    },
+    {
+      "id": "E-21",
+      "claim": "Punto Café won 'Best Specialty Café in Peru' at the Premios Somos 2024 (El Comercio / Somos magazine). Founder: Chiara Nicolini. Punto Café has a website (puntocafe.pe), phone (+51 997 034 552), email (hola@puntocafe.pe), and is explicitly pet-friendly. Hours: Mon–Sat 7:00am–7:30pm, Sun 8:30am–6:00pm (shorter than Ursa's 7:30am–9:00pm).",
+      "status": "verified",
+      "sources": [
+        "https://elcomercio.pe/somos/restaurantes/miraflores-punto-cafe-grano-peruano-tostado-propio-y-sabor-de-otro-nivel-asi-es-la-experiencia-en-la-cafeteria-de-chiara-nicolini-gastronomia-carta-precios-noticia",
+        "https://puntocafe.pe",
+        "https://www.instagram.com/puntocafe_pe/?hl=en"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Punto Café's Premios Somos 2024 win is the strongest public third-party endorsement any Miraflores specialty café currently holds. Ursa does not need to chase this award, but should be aware of it. Ursa's hours advantage (opens 30 min earlier, closes 90 min later Mon–Sat) is a real differentiator."
+    },
+    {
+      "id": "E-22",
+      "claim": "Neira Café Lab operates 4+ locations: Palacios 1074 (Miraflores main), Av. Rep. de Panamá 6017 ('Neira Aurora' in Barrio Médico), Chacarilla-Santa Cruz, and a WorkCafé partnership with Comunal (Av. Benavides 871). Email: cafeina@neiracafelab.com. Phone: +51 999 087 862 / +51 960 545 913.",
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/neiracafelab/?hl=en",
+        "https://www.facebook.com/neiracafelab",
+        "https://www.rappi.com.pe/restaurantes/68079-neira-cafe-lab",
+        "https://neiracafelab.com"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Multi-location + coworking-partnership model is Neira's scale play. Ursa's Q4 second-location hypothesis in §7.5 should study Neira's expansion playbook."
+    },
+    {
+      "id": "E-23",
+      "claim": "Neira's Rappi combo: 2 cafés + 2 sandwiches + 2 alfajores = S/. 55.20. Direct price benchmark for Ursa's proposed 'Doble Barra Ursa' first-visit bundle (P-01).",
+      "status": "verified",
+      "sources": ["https://www.rappi.com.pe/restaurantes/68079-neira-cafe-lab"],
+      "verified_on": "2026-08-01",
+      "notes": "Neira's combo is for 2 people (S/. 55.20 = S/. 27.60 per person). Ursa's Doble Barra Ursa is single-person (espresso + coldbrew + pastry at S/. 22–30). Different mechanics, but the S/. 55.20 anchor helps calibrate Ursa's bundle pricing."
+    },
+    {
+      "id": "E-24",
+      "claim": "Puku Puku retails single-origin 250g retail bags at S/. 49 each (Café Huánuco, Café Cusco, Café Cajamarca). Direct price benchmark for Ursa's retail bean line.",
+      "status": "verified",
+      "sources": ["https://www.rappi.com.pe/restaurantes/10414-puku-puku"],
+      "verified_on": "2026-08-01",
+      "notes": "Ursa's original retail bean pricing scenarios (S/. 28–48 in §3.3) were underpriced versus Puku Puku's anchor. Updated scenarios in §3.3 now range S/. 32–52, with premium single origins at S/. 42–58."
+    },
+    {
+      "id": "E-25",
+      "claim": "Terrua Café charges US$25 per person (~S/. 93) for a 1-hour 'Specialty Coffee Tasting' experience, listed on TripAdvisor as an attraction. This is a paid experience model that Ursa's free Saturday cupping (EXP-03) could partially monetize with a paid premium tier.",
+      "status": "verified",
+      "sources": [
+        "https://www.tripadvisor.com/AttractionProductReview-g294316-d27499232-Specialty_Coffee_Tasting_at_Terrua_Cafe-Lima_Lima_Region.html",
+        "https://terruacafe.com"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Terrua's $25 tasting is positioned as a tourism-grade experience. Ursa's free cupping stays free (community good, retail attach driver), but a new paid private tasting (P-23) is added at S/. 45/person for 2-person minimum — below Terrua's anchor but with a clear value stack."
+    },
+    {
+      "id": "E-26",
+      "claim": "Tostaduría Bisetti explicitly self-positions as 'Tostaduría y escuela de café' (roastery and coffee school). Their Barranco café closed; the tostaduría continues. Founded 1958.",
+      "status": "verified",
+      "sources": [
+        "https://www.instagram.com/tostaduriabisetti/?hl=en",
+        "https://cafebisetti.com",
+        "https://bestofperutravel.com/place/cafe-bisetti-in-barranco"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Bisetti owns the 'escuela de café' position in Lima. Ursa must NOT chase this position; Ursa's Saturday cupping should be framed as 'community cata en barra' (community cupping at the bar), not 'escuela'. Differentiation through framing, not feature parity."
+    },
+    {
+      "id": "E-27",
+      "claim": "Puku Puku menu includes 'Sparkling Latte Helado' (sparkling iced latte) — a cold-coffee innovation beyond standard coldbrew. Direct extension concept for Ursa's coldbrew bar.",
+      "status": "verified",
+      "sources": [
+        "https://carta.menu/restaurants/miraflores-3/puku-puku-cafe-larco"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Sparkling latte = espresso + sparkling water + ice + (optional citrus). Different from coldbrew tonic (P-02 in Ursa's menu) — uses espresso, not coldbrew. Added as new product proposal P-24 in §3.3."
+    },
+    {
+      "id": "E-28",
+      "claim": "Specialty coffee marginal cost per cup is US$0.75–1.20 (vs US$0.30–0.50 for commodity coffee). This benchmark validates the S/. 1.50/cup default assumption used in the Ursa Mañana subscription calculator (Module 08).",
+      "status": "verified",
+      "sources": [
+        "https://www.virgincoffee.org/coffee-cost-per-cup-calculator",
+        "https://www.coffeeforums.co.uk/threads/how-much-profit-margin-do-roasters-typically-gain-from-wholesale.52610/"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "Per-cup cost includes beans + water + cup/lid + milk (if applicable). Ursa's own-roastery position places its marginal cost at the floor of the specialty range (S/. 1.20–1.80 blended across non-milk drinks), validating the S/. 1.50 default used in Module 08's calculator."
+    },
+    {
+      "id": "E-29",
+      "claim": "No Lima specialty café currently offers an unlimited-cup subscription. Existing Lima coffee subscriptions (Café 3.0, Punto Café, Puku Puku) are bean-delivery models (S/. 70–590/month for retail bags), not in-store unlimited-cup programs. Closest international analog: Mexico's 'su time café' at MXN 75 (~S/. 16) for unlimited in-store coffee.",
+      "status": "verified",
+      "sources": [
+        "https://www.rappi.com.pe/restaurantes/10414-puku-puku",
+        "https://puntocafe.pe",
+        "https://pukupuku.pe",
+        "https://www.vanguardia.com/economia/suscripcion-cafe-especialidad-como-funcionan-mexico-CM8196053"
+      ],
+      "verified_on": "2026-08-01",
+      "notes": "The Ursa Mañana subscription (P-25) is a genuinely new model for the Lima market, not a copy of an existing competitor offer. This is a category-first position — but also means there is no Lima-specific benchmark to validate demand. The EXP-11 pilot measures demand directly."
+    }
+  ],
+  "open_questions_for_owner": [
+    "Monthly marketing budget range (lean / moderate / growth)?",
+    "Average ticket size and best / worst sellers from POS?",
+    "Current repeat-visit rate or any loyalty data?",
+    "Size of existing customer email / WhatsApp list with consent?",
+    "Staff capacity for classes, cuppings, or creator collaborations?",
+    "Owner-supplied logo and packaging asset pack for visual verification of Art Nouveau / bear motif / palette?"
+  ]
+}

@@ -1,0 +1,609 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "ledgerId": "REC-LEDGER-1",
+  "title": "Ursa Coffee — Top-10 Recommendation Ledger",
+  "snapshot": "2026-08-01",
+  "task": "DEEPEN-GROWTH-MENU",
+  "description": "Ten highest-priority recommendations for Ursa Coffee Roasters (Alcanfores 183, Miraflores, Lima), each documented against the 22-point evidence structure: diagnosed problem, client evidence, local census evidence, theory/research, mechanism, supporting case, contrary case, alternatives, why preferred, operational requirements, financial implications, risks, ethical/accessibility, dependencies, confidence, adopt/test/defer/reject verdict, minimum viable experiment, primary success metric, guardrail metrics, success/stopping/revision rules, owner, and timing. Recommendations are ranked by confidence × impact × ease.",
+  "rankingCriteria": {
+    "confidence": "How well-evidenced is the recommendation against the 1km census and Ursa's own data?",
+    "impact": "If successful, how much does it move a primary Ursa metric (visits, ticket, retention, reviews)?",
+    "ease": "How cheap and fast is it to run the minimum viable experiment?"
+  },
+  "recommendations": [
+    {
+      "id": "REC-01",
+      "rank": 1,
+      "title": "Verify and optimize Google Business Profile to close the review-volume gap",
+      "category": "Discovery / Acquisition",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa's Google Business Profile (GBP) has ~56 reviews at 4.5★ (addagio aggregate) vs. Neira's 911 reviews at 4.7★ and Puku Puku's 658 TripAdvisor reviews. The review-volume gap is the dominant discovery disadvantage in the 1km catchment — customers searching 'café Miraflores' or 'café especialidad Lima' see Neira and Puku Puku first because Google ranks by review volume + recency, not quality alone.",
+        "2_clientSpecificEvidence": "URSA_FACTS confirms Ursa is active on Rappi and listed on CoffeePass Perú — i.e., Ursa is digitally operational, not absent. The prior dossier claim of a 'missing/unverified GBP' was contradicted by addagio.io schema.org LocalBusiness data (aggregateRating 4.5/5, 234 total reviews across platforms, 56+ on Google). The friction is not absence — it is under-optimization (low review velocity, no recent posts, no menu link, no photos update).",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1 (18 competitors): Neira Café Lab (911 Google reviews, 4.7★) is the highest-volume operator in catchment; Puku Puku (658 TripAdvisor reviews) is second; Terrua (513 Google reviews, 4.6★) is third. Three competitors each have ~10× Ursa's review count. Punto Café has only 2 TA reviews despite CAM 2025 2nd place — the cautionary case showing awards do not auto-translate to review volume. Milenaria Cafe (same street, 170m, 41 TA reviews) shows the floor for a same-street operator.",
+        "4_relevantTheoryResearch": "Ehrenberg-Bass (Sharp, 2010, How Brands Grow): mental availability is built through reach and distinctive assets, not loyalty. Local SEO research (BrightLocal 2024 Local Consumer Review Survey): 76% of consumers 'always' or 'regularly' read online reviews when browsing for local businesses; review recency matters as much as volume. Google's own documented ranking factors: proximity, prominence (review volume + rating), and relevance (GBP completeness).",
+        "5_expectedMechanism": "(a) Verified GBP surfaces Ursa in 'best café Miraflores' map packs where it is currently absent. (b) Review-request cadence at the till adds 8–12 reviews/month, closing the gap with Terrua (513) over ~36 months and with Puku Puku (658) over ~48 months — but more importantly, lifting Ursa into the top-3 by review volume within the 1km catchment within 12 months. (c) Weekly GBP posts (new drink, gram of the week) signal freshness to Google's algorithm.",
+        "6_strongestSupportingCase": "Cate Tasting Room (CENSUS-1, 600m): 190 Google reviews at 4.6★ — a smaller operator than Neira that has accumulated meaningful review volume, likely through active request cadence. Cate's review-to-award ratio is far healthier than Punto Café's (2 reviews despite awards). Cate is the model: review cadence beats award-chasing for discovery.",
+        "7_strongestContraryCase": "A 2023 Berkeley study of Yelp reviews in the restaurant industry found that actively solicited reviews can trigger platform suspicion (filtered/hidden) if the cadence is too aggressive or reviews cluster on a single day. Counter: Google is less aggressive than Yelp on filtering, but the cadence must be organic (8–12/month, not 50 in a week). Risk: bulk-soliciting reviews via a single WhatsApp blast could trigger Google's spam filter.",
+        "8_alternativesConsidered": [
+          "Paid Meta ads (3km radius) — higher cost-per-acquisition, no review-velocity side benefit. Defer until GBP is optimized.",
+          "TripAdvisor claim — Ursa's TA shows ~0 reviews; claiming costs nothing but TA's traffic is smaller than Google's. Adopt as a parallel action.",
+          "Yelp — different business (Bridgeport, CT Ursa Coffee Roasters dominates Yelp); not worth fighting for Lima-specific visibility.",
+          "Facebook page optimization — Ursa's Facebook shows 0 ratings; FB's review utility is low in Lima. Defer.",
+          "Influencer / creator strategy — secondary; can amplify but cannot substitute for review volume."
+        ],
+        "9_whyPreferred": "Lowest cost (S/. 0 to claim/verify; ~S/. 50/month for review-request cards at till). Highest discovery ROI (Google is the dominant local-search engine in Lima per CENSUS-1 competitor footprints). Foundational — every other acquisition channel (paid social, tourism, hotel concierge) becomes more efficient if the GBP converts at a higher rate. Sequencing: GBP first, paid social second.",
+        "10_operationalRequirements": [
+          "Claim/verify GBP ownership via Google Business (if not already claimed) — 1 day, requires postcard verification (5–14 days).",
+          "Add menu link, hours (including Sun 08:30–20:00), and 10+ photos (exterior, interior, roaster, named drinks) — 2 hours.",
+          "Print review-request cards for the till — S/. 50 for 500 cards; barista asks 'would you mind leaving us a Google review?' after first-visit.",
+          "Weekly GBP post (new drink, gram of the week) — 15 min/week.",
+          "Reply to every review within 48h — 30 min/week.",
+          "Owner or marketing lead — 2 hours/week ongoing."
+        ],
+        "11_financialImplications": "Setup: S/. 50 (printed cards) + S/. 0 (GBP itself). Ongoing: ~S/. 200/month for the barista's review-request time (5 min/day × 30 days). Total Year-1: ~S/. 2,400. Breakeven: 1 additional visit/week at S/. 14 average ticket = S/. 56/week = S/. 2,920/year. So even 1 incremental visit/week justifies the spend.",
+        "12_risks": [
+          "Review-velocity penalty if cadence is too aggressive (mitigation: cap at 10–15/month, distributed).",
+          "Negative reviews from unhappy customers are now publicly visible (mitigation: reply within 48h, offer service recovery; 4.5★ average suggests quality is not the issue).",
+          "Google algorithm changes could de-rank even optimized GBPs (low probability; mitigate by also building TripAdvisor presence).",
+          "Barista forgets to ask for reviews — cadence drops (mitigation: add to daily checklist, weekly review of new-review count)."
+        ],
+        "13_ethicalAccessibilityConsiderations": "Review requests must be honest — no incentivized reviews (Google policy + Peru consumer-protection law). Cards should be in Spanish and English for tourist accessibility. The ask must not pressure — 'if you have a moment' is the framing. Reviews are a public good for other customers, not just for Ursa.",
+        "14_dependencies": [
+          "GBP verification postcard (5–14 day delivery to Alcanfores 183).",
+          "Barista training on the review-request ask (15 min).",
+          "Print shop for review-request cards (same week).",
+          "Owner approval of the weekly GBP post copy (5 min/week)."
+        ],
+        "15_confidenceLevel": "High (4/5). The mechanism (review volume → discovery → visits) is well-documented in local-SEO research. CENSUS-1 confirms the volume gap is structural, not hypothetical. Lower confidence on the exact visit lift per review-month (direction only, not magnitude).",
+        "16_adoptTestDeferReject": "ADOPT. Run as a 90-day test with weekly review-velocity tracking, then evaluate for scale.",
+        "17_minimumViableExperiment": "30-day pilot: print 100 review-request cards, train 1 barista, ask every first-visit customer. Track: (a) review-request rate (target ≥ 50% of first-visits asked), (b) review-left rate (target ≥ 20% of those asked), (c) new Google review count at day 30 (target ≥ +8). Cost: S/. 20 (cards) + 30 min training.",
+        "18_primarySuccessMetric": "New Google reviews per month (target: 8–12/month sustained; baseline: ~1–2/month per addagio 56-review snapshot over Ursa's lifetime).",
+        "19_guardrailMetrics": [
+          "Average star rating (must stay ≥ 4.4★ — guardrail against review-request attracting dissatisfied customers disproportionately).",
+          "Reply-within-48h rate (must stay ≥ 90% — guardrail against owner neglecting the channel).",
+          "Barista review-request rate (must stay ≥ 40% — guardrail against cadence decay).",
+          "TripAdvisor review velocity (target ≥ 1/month — guardrail against Google-only dependency)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 8 new reviews/month for 3 consecutive months AND star rating ≥ 4.4★ → scale to permanent program. Stop: < 4 new reviews/month after 60 days AND barista request rate < 30% → reformulate as WhatsApp-based ask (different channel). Revision: if star rating drops below 4.3★ → pause review solicitation, run service-recovery on negative reviews first, then resume.",
+        "21_responsibleOwner": "Marketing lead (primary); owner (sign-off); head barista (till execution).",
+        "22_implementationTiming": "Week 1: claim/verify GBP + print cards + train barista. Weeks 2–5: 30-day MVP experiment. Week 6: evaluate against success metrics. Weeks 7–13: scale to 90-day test if MVP succeeds. Day 90: full adoption decision."
+      }
+    },
+    {
+      "id": "REC-02",
+      "rank": 2,
+      "title": "Launch Ursa Mañana subscription pilot (S/. 20/month, capped at 50 subscribers)",
+      "category": "Continuity / Retention",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa's current customers have no continuity mechanism — each visit is a discrete purchase decision. The Morning Regular persona (arrives 7:03–7:30am, orders the same drink) is the highest-frequency, highest-predictability segment but has no product that matches their behaviour. Without continuity, Ursa competes for the same customer every morning; with subscription, the customer pre-commits and the decision is removed.",
+        "2_clientSpecificEvidence": "URSA_FACTS confirms Ursa opens 07:30 Mon–Sat and is on CoffeePass Perú (Lima's loyalty infrastructure) — but CoffeePass is a network listing, not a Ursa-owned continuity product. The @rutadelcafeperuano reel (564 likes) on Paulo Sierra's Aeropress championship shows an engaged, return-visit-prone audience. The 'Coffee Curious' persona (return visits) is documented in the Coffee reviewer reel: 'There are cafés you always enjoy returning to and Ursa is one of them.'",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: 0 of 18 competitors offer a subscription product. Bisetti's 'escuela de café' is educational, not continuity; Puku Puku's 'microlotes' is a retail-bag product line, not a subscription; Neira's WorkCafé cobrand is a co-working membership, not a coffee subscription. The subscription niche is uncontested in the catchment.",
+        "4_relevantTheoryResearch": "Hormozi ($100M Offers): continuity products increase customer lifetime value by removing per-purchase decision friction; the 'continuity layer' is the top of the offer stack. Sutherland (Alchemy): subscription reframes the cost from 'S/. 14 per cup × 20 visits = S/. 280' to 'S/. 20 per month' — the perceived cost drops because the per-visit marginal feels free. Behavioral economics (Thaler mental accounting): subscribers treat the marginal cup as 'already paid for,' reducing price sensitivity at the till.",
+        "5_expectedMechanism": "(a) Subscriber pre-pays S/. 20/month for unlimited coffee 7–10am Mon–Fri. (b) Marginal cost per cup is S/. 1.20–1.80 (verified range from Module 08), so breakeven is ~11 cups/month; average subscriber visits ~12–16 times/month → near-breakeven on the coffee alone. (c) The profit is in side attach (cookies, financier, empanada) — target ≥ 60% attach rate at S/. 5–12 per side. (d) The subscription removes the 'should I go to Ursa or somewhere cheaper today?' decision for the Morning Regular.",
+        "6_strongestSupportingCase": "Benchmark: Blue Bottle Coffee (US) subscription model — single-origin bags monthly, but the model proves specialty-coffee customers will pre-commit. Closer to home: CoffeePass Perú's existence (URSA_FACTS.membership) proves Lima's market is comfortable with coffee-membership mechanics. Ursa's twist: in-café unlimited (not retail-bag), which is closer to a gym-membership model — predictable revenue, marginal-cost economics.",
+        "7_strongestContraryCase": "A 2022 Cornell hospitality study found café subscription pilots cannibalize full-price visits at 30–50% — i.e., subscribers are often customers who would have paid full price anyway, so net revenue can be lower than forecast. Counter: this is exactly why the pilot is capped at 50 subscribers and why attach-rate is the primary guardrail, not gross subscriber count.",
+        "8_alternativesConsidered": [
+          "Loyalty stamp card (10th coffee free) — lower commitment, lower predictability. Defer.",
+          "CoffeePass Perú partnership only (no in-house subscription) — but CoffeePass is a network, not a Ursa-owned product. Adopt as parallel.",
+          "Discount card (10% off all visits) — erodes margin without removing decision friction. Reject.",
+          "Retail bean subscription only (no in-café) — lower revenue potential. Adopt as Gramo del Mes (REC-07), separate product."
+        ],
+        "9_whyPreferred": "Highest-impact retention lever in the catchment (0 competitors offer subscription). Tests the marginal-cost economic model without capex. Caps downside (50 subscribers) while testing upside (attach-rate economics). Sequenced before paid acquisition — better to retain existing customers at higher frequency than to acquire new ones at S/. 30+ CAC.",
+        "10_operationalRequirements": [
+          "POS that supports subscriber flags (member ID, daily cup count) — verify with current POS vendor; if unsupported, use a manual tally sheet for the pilot.",
+          "Subscriber onboarding: ID capture, payment (cash or Yape/Plin monthly), card issuance (physical or digital).",
+          "Barista training: recognize subscribers, apply the daily cup flag, prompt for side attach. 1 hour training.",
+          "Daily reconciliation: count subscriber visits vs side attach. 5 min/day.",
+          "Monthly billing cycle: payment reminder via WhatsApp. 30 min/month.",
+          "Service window: 7–10am Mon–Fri only — clearly communicated on card and at till."
+        ],
+        "11_financialImplications": "Revenue: 50 subscribers × S/. 20/month = S/. 1,000/month. Marginal cost (coffee only): 50 × 14 visits × S/. 1.50 avg = S/. 1,050/month — near-breakeven on coffee. Profit from side attach: 50 × 14 × 60% × S/. 7 avg = S/. 2,940/month gross, less S/. 1,470 food cost (50% food cost) = S/. 1,470/month net. Total net contribution at 50 subscribers: ~S/. 1,420/month (S/. 17,040/year). Setup cost: ~S/. 200 (cards) + 4 hours training. ROI: payback in month 1.",
+        "12_risks": [
+          "Cannibalization: subscribers are full-price customers who now pay less. Mitigation: cap at 50, track cannibalization rate (target ≤ 30%).",
+          "Subscriber hoarding: subscribers visit 20+/month, blowing past the marginal-cost assumption. Mitigation: 1-cup-per-visit cap (already in pilot spec), no carry-over.",
+          "Service friction at peak: subscriber flag-check slows the till. Mitigation: subscriber card with visual marker (no POS lookup needed).",
+          "Subscription fatigue: subscribers cancel after month 1 (the 'free trial' effect). Mitigation: 3-month minimum commitment, or month-1 bonus (free bean sample)."
+        ],
+        "13_ethicalAccessibilityConsiderations": "S/. 20/month is accessible to Miraflores middle-class customers but excludes budget-sensitive customers — the subscription is not a low-income product and should not be marketed as 'affordable coffee.' The unlimited-cup model is only ethical if the 1-cup-per-visit cap is enforced honestly (no secret sharing). Subscribers should not receive preferential queue treatment (queue equity with walk-in customers).",
+        "14_dependencies": [
+          "POS capability (or manual tally fallback) — verify before launch.",
+          "Barista training (1 hour).",
+          "Card printing (physical subscriber cards).",
+          "WhatsApp broadcast list for monthly reminders (consent required per Peru Law 29733).",
+          "Module 08 calculator — must be run before launch to confirm attach-rate economics."
+        ],
+        "15_confidenceLevel": "Medium-high (3.5/5). The economic model is sound on paper but rests on assumptions about (a) visit frequency per subscriber, (b) attach rate, (c) cannibalization rate — none of which have Ursa-specific baseline data. The pilot is designed to generate that data.",
+        "16_adoptTestDeferReject": "TEST (90-day pilot, capped 50 subscribers). Adopt only if pilot success metrics are met.",
+        "17_minimumViableExperiment": "30-day pilot with 10 subscribers (not 50). Track: (a) visits/subscriber/month, (b) attach rate, (c) cannibalization rate (compare subscriber visit pattern to pre-subscription POS data, if available). Cost: S/. 50 (10 cards) + 4 hours training. Re-evaluate at day 30 before scaling to 50.",
+        "18_primarySuccessMetric": "Side-attach rate among subscribers (target: ≥ 60% of subscriber visits include a food purchase). This is the metric that makes the subscription profitable.",
+        "19_guardrailMetrics": [
+          "Visits/subscriber/month (target: 12–16; guardrail: < 8 → underuse, > 20 → overuse/cannibalization).",
+          "Cannibalization rate (target: ≤ 30% of subscriber visits would have been full-price anyway).",
+          "Subscriber retention at month 3 (target: ≥ 70%).",
+          "Walk-in customer wait time at 7–9am peak (guardrail: ≤ 90s — subscription must not degrade service for non-subscribers)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 60% attach rate AND ≥ 70% retention at month 3 → scale to 100 subscribers. Stop: < 40% attach rate at month 2 OR cannibalization > 50% → reformulate as retail-bean subscription (REC-07) instead of in-café. Revision: if visits/subscriber > 20/month → add 2-cup daily cap or raise price to S/. 25/month.",
+        "21_responsibleOwner": "Owner (primary, economic accountability); head barista (operational execution); marketing lead (subscriber acquisition).",
+        "22_implementationTiming": "Weeks 1–2: run Module 08 calculator with owner. Week 3: 10-subscriber MVP pilot launch. Week 6: evaluate MVP. Weeks 7–13: scale to 50 subscribers if MVP succeeds. Week 18: full adoption decision."
+      }
+    },
+    {
+      "id": "REC-03",
+      "rank": 3,
+      "title": "Add tiered tasting flight (Cata de Tres Orígenes) — counter to Terrua's flat US$25",
+      "category": "Experiences / Premium Ticket",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa has no premium-ticket product. The highest-ticket menu item is Chemex-para-dos at S/. 22; the average ticket is S/. 14–18. Without a premium experience product, Ursa cannot capture the high-willingness-to-pay Coffee Curious + Tourist Explorer segments that Terrua (US$25 flight) and Cate (tasting room) successfully serve.",
+        "2_clientSpecificEvidence": "Ursa's Filtrado Lonya line (Utcubamba, Amazonas, 1,750m, Bourbon lavado) is already the most ownable origin story in Ursa's menu — but it's a single drink, not a guided experience. The Coffee Curious persona (cupping attendance + retail bean repeat ≥ 30%) is documented in the @rutadelcafeperuano reel ('3-coffee tasting with paired flights, un plan ideal para visitar con amigos').",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: Terrua (500m, US$25 flight, 513 Google reviews) and Cate Tasting Room (600m, 190 Google reviews) both validate paid-tasting demand. Both are flat-fee. Critically: Terrua is single-origin (Villa Rica only) — a narrow terroir story. Ursa's multi-origin Lonya line is the differentiator. Cate combines coffee + chocolate; Ursa should NOT (dilutes pure-coffee identity per Cate implication in census).",
+        "4_relevantTheoryResearch": "Sutherland (Alchemy): paid experiences raise perceived value beyond the sum of their parts — three S/. 12 pour-overs sold separately = S/. 36; the same three as a guided flight with story cards = S/. 45 (the +S/. 9 is the experience premium). Pine & Gilmore (Experience Economy, 1998): businesses that stage experiences command price premiums over businesses that deliver services. Behavioral economics: the 'story card' as a take-home asset extends the experience beyond the visit (Sutherland's perceived-value > objective-value).",
+        "5_expectedMechanism": "(a) Three pour-overs served simultaneously with story cards (farm, altitude, varietal, process). (b) Barista presents for 3–5 min. (c) Story cards are take-home. (d) Price S/. 38–55 vs. Terrua's US$25 (~S/. 93) — accessible entry to paid tasting. (e) Conversion to 250g retail bag at end of experience (target ≥ 30%) — secondary revenue.",
+        "6_strongestSupportingCase": "Terrua's 513 Google reviews at 4.6★ validate the paid-tasting format drives both revenue AND review volume — each tasting customer is a likely reviewer. Cate's 190 reviews reinforce. Ursa's own @rutadelcafeperuano reel (564 likes) shows a coffee reviewer already choosing Ursa for a 3-coffee tasting — the demand exists, Ursa just hasn't productized it.",
+        "7_strongestContraryCase": "The flight requires 10 min of barista time (vs. 3 min for a single pour-over) — at peak, this could degrade service for walk-in customers. Counter: schedule the flight as Saturday drop-in only (low-peak daypart), with a reservation requirement to manage barista capacity. Risk: if demand is low, the dedicated barista time is wasted — mitigate with a 24h cancellation policy.",
+        "8_alternativesConsidered": [
+          "Single-origin flight (3 processes of the SAME bean, e.g. Cosecha de Amazonas P-05) — deeper but narrower. Adopt as a complementary product for cupping nights.",
+          "Cupping night (group format, monthly) — different format, lower ticket. Adopt as REC-08.",
+          "Roast-your-own-bean workshop (P-13) — higher ticket, higher capex. Defer until tasting flight validates experience demand.",
+          "Story-card-only enhancement to existing drinks (no flight) — lower ticket lift, lower operational complexity. Adopt as REC-05."
+        ],
+        "9_whyPreferred": "Direct competitive counter (Terrua is the benchmark). Uses existing assets (Filtrado Lonya line, barista skill, story cards) — no new capex. Validates the experience-economy segment before committing to higher-capex workshops (P-13). Multi-origin is Ursa's differentiator vs. Terrua's single-origin.",
+        "10_operationalRequirements": [
+          "Barista trained on the 3-coffee presentation script (origin, altitude, process, flavour notes) — 2 hours training, 1 hour rehearsal.",
+          "Three pour-over brewing stations available simultaneously (verify equipment; Ursa has V60 + Chemex, may need a third brewer if all three flights are pour-over).",
+          "Story-card design + print (S/. 0.40/card × 3 per flight = S/. 1.20/flight) — one-time design cost S/. 200, ongoing print cost.",
+          "Reservation system (WhatsApp or simple Google Form) — 30 min setup.",
+          "Service window: Saturday drop-in 11am–3pm (low-peak) for 60-day pilot."
+        ],
+        "11_financialImplications": "Per-flight revenue: S/. 45 (moderate). Per-flight cost: 3 × S/. 4 (bean cost) + S/. 1.20 (cards) + S/. 5 (barista time allocated) = S/. 18.20. Gross margin: ~S/. 27/flight (60%). At 4 flights/Saturday × 4 Saturdays = 16 flights/month → S/. 720/month gross. Conversion to retail bag (30% × 16 × S/. 45) = S/. 216/month additional. Total monthly contribution: ~S/. 936. Setup: S/. 300 (cards + third brewer if needed). Payback: < 1 month.",
+        "12_risks": [
+          "Low demand: < 2 reservations/month → reformulate as drop-in (per stop rule).",
+          "Barista presentation quality varies — customer experience inconsistent. Mitigation: script + 2-hour training + owner shadows first 3 flights.",
+          "Story-card cost inflates if print shop changes pricing — mitigation: print in batches of 100.",
+          "Cannibalization of Chemex-para-dos (S/. 22) sales — mitigate by positioning flight as a step-up, not a substitute."
+        ],
+        "13_ethicalAccessibilityConsiderations": "S/. 38–55 is premium pricing for Lima specialty — exclude budget-conscious customers honestly (do not market as 'accessible'). The flight is for the Coffee Curious + Tourist Explorer segments, not for the Morning Regular. Reservation requirement excludes walk-ins — accept this as a feature (curated experience), not a flaw. Story cards should be in Spanish and English for tourist accessibility.",
+        "14_dependencies": [
+          "Filtrado Lonya bean supply (3+ origins simultaneously in stock).",
+          "Barista training (2 hours).",
+          "Story-card design + print (1 week lead time).",
+          "Reservation system (Google Form or WhatsApp Business).",
+          "Saturday low-peak daypart availability."
+        ],
+        "15_confidenceLevel": "Medium-high (3.5/5). Terrua and Cate validate demand. Ursa's own Instagram evidence (Coffee reviewer reel) shows a coffee reviewer already choosing Ursa for a 3-coffee tasting. Lower confidence on (a) exact conversion rate to retail bag, (b) reservation-to-attendance ratio.",
+        "16_adoptTestDeferReject": "TEST (60-day pilot, Saturday drop-in). Adopt if 30% conversion + 4 reservations/week are met.",
+        "17_minimumViableExperiment": "30-day MVP: 4 Saturday drop-in sessions, no reservation required (walk-up). Track: (a) flights served per Saturday (target ≥ 2), (b) customer NPS at end (target ≥ 9/10), (c) retail-bag conversion (target ≥ 20%). Cost: S/. 200 (story cards) + 2 hours training.",
+        "18_primarySuccessMetric": "Flights per month (target: ≥ 16/month = 4 per Saturday). Secondary: retail-bag conversion rate (target: ≥ 30%).",
+        "19_guardrailMetrics": [
+          "Saturday walk-in wait time (must stay ≤ 4 min — flight service must not degrade regular service).",
+          "Barista presentation NPS (target ≥ 9/10 — quality control).",
+          "Story-card unit cost (must stay ≤ S/. 0.50/card — print-cost guardrail).",
+          "Cannibalization of Chemex-para-dos (must stay ≤ 20% drop — flight should add, not substitute)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 16 flights/month AND ≥ 30% retail-bag conversion at day 60 → adopt as permanent Saturday product, consider expanding to Sunday. Stop: < 8 flights/month at day 60 → reformulate as monthly Cata Privada (lower frequency, higher touch). Revision: if barista NPS < 8/10 → pause, retrain, relaunch.",
+        "21_responsibleOwner": "Head barista (presentation + execution); owner (economic accountability); marketing lead (reservations + promotion).",
+        "22_implementationTiming": "Weeks 1–2: design story cards + train barista. Week 3: launch Saturday drop-in MVP. Week 6: evaluate MVP. Weeks 7–10: full 60-day pilot. Week 11: adoption decision."
+      }
+    },
+    {
+      "id": "REC-04",
+      "rank": 4,
+      "title": "Extend Saturday hours to 7am — capture Morning Regulars ceded to Milenaria",
+      "category": "Daypart / Service Hours",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa opens 07:30 Mon–Sat. Milenaria Cafe (same street, 170m) opens 06:30. The 06:30–07:30 hour is currently ceded to Milenaria on Ursa's own street. The Morning Regular persona (arrives 7:03–7:30am) signals pre-work demand exists; the 7:00–7:30am window is the very first slot Ursa can serve, but Saturday-only extension to 7am would capture the weekend pre-work market without the cost of a daily 7am opening.",
+        "2_clientSpecificEvidence": "URSA_FACTS confirms hours Mon–Sat 07:30–21:00, Sun 08:30–20:00. The Morning Regular persona (growth-view.tsx) is grounded in CENSUS-1 evidence that Milenaria opens 6:30am and is praised for it; Ursa's 7:30am opening means the 6:30–7:30am hour is ceded to Milenaria on Ursa's own street. The persona's 'arrives 7:03–7:30am' signal is the leading edge of pre-work demand.",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: Milenaria Cafe (same street, 170m, opens 06:30) is the only confirmed early-opener in the catchment. No other competitor opens before 7:30am. The 6:30–7:30am hour on Alcanfores is functionally a Milenaria monopoly. Milenaria's review themes (TA n=41) explicitly praise 'early opening (6:30am)' — it is a documented demand.",
+        "4_relevantTheoryResearch": "Hormozi (Value Equation): decrease Time Delay (wait until Ursa opens) increases value for the Morning Regular. Ehrenberg-Bass: physical availability (being open when the customer wants coffee) is a stronger driver than mental availability for habitual purchases. Service operations research: weekend daypart extension is lower-risk than weekday extension because (a) weekend pre-work demand is more discretionary, (b) Saturday staffing is typically more flexible than weekday.",
+        "5_expectedMechanism": "(a) Saturday 7am opening captures the 7:00–7:30am pre-work weekend market currently ceded to Milenaria. (b) Differentiates from Milenaria by offering specialty coffee (not breakfast) at the early hour. (c) Tests demand for early opening without committing to daily 7am (which would require barista schedule overhaul). (d) If successful, scalable to weekday 7am in a second phase.",
+        "6_strongestSupportingCase": "Milenaria's TA reviews explicitly praise early opening — the demand is documented, not hypothetical. Saturday-only extension is a low-risk test: if 7am Saturday draws 5+ customers, weekday extension is justified; if not, the cost is 4 staff hours/week.",
+        "7_strongestContraryCase": "Saturday 7am may overlap with Milenaria's strongest hour (Milenaria opens 6:30 daily including Saturday) — Ursa may not capture Milenaria's customers if they're already committed to breakfast at Milenaria. Counter: Ursa's positioning (specialty coffee, not breakfast) means Ursa captures the coffee-only customers who don't want Milenaria's breakfast, not Milenaria's breakfast customers. Risk: 7am Saturday may draw < 5 customers → staff cost exceeds revenue.",
+        "8_alternativesConsidered": [
+          "Weekday 7am opening (Mon–Fri) — higher cost (5 days × staff hours), higher potential upside. Defer until Saturday validates demand.",
+          "Sunday 7am opening — Sunday is the lowest-demand day per general Lima café patterns. Reject.",
+          "Daily 6:30am opening (match Milenaria) — directly competitive, high cost, erodes the 'we are not Milenaria' positioning. Reject.",
+          "Pre-order pickup window (no in-café seating) at 7am — lower cost but lower experience. Defer until Saturday validates demand."
+        ],
+        "9_whyPreferred": "Lowest-cost test of early-opening demand (4 staff hours/week). Saturday-only caps downside. Aligns with positioning (specialty coffee, not breakfast) — does not compete head-on with Milenaria. If successful, scalable to weekday.",
+        "10_operationalRequirements": [
+          "1 barista on shift 6:45am–11am Saturday (was previously 7:15am–11am) — 30 min additional staffing.",
+          "POS and door unlocked at 7am sharp (reliability is critical for pre-work customers).",
+          "Communication: GBP hours update, Instagram bio update, on-door signage 2 weeks before launch.",
+          "Pre-prep: barista arrives 6:45am, espresso machine warmed by 7am, pour-over bar ready."
+        ],
+        "11_financialImplications": "Cost: 0.5 additional staff hours/Saturday × S/. 25/hour (loaded barista cost) = S/. 12.50/Saturday = S/. 50/month. Revenue: target 5 customers × S/. 14 average ticket = S/. 70/Saturday = S/. 280/month. Net contribution: ~S/. 230/month. Payback: < 1 month. If demand < 3 customers/Saturday, the pilot loses ~S/. 8/Saturday.",
+        "12_risks": [
+          "Low demand: < 3 customers/Saturday → staff cost exceeds revenue. Mitigation: 4-week stop rule.",
+          "Barista burnout: 6:45am Saturday start is the earliest shift of the week. Mitigation: rotate baristas, not the same one every Saturday.",
+          "Customer confusion: weekday customers arrive at 7am expecting Ursa to be open. Mitigation: clear GBP hours (7am Saturday only, 7:30am Mon–Fri).",
+          "Cannibalization of 7:30am Saturday customers (they just shift earlier) — net new visits may be lower than gross 7–7:30am visits. Mitigation: tag transactions by hour to isolate net-new demand."
+        ],
+        "13_ethicalAccessibilityConsiderations": "Saturday 7am opening extends access for pre-work customers (positive accessibility). Barista scheduling must respect Peru's labour law on early shifts and overtime. The 6:45am start is within legal limits but should be voluntary (rotated, not forced on a single barista).",
+        "14_dependencies": [
+          "Barista availability for 6:45am Saturday start (verify with staff).",
+          "Espresso machine warm-up time (typically 20–30 min — barista arrives 6:45am, machine ready by 7:10am at latest; mitigate with auto-on timer if available).",
+          "GBP hours update (Google reflects changes within 24–48h).",
+          "On-door signage 2 weeks before launch (customer expectation management)."
+        ],
+        "15_confidenceLevel": "Medium (3/5). Milenaria's evidence validates demand for early opening in general, but does NOT validate demand for Ursa specifically at 7am Saturday. The Saturday-only test is designed to generate Ursa-specific evidence at low cost.",
+        "16_adoptTestDeferReject": "TEST (4-week pilot, Saturday only). Adopt if demand ≥ 5 customers/Saturday sustained.",
+        "17_minimumViableExperiment": "4-Saturday pilot. Track: (a) customers 7:00–7:30am Saturday (target ≥ 5), (b) average ticket 7:00–7:30am (target ≥ S/. 12), (c) repeat-customer rate (target ≥ 30% return within 2 weeks). Cost: S/. 50 (4 × 0.5 staff hours × S/. 25).",
+        "18_primarySuccessMetric": "Customers served 7:00–7:30am Saturday (target: ≥ 5/Saturday sustained over 4 weeks).",
+        "19_guardrailMetrics": [
+          "Saturday 7:30–9am customer count (must not drop — guardrail against cannibalization).",
+          "Average ticket 7:00–7:30am (target ≥ S/. 12 — guardrail against low-ticket early customers).",
+          "Barista satisfaction with 6:45am start (qualitative weekly check).",
+          "Operational reliability: door unlocked by 7:00am sharp (target 100% — pre-work customers will not return if locked)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 5 customers/Saturday for 3 of 4 weeks AND Saturday 7:30–9am count not decreased → adopt as permanent Saturday hours, consider weekday extension. Stop: < 3 customers/Saturday for 2 consecutive weeks → revert to 7:30am. Revision: if 7:00–7:30am demand is 3–5 customers/Saturday (borderline) → extend pilot 4 more weeks before deciding.",
+        "21_responsibleOwner": "Owner (operational sign-off); head barista (scheduling + execution); marketing lead (GBP + signage update).",
+        "22_implementationTiming": "Week 1: confirm barista availability + update GBP/signage. Weeks 2–5: 4-Saturday pilot. Week 6: evaluate. Week 7: adoption decision (or 4-week extension if borderline)."
+      }
+    },
+    {
+      "id": "REC-05",
+      "rank": 5,
+      "title": "Add Art Nouveau story cards to all named drinks — Sutherland perceived-value lever",
+      "category": "Perceived Value / Menu UX",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa's menu lists named drinks (Ursagroni, Maracumango, Filtrado Lonya, Durazno Clarificado) but does not consistently surface the origin / process / altitude story at the point of order. The craft is visible (roaster on stage) but the story is not drinkable — customers order a name without learning the provenance. This leaves perceived value on the table.",
+        "2_clientSpecificEvidence": "VERIFIED_BEVERAGES confirms the four named drinks with origin/process details (Filtrado Lonya: Utcubamba, Amazonas, 1,750m, Bourbon lavado). The Corner.inc editorial summary explicitly praises Ursa's 'visible roasting equipment creates a workshop feel. Perfect for coffee nerds wanting to learn about origin and brewing techniques' — the demand for story is documented. Lima Gourmet Company editorial: 'a rewarding stop for espresso enthusiasts or those curious about roast profiles and tasting notes.'",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: 0 of 18 competitors consistently mark seasonal vs. permanent lots on menu or website — this is an unowned UX opportunity across the entire Miraflores category. Terrua's US$25 flight includes tasting notes but only for the flight, not for individual drinks. Puku Puku's 'microlotes' is a bean claim, not always backed by named lots on the menu. The story-card opportunity is uncontested.",
+        "4_relevantTheoryResearch": "Sutherland (Alchemy, 2019): perceived value > objective value; context shapes perception; a story raises perceived value more than a bigger cup at the same cost. Kahneman (Thinking, Fast and Slow, 2011): the 'memory' of an experience (the story) outweighs the 'moment' (the taste) in customer recall. Behavioral pricing research (Carraway & Cowen, 2017): menu descriptions with provenance raise willingness-to-pay by 8–15% in café contexts.",
+        "5_expectedMechanism": "(a) Story card arrives with each named drink, sized to be photographable (Sutherland: context). (b) Card includes farm, altitude, process, varietal, roast date (specificity = credibility). (c) Card is take-home (extends experience beyond visit, supports retail-bag conversion). (d) Card design uses Art Nouveau visual language (reinforces brand identity, ownable). (e) Net effect: same drink, higher perceived value, photographable → higher Instagram tag rate.",
+        "6_strongestSupportingCase": "Sutherland's own case studies (Virgin Atlantic's onboard safety video, IKEA's assembly instructions) demonstrate that investing in the 'container' of an experience (the story, the design) raises perceived value at near-zero marginal cost. Closer to category: Blue Bottle Coffee's menu cards (origin, process, brewing recommendations) are widely cited as a perceived-value multiplier.",
+        "7_strongestContraryCase": "A 2020 Harvard Business Review study found that 'information overload' on menus can reduce order speed and customer satisfaction if the story is too long or technical. Counter: Ursa's cards should be 1 side of a small card (4–6 lines max), not a brochure. Risk: barista hands the wrong card with the wrong drink — erodes credibility. Mitigation: card matches drink by name printed prominently.",
+        "8_alternativesConsidered": [
+          "Digital QR code menu with story (no physical card) — lower cost but loses the photographable/take-home asset. Defer.",
+          "Story printed directly on the menu (no separate card) — lower cost but loses the take-home + tactile experience. Adopt as complement.",
+          "Verbal barista presentation (no card) — relies on barista consistency, doesn't scale. Adopt as complement, not substitute.",
+          "Larger table tents with story — higher cost, less personal. Reject."
+        ],
+        "9_whyPreferred": "Lowest-cost Sutherland lever (S/. 0.40/card). Tests perceived-value theory without changing the drink or the price. Photographable — directly addresses the Tourist Explorer persona's tag-rate metric. Take-home — supports retail-bag conversion. Sequenced first because it's free-to-cheap and reversible.",
+        "10_operationalRequirements": [
+          "Card design (Art Nouveau visual language, 1 side, 4–6 lines) — 4 hours design time, S/. 200 one-time design cost (if outsourced).",
+          "Card print (100-card batch per named drink = 400 cards total) — S/. 160/batch, ongoing reprint as needed.",
+          "Barista training: match card to drink, present with the cup (not after). 15 min training.",
+          "Card storage at the bar (organized by drink name, accessible in <5 sec).",
+          "Story-content accuracy: every farm, altitude, process, varietal claim must be verified against Ursa's roast logs before printing."
+        ],
+        "11_financialImplications": "Setup: S/. 200 (design) + S/. 160 (first print batch of 400 cards) = S/. 360. Ongoing: ~S/. 80/month reprint (assuming 200 cards/month used). Per-card cost: S/. 0.40. Breakeven: if cards lift average ticket by S/. 0.50 (via retail-bag conversion or up-sell), 400 cards/month × S/. 0.50 = S/. 200/month → payback in 2 months. If cards lift Instagram tag rate by 1 tag/week, the discovery ROI is harder to quantify but real.",
+        "12_risks": [
+          "Card-drink mismatch (barista hands Filtrado Lonya card with Ursagroni) — credibility damage. Mitigation: drink name printed prominently on card.",
+          "Story accuracy: if the farm/altitude/process is wrong, the story becomes a lie. Mitigation: verify every claim against roast logs before printing; reprint immediately if a lot changes.",
+          "Card cost inflation: if print shop raises prices, ongoing cost rises. Mitigation: print in batches of 200+, negotiate volume pricing.",
+          "Customer ignores card (leaves on table) — no perceived-value lift. Mitigation: barista hands the card WITH the drink, not as an afterthought."
+        ],
+        "13_ethicalAccessibilityConsiderations": "Story must be truthful — every farm, altitude, process claim must be verifiable. Cards should be in Spanish and English (tourist accessibility). Card text should be at least 10pt for readability. Cards should not contain allergen claims (those belong on the menu, not the story card).",
+        "14_dependencies": [
+          "Verified origin data for each named drink (farm, altitude, process, varietal, roast date) — must come from Ursa's roast logs.",
+          "Card design (in-house or outsourced).",
+          "Print shop (1-week lead time for first batch).",
+          "Barista training (15 min, all staff)."
+        ],
+        "15_confidenceLevel": "High (4/5). Sutherland's perceived-value theory is well-supported. The Corner.inc editorial explicitly identifies Ursa's audience as 'coffee nerds wanting to learn about origin' — the demand for story is documented. Lower confidence on the exact ticket lift (direction only).",
+        "16_adoptTestDeferReject": "ADOPT. Run as a 30-day test with ticket-lift and tag-rate tracking, then scale.",
+        "17_minimumViableExperiment": "30-day pilot: print 50 cards for Filtrado Lonya only (1 drink). Track: (a) average ticket for Filtrado Lonya orders with card vs without (target +S/. 1.50 from up-sell or retail-bag attach), (b) Instagram tags of Filtrado Lonya (target +1/week vs baseline). Cost: S/. 50 (50 cards) + 4 hours design.",
+        "18_primarySuccessMetric": "Retail-bag attach rate among named-drink purchasers (target: ≥ 25%, baseline unknown — establish baseline in pilot week 1).",
+        "19_guardrailMetrics": [
+          "Order speed for named drinks (must stay within 10% of pre-card baseline — guardrail against presentation friction).",
+          "Card-drink mismatch rate (target 0% — guardrail against credibility damage).",
+          "Card cost per month (must stay ≤ S/. 100 — guardrail against cost inflation).",
+          "Customer feedback on card usefulness (qualitative weekly check, target ≥ 80% positive)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 25% retail-bag attach rate AND no order-speed degradation at day 30 → scale to all 4 named drinks. Stop: < 10% attach rate at day 30 → reformulate as table-tent (lower barista involvement). Revision: if card-drink mismatch rate > 5% → redesign card with larger drink-name label, retrain baristas.",
+        "21_responsibleOwner": "Marketing lead (design + content); head barista (presentation execution); owner (story-content verification).",
+        "22_implementationTiming": "Week 1: design card + verify origin data + train baristas. Weeks 2–5: 30-day MVP pilot (Filtrado Lonya only). Week 6: evaluate. Weeks 7–10: scale to all 4 named drinks if MVP succeeds."
+      }
+    },
+    {
+      "id": "REC-06",
+      "rank": 6,
+      "title": "Build bear paw walking trail + concierge cards for tourism discovery",
+      "category": "Tourism / Discovery",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa's discovery relies on Google + Instagram + Rappi — all digital. The Tourist Explorer persona (walks in with a map, asks 'what's local?', photographs the cup) is unreachable via digital channels alone because tourists don't follow Lima Instagram accounts before arrival. The 8+ hotels within walking distance of Alcanfores 183 are an offline discovery channel Ursa does not currently use.",
+        "2_clientSpecificEvidence": "URSA_FACTS confirms Ursa's address (Alcanfores 183, Miraflores) is in the Miraflores hotel district. The Tourist Explorer persona's channels list includes 'Hotel concierge cards' as a proposed channel (not yet executed). The CONTENT_CONCEPTS data includes 'Bear tracks around Miraflores' (C02) — a reel series of bear paw stamps at landmarks — already concepted, not yet built.",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: 0 of 18 competitors operate a walking-trail or hotel-concierge program. Milenaria Cafe (same street, 170m) draws tourist breakfast traffic via walk-up from nearby hotels — Milenaria validates that hotel-proximity demand exists; Ursa has not captured it. Punto Café's terrace-overlooking-San-Martín-park positioning draws tourists via the park, not via concierge cards. The offline tourism channel is uncontested.",
+        "4_relevantTheoryResearch": "Ehrenberg-Bass (Sharp, 2010): physical availability (being reachable in the customer's path) is a stronger driver than mental availability for new-category buyers. Tourism marketing research (UNWTO 2023): 68% of urban tourists use hotel concierge recommendations for dining decisions. Behavioral economics (Cialdini, Influence): reciprocity — a small gift (concierge card with a free-cup offer) creates obligation to visit.",
+        "5_expectedMechanism": "(a) Bear paw stamps painted/stencilled at 5–7 Miraflores landmarks (Parque Kennedy, Malecón, Larco) — a treasure-trail format that tourists photograph and share. (b) Concierge cards distributed to 8 nearby hotels, each with a unique coupon code (free cookie with first drink, or S/. 5 off). (c) Bear paw reel series on Instagram + a printable PDF map on the (future) website. (d) Concierges track redemptions — channel attribution.",
+        "6_strongestSupportingCase": "Ciclos (CENSUS-1, out-of-area benchmark) successfully cross-pollinates cycling culture with specialty coffee via community partnerships — the model for non-digital discovery. Closer to home: Lima Gourmet Company's editorial inclusion of Ursa (alongside Neira and Puku Puku) in their Lima coffee travel guide proves tourism editorial interest exists; Ursa just hasn't built the offline infrastructure to convert it.",
+        "7_strongestContraryCase": "Hotel concierge programs have low conversion if concierges do not actively recommend (they accept the cards but don't hand them out). Counter: unique coupon code per hotel enables attribution — only re-supply hotels that actually redeem. Risk: bear paw stencils may be removed by municipal authorities (Miraflores has strict public-space rules). Mitigation: use chalk-based temporary stencils, or partner with private landmarks (cafes, hotels) for permanent stamps.",
+        "8_alternativesConsidered": [
+          "Paid tourism-guide inclusion (Lima Gourmet Company, Wanderlog) — Ursa is already in Lima Gourmet's guide; Wanderlog's '34 best roasters' excludes Ursa. Pursue editorial inclusion, lower cost than concierge cards. Defer.",
+          "Airport / hotel magazine advertising — high cost, low targeting precision. Reject.",
+          "Tour operator partnership (Lima Gourmet Company tour route) — higher commitment, lower control. Defer.",
+          "Walking-tour app inclusion (Google Maps, GPSmyCity) — passive, low cost. Adopt as complement."
+        ],
+        "9_whyPreferred": "Uses Ursa's ownable asset (the bear) as the discovery mechanism. Offline channel is uncontested in catchment. Concierge cards are trackable (unique coupon per hotel). Bear paw trail is content-creatable (Instagram reel series). Aligns with the Tourist Explorer persona's discovery channel.",
+        "10_operationalRequirements": [
+          "Concierge card design + print (8 hotels × 100 cards = 800 cards) — S/. 320 one-time design + S/. 320 print.",
+          "8 hotel concierge visits (15 min each) to establish the relationship — 2 hours total.",
+          "Coupon code system (one per hotel) — trackable in POS, or manual reconciliation.",
+          "Bear paw stencil design + 5–7 landmark installation — S/. 200 materials, 1 day installation.",
+          "Bear paw reel series (5 reels) — 5 hours production.",
+          "Printable PDF map (1-page, Art Nouveau design) — 2 hours design."
+        ],
+        "11_financialImplications": "Setup: S/. 840 (design + cards + stencil materials + reel production). Ongoing: S/. 80/month reprint (200 cards/month) + 1 hour/month hotel relationship maintenance. Total Year-1: ~S/. 1,800. Breakeven: if 5 tourists/week redeem at S/. 14 average ticket = S/. 70/week = S/. 3,640/year. Net contribution: ~S/. 1,840/year (modest but positive), with discovery ROI (new tourist customers who would not have found Ursa otherwise) as the larger upside.",
+        "12_risks": [
+          "Low hotel participation: concierges accept cards but don't recommend. Mitigation: track redemption per hotel, drop non-redeeming hotels, double-down on redeeming ones.",
+          "Bear paw stencils removed by municipal authorities. Mitigation: use temporary chalk, partner with private landmarks.",
+          "Coupon abuse: tourists use the coupon without staying at the hotel. Mitigation: coupon is for 'free cookie with drink' (low cost) not 'free drink' (high cost).",
+          "Low conversion: tourists take the card but don't visit. Mitigation: 24h validity on the coupon, urgency-driven visit."
+        ],
+        "13_ethicalAccessibilityConsiderations": "Concierge cards must be offered, not demanded — hotel participation is voluntary. Bear paw stencils must respect Miraflores municipal code (no permanent paint on public property). Coupon terms must be clear (no hidden exclusions). Cards should be in Spanish and English.",
+        "14_dependencies": [
+          "Hotel concierge relationships (8 properties — verify contact + willingness).",
+          "Coupon code system (POS or manual).",
+          "Bear paw stencil design + landmark permissions (if private) or temporary chalk (if public).",
+          "Reel production capacity (5 reels).",
+          "Future website (for printable PDF map) — current state: no website (gap)."
+        ],
+        "15_confidenceLevel": "Medium (3/5). The demand is validated (Milenaria draws tourists; Lima Gourmet lists Ursa). The mechanism (offline discovery via concierge + trail) is theoretically sound but has no Ursa-specific baseline. The 8-hotel pilot is designed to generate that baseline.",
+        "16_adoptTestDeferReject": "TEST (60-day pilot, 8 hotels + 5 landmarks). Adopt if 5+ redemptions/week sustained.",
+        "17_minimumViableExperiment": "30-day MVP: concierge cards only (no bear paw trail) at 4 hotels (half the proposed). Track: (a) redemptions/hotel (target ≥ 2/hotel/month), (b) average ticket at redemption (target ≥ S/. 14), (c) Instagram tag rate of tourists who redeemed (target ≥ 30%). Cost: S/. 200 (cards) + 1 hour hotel visits.",
+        "18_primarySuccessMetric": "Tourist-customer visits per week attributable to concierge cards (target: ≥ 5/week sustained).",
+        "19_guardrailMetrics": [
+          "Redemption rate per hotel (target ≥ 20% of cards distributed — guardrail against concierge non-promotion).",
+          "Average ticket at redemption (target ≥ S/. 14 — guardrail against low-ticket tourist visits).",
+          "Cost per acquisition (target ≤ S/. 8/tourist — guardrail against cost overrun).",
+          "Hotel relationship health (qualitative monthly check, target ≥ 6 of 8 hotels actively distributing)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 5 tourist visits/week attributable AND ≥ 6 of 8 hotels actively distributing at day 60 → adopt as permanent program, launch bear paw trail. Stop: < 2 tourist visits/week at day 30 → reformulate as hotel-room drop (small bean gift in VIP rooms, no coupon). Revision: if 1–4 tourist visits/week (borderline) → extend pilot 30 days and add bear paw trail component to test the discovery multiplier.",
+        "21_responsibleOwner": "Marketing lead (program execution + hotel relationships); owner (sign-off + bear paw stencil permissions); head barista (coupon redemption at till).",
+        "22_implementationTiming": "Week 1: design concierge cards + visit 4 pilot hotels. Weeks 2–5: 30-day MVP pilot. Week 6: evaluate. Weeks 7–10: scale to 8 hotels + launch bear paw trail if MVP succeeds. Week 11: adoption decision."
+      }
+    },
+    {
+      "id": "REC-07",
+      "rank": 7,
+      "title": "Launch Gramo del Mes bean subscription (S/. 38–52/month, 250g curated bag)",
+      "category": "Retail / Continuity",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa's retail-bag channel is currently Instagram-only (per URSA_FACTS — no website, no e-commerce). The Coffee Curious persona (buys retail beans, attends cuppings) has no recurring retail product to subscribe to. Each retail-bag purchase is a discrete decision; without a subscription, Ursa competes for the same home-brewer every month.",
+        "2_clientSpecificEvidence": "URSA_FACTS confirms Instagram is Ursa's primary retail channel (4,746 followers, 206 posts). The CONTENT_CONCEPTS data includes 'gram of the week' as a recurring content pillar — Ursa already has the storytelling cadence, but no product attached. The Coffee Curious persona's success metric includes 'retail bean repeat ≥ 30%' — there is no product engineered to drive that repeat.",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: Puku Puku sells retail bags at S/.49 with TA praise for 'retail bags for home' — the direct price benchmark. Puku Puku has multiple Miraflores locations (Larco, La Paz, Narciso) and visible retail-bag displays. Ursa currently Instagram-only — the channel gap is structural. No competitor in the catchment offers a monthly subscription bag.",
+        "4_relevantTheoryResearch": "Hormozi ($100M Offers): continuity layer on top of retail = higher LTV, lower per-purchase decision friction. Subscription economics (Netflix, Dollar Shave Club case studies): predictable revenue smooths cash flow, lowers CAC tolerance (subscribers amortize CAC over multiple months). Sutherland: the 'curated selection' framing raises perceived value beyond the raw bean cost.",
+        "5_expectedMechanism": "(a) 250g bag of curated micro-lot, monthly, with full origin label (farm, altitude, process, varietal, roast date). (b) Subscription price S/. 45/month (moderate) — below Puku Puku's S/. 49 retail bag. (c) Curation premium: Ursa selects the bean, subscriber doesn't choose — the value is in the curation, not the bean itself. (d) Pick-up at Ursa (no delivery cost) — drives foot traffic. (e) Conversion to cupping-night attendance (target ≥ 20%) — secondary revenue + retention.",
+        "6_strongestSupportingCase": "Puku Puku's S/.49 retail bag with TA praise for 'retail bags for home' validates demand. Blue Bottle Coffee's subscription model proves specialty-coffee customers pre-commit to monthly bags. Ursa's own 'gram of the week' content pillar is already the storytelling cadence — the product is the missing piece.",
+        "7_strongestContraryCase": "A 2023 Stripe retention study found subscription-box churn averages 30–40% in the first 3 months — i.e., subscribers often cancel after 1–2 cycles. Counter: this is exactly why the pilot is capped at 50 subscribers and why month-3 retention is the primary guardrail. Risk: subscribers churn if the curated bean disappoints — mitigation: alternate 'safe' and 'adventurous' beans month-over-month.",
+        "8_alternativesConsidered": [
+          "One-off retail bag sales only (no subscription) — lower commitment, lower predictability. Defer.",
+          "Delivery subscription (Rappi or direct) — adds S/. 8–15 delivery cost, erodes margin. Defer.",
+          "Bigger bag (500g or 1kg) subscription — higher price point, smaller audience. Defer.",
+          "Decaf / single-origin-only subscription — narrower appeal. Defer."
+        ],
+        "9_whyPreferred": "Direct counter to Puku Puku's retail-bag dominance. Uses existing assets (roastery, storytelling cadence, Coffee Curious persona). Pick-up model drives foot traffic (cross-sell opportunity). Lower operational complexity than delivery subscription.",
+        "10_operationalRequirements": [
+          "Bag label design (origin info: farm, altitude, process, varietal, roast date) — Art Nouveau visual language, 4 hours design, S/. 200 one-time.",
+          "Subscription management: 50 subscribers tracked in a spreadsheet or simple CRM (notion, airtable). 30 min/week.",
+          "Monthly bag preparation: roast + bag + label 50 units. 4 hours/month.",
+          "Pick-up window: 1 week/month (e.g., 1st–7th) at Ursa. Clear communication.",
+          "Payment collection: Yape/Plin monthly, manual reconciliation. 1 hour/month."
+        ],
+        "11_financialImplications": "Revenue: 50 subscribers × S/. 45/month = S/. 2,250/month. Cost per bag: S/. 18 (green bean cost + roast + bag + label + labour). Gross margin: S/. 27/bag (60%). Monthly gross: S/. 1,350. Setup: S/. 200 (label design) + S/. 50 (initial bag stock) = S/. 250. Payback: < 1 month. At month-3 retention of 60% (30 subscribers): S/. 810/month gross — still profitable.",
+        "12_risks": [
+          "High churn (>40% in first 3 months) — undermines the subscription economics. Mitigation: month-1 bonus (free cupping ticket), 3-month minimum commitment.",
+          "Bean selection disappoints subscribers — mitigation: alternate 'safe' (chocolate/nut profile) and 'adventurous' (fruit/floral) beans.",
+          "Operational slip: bag not ready on pick-up week — mitigation: roast 1 week ahead, label day before pick-up window opens.",
+          "Subscriber hoarding: subscribes but doesn't pick up — wastes a bag. Mitigation: 7-day pick-up window, after which bag is sold at counter."
+        ],
+        "13_ethicalAccessibilityConsiderations": "S/. 38–52/month is accessible to middle-class Lima customers but excludes budget-sensitive customers — the subscription is not a low-income product. Roast date must be honest (no relabeling). Bean sourcing must be transparent (no green-bean laundering). Subscribers should be able to cancel without penalty (no lock-in beyond the current month).",
+        "14_dependencies": [
+          "Roastery capacity for 50 × 250g bags/month (verify with roast schedule).",
+          "Bag label design + print (1 week lead time).",
+          "Subscriber management system (spreadsheet or simple CRM).",
+          "Yape/Plin payment capability (manual reconciliation acceptable for pilot).",
+          "Bean supply: 50 × 250g = 12.5kg/month — well within typical roastery capacity."
+        ],
+        "15_confidenceLevel": "Medium (3/5). Puku Puku validates retail-bag demand at S/.49. Blue Bottle validates subscription demand in specialty. Lower confidence on (a) month-3 retention rate, (b) pick-up vs delivery preference (Ursa-specific). The 50-subscriber pilot is designed to generate that data.",
+        "16_adoptTestDeferReject": "TEST (90-day pilot, capped 50 subscribers). Adopt if month-3 retention ≥ 60%.",
+        "17_minimumViableExperiment": "30-day MVP: 10 subscribers only. Track: (a) pick-up rate (target ≥ 90% — guardrail against subscriber hoarding), (b) month-1 satisfaction (target ≥ 4/5 on feedback card), (c) conversion to cupping-night attendance (target ≥ 20%). Cost: S/. 100 (10 bag labels + 2.5kg bean cost) + 4 hours design + 4 hours roast/bag.",
+        "18_primarySuccessMetric": "Month-3 retention rate (target: ≥ 60% of month-1 subscribers still active at month 3).",
+        "19_guardrailMetrics": [
+          "Pick-up rate within 7-day window (target ≥ 90% — guardrail against operational waste).",
+          "Subscriber satisfaction (target ≥ 4/5 on monthly feedback card — guardrail against bean-selection disappointment).",
+          "Conversion to cupping-night attendance (target ≥ 20% — guardrail against the subscription being a closed loop).",
+          "Average subscriber tenure (target ≥ 4 months — guardrail against high churn)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 60% month-3 retention AND ≥ 90% pick-up rate → scale to 100 subscribers, consider delivery option. Stop: < 40% month-3 retention → reformulate as one-off retail bag sales (no subscription). Revision: if retention 40–60% (borderline) → extend pilot 3 more months, alternate bean-selection strategy (safe/adventurous).",
+        "21_responsibleOwner": "Owner (roastery capacity + bean selection); marketing lead (subscriber acquisition + management); head barista (pick-up execution).",
+        "22_implementationTiming": "Weeks 1–2: design label + set up subscriber spreadsheet. Week 3: 10-subscriber MVP pilot launch. Week 6: evaluate MVP. Weeks 7–13: scale to 50 subscribers if MVP succeeds. Week 18: adoption decision."
+      }
+    },
+    {
+      "id": "REC-08",
+      "rank": 8,
+      "title": "Monthly cupping nights — education/community counter to Bisetti's 'escuela de café'",
+      "category": "Education / Community",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa has no community-format product. The Coffee Curious persona (asks about origin, buys retail beans, attends cuppings) is documented but Ursa has no regular event to capture that demand. Bisetti (out-of-area benchmark) owns 'escuela de café' (formal education) — a position Ursa can counter with a warmer, experiential format.",
+        "2_clientSpecificEvidence": "The Coffee Curious persona's success metric is 'cupping attendance · retail bean repeat ≥ 30%.' The @rutadelcafeperuano reel (564 likes) on Paulo Sierra's Aeropress championship proves Ursa has barista-champion credibility for the education channel. The Corner.inc editorial explicitly identifies Ursa's audience as 'coffee nerds wanting to learn about origin and brewing techniques' — the demand for education is documented.",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: Bisetti (out-of-area benchmark) owns 'escuela de café' (formal, lecture-format). Bisetti's review complaint theme includes 'formal atmosphere' and 'feels like a class' — the cautionary case. Cate Tasting Room (600m) runs a tasting format but no public booking flow found. Terrua (500m) offers a US$25 flight but not a recurring community event. The monthly cupping-night niche is uncontested in the catchment.",
+        "4_relevantTheoryResearch": "Pine & Gilmore (Experience Economy): community events convert transactional customers into loyalists. Behavioral economics (Cialdini): reciprocity — a free or low-cost cupping creates obligation to purchase (retail bag, return visit). Community-building research (FeverBee): regular monthly cadence is critical — skipping a month breaks the rhythm and the community. Sutherland: a guided tasting raises perceived value of subsequent retail-bag purchases (the customer 'knows what they're buying').",
+        "5_expectedMechanism": "(a) Monthly cupping night, 90 min, 8–12 participants, S/. 25–35/person (or free for Gramo del Mes subscribers). (b) Paulo Sierra (Aeropress champion) leads when available — credibility. (c) Format: 3 coffees, comparative cupping, story cards, Q&A. (d) Conversion to retail-bag purchase (target ≥ 30% of attendees buy a bag that night). (e) Conversion to Gramo del Mes subscription (target ≥ 20% of attendees subscribe within 14 days).",
+        "6_strongestSupportingCase": "Bisetti's 'escuela de café' proves Lima's market accepts paid coffee education. Paulo Sierra's Aeropress championship gives Ursa a credibility asset Bisetti cannot match. The @rutadelcafeperuano reel proves Ursa's audience already sees Ursa as educational content.",
+        "7_strongestContraryCase": "Cupping nights are operationally non-trivial: requires after-hours staffing, equipment setup, cleanup. If attendance is low (<4), the per-session cost exceeds revenue. Counter: free for subscribers (REC-02, REC-07) creates a guaranteed attendee base; paid for non-subscribers creates revenue. Risk: Paulo Sierra's availability may be inconsistent — mitigation: train a second barista to lead.",
+        "8_alternativesConsidered": [
+          "Weekly cupping (higher frequency) — too high operational burden. Reject.",
+          "Quarterly cupping (lower frequency) — breaks the monthly rhythm that builds community. Reject.",
+          "Free cupping (no ticket) — undermines perceived value, attracts free-rider attendees. Reject.",
+          "Online cupping (Zoom + home kit) — lower experience quality. Defer."
+        ],
+        "9_whyPreferred": "Counters Bisetti with a warmer format (experiential, not lecture). Uses Paulo Sierra's credibility (ownable asset). Converts to retail-bag + subscription revenue (multi-channel ROI). Builds community that defends against chain competition (Neira, Puku Puku cannot easily replicate monthly community events at scale).",
+        "10_operationalRequirements": [
+          "After-hours staffing: 1 barista + 1 helper for 2.5 hours (setup + cupping + cleanup).",
+          "Equipment: 3 cupping bowls per participant × 12 = 36 bowls, spoons, water, spittoons. Verify Ursa has cupping bowls; if not, S/. 200 one-time.",
+          "Bean preparation: 3 coffees × 12 portions = 36 doses. 1 hour roast + measure.",
+          "Reservation system: WhatsApp or Google Form, capped at 12.",
+          "Marketing: Instagram post 2 weeks before, WhatsApp broadcast to subscribers.",
+          "Monthly cadence: e.g., 3rd Thursday of every month, 7–8:30pm."
+        ],
+        "11_financialImplications": "Per-session revenue: 12 attendees × S/. 30 = S/. 360. Per-session cost: S/. 60 (staffing) + S/. 30 (beans) + S/. 10 (materials) = S/. 100. Gross margin: S/. 260/session. Monthly: S/. 260. Annual: S/. 3,120. Plus retail-bag conversion: 30% × 12 × S/. 45 = S/. 162/session = S/. 1,944/year. Total annual contribution: ~S/. 5,064. Setup: S/. 200 (cupping bowls if needed). Payback: < 1 month.",
+        "12_risks": [
+          "Low attendance: < 4 attendees → cost exceeds revenue. Mitigation: 4-attendee minimum; cancel and reschedule if < 4 by 48h prior.",
+          "Paulo Sierra unavailable: undermines credibility. Mitigation: train second barista as backup.",
+          "Operational fatigue: monthly cadence becomes a burden. Mitigation: rotate barista leads; review at month 6.",
+          "Cannibalization of Saturday flight (REC-03): overlapping audience. Mitigation: position cupping as deeper (comparative, educational) vs flight as lighter (curated, social)."
+        ],
+        "13_ethicalAccessibilityConsiderations": "S/. 25–35 is accessible to middle-class Lima customers but excludes budget-sensitive customers — the cupping is not a low-income product. Free admission for Gramo del Mes subscribers (REC-07) creates a loyalty reward. Cupping should be in Spanish primarily, English summary available for tourists. No alcohol during cupping (professional cupping standard).",
+        "14_dependencies": [
+          "Paulo Sierra (or trained backup) availability — monthly commitment.",
+          "Cupping equipment (bowls, spoons, spittoons) — verify or purchase.",
+          "After-hours space availability (Ursa's bar area after closing).",
+          "Reservation system (WhatsApp or Google Form).",
+          "REC-07 (Gramo del Mes) for free-admission subscriber pool — soft dependency."
+        ],
+        "15_confidenceLevel": "Medium-high (3.5/5). Bisetti validates demand for paid coffee education. Paulo Sierra's championship gives Ursa a credibility asset. Lower confidence on (a) exact attendance rate, (b) retail-bag conversion rate. The monthly cadence is the test.",
+        "16_adoptTestDeferReject": "TEST (6-month pilot, monthly cadence). Adopt if average attendance ≥ 8/session AND retail-bag conversion ≥ 25%.",
+        "17_minimumViableExperiment": "3-session MVP (3 months). Track: (a) attendance per session (target ≥ 6), (b) retail-bag conversion (target ≥ 20%), (c) attendee NPS (target ≥ 9/10). Cost: S/. 200 (cupping bowls) + 3 × S/. 100 (per-session cost) = S/. 500.",
+        "18_primarySuccessMetric": "Average attendance per session (target: ≥ 8 sustained over 6 months).",
+        "19_guardrailMetrics": [
+          "Retail-bag conversion rate (target ≥ 25% — guardrail against the cupping being a closed loop).",
+          "Attendee NPS (target ≥ 9/10 — guardrail against quality slip).",
+          "Repeat-attendance rate (target ≥ 30% return within 3 months — guardrail against one-time curiosity).",
+          "Per-session cost (must stay ≤ S/. 120 — guardrail against cost inflation)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 8 attendance AND ≥ 25% retail-bag conversion over 6 sessions → adopt as permanent monthly program. Stop: < 4 attendance for 2 consecutive sessions → reformulate as quarterly event (lower frequency). Revision: if attendance is 4–7 (borderline) → reduce ticket price to S/. 20 or offer first-time-free to drive trial.",
+        "21_responsibleOwner": "Paulo Sierra (or trained backup, presentation + execution); owner (sign-off + economic accountability); marketing lead (reservations + promotion).",
+        "22_implementationTiming": "Weeks 1–2: train backup barista + purchase cupping bowls + set reservation system. Week 3: announce first session (3rd Thursday). Weeks 4–6: 3-session MVP. Week 16: 6-month evaluation."
+      }
+    },
+    {
+      "id": "REC-09",
+      "rank": 9,
+      "title": "Expand Filtrado Lonya line to multi-process flight (Cosecha de Amazonas)",
+      "category": "Menu / Origin Depth",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa's Filtrado Lonya is a single-process drink (Bourbon lavado, Utcubamba, Amazonas, 1,750m). The Filtrado Lonya line has the most ownable origin story in Ursa's menu, but it's a single drink — not a multi-process exploration of the same origin. The Coffee Curious persona wants to understand 'what process does to flavour, side by side' — a job no current Ursa product fills.",
+        "2_clientSpecificEvidence": "VERIFIED_BEVERAGES confirms Filtrado Lonya (Utcubamba, Amazonas, 1,750m, Bourbon lavado). The Coffee Curious persona's metric is 'cupping attendance + retail bean repeat ≥ 30%.' The @rutadelcafeperuano reel describes a '3-coffee tasting with paired flights' — Ursa's audience is already tasting comparatively, but Ursa has not productized it as a Lonya line extension.",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: Terrua (500m) offers honey/washed/natural process variety but only on Villa Rica (single origin). Terrua's narrow terroir is a documented limitation in their positioning. Ursa's Filtrado Lonya line (Utcubamba, Amazonas) is a different terroir — extending it to multi-process (lavado, honey, natural) directly counters Terrua's narrowness with Ursa's depth.",
+        "4_relevantTheoryResearch": "Wine-industry vertical tasting format (same vintage, different producers; or same producer, different vintages): proven to drive both perceived quality and willingness-to-pay. Coffee industry: Q-grader comparative cupping is the professional standard for evaluating process differences. Sutherland: comparative presentation (three cups side by side) raises perceived value beyond the sum of parts.",
+        "5_expectedMechanism": "(a) Three micro-lots of the SAME Utcubamba origin, different processes (lavado, honey, natural), served as a flight. (b) Story card with process notes + altitude. (c) Barista presentation 3–5 min. (d) Price S/. 22–30 (above single Filtrado Lonya at S/. 14, below Terrua's US$25). (e) Available while the harvest lasts (seasonal scarcity creates urgency). (f) Conversion to 250g retail bag of preferred process (target ≥ 30%).",
+        "6_strongestSupportingCase": "Terrua's honey/washed/natural variety (513 Google reviews) validates demand for process variety. Ursa's own Filtrado Lonya line is the only Ursa origin deep enough to support a multi-process flight — the supply relationship with Utcubamba producers is the prerequisite asset.",
+        "7_strongestContraryCase": "Multi-process sourcing requires the Utcubamba producer to deliver three processes (lavado, honey, natural) of the same lot — a supply-chain complexity that may not be available. Counter: verify with the producer before launching; if unavailable, source from a nearby Amazonas producer for the honey/natural variants. Risk: if all three processes taste similar (subtle differences), the flight feels underwhelming. Mitigation: choose processes with clear flavour contrast (lavado = clean; honey = sweet; natural = fruity).",
+        "8_alternativesConsidered": [
+          "Multi-origin flight (3 different origins, REC-03) — broader but less deep. Adopt as a complementary product (different audience: Tourist Explorer vs Coffee Curious).",
+          "Vertical vintage flight (same origin, different years) — requires multi-year bean storage, impractical. Defer.",
+          "Varietal flight (same origin, different varietals: Bourbon, Caturra, Typica) — interesting but harder to source. Defer.",
+          "Roast-level flight (same bean, light/medium/dark roast) — Ursa's positioning is specialty-light, dark roast contradicts identity. Reject."
+        ],
+        "9_whyPreferred": "Defends the Lonya line against imitation by going deeper, not wider. Uses existing supply relationship (Utcubamba producer). Direct counter to Terrua's narrow terroir. Differentiates from REC-03 (multi-origin) by being single-origin-multi-process — a different job for the Coffee Curious persona.",
+        "10_operationalRequirements": [
+          "Verify Utcubamba producer can deliver 3 processes (lavado, honey, natural) of the same lot — 1 producer conversation.",
+          "Roast 3 small batches (1kg each) for the flight.",
+          "Three pour-over stations (verify equipment; may need third brewer).",
+          "Story card design (process-specific) — extend REC-05's story-card system.",
+          "Barista training on the 3-process presentation (lavado = clean acidity; honey = sweet body; natural = fruity fermentation). 2 hours.",
+          "Seasonal availability: launch when Utcubamba harvest is in (typically May–August)."
+        ],
+        "11_financialImplications": "Per-flight revenue: S/. 26 (moderate). Per-flight cost: 3 × S/. 4 (bean cost) + S/. 1.20 (cards) + S/. 5 (barista time) = S/. 18.20. Gross margin: S/. 7.80/flight (30%) — LOWER than multi-origin flight because the bean cost is the same but the ticket is lower. At 6 flights/month: S/. 156/month gross. Setup: S/. 0 (uses existing equipment + story-card system from REC-05). Breakeven: immediate. Note: lower margin than REC-03, but defends the Lonya line — strategic, not financial, priority.",
+        "12_risks": [
+          "Supply unavailability: Utcubamba producer cannot deliver 3 processes. Mitigation: source honey/natural from nearby Amazonas producer, label honestly.",
+          "Subtle flavour differences: flight feels underwhelming. Mitigation: choose processes with clear contrast; barista presentation highlights the differences.",
+          "Low demand: < 4 flights/month. Mitigation: position as a 'Cata Privada' (reservation-only) rather than drop-in.",
+          "Cannibalization of single Filtrado Lonya (S/. 14): customers trade up to the flight. Mitigation: position flight as a different occasion (group tasting) vs single Lonya (solo drink)."
+        ],
+        "13_ethicalAccessibilityConsiderations": "S/. 22–30 is premium pricing — exclude budget-conscious customers honestly. Story cards must be in Spanish and English. Producer relationship must be transparent on the story card (named farm, named producer, not just 'Utcubamba').",
+        "14_dependencies": [
+          "Utcubamba producer relationship (verify 3-process supply).",
+          "REC-05 story-card system (extend with process-specific cards).",
+          "Barista training (2 hours).",
+          "Seasonal harvest timing (May–August).",
+          "Pour-over equipment (third brewer if needed)."
+        ],
+        "15_confidenceLevel": "Medium (3/5). Terrua validates process-variety demand. Ursa's Filtrado Lonya line validates the origin asset. Lower confidence on (a) Utcubamba producer's 3-process supply capability, (b) customer willingness to pay S/. 26 for a single-origin flight vs S/. 38 for multi-origin (REC-03).",
+        "16_adoptTestDeferReject": "TEST (60-day pilot, May–August harvest season, reservation-only). Adopt if 6+ flights/month sustained.",
+        "17_minimumViableExperiment": "30-day MVP: 4 Saturday drop-in flights. Track: (a) flights served (target ≥ 2/Saturday), (b) customer perception of process differences (target ≥ 80% can identify the natural vs the lavado), (c) conversion to 250g retail bag (target ≥ 25%). Cost: S/. 200 (story cards if REC-05 not yet adopted) + 2 hours training.",
+        "18_primarySuccessMetric": "Flights per month (target: ≥ 6/month = 1.5/Saturday).",
+        "19_guardrailMetrics": [
+          "Customer perception of process differences (target ≥ 80% can identify the natural vs the lavado — guardrail against subtle-difference underwhelming).",
+          "Retail-bag conversion (target ≥ 25% — guardrail against closed loop).",
+          "Cannibalization of single Filtrado Lonya (must stay ≤ 15% drop — guardrail against trade-down).",
+          "Per-flight cost (must stay ≤ S/. 20 — guardrail against cost inflation)."
+        ],
+        "20_successStoppingRevisionRules": "Success: ≥ 6 flights/month AND ≥ 80% perception-of-difference at day 60 → adopt as seasonal product (May–August annual). Stop: < 3 flights/month at day 30 → reformulate as Cata Privada (reservation-only, monthly). Revision: if perception-of-difference < 60% → retrain barista on presentation; consider sourcing more contrasting processes.",
+        "21_responsibleOwner": "Owner (producer relationship + bean sourcing); head barista (presentation); marketing lead (reservations).",
+        "22_implementationTiming": "Verify producer supply in March (pre-harvest). Weeks 1–2 (May): design story cards + train barista. Weeks 3–6: 30-day MVP. Weeks 7–10: full 60-day pilot. Week 11: adoption decision for following year's harvest season."
+      }
+    },
+    {
+      "id": "REC-10",
+      "rank": 10,
+      "title": "Rappi delivery quality control protocol — protect delivery experience",
+      "category": "Delivery / Operations",
+      "fields": {
+        "1_diagnosedProblemOpportunity": "Ursa is active on Rappi (URSA_FACTS.delivery) but has no documented quality control protocol for delivery. Recurring Lima complaint theme (CENSUS-1, across multiple cafes): 'delivery coffee arriving cold or diluted.' Without a delivery QC protocol, Ursa risks replicating the delivery-quality failure mode that erodes customer trust.",
+        "2_clientSpecificEvidence": "URSA_FACTS confirms Rappi is active. The reconstructed current menu (menu-view.tsx) is partially based on the Rappi snapshot — but no QC step is documented. The Corner.inc editorial praises Ursa's 'carefully sourced beans and precise preparation' — but that precision does not survive a 30-min delivery transit without a protocol.",
+        "3_localCustomerCompetitorEvidence": "CENSUS-1: multiple competitors active on Rappi (Puku Puku, Neira). Puku Puku's TA praise theme includes 'consistent quality' — suggesting delivery QC is achievable. Neira's complaint theme includes 'busy at peak' — operational strain at peak may degrade delivery quality. No competitor in the catchment publicly documents a delivery QC protocol — the quality-control niche is uncontested as a positioning lever.",
+        "4_relevantTheoryResearch": "Service operations research (Heskett, Service Profit Chain): service quality gaps erode customer loyalty faster than price increases. Behavioral economics (Kahneman peak-end rule): the customer's memory of the delivery experience is dominated by the 'peak' (first sip) and the 'end' (last sip) — if either is cold or diluted, the entire experience is rated poorly. Lean operations (Toyota Production System): documented QC steps at each stage of the process reduce defect rates.",
+        "5_expectedMechanism": "(a) Documented QC protocol: pre-pack temperature check, packaging spec (insulated cup, sealed lid, separate milk if applicable), dispatch-time stamp on the bag, Rappi courier handoff check. (b) Customer receives a 'delivery care card' with brew-at-home instructions (if applicable) + a 'how was your delivery?' feedback link. (c) Weekly review of delivery feedback + Rappi ratings. (d) Documented protocol becomes a positioning lever ('we deliver craft, not just coffee').",
+        "6_strongestSupportingCase": "Puku Puku's 'consistent quality' TA praise theme (658 reviews) suggests delivery QC is achievable at scale. Blue Bottle Coffee's 'brew guide' card included in delivery orders is a documented case of perceived-value enhancement via packaging.",
+        "7_strongestContraryCase": "Delivery QC adds operational steps at the dispatch moment — the busiest moment in a café. If the protocol slows dispatch, Rappi couriers wait, ratings drop, and the cure becomes worse than the disease. Counter: protocol must be ≤ 30 seconds per order. Risk: Rappi's 30% commission already erodes margin — adding QC cost may make delivery unprofitable. Mitigation: protocol cost must be ≤ S/. 1/order.",
+        "8_alternativesConsidered": [
+          "No QC protocol (status quo) — accepts delivery-quality risk. Reject.",
+          "Cease Rappi delivery entirely — eliminates the channel. Reject (Rappi is a discovery channel, not just a delivery channel).",
+          "In-house delivery (own courier) — high cost, low scale. Defer.",
+          "Delivery-only menu (a curated subset that survives transit better) — lower variety, higher quality. Adopt as complement, not substitute."
+        ],
+        "9_whyPreferred": "Protects the customer experience on an active channel (vs. the status-quo risk of degraded delivery). Low cost (≤ S/. 1/order). Creates a positioning lever ('delivery craft'). Foundational — should be in place before scaling any delivery promotion.",
+        "10_operationalRequirements": [
+          "Insulated cup + sealed lid for all delivery drinks — verify with current packaging supplier; if not insulated, source for ~S/. 0.50/cup premium.",
+          "Dispatch-time stamp on bag (pen + label, 5 sec/order).",
+          "Pre-pack temperature check (espresso must be ≥ 65°C at dispatch; cold brew must be ≤ 5°C). 10 sec/order with infrared thermometer.",
+          "Delivery care card with brew-at-home instructions (for pour-over / Chemex orders) + feedback link. S/. 0.40/card.",
+          "Weekly review: Rappi ratings + customer feedback. 30 min/week.",
+          "Staff training: 30 min on the QC steps."
+        ],
+        "11_financialImplications": "Per-order QC cost: S/. 0.50 (insulated cup premium) + S/. 0.40 (card) + S/. 0.10 (label/pen) = S/. 1.00/order. At 100 delivery orders/month: S/. 100/month. Revenue protection: if QC prevents 1 negative review/month (worth ~S/. 50 in lost future visits), breakeven. If QC lifts Rappi rating by 0.2★ (e.g., 4.5→4.7), the discovery lift is harder to quantify but real. Setup: S/. 200 (thermometer + initial card design + 1 hour training).",
+        "12_risks": [
+          "Protocol slows dispatch, Rappi courier wait time increases, ratings drop. Mitigation: ≤ 30 sec/order total QC time.",
+          "Insulated cup sourcing unavailable in Lima. Mitigation: source from bakery-supply wholesalers; if unavailable, double-cup with cardboard sleeve.",
+          "Customers ignore the care card. Mitigation: card design must be visually prominent (Art Nouveau visual language).",
+          "Rappi ratings don't improve despite QC. Mitigation: review feedback weekly, identify specific failure modes (cold coffee, spilled, wrong order)."
+        ],
+        "13_ethicalAccessibilityConsiderations": "Delivery care card should be in Spanish and English. Packaging must be food-safe and recyclable (Peru waste-reduction norms). Feedback link must be honest (no review-gating — invite both positive and negative feedback). QC must not delay courier payment (Rappi couriers are gig workers, time = money).",
+        "14_dependencies": [
+          "Packaging supplier (insulated cups).",
+          "Infrared thermometer (S/. 50 one-time).",
+          "Card design (extend REC-05 system).",
+          "Rappi feedback access (verify with Rappi partner dashboard).",
+          "Staff training (30 min)."
+        ],
+        "15_confidenceLevel": "Medium (3/5). The delivery-quality complaint theme is documented across Lima cafes. The QC protocol is operationally sound. Lower confidence on (a) the exact Rappi rating lift, (b) customer response to the care card.",
+        "16_adoptTestDeferReject": "ADOPT (with 60-day measurement window). The protocol is foundational and low-cost; adoption is the default, with measurement to validate the ROI.",
+        "17_minimumViableExperiment": "30-day pilot: implement QC protocol on all delivery orders. Track: (a) Rappi rating (baseline vs day-30, target +0.1★), (b) customer feedback link response rate (target ≥ 10%), (c) dispatch time per order (must stay ≤ 30 sec QC time). Cost: S/. 100 (insulated cups for 100 orders + cards) + S/. 50 (thermometer).",
+        "18_primarySuccessMetric": "Rappi delivery rating (target: ≥ 4.7★ by day 60, baseline assumed ~4.5★).",
+        "19_guardrailMetrics": [
+          "Dispatch time per delivery order (must stay ≤ 30 sec QC time — guardrail against operational friction).",
+          "Customer feedback response rate (target ≥ 10% — guardrail against card being ignored).",
+          "Delivery-order volume (must not drop — guardrail against QC cost being passed to customer as price increase).",
+          "Negative-feedback rate (target ≤ 5% of delivery orders — guardrail against recurring failure modes)."
+        ],
+        "20_successStoppingRevisionRules": "Success: Rappi rating ≥ 4.7★ AND dispatch time ≤ 30 sec AND negative-feedback ≤ 5% at day 60 → adopt as permanent protocol. Stop: rating drops below baseline AND dispatch time > 45 sec → reformulate as simpler protocol (drop the card, keep the temperature check). Revision: if rating unchanged but dispatch time acceptable → keep protocol, A/B test the care card's effect on retail-bag conversion.",
+        "21_responsibleOwner": "Head barista (QC execution); owner (packaging sourcing + economic accountability); marketing lead (card design + feedback review).",
+        "22_implementationTiming": "Week 1: source insulated cups + thermometer + design care card. Week 2: train staff. Weeks 3–10: 60-day measurement. Week 11: adoption decision."
+      }
+    }
+  ],
+  "summary": {
+    "totalRecommendations": 10,
+    "verdicts": {
+      "adopt": ["REC-01 (GBP optimization)", "REC-05 (story cards)", "REC-10 (delivery QC)"],
+      "test": [
+        "REC-02 (Ursa Mañana subscription, 50-subscriber cap)",
+        "REC-03 (Cata de Tres Orígenes flight, 60-day pilot)",
+        "REC-04 (Saturday 7am hours, 4-week pilot)",
+        "REC-06 (bear paw trail + concierge cards, 60-day pilot)",
+        "REC-07 (Gramo del Mes, 50-subscriber cap)",
+        "REC-08 (monthly cupping nights, 6-month pilot)",
+        "REC-09 (Lonya multi-process flight, harvest-season pilot)"
+      ],
+      "defer": [],
+      "reject": []
+    },
+    "totalYear1InvestmentEstimate": "S/. 9,800 (across all 10 recommendations, including setup + first-year ongoing)",
+    "sequencingPrinciple": "Adopt-first recommendations (REC-01, REC-05, REC-10) are foundational and low-cost — they should ship in weeks 1–4. Test recommendations are sequenced by dependency: REC-05 (story cards) before REC-03 / REC-09 (flights that use the cards); REC-02 (Ursa Mañana) and REC-07 (Gramo del Mes) before REC-08 (cupping nights, which uses subscribers as a guaranteed attendee base).",
+    "confidenceCalibration": "Recommendations with 'High' confidence (REC-01, REC-05) rest on documented local-SEO and perceived-value research plus Ursa's own census-validated gaps. 'Medium-high' (REC-02, REC-03, REC-08) rest on competitor validation (Terrua, Bisetti, Puku Puku) but lack Ursa-specific baseline data — the pilot generates that data. 'Medium' (REC-04, REC-06, REC-07, REC-09, REC-10) rest on theory + competitor analogy, with Ursa-specific demand unverified — the MVP is the test.",
+    "evidenceLimitationStatement": "All 10 recommendations are anchored to the 1km competitor census (CENSUS-1, 18 businesses) and Ursa's own public-footprint data (Instagram, Rappi, GBP, editorial). None rest on Ursa-internal POS data, customer surveys, or roast logs — none of which were available to this audit. The first action of any pilot should be to establish the Ursa-specific baseline (POS daypart data, customer intercept survey, roast-log audit) against which pilot results are measured."
+  }
+}

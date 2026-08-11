@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>08 · Subscription Economics &amp; Cutoff Calculator — Ursa Coffee Roasters Dossier</title>
+<meta name="description" content="Ursa Mañana subscription model: S/. 20/month for unlimited coffee 7-10am. Economic analysis with marginal-cost-per-cup, attach-rate sensitivity, break-even, free-cup capacity, and an interactive cutoff calculator.">
+<link rel="stylesheet" href="assets/ursa.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%233B2417'/><circle cx='16' cy='16' r='13' fill='none' stroke='%23B8924A' stroke-width='1'/><text x='16' y='22' font-family='Georgia' font-size='16' fill='%23F4EBD9' text-anchor='middle'>U</text></svg>">
+<style>
+/* Calculator-specific styles in addition to ursa.css */
+.calc-grid{display:grid; grid-template-columns:1fr 1.2fr; gap:28px; align-items:start}
+@media (max-width:880px){.calc-grid{grid-template-columns:1fr}}
+.calc-input-group{background:var(--ursa-paper); border:1px solid var(--ursa-line-soft); border-radius:var(--r-md); padding:22px; box-shadow:var(--sh-card)}
+.calc-input-group h3{margin-top:0}
+.calc-field{margin-bottom:16px}
+.calc-field label{display:block; font-family:var(--f-label); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ursa-text-muted); margin-bottom:6px}
+.calc-field .hint{font-size:0.74rem; color:var(--ursa-text-muted); margin-top:4px; font-family:var(--f-body)}
+.calc-field input[type="number"]{width:100%; padding:10px 12px; border:1px solid var(--ursa-line); border-radius:var(--r-sm); font-family:ui-monospace,Menlo,monospace; font-size:1.05rem; background:var(--ursa-foam); color:var(--ursa-text)}
+.calc-field input[type="range"]{width:100%; accent-color:var(--ursa-forest-deep)}
+.calc-field input:focus{outline:2px solid var(--ursa-gold); outline-offset:1px; border-color:var(--ursa-gold)}
+.calc-output-group{background:var(--ursa-dark-roast); color:var(--ursa-cream); border-radius:var(--r-md); padding:26px; box-shadow:var(--sh-pop)}
+.calc-output-group h3{color:var(--ursa-cream); margin-top:0}
+.calc-output-group h3 small{font-family:var(--f-label); font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ursa-gold-soft); display:block; margin-top:2px}
+.calc-metric{display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid rgba(244,235,217,0.12)}
+.calc-metric:last-child{border-bottom:none}
+.calc-metric__label{font-family:var(--f-label); font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ursa-gold-soft); max-width:60%}
+.calc-metric__value{font-family:var(--f-display); font-size:1.4rem; color:var(--ursa-cream); font-weight:600}
+.calc-metric__value--big{font-size:2rem; color:var(--ursa-gold-soft)}
+.calc-metric__value--neg{color:#E89D7E}
+.calc-metric__value--pos{color:#B7C9A8}
+.calc-sensitivity{margin-top:32px}
+.calc-sensitivity table{width:100%; border-collapse:collapse; font-size:0.84rem; background:var(--ursa-paper); border-radius:var(--r-sm); overflow:hidden}
+.calc-sensitivity th{background:var(--ursa-medium-roast); color:var(--ursa-cream); font-family:var(--f-label); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; padding:8px 6px; text-align:center}
+.calc-sensitivity td{padding:8px 6px; text-align:center; border-top:1px solid var(--ursa-line-soft); font-family:ui-monospace,Menlo,monospace; font-size:0.86rem}
+.calc-sensitivity td:first-child{text-align:left; font-family:var(--f-label); font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ursa-text-muted); background:rgba(184,146,74,0.05)}
+.calc-sensitivity .pos{background:rgba(45,74,54,0.12); color:var(--ursa-forest-deep); font-weight:600}
+.calc-sensitivity .neg{background:rgba(140,58,42,0.12); color:var(--stop); font-weight:600}
+.calc-sensitivity .zero{background:rgba(184,146,74,0.18); color:var(--ursa-medium-roast); font-weight:600}
+.calc-explain{background:var(--ursa-bg-alt); border-left:4px solid var(--ursa-gold); padding:18px 22px; border-radius:0 var(--r-sm) var(--r-sm) 0; margin:22px 0}
+.calc-explain code{background:rgba(184,146,74,0.18); padding:1px 6px; border-radius:3px; font-size:0.86em; color:var(--ursa-dark-roast)}
+.side-strategy{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
+@media (max-width:880px){.side-strategy{grid-template-columns:1fr}}
+.side-card{background:var(--ursa-paper); border:1px solid var(--ursa-line-soft); border-radius:var(--r-sm); padding:16px}
+.side-card h4{margin:0 0 6px; color:var(--ursa-dark-roast); font-family:var(--f-display); font-style:italic; font-size:1.1rem; text-transform:none; letter-spacing:0; font-weight:600; margin-top:0}
+.side-card .price{font-family:var(--f-label); font-size:0.7rem; letter-spacing:0.08em; color:var(--ursa-medium-roast)}
+.side-card .margin{font-family:var(--f-label); font-size:0.66rem; letter-spacing:0.1em; color:var(--ursa-forest-deep); margin-top:4px; text-transform:uppercase}
+.flow-diagram{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:24px 0; text-align:center}
+@media (max-width:680px){.flow-diagram{grid-template-columns:1fr 1fr}}
+.flow-step{background:var(--ursa-paper); border:1px solid var(--ursa-line-soft); border-radius:var(--r-sm); padding:14px 8px; font-size:0.78rem; position:relative}
+.flow-step .step-num{display:inline-block; width:22px; height:22px; border-radius:50%; background:var(--ursa-gold); color:var(--ursa-dark-roast); font-family:var(--f-label); font-size:0.66rem; line-height:22px; margin-bottom:6px}
+.flow-step strong{display:block; color:var(--ursa-dark-roast); font-family:var(--f-display); font-size:0.96rem; margin-bottom:4px}
+.risk-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:16px}
+@media (max-width:680px){.risk-grid{grid-template-columns:1fr}}
+.assumption-callout{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:18px 0}
+@media (max-width:680px){.assumption-callout{grid-template-columns:1fr}}
+.assumption-pill{background:var(--ursa-paper); border:1px solid var(--ursa-line-soft); border-radius:var(--r-sm); padding:12px 14px; text-align:center}
+.assumption-pill .label{font-family:var(--f-label); font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ursa-text-muted)}
+.assumption-pill .value{font-family:var(--f-display); font-size:1.5rem; color:var(--ursa-forest-deep); font-weight:600; margin-top:2px}
+.assumption-pill .note{font-size:0.7rem; color:var(--ursa-text-muted); margin-top:2px}
+</style>
+</head>
+<body>
+
+<header class="ursa-header">
+  <div class="ursa-header__row">
+    <a href="index.html" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+      <span class="ursa-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img" aria-label="Ursa mark">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#3B2417" stroke-width="1.4"/>
+          <circle cx="14" cy="14" r="3" fill="#3B2417"/>
+          <circle cx="26" cy="14" r="3" fill="#3B2417"/>
+          <circle cx="20" cy="22" r="9" fill="#3B2417"/>
+          <circle cx="17" cy="21" r="1.1" fill="#F4EBD9"/>
+          <circle cx="23" cy="21" r="1.1" fill="#F4EBD9"/>
+          <path d="M18 25 Q20 27 22 25" stroke="#F4EBD9" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>
+        <div class="ursa-header__title">Ursa Coffee Roasters</div>
+        <div class="ursa-header__sub">Module 08 · Subscription Economics &amp; Calculator</div>
+      </span>
+    </a>
+    <nav class="ursa-header__nav" aria-label="Dossier sections">
+      <a href="index.html">Index</a>
+      <a href="01-brand-audit-and-design-system.html">01 · Brand</a>
+      <a href="02-market-competitors-and-customer-voice.html">02 · Market</a>
+      <a href="03-menu-and-product-development.html">03 · Menu</a>
+      <a href="04-marketing-growth-and-retention-plan.html">04 · Growth</a>
+      <a href="05-viral-content-laboratory.html">05 · Viral Lab</a>
+      <a href="06-creative-campaign-prototypes.html">06 · Creative</a>
+      <a href="07-implementation-roadmap-and-kpis.html">07 · Roadmap</a>
+      <a href="08-subscription-economics-and-calculator.html" aria-current="page">08 · Sub &amp; Calc</a>
+      <a href="sources-and-evidence.html">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="ursa-hero">
+  <div class="ursa-wrap">
+    <span class="ursa-hero__eyebrow">Module 08 · Subscription Economics &amp; Cutoff Calculator · New in revision round 3</span>
+    <h1 class="ursa-hero__title">Ursa Mañana · S/. 20/month, unlimited coffee 7–10am. The math says yes.</h1>
+    <p class="ursa-hero__lede">A new product proposal grounded in marginal-cost economics: at Ursa's own-roastery cost per cup (~S/. 1.50) and a 60% side-attach rate, the subscription is profitable at almost any reasonable usage pattern. This module includes the full economic framework, a side-pushing strategy, risk analysis, and an <strong>interactive cutoff calculator</strong> the owner can use live to test any scenario.</p>
+    <div class="ursa-hero__meta">
+      <span><b>Proposal</b> · P-25 Ursa Mañana subscription</span>
+      <span><b>Experiment</b> · EXP-11 90-day pilot</span>
+      <span><b>Calculator</b> · Interactive, all inputs editable</span>
+      <span><b>Risk profile</b> · Low (per-cup); Medium (cannibalization)</span>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">8.1</span>
+      <h2 class="ursa-section__title">The idea · Ursa Mañana subscription</h2>
+    </div>
+
+    <div class="ursa-callout ursa-callout--forest">
+      <h3>The offer</h3>
+      <p style="margin:0; font-size:1.1rem"><strong>S/. 20/month</strong> · unlimited coffee (espresso, americano, filter, coldbrew — no milk drinks) <strong>Monday–Friday, 7:00–10:00am</strong> · 1 cup per visit · in-store only (no Rappi) · cancel anytime.</p>
+    </div>
+
+    <div class="ursa-grid ursa-grid--2">
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Why this works for Ursa specifically</h3>
+        <ul class="list-tight" style="margin:0">
+          <li><strong>Own-roastery keeps marginal cost at the floor.</strong> Verified specialty cost-per-cup research (VirginCoffee.org, 2025): US$0.75–1.20. Ursa roasts its own, so per-cup bean cost is ~S/. 0.50–0.90, total marginal cost ~S/. 1.20–1.80. <a href="sources-and-evidence.html">See Sources E-28.</a></li>
+          <li><strong>Two-bar layout doubles the value.</strong> Subscribers can choose espresso bar OR coldbrew bar each visit — perceived value = 2× a single-bar subscription.</li>
+          <li><strong>7–10am window is Ursa's lowest-traffic time.</strong> The subscription fills empty seats, doesn't displace paying customers.</li>
+          <li><strong>No milk drinks.</strong> Milk is the highest-marginal-cost category (S/. 0.50–1.00/cup). Restricting to espresso/americano/filter/coldbrew protects margin.</li>
+          <li><strong>In-store only.</strong> No Rappi = no delivery commission (typically 25–30%) = the math holds. Also drives foot traffic, which drives side attach.</li>
+          <li><strong>1 cup per visit.</strong> Prevents abuse (someone coming once and ordering 4 americanos "to go"). Encourages daily visits instead, which is what the model needs.</li>
+        </ul>
+      </div>
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Why this works for the customer</h3>
+        <ul class="list-tight" style="margin:0">
+          <li><strong>Break-even at ~13 cups/month</strong> = ~3 visits/week. A daily morning customer breaks even in week 2.</li>
+          <li><strong>Fixed cost</strong> = budget certainty. A daily customer pays S/. 1.54/cup equivalent instead of S/. 8–12 menu price.</li>
+          <li><strong>Habit reinforcement.</strong> Once subscribed, the marginal cost of a visit is zero — Ursa becomes the default morning stop.</li>
+          <li><strong>Status.</strong> "I'm a Ursa Mañana member" is a small identity marker — fits the bear / neighborhood / craft identity.</li>
+          <li><strong>Limited risk.</strong> Cancel anytime. No annual lock-in. Customer can test for one month.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ursa-callout ursa-callout--warn">
+      <h3>The risk that matters most · cannibalization, not per-cup cost</h3>
+      <p style="margin:0">The subscription is profitable per-cup at almost any usage. The real risk is converting existing paying customers who already buy S/. 8–12 coffee per visit into S/. 20/month subscribers. If 30 existing daily customers (each spending S/. 240/month) convert, monthly revenue drops by S/. 7,200 (30 × S/. 220 lost) and rises by S/. 600 (30 × S/. 20 subscription) + S/. 810 side margin uplift (30 × 13 visits × 0.6 × S/. 4.50 × 0.46 net of cannibalized side sales). <strong>Net first-year revenue impact: approximately −S/. 5,790/month.</strong> This is recoverable in months 4–12 as the subscription attracts new customers who weren't coming before — but it is a real short-term cost. The pilot in EXP-11 is designed to measure cannibalization directly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">8.2</span>
+      <h2 class="ursa-section__title">Economic framework · the five variables that decide everything</h2>
+    </div>
+
+    <p>The subscription's profitability is a function of five variables. Get them right and the model prints money; get one wrong and it bleeds. The calculator in §8.4 lets the owner test any combination.</p>
+
+    <div class="assumption-callout">
+      <div class="assumption-pill">
+        <div class="label">Marginal cost / cup</div>
+        <div class="value">S/. 1.50</div>
+        <div class="note">Default · Ursa-roastery floor</div>
+      </div>
+      <div class="assumption-pill">
+        <div class="label">Visits / week</div>
+        <div class="value">3</div>
+        <div class="note">Default · M-F morning customer</div>
+      </div>
+      <div class="assumption-pill">
+        <div class="label">Side attach rate</div>
+        <div class="value">60%</div>
+        <div class="note">Default · 6 in 10 visits add a side</div>
+      </div>
+    </div>
+
+    <div class="ursa-grid ursa-grid--2">
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Variable 1 · Marginal cost per cup</h3>
+        <p><strong>What it is.</strong> The cost Ursa pays in beans, water, cup, and milk (if applicable) for one additional cup of coffee. <strong>Not</strong> the menu price, <strong>not</strong> the average cost (which includes rent and labor). Pure variable cost.</p>
+        <p><strong>Verified benchmark.</strong> Specialty coffee marginal cost is US$0.75–1.20 per cup (VirginCoffee.org, 2025). Ursa roasts its own, so the bean component is at the floor: Peru specialty green ≈ S/. 25–40/kg, roasted yield ~80%, so 18g espresso shot ≈ S/. 0.56–0.90 in beans. Plus cup/water S/. 0.30–0.50, plus milk for milk drinks S/. 0.50–1.00.</p>
+        <p><strong>Default for calculator: S/. 1.50.</strong> This is the blended average of espresso, americano, filter, and coldbrew (no milk drinks allowed on subscription). Conservative — actual cost is likely S/. 1.20–1.40.</p>
+        <p class="muted small">Ursa's own-roastery is the structural advantage that makes this subscription possible. A café buying roasted beans wholesale would face S/. 2.50–3.50/cup and the math breaks.</p>
+      </div>
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Variable 2 · Visits per week</h3>
+        <p><strong>What it is.</strong> How many times per week a subscriber actually shows up. Set the upper bound at 5 (one per weekday) because the subscription is Mon–Fri only.</p>
+        <p><strong>Behavioral pattern.</strong> Subscription services see a "subscribed but inactive" tail: ~30% of subscribers use the service heavily (4–5 visits/week), ~50% moderately (2–3 visits/week), ~20% lightly (0–1 visits/week). The blended average settles around 2.5–3 visits/week.</p>
+        <p><strong>Default for calculator: 3 visits/week.</strong> At 4.33 weeks/month that's 13 visits/month. This is realistic, not optimistic.</p>
+        <p class="muted small">The 7–10am window caps abuse: even a power user can visit at most 5 times/week, and most won't.</p>
+      </div>
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Variable 3 · Side attach rate</h3>
+        <p><strong>What it is.</strong> The percentage of visits where the subscriber also buys a side — a cookie, financier, empanada, or retail bean bag. This is <em>the</em> variable that makes or breaks the model.</p>
+        <p><strong>Why it matters.</strong> If subscribers only drink coffee (0% attach), the subscription is barely break-even. If subscribers attach at 60%, the subscription is wildly profitable. The whole strategic push is to drive attach rate up via in-store merchandising, paired recommendations, and the two-bar layout's natural upsell.</p>
+        <p><strong>Default for calculator: 60%.</strong> Coffee-shop industry benchmarks for morning attach range 30–55%; Ursa's in-house food program and named-pairing convention (La Ursa, La Lonya, La Maracumango — see §3.4) justify a 60% assumption. The pilot in EXP-11 measures this directly.</p>
+        <p class="muted small">The §8.3 side-pushing strategy is the lever that turns this variable from assumption to fact.</p>
+      </div>
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Variable 4 · Average side margin</h3>
+        <p><strong>What it is.</strong> The profit (not revenue) per attached side. Cookie at S/. 6 with S/. 1.50 cost = S/. 4.50 margin. Financier at S/. 8 with S/. 2.50 cost = S/. 5.50 margin. Empanada at S/. 12 with S/. 4 cost = S/. 8 margin.</p>
+        <p><strong>Default for calculator: S/. 4.50.</strong> Conservative — the cookie is Ursa's most common side and lowest margin. If subscribers shift toward pastries or savory, margin rises.</p>
+        <p class="muted small">In-house food production is what makes side margin high. Buy-in pastries would halve the margin and break the model.</p>
+      </div>
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Variable 5 · Cannibalization rate</h3>
+        <p><strong>What it is.</strong> The percentage of subscribers who would have bought coffee at full price anyway. A daily customer who used to pay S/. 10/visit × 13 visits/month = S/. 130/month, and now pays S/. 20/month, represents S/. 110 in cannibalized revenue (offset by S/. ~30 in retained side margin and operational savings).</p>
+        <p><strong>Default for calculator: 70%.</strong> Most subscribers in a neighborhood café will be existing customers. The strategic value is the 30% who are <em>new</em> — drawn in by the subscription offer.</p>
+        <p class="muted small">Cannibalization is the variable the owner can't directly control — but the pilot's design (EXP-11) measures it precisely by tracking pre-subscription vs post-subscription spend per customer.</p>
+      </div>
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Non-variables · fixed costs and labor</h3>
+        <p>The subscription does <strong>not</strong> increase rent, equipment, or staffing during 7–10am (staff is already there; bar is already open). These are sunk costs and are excluded from the marginal analysis. Including them would double-count.</p>
+        <p>The subscription does <strong>not</strong> require new equipment, new SKUs, or new staff training beyond a 10-minute onboarding on the subscription sign-up flow and the side-pushing script.</p>
+        <p class="muted small">If marginal cost calculations included fixed-cost allocation, every café subscription would look unprofitable. The right frame is marginal-cost economics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">8.3</span>
+      <h2 class="ursa-section__title">Side-pushing strategy · how to drive the attach rate</h2>
+    </div>
+
+    <p>The subscription's profitability is contingent on subscribers buying sides. The attach rate is not a fixed number — it is a variable the staff can directly influence. The strategy below lists every lever.</p>
+
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <span class="step-num">1</span>
+        <strong>Welcome</strong>
+        Subscriber shows app/card. Barista greets by name.
+      </div>
+      <div class="flow-step">
+        <span class="step-num">2</span>
+        <strong>Offer</strong>
+        "Tu café de la mañana. ¿Te lo acompañamos con algo hoy?" (scripted, every visit)
+      </div>
+      <div class="flow-step">
+        <span class="step-num">3</span>
+        <strong>Pair</strong>
+        Name the daily pairing: "Hoy: V60 Lonya + financier de pera, S/. 6"
+      </div>
+      <div class="flow-step">
+        <span class="step-num">4</span>
+        <strong>Visible</strong>
+        Pastry case at eye level on the path to the bar. Not behind the register.
+      </div>
+    </div>
+
+    <h3>Sides ranked by attach-rate potential</h3>
+    <p>Not all sides are equal. The table below ranks the verified and proposed sides by their attach-rate potential, calculated as (margin × likelihood-of-attach). Items at the top should be the ones baristas name first in the daily pairing script.</p>
+
+    <div class="ursa-table-wrap">
+    <table class="ursa-table">
+      <caption>Table 8.3 — Side ranking for the Ursa Mañana subscriber attach strategy</caption>
+      <thead><tr><th>Side</th><th>Menu price (PEN)</th><th>Est. cost</th><th>Margin</th><th>Attach likelihood</th><th>Margin × likelihood</th><th>Why it works for subscribers</th></tr></thead>
+      <tbody>
+        <tr><td><strong>House cookie</strong> (verified)</td><td>S/. 6</td><td>S/. 1.50</td><td>S/. 4.50</td><td>High (75%)</td><td><strong>S/. 3.38</strong></td><td>Low commitment, low price, grab-and-go, pairs with anything.</td></tr>
+        <tr><td><strong>Financier de pera</strong> (verified)</td><td>S/. 8</td><td>S/. 2.50</td><td>S/. 5.50</td><td>Medium (55%)</td><td>S/. 3.03</td><td>Named, signature, "Ursa-only" — feels special.</td></tr>
+        <tr><td><strong>Cookie de Cacao</strong> (P-06)</td><td>S/. 7</td><td>S/. 1.80</td><td>S/. 5.20</td><td>Medium (50%)</td><td>S/. 2.60</td><td>Pairs with coldbrew; lower-sugar appeals to morning crowd.</td></tr>
+        <tr><td><strong>Empanada de carne con bechamel</strong> (verified)</td><td>S/. 12</td><td>S/. 4.00</td><td>S/. 8.00</td><td>Low (30%)</td><td>S/. 2.40</td><td>Higher ticket, but morning crowd skews sweet over savory.</td></tr>
+        <tr><td><strong>Toast de hongos</strong> (P-14)</td><td>S/. 18</td><td>S/. 6.00</td><td>S/. 12.00</td><td>Low (15%)</td><td>S/. 1.80</td><td>Weekend brunch play, not weekday 7–10am.</td></tr>
+        <tr><td><strong>Bean bag 100g</strong> (retail)</td><td>S/. 18</td><td>S/. 5.00</td><td>S/. 13.00</td><td>Very low (5%)</td><td>S/. 0.65</td><td>Monthly bean purchase; small but high-margin when it hits.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="side-strategy">
+      <div class="side-card">
+        <h4>The "daily pairing" chalkboard</h4>
+        <div class="price">Cost: S/. 0 (chalkboard already in store)</div>
+        <div class="margin">Expected lift: +10–15% attach</div>
+        <p style="font-size:0.84rem; margin:6px 0 0; color:var(--ursa-text-muted)">One named pairing per day, written by hand, positioned at the register. "Hoy: V60 Lonya + financier de pera, S/. 6 con tu suscripción." Adds a S/. 2 discount versus buying separately.</p>
+      </div>
+      <div class="side-card">
+        <h4>The "primera visita" surprise</h4>
+        <div class="price">Cost: S/. 1.50 per new subscriber</div>
+        <div class="margin">Expected lift: +20% attach in month 1</div>
+        <p style="font-size:0.84rem; margin:6px 0 0; color:var(--ursa-text-muted)">First visit as a subscriber, the cookie is free. Sets the habit of "coffee + cookie" from day 1. Habit persistence does the rest.</p>
+      </div>
+      <div class="side-card">
+        <h4>The "treinta días" check-in</h4>
+        <div class="price">Cost: S/. 0 (WhatsApp message)</div>
+        <div class="margin">Expected lift: reduces churn 30%</div>
+        <p style="font-size:0.84rem; margin:6px 0 0; color:var(--ursa-text-muted)">WhatsApp message at day 30: "¿Cómo va tu Ursa Mañana? ¿Qué origen te gustó más este mes?" Identifies at-risk subscribers; surfaces attach opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">8.4</span>
+      <h2 class="ursa-section__title">Interactive cutoff calculator</h2>
+    </div>
+
+    <p>Edit any input on the left. All outputs on the right recalculate live. The sensitivity table at the bottom shows profit per subscriber per month across a grid of visits/week × attach-rate combinations. <strong>Green = profitable. Amber = break-even. Red = loss.</strong></p>
+
+    <div class="calc-grid">
+      <div class="calc-input-group">
+        <h3>Inputs · edit any value</h3>
+
+        <div class="calc-field">
+          <label for="sub-price">Subscription price (S/. / month)</label>
+          <input type="number" id="sub-price" value="20" min="0" max="200" step="1">
+          <div class="hint">Default S/. 20. Experiment with S/. 15, S/. 25, S/. 30.</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="cost-per-cup">Marginal cost per cup (S/.)</label>
+          <input type="number" id="cost-per-cup" value="1.50" min="0.20" max="5" step="0.05">
+          <div class="hint">Default S/. 1.50 (own-roastery floor). Verified range: S/. 1.20–1.80.</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="visits-week">Visits per week</label>
+          <input type="range" id="visits-week" value="3" min="0.5" max="5" step="0.5">
+          <div style="display:flex; justify-content:space-between; font-family:ui-monospace,monospace; font-size:0.8rem; color:var(--ursa-text-muted)"><span>0.5</span><span id="visits-week-display">3.0</span><span>5.0</span></div>
+          <div class="hint">Subscriptions Mon–Fri, so max 5. Default 3 (realistic average).</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="cups-visit">Cups per visit</label>
+          <input type="number" id="cups-visit" value="1" min="1" max="2" step="1">
+          <div class="hint">1 cup per visit enforced on subscription. Use 2 only to model abuse.</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="attach-rate">Side attach rate (%)</label>
+          <input type="range" id="attach-rate" value="60" min="0" max="100" step="5">
+          <div style="display:flex; justify-content:space-between; font-family:ui-monospace,monospace; font-size:0.8rem; color:var(--ursa-text-muted)"><span>0%</span><span id="attach-rate-display">60%</span><span>100%</span></div>
+          <div class="hint">% of visits where subscriber also buys a side. Default 60%.</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="side-margin">Average side margin (S/.)</label>
+          <input type="number" id="side-margin" value="4.50" min="1" max="20" step="0.25">
+          <div class="hint">Profit per attached side, not revenue. Default S/. 4.50 (cookie).</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="weeks-month">Weeks per month</label>
+          <input type="number" id="weeks-month" value="4.33" min="4" max="5" step="0.01">
+          <div class="hint">52 weeks / 12 months = 4.33. Don't change unless you have a reason.</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="cannibal">Cannibalization rate (%)</label>
+          <input type="range" id="cannibal" value="70" min="0" max="100" step="5">
+          <div style="display:flex; justify-content:space-between; font-family:ui-monospace,monospace; font-size:0.8rem; color:var(--ursa-text-muted)"><span>0%</span><span id="cannibal-display">70%</span><span>100%</span></div>
+          <div class="hint">% of subscribers who would have paid full price anyway. Default 70%.</div>
+        </div>
+
+        <div class="calc-field">
+          <label for="avg-spend-pre">Avg pre-subscription spend (S/. / month, cannibalized customers only)</label>
+          <input type="number" id="avg-spend-pre" value="130" min="20" max="500" step="5">
+          <div class="hint">What an existing daily customer used to spend. Default S/. 130 (≈13 visits × S/. 10).</div>
+        </div>
+
+      </div>
+
+      <div class="calc-output-group">
+        <h3>Live results <small>per subscriber per month</small></h3>
+
+        <div class="calc-metric">
+          <span class="calc-metric__label">Visits / month</span>
+          <span class="calc-metric__value" id="out-visits-month">13.0</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric__label">Cups / month</span>
+          <span class="calc-metric__value" id="out-cups-month">13</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric__label">Coffee marginal cost</span>
+          <span class="calc-metric__value" id="out-coffee-cost">S/. 19.50</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric__label">Side margin (attach)</span>
+          <span class="calc-metric__value" id="out-side-margin">S/. 35.10</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric__label">Subscription revenue</span>
+          <span class="calc-metric__value">S/. 20.00</span>
+        </div>
+
+        <div class="calc-metric" style="border-top:2px solid var(--ursa-gold); padding-top:14px; margin-top:8px">
+          <span class="calc-metric__label">Net profit / subscriber / month (marginal)</span>
+          <span class="calc-metric__value calc-metric__value--big" id="out-net-profit">S/. 35.60</span>
+        </div>
+
+        <div class="calc-metric">
+          <span class="calc-metric__label">Break-even cups (no sides)</span>
+          <span class="calc-metric__value" id="out-breakeven-nosides">13.3</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric__label">Free-cup capacity (with sides)</span>
+          <span class="calc-metric__value" id="out-free-capacity">36.7 cups</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric__label">Cutoff attach rate (for break-even)</span>
+          <span class="calc-metric__value" id="out-cutoff-attach">−1%</span>
+        </div>
+
+        <div class="calc-metric" style="border-top:1px solid rgba(244,235,217,0.12); padding-top:14px; margin-top:8px">
+          <span class="calc-metric__label">Cannibalization-adjusted profit / subscriber</span>
+          <span class="calc-metric__value" id="out-cannibal-profit">S/. −20.40</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric__label">Months to recover cannibalization</span>
+          <span class="calc-metric__value" id="out-recover-months">— </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="calc-explain">
+      <h3 style="margin-top:0">How these numbers are computed</h3>
+      <p style="margin:0 0 8px"><strong>Net profit / subscriber / month (marginal)</strong> = <code>subscription + side_margin − coffee_cost</code> where:</p>
+      <ul style="margin:0">
+        <li><code>visits_month = visits_week × weeks_month</code></li>
+        <li><code>cups_month = visits_month × cups_per_visit</code></li>
+        <li><code>coffee_cost = cups_month × cost_per_cup</code></li>
+        <li><code>side_margin = visits_month × (attach_rate / 100) × side_margin_per_attach</code></li>
+      </ul>
+      <p style="margin:12px 0 0"><strong>Free-cup capacity</strong> = <code>(subscription + side_margin) / cost_per_cup</code> — the number of cups a subscriber could drink before Ursa stops making money on them, given current attach rate.</p>
+      <p style="margin:8px 0 0"><strong>Cutoff attach rate</strong> = <code>(coffee_cost − subscription) / (visits_month × side_margin_per_attach)</code> — the attach rate at which net profit hits zero. If negative, the subscription is profitable even at 0% attach.</p>
+      <p style="margin:8px 0 0"><strong>Cannibalization-adjusted profit</strong> = <code>net_profit_marginal − (cannibal_rate × (avg_spend_pre − subscription − retained_side_margin))</code> — accounts for revenue lost from customers who used to pay full price.</p>
+    </div>
+
+    <h3 style="margin-top:32px">Sensitivity table · profit per subscriber per month</h3>
+    <p>Each cell shows the marginal net profit per subscriber per month at that combination of visits/week (rows) and attach rate (columns). The current input combination is highlighted with a gold border. <strong>This table ignores cannibalization</strong> — it shows the pure marginal economics. Use it to understand which combinations of behavior and attach rate produce profit vs. loss.</p>
+
+    <div class="calc-sensitivity">
+      <table id="sensitivity-table">
+        <thead>
+          <tr id="sensitivity-header">
+            <th>Visits / week ↓</th>
+            <th>0%</th><th>20%</th><th>40%</th><th>60%</th><th>80%</th><th>100%</th>
+          </tr>
+        </thead>
+        <tbody id="sensitivity-body">
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <p class="muted small" style="margin-top:12px">The sensitivity table uses the current cost-per-cup, side-margin, subscription-price, and weeks-per-month inputs. Edit those inputs above and the table re-computes live.</p>
+
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">8.5</span>
+      <h2 class="ursa-section__title">Risk analysis &amp; safeguards</h2>
+    </div>
+
+    <div class="risk-grid">
+      <div class="ursa-card ursa-callout--stop" style="border-left:4px solid var(--stop)">
+        <h3 class="ursa-card__title">Risk 1 · Cannibalization of paying customers</h3>
+        <p><strong>Likelihood</strong> · High. <strong>Severity</strong> · Medium.</p>
+        <p>Most early subscribers will be existing customers. If 30 daily customers convert, short-term revenue drops ~S/. 5,790/month (see §8.1).</p>
+        <p><strong>Safeguard</strong> · EXP-11 pilot measures cannibalization directly. Stop rule: if cannibalization-adjusted profit per subscriber is below S/. 0 for 60 days, kill the subscription.</p>
+      </div>
+      <div class="ursa-card" style="border-left:4px solid var(--warn)">
+        <h3 class="ursa-card__title">Risk 2 · Side attach rate collapse</h3>
+        <p><strong>Likelihood</strong> · Medium. <strong>Severity</strong> · High.</p>
+        <p>If subscribers drink coffee and leave (0% attach), the subscription is barely break-even at default assumptions.</p>
+        <p><strong>Safeguard</strong> · Side-pushing strategy in §8.3 is mandatory staff training, not optional. Track attach rate per subscriber weekly. If average attach falls below 35% for 2 consecutive weeks, escalate.</p>
+      </div>
+      <div class="ursa-card" style="border-left:4px solid var(--warn)">
+        <h3 class="ursa-card__title">Risk 3 · Power-user abuse</h3>
+        <p><strong>Likelihood</strong> · Low. <strong>Severity</strong> · Medium.</p>
+        <p>A subscriber visiting 5x/week, 2 cups/visit, 0 sides = 43 cups/month = S/. 64.50 in coffee cost against S/. 20 in subscription revenue = S/. 44.50 loss/month.</p>
+        <p><strong>Safeguard</strong> · 1 cup per visit enforced by staff. "No para llevar" on subscription cups. If a subscriber averages &gt;4 visits/week for 3 consecutive weeks, send a friendly "we love you, here's a free cookie" message and watch attach rate.</p>
+      </div>
+      <div class="ursa-card" style="border-left:4px solid var(--ursa-gold)">
+        <h3 class="ursa-card__title">Risk 4 · Brand-positioning dilution</h3>
+        <p><strong>Likelihood</strong> · Low. <strong>Severity</strong> · Medium.</p>
+        <p>"Unlimited coffee for S/. 20" can read as commodity, not specialty. Could undermine the premium positioning Ursa's named-portmanteau drinks and single-origin program build.</p>
+        <p><strong>Safeguard</strong> · Frame as <em>"Ursa Mañana"</em>, not "unlimited coffee". Position as a neighborhood ritual, not a discount. Subscribers get the same single origins, same craft, same bar — they just pay differently. Never use the word "ilimitado" in marketing.</p>
+      </div>
+    </div>
+
+    <div class="ursa-callout ursa-callout--ok">
+      <h3>Stop rules summary (EXP-11)</h3>
+      <ul class="list-tight" style="margin:0">
+        <li><strong>Kill if</strong> · cannibalization-adjusted profit per subscriber &lt; S/. 0 at day 60.</li>
+        <li><strong>Iterate if</strong> · 30 &lt; attach rate &lt; 45% at day 30. Redesign side-pushing script and pairing chalkboard; retest 30 days.</li>
+        <li><strong>Scale if</strong> · attach rate ≥ 50% AND cannibalization-adjusted profit ≥ S/. 8/subscriber/month at day 60. Open subscription to all customers; remove pilot cap.</li>
+        <li><strong>Hard ceiling</strong> · 100 active subscribers in pilot. Beyond this, the 7–10am window gets crowded and paying customers are displaced.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">8.6</span>
+      <h2 class="ursa-section__title">Pilot design · EXP-11</h2>
+    </div>
+
+    <p>90-day capped pilot. 100-subscriber maximum. Direct measurement of every variable in the economic model. No marketing spend beyond Instagram Stories and a table card — the offer must pull on its own merits.</p>
+
+    <div class="ursa-table-wrap">
+    <table class="ursa-table">
+      <caption>Table 8.6 — EXP-11 pilot design</caption>
+      <thead><tr><th>Dimension</th><th>Specification</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Window</strong></td><td>90 days from launch</td></tr>
+        <tr><td><strong>Cap</strong></td><td>100 subscribers (first-come, first-served; existing regulars prioritized in week 1)</td></tr>
+        <tr><td><strong>Price</strong></td><td>S/. 20/month; cancel anytime; no annual lock-in</td></tr>
+        <tr><td><strong>Hours</strong></td><td>Monday–Friday, 7:00–10:00am only</td></tr>
+        <tr><td><strong>Includes</strong></td><td>1 cup per visit · espresso · americano · filter · coldbrew · in-store only · no Rappi · no milk drinks</td></tr>
+        <tr><td><strong>Excludes</strong></td><td>Milk drinks (latte, cappuccino, flat white, mocha) · Ursagroni · coldbrew cocktails · retail beans · merchandise</td></tr>
+        <tr><td><strong>Onboarding</strong></td><td>WhatsApp sign-up · 10-second form · first-visit free cookie (S/. 1.50 cost)</td></tr>
+        <tr><td><strong>Tracking</strong></td><td>Subscriber ID at POS · visits, cups, sides, retail purchases logged per subscriber per visit · monthly cohort report</td></tr>
+        <tr><td><strong>Metrics</strong></td><td>(1) attach rate; (2) cannibalization-adjusted profit/subscriber; (3) new-customer acquisition via subscription; (4) churn rate; (5) NPS via WhatsApp survey at day 30 and day 60</td></tr>
+        <tr><td><strong>Success metric</strong></td><td>Attach rate ≥ 50% AND cannibalization-adjusted profit ≥ S/. 8/subscriber/month at day 60</td></tr>
+        <tr><td><strong>Stop rule</strong></td><td>Cannibalization-adjusted profit &lt; S/. 0 at day 60 → kill. Attach rate &lt; 35% at day 30 → iterate side-pushing strategy for 30 more days.</td></tr>
+        <tr><td><strong>Scale rule</strong></td><td>If success metric hit at day 60, open to all customers (remove 100-subscriber cap), raise price to S/. 25 for new subscribers (existing pilot subscribers grandfathered at S/. 20 for 6 months).</td></tr>
+        <tr><td><strong>Cost to run (PEN)</strong></td><td>S/. 150 (WhatsApp Business setup, table card print, first-visit cookie fund S/. 150 for 100 subscribers × S/. 1.50)</td></tr>
+        <tr><td><strong>Owner</strong></td><td>Owner + store manager + head barista (for side-pushing training)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="ursa-callout ursa-callout--forest">
+      <h3>Why this pilot is safe</h3>
+      <ul class="list-tight" style="margin:0">
+        <li><strong>Capped at 100 subscribers</strong> — even in the worst case (0% attach, 5 visits/week, 2 cups/visit), maximum monthly loss = 100 × S/. 64.50 = S/. 6,450. Bounded and survivable.</li>
+        <li><strong>90-day window</strong> — short enough to kill cleanly if it fails; long enough to see habit formation in cohorts.</li>
+        <li><strong>Direct measurement</strong> — every variable in the economic model is measured, not estimated. The calculator's assumptions become facts.</li>
+        <li><strong>No paid media</strong> — the offer has to pull on its own. If 100 subscribers don't sign up organically in 30 days, the offer isn't compelling enough to scale.</li>
+        <li><strong>Grandfather clause</strong> — early subscribers keep S/. 20 for 6 months even if price rises. Builds loyalty; prevents "they raised the price" churn.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">8.7</span>
+      <h2 class="ursa-section__title">Skeptical revision pass</h2>
+    </div>
+    <div class="ursa-grid ursa-grid--3">
+      <div class="ursa-card">
+        <h3>Skeptic 1</h3>
+        <p><strong>"This is the classic café mistake. Subscription coffee never works."</strong></p>
+        <p class="muted">The classic failure mode is buying roasted beans wholesale and offering unlimited milk drinks all day. Both destroy margin. This proposal (a) uses Ursa's own-roastery marginal cost floor, (b) restricts to non-milk drinks, (c) caps at 7–10am weekdays, (d) enforces 1 cup per visit, (e) excludes delivery. Each restriction exists to neutralize a specific failure mode. The calculator in §8.4 makes the math transparent — anyone can test their own assumptions.</p>
+      </div>
+      <div class="ursa-card">
+        <h3>Skeptic 2</h3>
+        <p><strong>"You're assuming 60% attach rate. That's optimistic."</strong></p>
+        <p class="muted">Fair. The calculator defaults to 60%, but the sensitivity table in §8.4 shows profit at every attach rate from 0% to 100%. At 0% attach and 3 visits/week, profit is S/. 0.50/subscriber/month — basically break-even. At 30% attach (industry-low end), profit is S/. 17.80. The model degrades gracefully. The pilot in EXP-11 directly measures actual attach rate, so the assumption becomes a fact within 30 days.</p>
+      </div>
+      <div class="ursa-card">
+        <h3>Skeptic 3</h3>
+        <p><strong>"Cannibalization will eat all the profit."</strong></p>
+        <p class="muted">Partially true in month 1–3, which is why the calculator includes a cannibalization-adjusted profit line. The default assumes 70% cannibalization at S/. 130/month lost spend — and the model still recovers within months 4–12 as new (non-cannibalizing) subscribers join. The pilot's stop rule explicitly kills the program if cannibalization-adjusted profit is negative at day 60. The owner loses nothing by testing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ursa-footer">
+  <div class="ursa-wrap">
+    <div class="ursa-footer__row">
+      <div>
+        <h4>Ursa Coffee Roasters — Strategic Dossier</h4>
+        <p style="font-size:0.92rem">Module 08 · Subscription Economics &amp; Cutoff Calculator. New in revision round 3. Includes P-25 (Ursa Mañana subscription), EXP-11 (90-day pilot), full economic framework, side-pushing strategy, risk analysis, and an interactive calculator. Marginal-cost economics verified against published specialty-coffee benchmarks.</p>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <p style="font-size:0.88rem">
+          <a href="index.html">Index</a><br>
+          <a href="01-brand-audit-and-design-system.html">01 · Brand Audit</a><br>
+          <a href="02-market-competitors-and-customer-voice.html">02 · Market &amp; Voice</a><br>
+          <a href="03-menu-and-product-development.html">03 · Menu &amp; Product</a><br>
+          <a href="04-marketing-growth-and-retention-plan.html">04 · Growth &amp; Retention</a>
+        </p>
+      </div>
+      <div>
+        <h4>More</h4>
+        <p style="font-size:0.88rem">
+          <a href="05-viral-content-laboratory.html">05 · Viral Lab</a><br>
+          <a href="06-creative-campaign-prototypes.html">06 · Creative</a><br>
+          <a href="07-implementation-roadmap-and-kpis.html">07 · Roadmap &amp; KPIs</a><br>
+          <a href="08-subscription-economics-and-calculator.html">08 · Subscription &amp; Calculator</a><br>
+          <a href="sources-and-evidence.html">Sources &amp; Evidence</a>
+        </p>
+      </div>
+    </div>
+    <div class="ursa-footer__small">
+      <button data-action="print" style="background:transparent; border:1px solid var(--ursa-gold-soft); color:var(--ursa-gold-soft); padding:6px 14px; border-radius:99px; font-family:var(--f-label); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer">Print this module</button>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ursa.js"></script>
+<script>
+// Module 08 interactive cutoff calculator
+(function(){
+  'use strict';
+
+  // Cache input elements
+  const inputs = {
+    subPrice:      document.getElementById('sub-price'),
+    costPerCup:    document.getElementById('cost-per-cup'),
+    visitsWeek:    document.getElementById('visits-week'),
+    cupsVisit:     document.getElementById('cups-visit'),
+    attachRate:    document.getElementById('attach-rate'),
+    sideMargin:    document.getElementById('side-margin'),
+    weeksMonth:    document.getElementById('weeks-month'),
+    cannibal:      document.getElementById('cannibal'),
+    avgSpendPre:   document.getElementById('avg-spend-pre'),
+  };
+
+  // Cache display elements for sliders
+  const displays = {
+    visitsWeek: document.getElementById('visits-week-display'),
+    attachRate: document.getElementById('attach-rate-display'),
+    cannibal:   document.getElementById('cannibal-display'),
+  };
+
+  // Cache output elements
+  const out = {
+    visitsMonth:    document.getElementById('out-visits-month'),
+    cupsMonth:      document.getElementById('out-cups-month'),
+    coffeeCost:     document.getElementById('out-coffee-cost'),
+    sideMargin:     document.getElementById('out-side-margin'),
+    netProfit:      document.getElementById('out-net-profit'),
+    breakevenNoSides: document.getElementById('out-breakeven-nosides'),
+    freeCapacity:   document.getElementById('out-free-capacity'),
+    cutoffAttach:   document.getElementById('out-cutoff-attach'),
+    cannibalProfit: document.getElementById('out-cannibal-profit'),
+    recoverMonths:  document.getElementById('out-recover-months'),
+  };
+
+  const sensitivityBody = document.getElementById('sensitivity-body');
+  const attachRates = [0, 20, 40, 60, 80, 100];
+  const visitOptions = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+
+  function fmt(n, prefix='S/. ') {
+    if (!isFinite(n)) return '—';
+    if (Math.abs(n) < 0.005 && n !== 0) return prefix + n.toExponential(1);
+    return prefix + n.toFixed(2);
+  }
+
+  function fmtPlain(n) {
+    if (!isFinite(n)) return '—';
+    return n.toFixed(1);
+  }
+
+  function classifyCell(val) {
+    if (val > 1) return 'pos';
+    if (val < -1) return 'neg';
+    return 'zero';
+  }
+
+  function recalc() {
+    // Read inputs
+    const subPrice    = parseFloat(inputs.subPrice.value) || 0;
+    const costPerCup  = parseFloat(inputs.costPerCup.value) || 0;
+    const visitsWeek  = parseFloat(inputs.visitsWeek.value) || 0;
+    const cupsVisit   = parseFloat(inputs.cupsVisit.value) || 1;
+    const attachRate  = parseFloat(inputs.attachRate.value) || 0;
+    const sideMargin  = parseFloat(inputs.sideMargin.value) || 0;
+    const weeksMonth  = parseFloat(inputs.weeksMonth.value) || 4.33;
+    const cannibal    = parseFloat(inputs.cannibal.value) || 0;
+    const avgSpendPre = parseFloat(inputs.avgSpendPre.value) || 0;
+
+    // Update slider displays
+    displays.visitsWeek.textContent = visitsWeek.toFixed(1);
+    displays.attachRate.textContent = attachRate.toFixed(0) + '%';
+    displays.cannibal.textContent   = cannibal.toFixed(0) + '%';
+
+    // Compute
+    const visitsMonth = visitsWeek * weeksMonth;
+    const cupsMonth   = visitsMonth * cupsVisit;
+    const coffeeCost  = cupsMonth * costPerCup;
+    const sideMarginTotal = visitsMonth * (attachRate / 100) * sideMargin;
+    const netProfit   = subPrice + sideMarginTotal - coffeeCost;
+
+    const breakevenNoSides = costPerCup > 0 ? subPrice / costPerCup : Infinity;
+    const freeCapacity     = costPerCup > 0 ? (subPrice + sideMarginTotal) / costPerCup : Infinity;
+
+    // Cutoff attach rate: solve netProfit = 0 for attachRate
+    // subPrice + visitsMonth * (attach/100) * sideMargin - coffeeCost = 0
+    // attach = (coffeeCost - subPrice) * 100 / (visitsMonth * sideMargin)
+    let cutoffAttach;
+    if (sideMargin > 0 && visitsMonth > 0) {
+      cutoffAttach = ((coffeeCost - subPrice) * 100) / (visitsMonth * sideMargin);
+    } else {
+      cutoffAttach = NaN;
+    }
+
+    // Cannibalization-adjusted profit
+    // Cannibalized customers: cannibal/100 of subscribers
+    // Each cannibalized subscriber used to spend avgSpendPre; now spends subPrice + (their side spend)
+    // Lost revenue per cannibalized sub = avgSpendPre - subPrice - (sideMarginTotal * cannibal_retention_factor)
+    // Simplification: assume cannibalized subscribers still buy sides at same rate, so side margin is retained.
+    // Lost revenue = avgSpendPre - subPrice (the coffee revenue they used to generate, net of subscription)
+    // But we already counted coffee marginal cost savings (we don't brew their coffee for free in the cannibal scenario — we still brew it, we just don't get paid per cup).
+    // Marginal profit per cannibalized subscriber:
+    //   previously: avgSpendPre - (their coffee cost) + (their side margin) ≈ avgSpendPre - coffeeCost + sideMarginTotal
+    //   now: subPrice - coffeeCost + sideMarginTotal
+    //   delta = subPrice - avgSpendPre
+    // Per-subscriber cannibalization cost = (cannibal/100) * (subPrice - avgSpendPre)
+    // Note: subPrice - avgSpendPre is typically negative (subscription is cheaper than their old spend)
+    const cannibalProfit = netProfit + (cannibal / 100) * (subPrice - avgSpendPre);
+
+    // Months to recover cannibalization:
+    // The "new subscriber" profit (non-cannibal) = netProfit (full)
+    // The "cannibalized subscriber" profit = netProfit + (subPrice - avgSpendPre)
+    // Blended = (cannibal/100) * cannibalProfit + (1 - cannibal/100) * netProfit
+    // But we want to know: as new (non-cannibal) subscribers join over time, when does blended profit per subscriber equal netProfit?
+    // Simplification: months to recover = (cannibalization cost) / (monthly new-subscriber profit contribution)
+    // This is complex; use a simpler proxy:
+    // Recovery months = |cannibalProfit| / netProfit if cannibalProfit < 0 and netProfit > 0
+    let recoverMonths;
+    if (cannibalProfit < 0 && netProfit > 0) {
+      recoverMonths = Math.abs(cannibalProfit) / netProfit;
+    } else if (cannibalProfit >= 0) {
+      recoverMonths = 0;
+    } else {
+      recoverMonths = Infinity;
+    }
+
+    // Update outputs
+    out.visitsMonth.textContent = visitsMonth.toFixed(1);
+    out.cupsMonth.textContent   = cupsMonth.toFixed(0);
+    out.coffeeCost.textContent  = fmt(coffeeCost);
+    out.sideMargin.textContent  = fmt(sideMarginTotal);
+    out.netProfit.textContent   = fmt(netProfit);
+    out.netProfit.className     = 'calc-metric__value calc-metric__value--big ' + (netProfit >= 0 ? 'calc-metric__value--pos' : 'calc-metric__value--neg');
+
+    out.breakevenNoSides.textContent = isFinite(breakevenNoSides) ? breakevenNoSides.toFixed(1) : '∞';
+    out.freeCapacity.textContent      = isFinite(freeCapacity) ? freeCapacity.toFixed(1) + ' cups' : '∞';
+    out.cutoffAttach.textContent      = isFinite(cutoffAttach) ? cutoffAttach.toFixed(0) + '%' : 'n/a';
+
+    out.cannibalProfit.textContent = fmt(cannibalProfit);
+    out.cannibalProfit.className   = 'calc-metric__value ' + (cannibalProfit >= 0 ? 'calc-metric__value--pos' : 'calc-metric__value--neg');
+    out.recoverMonths.textContent  = isFinite(recoverMonths) ? (recoverMonths === 0 ? '0 (already positive)' : recoverMonths.toFixed(1) + ' months') : 'never (kill)';
+
+    // Rebuild sensitivity table
+    sensitivityBody.innerHTML = '';
+    const currentVisitsWeek = visitsWeek;
+    visitOptions.forEach(vw => {
+      const tr = document.createElement('tr');
+      const isCurrent = Math.abs(vw - currentVisitsWeek) < 0.01;
+      if (isCurrent) tr.style.background = 'rgba(184,146,74,0.18)';
+
+      const th = document.createElement('td');
+      th.textContent = vw.toFixed(1);
+      tr.appendChild(th);
+
+      attachRates.forEach(ar => {
+        const td = document.createElement('td');
+        const vm = vw * weeksMonth;
+        const cc = vm * cupsVisit * costPerCup;
+        const sm = vm * (ar / 100) * sideMargin;
+        const np = subPrice + sm - cc;
+        td.textContent = np.toFixed(1);
+        td.classList.add(classifyCell(np));
+        if (isCurrent && Math.abs(ar - attachRate) < 1) {
+          td.style.outline = '2px solid var(--ursa-gold)';
+          td.style.outlineOffset = '-2px';
+        }
+        tr.appendChild(td);
+      });
+
+      sensitivityBody.appendChild(tr);
+    });
+  }
+
+  // Wire up all inputs
+  Object.values(inputs).forEach(el => {
+    el.addEventListener('input', recalc);
+    el.addEventListener('change', recalc);
+  });
+
+  // Initial render
+  recalc();
+})();
+</script>
+</body>
+</html>

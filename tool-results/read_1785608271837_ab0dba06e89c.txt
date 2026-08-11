@@ -1,0 +1,649 @@
+     1→"use client";
+     2→
+     3→import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
+     4→import {
+     5→  BearMark,
+     6→  CupGlyph,
+     7→  ArtNouveauDivider,
+     8→  Pill,
+     9→  Callout,
+    10→  StatBlock,
+    11→  EvidenceTag,
+    12→  SectionBadge,
+    13→} from "../ursa-brand";
+    14→import { PALETTE, TYPOGRAPHY, URSA_FACTS } from "@/lib/ursa-data";
+    15→import { useNavigate } from "@/lib/ursa-nav";
+    16→import {
+    17→  Palette,
+    18→  Type,
+    19→  Sparkles,
+    20→  CheckCircle2,
+    21→  AlertTriangle,
+    22→  Star,
+    23→  CircleSlash,
+    24→  ShieldCheck,
+    25→  Layers,
+    26→  FlaskConical,
+    27→  ArrowRight,
+    28→} from "lucide-react";
+    29→
+    30→type VerifiedItem = {
+    31→  title: string;
+    32→  detail: string;
+    33→  status: "verified" | "partial" | "unverified" | "gap";
+    34→};
+    35→
+    36→const VERIFIED_BRAND_ELEMENTS: VerifiedItem[] = [
+    37→  {
+    38→    title: "Art Nouveau lean",
+    39→    detail:
+    40→      "Ornamental dividers, gold hairlines, and a serif display face root the brand in early-1900s craft rather than the flat-minimal café default.",
+    41→    status: "verified",
+    42→  },
+    43→  {
+    44→    title: "Browns + greens palette",
+    45→    detail:
+    46→      "A roast-spectrum brown ladder (green-bean → espresso) paired with a forest-deep bear-habitat green and cream surfaces. No blue, no indigo.",
+    47→    status: "verified",
+    48→  },
+    49→  {
+    50→    title: "Bear motif",
+    51→    detail:
+    52→      "A geometric, Art Nouveau-leaning bear mark appears in the logo, signage, and product storytelling — an ownable animal character in a market that has none.",
+    53→    status: "verified",
+    54→  },
+    55→  {
+    56→    title: "In-house roastery",
+    57→    detail:
+    58→      "Ursa roasts its own beans. This is the operational backbone of the brand: it justifies origin stories, named preparations, and the subscription math.",
+    59→    status: "verified",
+    60→  },
+    61→  {
+    62→    title: "“Un gramo a la vez” tagline",
+    63→    detail:
+    64→      "“One gram at a time.” Anchors the precision-craft positioning and gives every roasting, brewing, and educational moment a memorable hook.",
+    65→    status: "verified",
+    66→  },
+    67→  {
+    68→    title: "Two-bar layout",
+    69→    detail:
+    70→      "Espresso bar + cold-brew bar, side by side. Physically signals the two halves of the menu and creates a natural stage for theatre.",
+    71→    status: "verified",
+    72→  },
+    73→  {
+    74→    title: "Named drinks",
+    75→    detail:
+    76→      "Four verified drinks use proper names rather than generic labels: Ursagroni (Ursa + negroni), Maracumango (maracuyá + mango), Filtrado Lonya (origin label), Durazno Clarificado (descriptive). Two use coined blends; two use descriptive or origin-based labels. No census competitor names individual drinks this way.",
+    77→    status: "verified",
+    78→  },
+    79→  {
+    80→    title: "Consistent application across surfaces",
+    81→    detail:
+    82→      "Identity is strong on the storefront and product; it thins out across digital surfaces (no website, no templated social kit).",
+    83→    status: "partial",
+    84→  },
+    85→];
+    86→
+    87→const BEAR_ANALYSIS = [
+    88→  {
+    89→    icon: CheckCircle2,
+    90→    tone: "ok" as const,
+    91→    label: "What's consistent",
+    92→    points: [
+    93→      "Bear appears in the primary logo mark and on signage.",
+    94→      "Bear carries the brand name (Ursa = bear) across every surface.",
+    95→      "Mascot context is warm and geometric, not cartoonish.",
+    96→    ],
+    97→  },
+    98→  {
+    99→    icon: AlertTriangle,
+   100→    tone: "warn" as const,
+   101→    label: "What's inconsistent",
+   102→    points: [
+   103→      "No single, codified bear illustration set — application varies by surface.",
+   104→      "Bear presence on Instagram is ad hoc, not templated.",
+   105→      "Bear rarely appears inside the menu or on packaging labels in a repeatable way.",
+   106→    ],
+   107→  },
+   108→  {
+   109→    icon: Star,
+   110→    tone: "gold" as const,
+   111→    label: "What's distinctive",
+   112→    points: [
+   113→      "No Lima competitor owns an animal character — this is white space.",
+   114→      "Bear + Art Nouveau + roastery is a three-part signature competitors cannot copy quickly.",
+   115→      "The bear can carry narrative (origin stories, seasonal skins) without diluting the mark.",
+   116→    ],
+   117→  },
+   118→  {
+   119→    icon: CircleSlash,
+   120→    tone: "stop" as const,
+   121→    label: "What's missing",
+   122→    points: [
+   123→      "No animated bear (looping mark, social sticker set).",
+   124→      "No bear in a consistent social-post template kit.",
+   125→      "No bear used as a recurring character across email and packaging.",
+   126→    ],
+   127→  },
+   128→];
+   129→
+   130→const ART_NOUVEAU_COMPONENTS = [
+   131→  {
+   132→    title: "Ornamental borders",
+   133→    detail:
+   134→      "Hairline gold rules with a central flourish frame sections, menus, and certificates — never a flat-minimal divider.",
+   135→  },
+   136→  {
+   137→    title: "Serif display type",
+   138→    detail:
+   139→      "Cormorant Garamond carries the headlines; its high-contrast strokes echo early-1900s lithography.",
+   140→  },
+   141→  {
+   142→    title: "Gold accents",
+   143→    detail:
+   144→      "A single warm gold (#B8924A) is reserved for emphasis — eyebrows, hairlines, the bear's catchlights — never for body text.",
+   145→  },
+   146→  {
+   147→    title: "Botanical / wavy line motifs",
+   148→    detail:
+   149→      "Sinuous, symmetrical curves (the Art Nouveau hall-mark) appear in dividers and as background texture, paired with forest-deep green.",
+   150→  },
+   151→];
+   152→
+   153→const EVOLUTION_LEVELS = [
+   154→  {
+   155→    level: "Level 1",
+   156→    name: "Conservative refinement",
+   157→    horizon: "Permanent system",
+   158→    recommended: true,
+   159→    summary:
+   160→      "Codify the existing bear, palette, type, and Art Nouveau motifs into a documented design system. Tighten application rules, add the missing social and packaging templates, and lock the bear mark at consistent sizes. This is the recommended permanent system.",
+   161→    outcomes: [
+   162→      "Documented color, type, and component tokens",
+   163→      "Bear-mark usage rules across every surface",
+   164→      "Reusable social, menu, and packaging templates",
+   165→    ],
+   166→  },
+   167→  {
+   168→    level: "Level 2",
+   169→    name: "Distinctive growth system",
+   170→    horizon: "6-month skin",
+   171→    recommended: false,
+   172→    summary:
+   173→      "Layer a 6-month growth skin on top of Level 1: animated bear variants, a campaign-specific type accent, and seasonal gold treatments. Everything stays reversible; the Level 1 system underneath is untouched.",
+   174→    outcomes: [
+   175→      "Animated bear (looping mark + sticker set)",
+   176→      "A single campaign accent layered on the locked palette",
+   177→      "Reversible — peel off after 6 months with no asset debt",
+   178→    ],
+   179→  },
+   180→  {
+   181→    level: "Level 3",
+   182→    name: "Experimental seasonal expression",
+   183→    horizon: "Seasonal only",
+   184→    recommended: false,
+   185→    summary:
+   186→      "Seasonal, time-boxed expressions: a holiday bear variant, a single-collab colorway, or a festival skin. Always reverted at the end of the season; never promoted to the permanent system without an explicit review.",
+   187→    outcomes: [
+   188→      "Time-boxed (≤ 8 weeks) seasonal skins",
+   189→      "Clearly labelled as limited, never as the new brand",
+   190→      "Reverted on schedule, documented for archive",
+   191→    ],
+   192→  },
+   193→];
+   194→
+   195→const CONSISTENT_INCONSISTENT = [
+   196→  {
+   197→    tone: "ok" as const,
+   198→    icon: CheckCircle2,
+   199→    title: "Consistent",
+   200→    items: [
+   201→      "Bear mark + name (Ursa) across storefront and product",
+   202→      "Browns-and-greens palette with cream surfaces",
+   203→      "Cormorant Garamond display, Inter body, Oswald labels",
+   204→      "In-house roastery as operational and narrative backbone",
+   205→      "“Un gramo a la vez” tagline",
+   206→    ],
+   207→  },
+   208→  {
+   209→    tone: "warn" as const,
+   210→    icon: AlertTriangle,
+   211→    title: "Inconsistent",
+   212→    items: [
+   213→      "Bear application varies by surface — no codified illustration set",
+   214→      "Social posts are ad hoc, not templated",
+   215→      "Packaging labels rarely feature the bear consistently",
+   216→      "No website to carry the identity online",
+   217→    ],
+   218→  },
+   219→  {
+   220→    tone: "gold" as const,
+   221→    icon: Star,
+   222→    title: "Distinctive",
+   223→    items: [
+   224→      "Only Lima roaster with an ownable animal character",
+   225→      "Bear + Art Nouveau + two-bar layout is a three-part signature",
+   226→      "Named drinks like Ursagroni are memorable and ownable",
+   227→      "“Un gramo a la vez” is a precision-craft claim competitors lack",
+   228→    ],
+   229→  },
+   230→  {
+   231→    tone: "stop" as const,
+   232→    icon: CircleSlash,
+   233→    title: "Missing",
+   234→    items: [
+   235→      "Animated bear and social sticker set",
+   236→      "Consistent social-post template kit",
+   237→      "Bear as recurring character on email and packaging",
+   238→      "Documented design-system tokens (this module fixes that)",
+   239→    ],
+   240→  },
+   241→];
+   242→
+   243→export function BrandAuditView() {
+   244→  const navigate = useNavigate();
+   245→
+   246→  return (
+   247→    <>
+   248→      {/* 1. Hero */}
+   249→      <ViewHero
+   250→        eyebrow="Module 01 · Brand Audit & Design System"
+   251→        title={
+   252→          <>
+   253→            Preserve the bear, the gram, and the green — refine everything around them.
+   254→          </>
+   255→        }
+   256→        lede={
+   257→          <>
+   258→            This module verifies what is already consistent, distinctive, inconsistent, and missing in Ursa's
+   259→            brand — then codifies a conservative-refinement design system. No rebrand. The Art Nouveau lean,
+   260→            the browns-and-greens palette, the bear motif, the in-house roastery, and the{" "}
+   261→            <em>“Un gramo a la vez”</em> tagline are the assets the plan protects.
+   262→          </>
+   263→        }
+   264→        meta={[
+   265→          { label: "Snapshot", value: URSA_FACTS.snapshot },
+   266→          { label: "Subject", value: URSA_FACTS.address },
+   267→          { label: "Direction", value: "Conservative refinement recommended" },
+   268→        ]}
+   269→      />
+   270→
+   271→      {/* 2. What we verified */}
+   272→      <ViewSection
+   273→        badge="Verified elements"
+   274→        title="What we verified at the snapshot"
+   275→        meta="From public sources · see Sources & Evidence"
+   276→      >
+   277→        <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
+   278→          Each element below was checked against Ursa's public-facing surfaces (storefront, Instagram, menu,
+   279→          product). Most core identity assets are verified; only the cross-surface application is partial —
+   280→          and that is the precise gap this module closes.
+   281→        </p>
+   282→        <Grid cols={4}>
+   283→          {VERIFIED_BRAND_ELEMENTS.map((el) => (
+   284→            <Card key={el.title} className="flex flex-col">
+   285→              <div className="flex items-center justify-between mb-3">
+   286→                <BearMark size={22} className="text-ursa-dark-roast" />
+   287→                <EvidenceTag status={el.status} />
+   288→              </div>
+   289→              <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-1.5 leading-tight">
+   290→                {el.title}
+   291→              </h3>
+   292→              <p className="text-[0.85rem] text-muted-foreground m-0 leading-relaxed">{el.detail}</p>
+   293→            </Card>
+   294→          ))}
+   295→        </Grid>
+   296→      </ViewSection>
+   297→
+   298→      {/* 3. Color palette */}
+   299→      <ViewSection
+   300→        badge="Color system"
+   301→        title="The Ursa palette — observed and proposed"
+   302→        meta={`${PALETTE.length} tokens · provenance-labeled · not official until owner-verified`}
+   303→      >
+   304→        <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-4">
+   305→          A roast-spectrum brown ladder (green-bean → espresso) carries the coffee story; a forest-deep green
+   306→          carries the bear's habitat; cream surfaces hold it all up; a single warm gold reserves emphasis.
+   307→          No blue, no indigo — this is a deliberate non-default choice.
+   308→        </p>
+   309→        <div className="flex flex-wrap items-center gap-3 mb-6 p-3 rounded-lg bg-ursa-foam border border-ursa-line-soft">
+   310→          <span className="font-label text-[0.62rem] tracking-[0.14em] uppercase text-muted-foreground">Provenance key:</span>
+   311→          <span className="flex items-center gap-1.5 text-[0.76rem]"><span className="w-2.5 h-2.5 rounded-sm bg-ursa-gold/60" /> approximate — sampled from social media</span>
+   312→          <span className="flex items-center gap-1.5 text-[0.76rem]"><span className="w-2.5 h-2.5 rounded-sm bg-ursa-terracotta/60" /> proposed — design-system addition</span>
+   313→          <span className="flex items-center gap-1.5 text-[0.76rem]"><span className="w-2.5 h-2.5 rounded-sm bg-ursa-forest-deep/60" /> official — from owner guidelines (none yet)</span>
+   314→        </div>
+   315→        <Grid cols={4}>
+   316→          {PALETTE.map((c) => {
+   317→            // Determine if the color is dark (for contrast-aware text overlay)
+   318→            const r = parseInt(c.hex.slice(1, 3), 16);
+   319→            const g = parseInt(c.hex.slice(3, 5), 16);
+   320→            const b = parseInt(c.hex.slice(5, 7), 16);
+   321→            // Use WCAG relative luminance for contrast-aware text overlay
+   322→            function srgbLin(v) { return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+   323→            const relLum = 0.2126 * srgbLin(r/255) + 0.7152 * srgbLin(g/255) + 0.0722 * srgbLin(b/255);
+   324→            // Use ink text on mid-tone backgrounds (relLum > 0.18), cream on dark
+   325→            const overlayText = relLum > 0.18 ? "#211208" : "#F4EBD9";
+   326→            return (
+   327→              <Card key={c.name} className="overflow-hidden p-0 group cursor-default">
+   328→                <div
+   329→                  className="h-24 w-full relative flex items-end p-3 transition group-hover:h-28"
+   330→                  style={{ backgroundColor: c.hex }}
+   331→                >
+   332→                  <span
+   333→                    className="font-label text-[0.66rem] tracking-[0.12em] uppercase font-medium"
+   334→                    style={{ color: overlayText }}
+   335→                  >
+   336→                    {c.hex}
+   337→                  </span>
+   338→                </div>
+   339→                <div className="p-4">
+   340→                  <div className="flex items-center justify-between gap-2 mb-1">
+   341→                    <h4 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0 leading-tight">
+   342→                      {c.name}
+   343→                    </h4>
+   344→                    <span className="font-label text-[0.52rem] tracking-[0.1em] uppercase px-1.5 py-0.5 rounded border" style={{
+   345→                      borderColor: c.provenance === "official" ? "var(--color-ursa-forest-deep)" : c.provenance === "approximate" ? "var(--color-ursa-gold)" : "var(--color-ursa-terracotta)",
+   346→                      color: c.provenance === "official" ? "var(--color-ursa-forest-deep)" : c.provenance === "approximate" ? "var(--color-ursa-gold-text)" : "var(--color-ursa-terracotta-text)",
+   347→                    }}>
+   348→                      {c.provenance}
+   349→                    </span>
+   350→                  </div>
+   351→                  <p className="text-[0.78rem] text-muted-foreground m-0 leading-snug">{c.role}</p>
+   352→                </div>
+   353→              </Card>
+   354→            );
+   355→          })}
+   356→        </Grid>
+   357→      </ViewSection>
+   358→
+   359→      {/* 4. Typography */}
+   360→      <ViewSection
+   361→        badge="Typography"
+   362→        title="Three voices, one rhythm"
+   363→        meta="Cormorant Garamond · Inter · Oswald"
+   364→      >
+   365→        <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
+   366→          A serif display carries the early-1900s craft lean; a humanist sans carries the readable prose; a
+   367→          condensed uppercase carries every label, eyebrow, and tag. Three roles, no overlap.
+   368→        </p>
+   369→        <Grid cols={3}>
+   370→          {TYPOGRAPHY.map((f) => (
+   371→            <Card key={f.name} className="flex flex-col">
+   372→              <div className="flex items-center justify-between mb-3">
+   373→                <Pill tone="forest">{f.role.split(" · ")[0]}</Pill>
+   374→                <Type size={16} className="text-ursa-gold-text" />
+   375→              </div>
+   376→              <p
+   377→                className={`${f.className} text-ursa-dark-roast mt-0 mb-3 leading-tight`}
+   378→                style={{ fontSize: "1.5rem", fontWeight: 600 }}
+   379→              >
+   380→                {f.sample}
+   381→              </p>
+   382→              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-1">
+   383→                {f.name}
+   384→              </h4>
+   385→              <p className="text-[0.82rem] text-muted-foreground m-0">{f.role}</p>
+   386→            </Card>
+   387→          ))}
+   388→        </Grid>
+   389→
+   390→        <ArtNouveauDivider />
+   391→
+   392→        {/* Type scale demonstration */}
+   393→        <div className="bg-ursa-foam border border-ursa-line-soft rounded-xl p-6">
+   394→          <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-muted-foreground mb-4">
+   395→            Type scale · applied
+   396→          </h4>
+   397→          <p className="font-display text-[2.4rem] font-semibold text-ursa-dark-roast mt-0 mb-2 leading-tight">
+   398→            Un gramo a la vez.
+   399→          </p>
+   400→          <p className="font-display text-[1.6rem] font-medium text-ursa-medium-roast mt-0 mb-2 leading-tight">
+   401→            Tostadores de café de especialidad
+   402→          </p>
+   403→          <p className="font-body text-[1.05rem] text-ursa-dark-roast/85 mt-0 mb-3 leading-relaxed max-w-[60ch]">
+   404→            Specialty coffee, roasted in Miraflores. Every gram is weighed, every origin is named, and every
+   405→            cup is poured at the espresso bar or the cold-brew bar.
+   406→          </p>
+   407→          <p className="font-label text-[0.72rem] tracking-[0.18em] uppercase text-ursa-forest-deep mt-0 mb-0">
+   408→            Espresso bar · Cold-brew bar · In-house roastery
+   409→          </p>
+   410→        </div>
+   411→      </ViewSection>
+   412→
+   413→      {/* 5. Bear motif analysis */}
+   414→      <ViewSection
+   415→        badge="Bear motif"
+   416→        title="The bear, examined"
+   417→        meta="Consistent · Inconsistent · Distinctive · Missing"
+   418→      >
+   419→        <Grid cols={4}>
+   420→          {BEAR_ANALYSIS.map((b) => {
+   421→            const Icon = b.icon;
+   422→            return (
+   423→              <Card key={b.label} className="flex flex-col">
+   424→                <div className="flex items-center gap-2 mb-3">
+   425→                  <Icon size={18} className="text-ursa-dark-roast" />
+   426→                  <Pill tone={b.tone}>{b.label}</Pill>
+   427→                </div>
+   428→                <ul className="space-y-2 m-0 p-0 list-none">
+   429→                  {b.points.map((p, i) => (
+   430→                    <li key={i} className="text-[0.85rem] text-muted-foreground leading-relaxed flex gap-2">
+   431→                      <span className="text-ursa-gold-text mt-1 shrink-0">·</span>
+   432→                      <span>{p}</span>
+   433→                    </li>
+   434→                  ))}
+   435→                </ul>
+   436→              </Card>
+   437→            );
+   438→          })}
+   439→        </Grid>
+   440→        <div className="mt-6 flex flex-wrap items-center gap-4">
+   441→          <BearMark size={48} className="text-ursa-dark-roast" />
+   442→          <BearMark size={48} className="text-ursa-forest-deep" />
+   443→          <BearMark size={48} className="text-ursa-gold-text" />
+   444→          <BearMark size={48} className="text-ursa-terracotta-text" />
+   445→          <span className="font-label text-[0.7rem] tracking-[0.14em] uppercase text-muted-foreground">
+   446→            One mark, four approved tints · dark-roast · forest-deep · gold · terracotta
+   447→          </span>
+   448→        </div>
+   449→      </ViewSection>
+   450→
+   451→      {/* 6. Art Nouveau components */}
+   452→      <ViewSection
+   453→        badge="Art Nouveau system"
+   454→        title="The four ornamental components"
+   455→        meta="Documented · applied · reserved"
+   456→      >
+   457→        <Grid cols={4}>
+   458→          {ART_NOUVEAU_COMPONENTS.map((c) => (
+   459→            <Card key={c.title}>
+   460→              <Palette size={18} className="text-ursa-gold-text mb-2" />
+   461→              <h4 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast mt-0 mb-1.5">
+   462→                {c.title}
+   463→              </h4>
+   464→              <p className="text-[0.85rem] text-muted-foreground m-0 leading-relaxed">{c.detail}</p>
+   465→            </Card>
+   466→          ))}
+   467→        </Grid>
+   468→
+   469→        <div className="mt-2 bg-ursa-cream border border-ursa-line-soft rounded-xl p-6">
+   470→          <h4 className="font-label text-[0.7rem] tracking-[0.16em] uppercase text-muted-foreground mb-1">
+   471→            Live · ArtNouveauDivider
+   472→          </h4>
+   473→          <p className="text-[0.85rem] text-muted-foreground mb-2">
+   474→            The hairline-gold rule with a central flourish. Used to separate major sections — never to slice
+   475→            paragraphs.
+   476→          </p>
+   477→          <ArtNouveauDivider />
+   478→          <div className="flex items-center gap-4 mt-2">
+   479→            <CupGlyph size={28} className="text-ursa-dark-roast" />
+   480→            <span className="font-display text-lg text-ursa-dark-roast italic">
+   481→              “Un gramo a la vez.”
+   482→            </span>
+   483→            <CupGlyph size={28} className="text-ursa-forest-deep" />
+   484→          </div>
+   485→        </div>
+   486→      </ViewSection>
+   487→
+   488→      {/* 7. Three brand-evolution levels */}
+   489→      <ViewSection
+   490→        badge="Brand evolution"
+   491→        title="Three evolution levels — one recommendation"
+   492→        meta="Conservative refinement wins"
+   493→      >
+   494→        <p className="text-[1rem] leading-relaxed text-muted-foreground max-w-[68ch] mb-6">
+   495→          Of three plausible directions, this module recommends <strong>Level 1</strong> as the permanent
+   496→          system. Level 2 is a reversible 6-month growth skin layered on top. Level 3 is seasonal only. A
+   497→          total rebrand is explicitly off the table.
+   498→        </p>
+   499→        <Grid cols={3}>
+   500→          {EVOLUTION_LEVELS.map((lvl) => (
+   501→            <Card key={lvl.level} highlight={lvl.recommended} className="flex flex-col">
+   502→              <div className="flex items-center justify-between mb-3">
+   503→                <Pill tone={lvl.recommended ? "gold" : "forest"}>{lvl.level}</Pill>
+   504→                {lvl.recommended && (
+   505→                  <span className="inline-flex items-center gap-1 font-label text-[0.6rem] tracking-[0.14em] uppercase text-ursa-gold-text">
+   506→                    <ShieldCheck size={12} /> Recommended
+   507→                  </span>
+   508→                )}
+   509→              </div>
+   510→              <h3 className="font-display text-[1.25rem] font-semibold text-ursa-dark-roast mt-0 mb-1 leading-tight">
+   511→                {lvl.name}
+   512→              </h3>
+   513→              <p className="font-label text-[0.66rem] tracking-[0.12em] uppercase text-muted-foreground mb-3">
+   514→                {lvl.horizon}
+   515→              </p>
+   516→              <p className="text-[0.88rem] text-muted-foreground m-0 leading-relaxed mb-4">{lvl.summary}</p>
+   517→              <ul className="space-y-1.5 m-0 p-0 list-none mt-auto">
+   518→                {lvl.outcomes.map((o, i) => (
+   519→                  <li key={i} className="text-[0.82rem] text-ursa-dark-roast/85 leading-snug flex gap-2">
+   520→                    <CheckCircle2 size={14} className="text-ursa-forest-deep mt-0.5 shrink-0" />
+   521→                    <span>{o}</span>
+   522→                  </li>
+   523→                ))}
+   524→              </ul>
+   525→            </Card>
+   526→          ))}
+   527→        </Grid>
+   528→        <Callout tone="gold" title="Why Level 1 is the permanent system">
+   529→          Ursa already does what works in 2025–26: identity over trend-hopping. The bear, the Art Nouveau
+   530→          lean, the two-bar layout, and named drinks add up to a brand competitors cannot copy quickly.
+   531→          Refinement — not replacement — protects that asset and spends the budget on distribution (Module 04)
+   532→          instead of identity churn.
+   533→        </Callout>
+   534→      </ViewSection>
+   535→
+   536→      {/* 8. Consistent / Inconsistent / Distinctive / Missing summary */}
+   537→      <ViewSection
+   538→        badge="Audit summary"
+   539→        title="Consistent · Inconsistent · Distinctive · Missing"
+   540→        meta="The 2×2 every brand audit ends on"
+   541→      >
+   542→        <Grid cols={2}>
+   543→          {CONSISTENT_INCONSISTENT.map((block) => {
+   544→            const Icon = block.icon;
+   545→            return (
+   546→              <Card key={block.title}>
+   547→                <div className="flex items-center gap-2 mb-4">
+   548→                  <Icon size={18} className="text-ursa-dark-roast" />
+   549→                  <Pill tone={block.tone}>{block.title}</Pill>
+   550→                </div>
+   551→                <ul className="space-y-2 m-0 p-0 list-none">
+   552→                  {block.items.map((it, i) => (
+   553→                    <li key={i} className="text-[0.88rem] text-ursa-dark-roast/85 leading-relaxed flex gap-2">
+   554→                      <span className="text-ursa-gold-text mt-1 shrink-0">◆</span>
+   555→                      <span>{it}</span>
+   556→                    </li>
+   557→                  ))}
+   558→                </ul>
+   559→              </Card>
+   560→            );
+   561→          })}
+   562→        </Grid>
+   563→      </ViewSection>
+   564→
+   565→      {/* 9. Spirit-preservation callout */}
+   566→      <ViewSection badge="Guardrail" title="The spirit-preservation principle">
+   567→        <div
+   568→          className="relative overflow-hidden rounded-xl border border-ursa-forest-deep/30 p-6 md:p-8"
+   569→          style={{
+   570→            background:
+   571→              "linear-gradient(135deg, rgba(45,74,54,0.96) 0%, rgba(33,18,8,0.97) 100%)",
+   572→          }}
+   573→        >
+   574→          <div
+   575→            className="absolute inset-0 opacity-30 pointer-events-none"
+   576→            style={{
+   577→              backgroundImage:
+   578→                "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23B8924A' stroke-width='0.5' opacity='0.4'><path d='M0 60 Q30 30 60 60 T120 60'/><path d='M0 90 Q30 60 60 90 T120 90'/></g></svg>\")",
+   579→            }}
+   580→            aria-hidden="true"
+   581→          />
+   582→          <div className="relative flex flex-col md:flex-row md:items-start gap-6">
+   583→            <BearMark size={56} className="text-ursa-gold-text shrink-0" />
+   584→            <div className="flex-1">
+   585→              <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft">
+   586→                Spirit-preservation principle
+   587→              </span>
+   588→              <h3 className="font-display text-2xl md:text-[1.8rem] font-semibold text-ursa-cream mt-2 mb-3 leading-tight">
+   589→                Never choose a generic growth tactic over the bear.
+   590→              </h3>
+   591→              <p className="text-[0.97rem] text-ursa-cream/85 leading-relaxed max-w-[68ch] mb-4">
+   592→                If a recommendation forces a choice between (a) protecting Ursa's existing bear / Art Nouveau
+   593→                / roastery identity and (b) chasing a generic growth tactic, this dossier always chooses (a).
+   594→                The conservative-refinement direction is the permanent system; experimental expressions are
+   595→                kept seasonal and reversible. This is the guardrail every subsequent module inherits.
+   596→              </p>
+   597→              <div className="flex flex-wrap gap-3">
+   598→                <span className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.12em] uppercase text-ursa-cream/80 border border-ursa-gold/40 rounded-full px-2.5 py-1">
+   599→                  <Layers size={12} /> Bear · Gram · Green
+   600→                </span>
+   601→                <span className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.12em] uppercase text-ursa-cream/80 border border-ursa-gold/40 rounded-full px-2.5 py-1">
+   602→                  <ShieldCheck size={12} /> No rebrand · no generic playbook
+   603→                </span>
+   604→                <span className="inline-flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.12em] uppercase text-ursa-cream/80 border border-ursa-gold/40 rounded-full px-2.5 py-1">
+   605→                  <FlaskConical size={12} /> Experiments reversible on 14–30 day stop rules
+   606→                </span>
+   607→              </div>
+   608→            </div>
+   609→          </div>
+   610→        </div>
+   611→      </ViewSection>
+   612→
+   613→      {/* 10. Dossier link + onward nav */}
+   614→      <ViewSection>
+   615→        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+   616→          <div>
+   617→            <SectionBadge>Static dossier</SectionBadge>
+   618→            <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-3 mb-1">
+   619→              Read the printable HTML dossier
+   620→            </h3>
+   621→            <p className="text-[0.9rem] text-muted-foreground m-0 max-w-[58ch]">
+   622→              The full, print-friendly Module 01 dossier is available as browsable HTML — open it for the
+   623→              complete audit tables and printable colour sheets.
+   624→            </p>
+   625→          </div>
+   626→          <div className="flex flex-wrap gap-3">
+   627→            <DossierLinkBanner moduleId="01-brand-audit-and-design-system" />
+   628→            <button
+   629→              onClick={() => navigate("style-guide")}
+   630→              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-ursa-dark-roast text-ursa-cream hover:bg-ursa-espresso transition font-label text-[0.74rem] tracking-[0.1em] uppercase"
+   631→            >
+   632→              <Sparkles size={14} /> Open the interactive style guide <ArrowRight size={14} />
+   633→            </button>
+   634→          </div>
+   635→        </div>
+   636→
+   637→        <ArtNouveauDivider />
+   638→
+   639→        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+   640→          <StatBlock value={PALETTE.length.toString()} label="Verified palette tokens" tone="forest" />
+   641→          <StatBlock value={TYPOGRAPHY.length.toString()} label="Type voices, one rhythm" tone="gold" />
+   642→          <StatBlock value="3" label="Brand-evolution levels" tone="terracotta" />
+   643→          <StatBlock value="Level 1" label="Recommended permanent system" tone="forest" />
+   644→        </div>
+   645→      </ViewSection>
+   646→    </>
+   647→  );
+   648→}
+   649→

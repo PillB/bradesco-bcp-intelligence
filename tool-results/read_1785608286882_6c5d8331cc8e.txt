@@ -1,0 +1,641 @@
+     1→"use client";
+     2→
+     3→import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
+     4→import {
+     5→  BearMark,
+     6→  ArtNouveauDivider,
+     7→  Pill,
+     8→  Callout,
+     9→  StatBlock,
+    10→} from "../ursa-brand";
+    11→import {
+    12→  CONTENT_CONCEPTS,
+    13→  SCRIPTS,
+    14→  REPEATABLE_SERIES,
+    15→  CREATOR_BRIFS,
+    16→  UGC_MECHANISMS,
+    17→} from "@/lib/ursa-data";
+    18→import { useNavigate } from "@/lib/ursa-nav";
+    19→import {
+    20→  Accordion,
+    21→  AccordionItem,
+    22→  AccordionTrigger,
+    23→  AccordionContent,
+    24→} from "@/components/ui/accordion";
+    25→import {
+    26→  Sparkles,
+    27→  TrendingUp,
+    28→  XCircle,
+    29→  PlayCircle,
+    30→  Repeat,
+    31→  Users,
+    32→  ArrowRight,
+    33→  Film,
+    34→  LayoutGrid,
+    35→  CalendarDays,
+    36→  Megaphone,
+    37→  HandHeart,
+    38→  Clapperboard,
+    39→} from "lucide-react";
+    40→
+    41→type ConceptFormat = string;
+    42→
+    43→function formatTone(
+    44→  format: ConceptFormat
+    45→): "default" | "forest" | "gold" | "warn" | "stop" | "ok" {
+    46→  const f = format.toLowerCase();
+    47→  if (f.includes("carousel")) return "gold";
+    48→  if (f.includes("series") || f.includes("story")) return "warn";
+    49→  if (f.includes("ugc")) return "stop";
+    50→  if (f.includes("event")) return "ok";
+    51→  if (f.includes("reel")) return "forest";
+    52→  return "default";
+    53→}
+    54→
+    55→/** Pick an icon that signals the content format visually. */
+    56→function FormatIcon({ format, className }: { format: string; className?: string }) {
+    57→  const f = format.toLowerCase();
+    58→  if (f.includes("carousel")) return <LayoutGrid size={14} className={className} />;
+    59→  if (f.includes("series")) return <Repeat size={14} className={className} />;
+    60→  if (f.includes("story")) return <Sparkles size={14} className={className} />;
+    61→  if (f.includes("ugc")) return <HandHeart size={14} className={className} />;
+    62→  if (f.includes("event")) return <Megaphone size={14} className={className} />;
+    63→  if (f.includes("reel")) return <Film size={14} className={className} />;
+    64→  return <Clapperboard size={14} className={className} />;
+    65→}
+    66→
+    67→const WEEKS = 4;
+    68→const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    69→
+    70→// Pre-populated 4-week pilot calendar — Mon/Wed/Fri Reels, Tue/Thu Carousels,
+    71→// Sat Event/UGC, Sun rest. Daily Stories (Bear's Morning Ritual) run every day
+    72→// alongside the featured concept.
+    73→const SCHEDULE: { week: number; day: number; conceptId: string }[] = [
+    74→  // Week 1
+    75→  { week: 0, day: 0, conceptId: "C01" },
+    76→  { week: 0, day: 1, conceptId: "C10" },
+    77→  { week: 0, day: 2, conceptId: "C03" },
+    78→  { week: 0, day: 3, conceptId: "C04" },
+    79→  { week: 0, day: 4, conceptId: "C05" },
+    80→  { week: 0, day: 5, conceptId: "C15" },
+    81→  // Week 2
+    82→  { week: 1, day: 0, conceptId: "C09" },
+    83→  { week: 1, day: 1, conceptId: "C26" },
+    84→  { week: 1, day: 2, conceptId: "C06" },
+    85→  { week: 1, day: 3, conceptId: "C11" },
+    86→  { week: 1, day: 4, conceptId: "C13" },
+    87→  { week: 1, day: 5, conceptId: "C16" },
+    88→  // Week 3
+    89→  { week: 2, day: 0, conceptId: "C14" },
+    90→  { week: 2, day: 1, conceptId: "C21" },
+    91→  { week: 2, day: 2, conceptId: "C18" },
+    92→  { week: 2, day: 3, conceptId: "C12" },
+    93→  { week: 2, day: 4, conceptId: "C22" },
+    94→  { week: 2, day: 5, conceptId: "C07" },
+    95→  // Week 4
+    96→  { week: 3, day: 0, conceptId: "C19" },
+    97→  { week: 3, day: 1, conceptId: "C24" },
+    98→  { week: 3, day: 2, conceptId: "C25" },
+    99→  { week: 3, day: 3, conceptId: "C08" },
+   100→  { week: 3, day: 4, conceptId: "C20" },
+   101→  { week: 3, day: 5, conceptId: "C23" },
+   102→];
+   103→
+   104→function conceptById(id: string) {
+   105→  return CONTENT_CONCEPTS.find((c) => c.id === id);
+   106→}
+   107→
+   108→export function ViralView() {
+   109→  const navigate = useNavigate();
+   110→
+   111→  return (
+   112→    <>
+   113→      <ViewHero
+   114→        eyebrow="Module 05 · Viral Content Laboratory"
+   115→        title={
+   116→          <>
+   117→            Short-form video, written for the bear, the two bars, and a Miraflores block.
+   118→          </>
+   119→        }
+   120→        lede={
+   121→          <>
+   122→            Twenty-six content concepts and ten production-ready scripts — every one anchored in a verified Ursa asset: the named drinks, the in-house roastery, the bear mark, and Alcanfores 183. Built to learn cheaply, not to chase virality.
+   123→          </>
+   124→        }
+   125→        meta={[
+   126→          { label: "Concepts", value: "26" },
+   127→          { label: "Scripts", value: "10" },
+   128→          { label: "Series", value: "3" },
+   129→          { label: "Pilot", value: "4 weeks" },
+   130→        ]}
+   131→      />
+   132→
+   133→      {/* Disclaimer callout — prominent, immediately under hero */}
+   134→      <ViewSection className="border-b-0 pt-0 -mt-2">
+   135→        <Callout tone="stop" title="A disclaimer before we start">
+   136→          <strong>Virality is not guaranteed.</strong> This system is designed to{" "}
+   137→          <em>learn cheaply</em>: post small, measure honestly, amplify what works, and
+   138→          kill what doesn&apos;t. No agency retainers, no bought followers, no fabricated
+   139→          reactions — only the bear, the bar, and the data we earn.
+   140→        </Callout>
+   141→      </ViewSection>
+   142→
+   143→      {/* Section 01 — 26 content concepts */}
+   144→      <ViewSection
+   145→        badge="Section 01"
+   146→        title="The 26 content concepts"
+   147→        meta="Browse · assign · reuse"
+   148→      >
+   149→        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+   150→          Each concept is small, filmable in-house, and rooted in a real Ursa detail — a
+   151→          named drink, the weighing ritual, a Miraflores landmark, or the bear itself.
+   152→          None require paid actors; all can be shot on a phone in under an hour.
+   153→        </p>
+   154→        <Grid cols={3}>
+   155→          {CONTENT_CONCEPTS.map((c) => (
+   156→            <Card key={c.id} className="p-5 flex flex-col gap-3 group relative overflow-hidden">
+   157→              {/* Top accent bar colored by format tone */}
+   158→              <span
+   159→                className="absolute top-0 left-0 right-0 h-[3px]"
+   160→                style={{
+   161→                  background:
+   162→                    formatTone(c.format) === "forest" ? "var(--color-ursa-forest-deep)" :
+   163→                    formatTone(c.format) === "gold" ? "var(--color-ursa-gold)" :
+   164→                    formatTone(c.format) === "warn" ? "linear-gradient(90deg,var(--color-ursa-gold),var(--color-ursa-terracotta))" :
+   165→                    formatTone(c.format) === "stop" ? "var(--color-ursa-terracotta)" :
+   166→                    formatTone(c.format) === "ok" ? "var(--color-ursa-forest)" :
+   167→                    "var(--color-ursa-line)",
+   168→                }}
+   169→              />
+   170→              <div className="flex items-start justify-between gap-2">
+   171→                <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text">
+   172→                  {c.id}
+   173→                </span>
+   174→                <Pill tone={formatTone(c.format)}>
+   175→                  <FormatIcon format={c.format} className="shrink-0" />
+   176→                  {c.format}
+   177→                </Pill>
+   178→              </div>
+   179→              <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast leading-snug">
+   180→                {c.title}
+   181→              </h3>
+   182→              <p className="text-[0.85rem] text-muted-foreground leading-relaxed">
+   183→                {c.hook}
+   184→              </p>
+   185→            </Card>
+   186→          ))}
+   187→        </Grid>
+   188→      </ViewSection>
+   189→
+   190→      {/* Section 02 — 10 complete scripts */}
+   191→      <ViewSection
+   192→        badge="Section 02"
+   193→        title="Ten production-ready scripts"
+   194→        meta="Beats · Spanish caption · CTA"
+   195→      >
+   196→        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+   197→          Each script is filmed in the café by the baristas themselves. The beats are the
+   198→          edit; the Spanish caption and CTA are customer-facing and posted verbatim (Peru
+   199→          Spanish). Hook first, brand last.
+   200→        </p>
+   201→        <Accordion
+   202→          type="single"
+   203→          collapsible
+   204→          className="bg-card border border-ursa-line-soft rounded-xl px-5"
+   205→        >
+   206→          {SCRIPTS.map((s) => {
+   207→            const concept = conceptById(s.concept);
+   208→            return (
+   209→              <AccordionItem key={s.id} value={s.id} className="border-0">
+   210→                <AccordionTrigger className="hover:no-underline">
+   211→                  <div className="flex items-start gap-4 flex-1 text-left">
+   212→                    <span className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-ursa-gold-text mt-1 shrink-0">
+   213→                      {s.id}
+   214→                    </span>
+   215→                    <div className="flex-1 min-w-0">
+   216→                      <div className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast leading-snug">
+   217→                        {s.title}
+   218→                      </div>
+   219→                      <div className="text-[0.82rem] text-muted-foreground mt-0.5">
+   220→                        {s.hook}
+   221→                      </div>
+   222→                      <div className="flex items-center gap-2 mt-2 flex-wrap">
+   223→                        <Pill tone="default">{s.duration}</Pill>
+   224→                        {concept && (
+   225→                          <Pill tone={formatTone(concept.format)}>
+   226→                            {concept.format}
+   227→                          </Pill>
+   228→                        )}
+   229→                      </div>
+   230→                    </div>
+   231→                  </div>
+   232→                </AccordionTrigger>
+   233→                <AccordionContent>
+   234→                  <div className="grid md:grid-cols-2 gap-6 pt-2">
+   235→                    <div>
+   236→                      <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-forest-deep mb-3">
+   237→                        Beats
+   238→                      </div>
+   239→                      <ol className="list-none space-y-2.5 m-0 p-0">
+   240→                        {s.beats.map((b, i) => (
+   241→                          <li
+   242→                            key={i}
+   243→                            className="flex gap-3 text-[0.92rem] leading-relaxed"
+   244→                          >
+   245→                            <span className="font-display font-semibold text-ursa-gold-text w-6 shrink-0 text-base">
+   246→                              {String(i + 1).padStart(2, "0")}
+   247→                            </span>
+   248→                            <span className="text-ursa-dark-roast">{b}</span>
+   249→                          </li>
+   250→                        ))}
+   251→                      </ol>
+   252→                    </div>
+   253→                    <div className="flex flex-col gap-4">
+   254→                      <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4 border border-ursa-espresso">
+   255→                        <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-gold-text-soft mb-2">
+   256→                          Caption · ES (Peru) · customer-facing
+   257→                        </div>
+   258→                        <p className="font-body text-[0.95rem] leading-relaxed m-0">
+   259→                          {s.caption}
+   260→                        </p>
+   261→                      </div>
+   262→                      <div className="bg-ursa-dark-roast text-ursa-cream rounded-lg p-4">
+   263→                        <div className="font-label text-[0.66rem] tracking-[0.18em] uppercase text-ursa-leaf mb-2">
+   264→                          CTA · ES (Peru) · customer-facing
+   265→                        </div>
+   266→                        <p className="font-body text-[0.95rem] leading-relaxed m-0">
+   267→                          {s.cta}
+   268→                        </p>
+   269→                      </div>
+   270→                    </div>
+   271→                  </div>
+   272→                </AccordionContent>
+   273→              </AccordionItem>
+   274→            );
+   275→          })}
+   276→        </Accordion>
+   277→      </ViewSection>
+   278→
+   279→      {/* Section 03 — 3 repeatable series */}
+   280→      <ViewSection
+   281→        badge="Section 03"
+   282→        title="Three repeatable series"
+   283→        meta="Rhythm beats one-offs"
+   284→      >
+   285→        <Grid cols={3}>
+   286→          {REPEATABLE_SERIES.map((s) => (
+   287→            <Card key={s.name} className="flex flex-col gap-3">
+   288→              <div className="flex items-center justify-between gap-2">
+   289→                <Repeat size={20} className="text-ursa-forest-deep" />
+   290→                <Pill tone={s.cadence.toLowerCase().includes("daily") ? "forest" : "warn"}>
+   291→                  {s.cadence}
+   292→                </Pill>
+   293→              </div>
+   294→              <h3 className="font-display text-[1.15rem] font-semibold text-ursa-dark-roast m-0">
+   295→                {s.name}
+   296→              </h3>
+   297→              <p className="text-[0.88rem] text-muted-foreground leading-relaxed m-0">
+   298→                {s.concept}
+   299→              </p>
+   300→              <div className="border-t border-ursa-line-soft pt-3 mt-auto">
+   301→                <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground mb-0.5">
+   302→                  Episodes
+   303→                </div>
+   304→                <div className="text-[0.85rem] text-ursa-dark-roast">{s.episodes}</div>
+   305→              </div>
+   306→            </Card>
+   307→          ))}
+   308→        </Grid>
+   309→      </ViewSection>
+   310→
+   311→      {/* Section 04 — 3 creator briefs */}
+   312→      <ViewSection
+   313→        badge="Section 04"
+   314→        title="Three creator briefs"
+   315→        meta="Briefs, not briefcases"
+   316→      >
+   317→        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+   318→          Three creator archetypes, briefed with the same assets and the same rules: lead
+   319→          with the bear, the craft, or the subscription — never with a discount. The metric
+   320→          is the only thing that matters; follower count is a proxy, not the goal.
+   321→        </p>
+   322→        <Grid cols={3}>
+   323→          {CREATOR_BRIFS.map((b) => (
+   324→            <Card key={b.name} className="flex flex-col gap-3 p-6">
+   325→              <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast leading-snug m-0">
+   326→                {b.name}
+   327→              </h3>
+   328→              <BriefRow label="Objective" value={b.objective} />
+   329→              <BriefRow label="Deliverable" value={b.deliverable} />
+   330→              <BriefRow label="Key message" value={b.keyMessage} />
+   331→              <BriefRow label="Assets provided" value={b.assetsProvided} />
+   332→              <div className="border-t border-ursa-gold/30 bg-ursa-gold/10 -mx-6 -mb-6 px-6 py-3 rounded-b-xl mt-auto">
+   333→                <div className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-medium-roast mb-0.5">
+   334→                  Metric
+   335→                </div>
+   336→                <div className="text-[0.88rem] text-ursa-dark-roast font-medium">
+   337→                  {b.metric}
+   338→                </div>
+   339→              </div>
+   340→            </Card>
+   341→          ))}
+   342→        </Grid>
+   343→      </ViewSection>
+   344→
+   345→      {/* Section 05 — 3 UGC mechanisms */}
+   346→      <ViewSection
+   347→        badge="Section 05"
+   348→        title="Three UGC mechanisms"
+   349→        meta="Consent first · always"
+   350→      >
+   351→        <Grid cols={3}>
+   352→          {UGC_MECHANISMS.map((u) => (
+   353→            <Card key={u.name} className="flex flex-col gap-3">
+   354→              <div className="flex items-center justify-between gap-2">
+   355→                <Users size={20} className="text-ursa-terracotta-text" />
+   356→                <Pill tone="stop">UGC</Pill>
+   357→              </div>
+   358→              <h3 className="font-display text-[1.05rem] font-semibold text-ursa-dark-roast m-0">
+   359→                {u.name}
+   360→              </h3>
+   361→              <p className="text-[0.88rem] text-muted-foreground leading-relaxed m-0">
+   362→                {u.mechanism}
+   363→              </p>
+   364→              <div className="border-l-2 border-ursa-terracotta pl-3 bg-ursa-terracotta/5 py-2 rounded-r">
+   365→                <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-ursa-terracotta-text mb-1">
+   366→                  Consent
+   367→                </div>
+   368→                <p className="text-[0.82rem] text-ursa-dark-roast leading-snug m-0">
+   369→                  {u.consent}
+   370→                </p>
+   371→              </div>
+   372→            </Card>
+   373→          ))}
+   374→        </Grid>
+   375→      </ViewSection>
+   376→
+   377→      <ArtNouveauDivider />
+   378→
+   379→      {/* Section 06 — Four-week pilot calendar */}
+   380→      <ViewSection
+   381→        badge="Section 06"
+   382→        title="The four-week pilot calendar"
+   383→        meta="One concept per day · daily Stories"
+   384→      >
+   385→        <div className="flex flex-wrap items-center gap-3 mb-6">
+   386→          <span className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-muted-foreground">
+   387→            Format key:
+   388→          </span>
+   389→          <Pill tone="forest">Reel</Pill>
+   390→          <Pill tone="gold">Carousel</Pill>
+   391→          <Pill tone="warn">Series</Pill>
+   392→          <Pill tone="stop">UGC</Pill>
+   393→          <Pill tone="ok">Event</Pill>
+   394→        </div>
+   395→
+   396→        <div className="bg-card border border-ursa-line-soft rounded-xl p-4 md:p-6 overflow-x-auto ursa-scroll">
+   397→          <div className="grid grid-cols-7 gap-1.5 md:gap-2 min-w-[680px]">
+   398→            {DAYS.map((d) => (
+   399→              <div
+   400→                key={d}
+   401→                className="font-label text-[0.66rem] tracking-[0.16em] uppercase text-ursa-medium-roast text-center pb-2 border-b-2 border-ursa-gold/30"
+   402→              >
+   403→                {d}
+   404→              </div>
+   405→            ))}
+   406→            {[...Array(WEEKS)].map((_, w) =>
+   407→              DAYS.map((_, d) => {
+   408→                const entry = SCHEDULE.find((s) => s.week === w && s.day === d);
+   409→                const concept = entry ? conceptById(entry.conceptId) : undefined;
+   410→                // Add a subtle week separator after Sunday (last day of each week row)
+   411→                const isWeekEnd = d === 6;
+   412→                if (concept) {
+   413→                  const tone = formatTone(concept.format);
+   414→                  const toneBg: Record<string, string> = {
+   415→                    forest: "bg-ursa-dark-roast/8 border-ursa-forest-deep/30",
+   416→                    gold: "bg-ursa-gold/15 border-ursa-gold/40",
+   417→                    warn: "bg-ursa-gold-soft/20 border-ursa-gold/40",
+   418→                    stop: "bg-ursa-terracotta/8 border-ursa-terracotta/30",
+   419→                    ok: "bg-ursa-medium-roast/10 border-ursa-forest-deep/30",
+   420→                    default: "bg-muted border-ursa-line-soft",
+   421→                  };
+   422→                  return (
+   423→                    <div
+   424→                      key={`${w}-${d}`}
+   425→                      className={`rounded-lg p-2.5 border ${toneBg[tone]} min-h-[100px] flex flex-col gap-1 transition hover:shadow-md hover:-translate-y-0.5 ${isWeekEnd ? "mr-2 md:mr-3" : ""} group cursor-default`}
+   426→                    >
+   427→                      <div className="flex items-center justify-between">
+   428→                        <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
+   429→                          W{w + 1} · {DAYS[d]}
+   430→                        </span>
+   431→                        <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-ursa-medium-roast">
+   432→                          {concept.id}
+   433→                        </span>
+   434→                      </div>
+   435→                      <div className="text-[0.78rem] font-medium text-ursa-dark-roast leading-snug">
+   436→                        {concept.title}
+   437→                      </div>
+   438→                      <div className="mt-auto flex items-center gap-1">
+   439→                        <FormatIcon format={concept.format} className="text-muted-foreground" />
+   440→                        <span className="font-label text-[0.55rem] tracking-[0.08em] uppercase text-muted-foreground">
+   441→                          {concept.format.split(" ")[0]}
+   442→                        </span>
+   443→                      </div>
+   444→                    </div>
+   445→                  );
+   446→                }
+   447→                // Empty cell — rest day, Stories only
+   448→                return (
+   449→                  <div
+   450→                    key={`${w}-${d}`}
+   451→                    className={`rounded-lg p-2.5 border border-dashed border-ursa-line min-h-[100px] flex flex-col items-center justify-center gap-1 bg-ursa-cream/40 ${isWeekEnd ? "mr-2 md:mr-3" : ""}`}
+   452→                  >
+   453→                    <span className="font-label text-[0.6rem] tracking-[0.12em] uppercase text-muted-foreground">
+   454→                      W{w + 1} · {DAYS[d]}
+   455→                    </span>
+   456→                    <span className="text-[0.7rem] text-muted-foreground italic text-center">
+   457→                      Rest day · Stories only
+   458→                    </span>
+   459→                  </div>
+   460→                );
+   461→              })
+   462→            )}
+   463→          </div>
+   464→          <div className="mt-4 pt-3 border-t border-ursa-line-soft flex items-center gap-2 text-[0.78rem] text-muted-foreground">
+   465→            <BearMark size={18} className="text-ursa-gold-text" />
+   466→            <span>
+   467→              <strong className="text-ursa-dark-roast">Every day:</strong> Bear&apos;s
+   468→              Morning Ritual runs in Stories (C17) alongside the featured concept. Two Reels
+   469→              per week is the maximum sustainable pace for one barista with a phone.
+   470→            </span>
+   471→          </div>
+   472→        </div>
+   473→
+   474→        <Callout tone="gold" title="Why this cadence">
+   475→          Mon/Wed/Fri = Reels (the discovery engine). Tue/Thu = Carousels (saves and
+   476→          shares). Sat = Event or UGC (the human moment). Sundays = rest + Bear&apos;s
+   477→          Morning Ritual in Stories. The cadence is deliberately slower than what agencies
+   478→          recommend — we are buying data, not impressions.
+   479→        </Callout>
+   480→      </ViewSection>
+   481→
+   482→      {/* Section 07 — Test & amplification method */}
+   483→      <ViewSection
+   484→        badge="Section 07"
+   485→        title="The test & amplification method"
+   486→        meta="48h · 2× · 3× · kill at 14d"
+   487→      >
+   488→        <p className="text-[0.95rem] text-muted-foreground max-w-[68ch] mb-6">
+   489→          Every post has a 48-hour window. We don&apos;t optimise for likes. We optimise for{" "}
+   490→          <strong>saves</strong>, <strong>shares</strong>, and{" "}
+   491→          <strong>profile visits</strong> — the only signals that predict a future
+   492→          customer.
+   493→        </p>
+   494→        <div className="grid md:grid-cols-4 gap-4">
+   495→          <MethodStep
+   496→            n="01"
+   497→            title="Post & wait 48h"
+   498→            body="Post on the cadence above. Measure saves, shares, and profile visits in the first 48 hours. Establish a rolling baseline after the first 6 posts."
+   499→            tone="forest"
+   500→            icon={<PlayCircle size={18} />}
+   501→          />
+   502→          <MethodStep
+   503→            n="02"
+   504→            title="2× baseline → boost"
+   505→            body="If a post beats the baseline by 2×, boost it with S/. 50–150 paid. Stop spend when cost-per-save exceeds S/. 4."
+   506→            tone="gold"
+   507→            icon={<TrendingUp size={18} />}
+   508→          />
+   509→          <MethodStep
+   510→            n="03"
+   511→            title="3× baseline → commission"
+   512→            body="If a post beats the baseline by 3×, commission a follow-up within 7 days: same character, same format, a new angle. The bear just gave you a hit — make another."
+   513→            tone="warn"
+   514→            icon={<Sparkles size={18} />}
+   515→          />
+   516→          <MethodStep
+   517→            n="04"
+   518→            title="Below baseline at 14d → kill"
+   519→            body="Anything below baseline after 14 days is killed — no second guesses, no boosting. Replace with a new concept from the 26."
+   520→            tone="stop"
+   521→            icon={<XCircle size={18} />}
+   522→          />
+   523→        </div>
+   524→
+   525→        <div className="grid md:grid-cols-3 gap-4 mt-6">
+   526→          <Card className="p-5">
+   527→            <StatBlock
+   528→              value="48h"
+   529→              label="Window to measure saves / shares / profile visits"
+   530→              tone="forest"
+   531→            />
+   532→          </Card>
+   533→          <Card className="p-5">
+   534→            <StatBlock
+   535→              value="S/. 50–150"
+   536→              label="Paid boost budget per 2× winner"
+   537→              tone="gold"
+   538→            />
+   539→          </Card>
+   540→          <Card className="p-5">
+   541→            <StatBlock
+   542→              value="14d"
+   543→              label="Kill threshold for sub-baseline posts"
+   544→              tone="terracotta"
+   545→            />
+   546→          </Card>
+   547→        </div>
+   548→
+   549→        <Callout tone="forest" title="What we don't measure">
+   550→          Likes. Follower count. Reach. These are vanity metrics that don&apos;t predict a
+   551→          customer walking into Alcanfores 183. Saves, shares, profile visits, and
+   552→          directions clicks do.
+   553→        </Callout>
+   554→      </ViewSection>
+   555→
+   556→      {/* Closing — Dossier link banner + cross-link to interactive planner */}
+   557→      <ViewSection className="border-b-0">
+   558→        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+   559→          <div className="flex items-start gap-4">
+   560→            <BearMark size={40} className="text-ursa-dark-roast shrink-0 mt-1" />
+   561→            <div>
+   562→              <h3 className="font-display text-[1.4rem] font-semibold text-ursa-dark-roast mb-2 m-0">
+   563→                The full viral dossier
+   564→              </h3>
+   565→              <p className="text-[0.9rem] text-muted-foreground max-w-[58ch] m-0">
+   566→                Open the printable HTML for the complete Module 05 — concepts, scripts,
+   567→                series, briefs, UGC mechanisms, the pilot calendar, and the amplification
+   568→                method.
+   569→              </p>
+   570→            </div>
+   571→          </div>
+   572→          <div className="flex flex-col gap-2 items-start md:items-end">
+   573→            <DossierLinkBanner moduleId="05-viral-content-laboratory" />
+   574→            <button
+   575→              onClick={() => navigate("content-calendar")}
+   576→              className="inline-flex items-center gap-2 text-[0.8rem] text-ursa-gold-text hover:text-ursa-dark-roast transition font-label tracking-[0.12em] uppercase"
+   577→            >
+   578→              Open the interactive Content Calendar tool
+   579→              <ArrowRight size={14} />
+   580→            </button>
+   581→          </div>
+   582→        </div>
+   583→      </ViewSection>
+   584→    </>
+   585→  );
+   586→}
+   587→
+   588→function BriefRow({ label, value }: { label: string; value: string }) {
+   589→  return (
+   590→    <div>
+   591→      <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground mb-0.5">
+   592→        {label}
+   593→      </div>
+   594→      <div className="text-[0.85rem] text-ursa-dark-roast leading-snug">{value}</div>
+   595→    </div>
+   596→  );
+   597→}
+   598→
+   599→function MethodStep({
+   600→  n,
+   601→  title,
+   602→  body,
+   603→  tone,
+   604→  icon,
+   605→}: {
+   606→  n: string;
+   607→  title: string;
+   608→  body: string;
+   609→  tone: "forest" | "gold" | "warn" | "stop";
+   610→  icon: React.ReactNode;
+   611→}) {
+   612→  const tones: Record<string, string> = {
+   613→    forest: "border-ursa-forest-deep/40 bg-ursa-dark-roast/5",
+   614→    gold: "border-ursa-gold/50 bg-ursa-gold/8",
+   615→    warn: "border-ursa-gold-soft bg-ursa-gold-soft/15",
+   616→    stop: "border-ursa-terracotta/40 bg-ursa-terracotta/8",
+   617→  };
+   618→  const iconTones: Record<string, string> = {
+   619→    forest: "text-ursa-forest-deep",
+   620→    gold: "text-ursa-gold-text",
+   621→    warn: "text-ursa-medium-roast",
+   622→    stop: "text-ursa-terracotta-text",
+   623→  };
+   624→  return (
+   625→    <div
+   626→      className={`rounded-lg border-2 p-5 flex flex-col gap-2 ${tones[tone]}`}
+   627→    >
+   628→      <div className="flex items-center justify-between">
+   629→        <span className="font-display text-[1.8rem] font-semibold leading-none text-ursa-dark-roast">
+   630→          {n}
+   631→        </span>
+   632→        <span className={iconTones[tone]}>{icon}</span>
+   633→      </div>
+   634→      <h3 className="font-display text-[1rem] font-semibold text-ursa-dark-roast m-0">
+   635→        {title}
+   636→      </h3>
+   637→      <p className="text-[0.82rem] text-ursa-dark-roast leading-relaxed m-0">{body}</p>
+   638→    </div>
+   639→  );
+   640→}
+   641→

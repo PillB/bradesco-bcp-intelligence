@@ -1,0 +1,23 @@
+{
+  "schema": "ursa-run-state/v1",
+  "last_updated": "2026-08-01",
+  "current_macrocycle": 10,
+  "macrocycles_completed": 10,
+  "current_cycle_phase": "complete",
+  "research_rounds_completed": 60,
+  "expert_challenges_completed": 30,
+  "implementation_stages_completed": 10,
+  "validation_rounds_completed": 10,
+  "last_passing_test_state": {
+    "lint": "pass",
+    "dev_server": "200",
+    "views_error_free": 25,
+    "mobile_overflow_clean": true,
+    "framework_labels_applied": true,
+    "provenance_labels_applied": true,
+    "evidence_re_graded": true,
+    "loyalty_claim_narrowed": true
+  },
+  "final_git_commit": "pending",
+  "resume_instruction": "All 10 macrocycles complete. Project is in release-candidate state. Next steps: owner provides missing data (POS, brand assets, itsloyaleats analytics), then re-run validation with real data replacing assumptions."
+}

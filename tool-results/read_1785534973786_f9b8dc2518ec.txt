@@ -1,0 +1,158 @@
+   200→    - **Social**: `InstagramPostProto` (1:1 with bear watermark + Art Nouveau gold border + corner flourishes + italic Cormorant headline + "Un gramo a la vez" tagline + IG header/caption); `CarouselProto` (active slide preview + dot indicators + thumbnail strip of all 3 slides — origin story / drink name / bear fact); `StoryProto` (two 9:16 Story variants with progress bar, brand label, big display title, CTA pill, forest-to-roast gradient); `ReelCoverProto` (three 9:16 covers with bold hook text, bear watermark, play button — V60/Aeropress/Chemex).
+   201→    - **Print**: `MenuProto` (A4 menu with double gold border, centered bear crest, italic Cormorant section headers with hairline rules, dotted leaders, verified items Ursagroni/Filtrado Lonya/Maracumango marked with gold star); `ProductCardProto` (5:7 retail bean card — name, description, price, origin note, V60 recipe, bear mark); `TableSignProto` (5:3 landscape "Bear recommends" — Ursagroni + Financier de pera); `EventFlyerProto` (1:1 cupping-night flyer with bear mark, Art Nouveau botanical border, date/time/price).
+   202→    - **Packaging**: `BeanBagLabelProto` (3:4 vertical label, forest-to-roast gradient, gold seal with roast date 27·07·26, origin/altitude/process/varietal/weight, "Un gramo a la vez"); `BeanInfoCardProto` (5:7 inside-bag card with origin story, altitude, process, varietal, tasting notes "azúcar panela, manzana verde, final de cacao", V60 brewing recipe); `LoyaltyCardProto` (8:5 card with Ursa Major constellation top, 6-stamp paw punch, member name field "María L.", bear mark).
+   203→    - **Digital**: `LandingHeroProto` (desktop browser-frame mockup with traffic-light dots + URL bar + brand mark + "Recibe el grano 24 horas antes." value proposition + email input + "Únete" CTA); `EmailHeaderProto` (banner with bear mark, wavy gold line texture, headline "El grano de esta semana", gold CTA pill "Pídelo en barra"); `GbpHeroProto` (16:9 GBP cover photo + 16:9 Rappi hero image, both with bear watermark, brand label, address, CTA).
+   204→  - **Section 6.3 — Recap** with 4 StatBlocks (15 touchpoints / 3 levels / 0 logo alterations / 1 original concept mark) + 3-card grid (Identity protected / Print-ready spec / Cheaply testable) + forest Callout on why prototypes beat descriptions + Card with navigate("brand") button to verify against the brand audit.
+   205→  - **Section 6.4 — Skeptical pass** (adapted from dossier §6.14): three Quote-iconed cards answering "How does the owner use them?", "The real bear might look different", "Level 3 is too cute" — each with the dossier's honest reply. Followed by three mini stat cards (cupping nights, Bear recommends window, home base address).
+   206→  - **Section 6.5 — DossierLinkBanner** for `06-creative-campaign-prototypes` with summary + CupGlyph footer signing off "Un gramo a la vez."
+   207→  - Used `ArtNouveauDivider` between every major section (6.1, 6.2, 6.3, 6.4, 6.5) for the ornamental rhythm required by the spec.
+   208→  - All prototypes use only the verified Ursa palette (browns, greens, cream, gold, terracotta — no blue/indigo) via Tailwind tokens and inline-style gradients when a colour-blend was required.
+   209→- Lint: `bun run lint` passes on `creative-view.tsx` (zero errors in the new file). The only remaining project-wide lint error is the pre-existing macOS metadata artifact at `upload/ursa_extracted/__MACOSX/ursaCoffeeMarketingAndDesign/._ursa.js` — not in scope.
+   210→- Dev server: `dev.log` shows repeated `✓ Compiled` entries after the writes; the route renders cleanly inside the existing hash-router at `#/creative`.
+   211→- Detailed work record also written to `/agent-ctx/2-F-creative-prototypes-view.md`.
+   212→
+   213→Stage Summary:
+   214→- One file created (`/home/z/my-project/src/components/ursa/views/creative-view.tsx`) with the exact named export `CreativeView` and `"use client"` directive. No other files modified. No test files created.
+   215→- All 18 required elements present: hero with the three required meta items; three brand-evolution level cards (each with mini visual sample) + recommendation callout; Instagram post (1:1) with bear mark + Art Nouveau border + Cormorant headline + tagline; 3-slide carousel with dot indicators; 9:16 Story with progress bar + CTA + forest-to-roast gradient; 9:16 Reel cover with hook + bear watermark + play button; printed menu with double gold border + bear crest + italic section headers + dotted leaders + verified items (Ursagroni, Filtrado Lonya, etc.); product card with bear mark; table sign with Bear-recommends pairing; loyalty card with 6 stamps + member name field; bean bag label with gold seal + origin/altitude/process/roast date + tagline; bean info card with origin story + 3 tasting notes + brewing suggestion; event flyer with bear mark + Art Nouveau border; Google/Rappi hero imagery mockups; landing page hero in desktop frame with value prop + CTA; email header with bear mark + headline + CTA button; disclaimer callout (placed both at the top and reinforced in the recap); DossierLinkBanner for `06-creative-campaign-prototypes`.
+   216→- Tabs (Social / Print / Packaging / Digital) keep the 13 prototypes navigable. Every prototype is visually distinct, uses the Ursa palette, and is genuinely useful as a production reference — the owner can screenshot any prototype and hand it to a printer.
+   217→- Follows the established pattern from prior agents: shared `ViewHero / ViewSection / Card / Grid / DossierLinkBanner` shell + `Pill / Callout / StatBlock / SectionBadge / BearMark / ArtNouveauDivider / CupGlyph` brand primitives + shadcn `Tabs` for organisation + `lucide-react` icons for accents. Ready for orchestrator integration with the hash-router shell.
+   218→
+   219→---
+   220→Task ID: 2-E
+   221→Agent: Viral & Content Calendar view builder (subagent)
+   222→Task: Build TWO React view files for the Ursa Coffee Strategic Command Center — `viral-view.tsx` (Module 05 · Viral Content Laboratory) and `content-calendar-view.tsx` (Extra Tool T3 · Interactive Content Calendar & Script Library).
+   223→
+   224→Work Log:
+   225→- Read worklog.md (tasks 1, 2-A through 2-D), BUILD_SPEC.md, view-shell.tsx, ursa-brand.tsx, ursa-data.ts (CONTENT_CONCEPTS, SCRIPTS, REPEATABLE_SERIES, CREATOR_BRIFS, UGC_MECHANISMS), ursa-nav.ts, budget-view.tsx (pattern reference), and verified shadcn Accordion/Dialog/Input/Button APIs.
+   226→- File 1 — `src/components/ursa/views/viral-view.tsx` (ViralView):
+   227→  • Hero with eyebrow "Module 05 · Viral Content Laboratory", title "Short-form video, written for the bear, the two bars, and a Miraflores block.", meta: 26 concepts · 10 scripts · 3 series · 4-week pilot.
+   228→  • Prominent stop-tone disclaimer callout immediately under hero with the exact required text: "Virality is not guaranteed. This system is designed to learn cheaply."
+   229→  • Section 01 — 26 content concepts in a 3-col grid; each card shows concept ID (C01–C26) in gold label-font, title in Cormorant display, format Pill (tone derived from format string via shared `formatTone` helper), and the verified-Ursa-asset hook.
+   230→  • Section 02 — 10 production-ready scripts in an Accordion. Each item header: script ID + title + hook + duration pill + linked-concept format pill. Expanded content: 2-column layout with numbered beats (gold 01–05 numerals) on the left and two distinct styled blocks on the right for the Spanish caption (dark-roast bg, cream text) and CTA (forest-deep bg, cream text), both marked "ES (Peru) · customer-facing".
+   231→  • Section 03 — 3 repeatable series (3-col grid) with Repeat icon, cadence Pill, name, concept, and episodes footer.
+   232→  • Section 04 — 3 creator briefs (3-col grid) with BriefRow entries (Objective/Deliverable/Key message/Assets) and a gold-tinted Metric footer strip.
+   233→  • Section 05 — 3 UGC mechanisms (3-col grid) with Users icon, UGC pill, mechanism, and a terracotta-bordered Consent callout strip.
+   234→  • Section 06 — Four-week pilot calendar as a CSS grid (4 weeks × 7 days, min-width 680px with overflow-x-auto for mobile). Each cell shows week/day label, concept ID + title + format Pill (color-coded by format tone). Sundays are dashed-border "Rest day · Stories only" cells. Footer note explains Bear's Morning Ritual (C17) runs daily in Stories alongside featured concept. Format-key Pill legend above; "Why this cadence" gold callout below.
+   235→  • Section 07 — Test & amplification method as a 4-step grid: 01 Post & wait 48h (forest), 02 2× baseline → boost S/. 50–150 (gold), 03 3× baseline → commission follow-up (warn), 04 Below baseline at 14d → kill (stop). Plus 3 StatBlocks (48h / S/. 50–150 / 14d) and a forest callout "What we don't measure" (likes, follower count, reach).
+   236→  • Closing — BearMark + heading + `DossierLinkBanner` for `05-viral-content-laboratory` + cross-link button to navigate to the interactive Content Calendar tool.
+   237→  • ArtNouveauDivider placed between Section 05 and Section 06.
+   238→- File 2 — `src/components/ursa/tools/content-calendar-view.tsx` (ContentCalendarView, "use client", useState/useMemo):
+   239→  • Hero with eyebrow "Extra Tool T3 · Interactive", title "Content Calendar & Script Library", meta: 26 · 10 · 3 · 4-week pilot.
+   240→  • Section 01 — Stats: 3 StatBlocks (26 concepts / 10 scripts / 3 series) + "Concepts by format" panel with overlapping-count horizontal bars for All/Reel/Carousel/Series/UGC/Event, colored by format tone.
+   241→  • Section 02 — Filterable concept library: search Input (matches title/hook/ID) + 6 filter pills (All/Reel/Carousel/Series/UGC/Event). 3-col grid of concept cards. Clicking a card opens a Dialog showing ID, format pill, title, hook, and a "How to use this concept" usage guide; footer buttons Close + "Open Module 05" (navigates to `viral`).
+   242→  • Section 03 — Script reader Accordion: each item shows beats (large gold numerals) + Spanish caption (dark-roast bg) with a "Copy caption" Button (clipboard + 1.8s Check/Copied feedback) + Spanish CTA (forest-deep bg).
+   243→  • Section 04 — Interactive weekly planner: 4-week × 7-day grid where each cell is a button that opens a concept-picker Dialog. Pre-populated with `INITIAL_ASSIGNMENTS` (Mon–Sat featured concept + Sun C17 Stories across 4 weeks — same realistic schedule as Module 05). Cells show up to 3 concept chips with ID + title; "+N more" overflow. Picker Dialog has its own search + filter + clickable concept list with custom checkmark toggle. Footer has "Clear day" (Trash2) and "Done". "Reset to suggested" button restores initial schedule. Live total-assignments count in section meta.
+   244→  • Section 05 — Series tracker: 3-col grid with cadence Pill + "On cadence / Overdue" status Pill (auto-computed from date delta vs cadence — daily overdue after >1d, weekly after >7d), name, concept, and `<Input type="date">` to log last-posted date. "Cadence is the strategy" gold callout below.
+   245→  • Closing — BearMark + heading + `DossierLinkBanner` for `05-viral-content-laboratory` + "Back to Module 05" cross-link button.
+   246→  • ArtNouveauDivider placed between Section 03 and Section 04.
+   247→- Shared helper `formatTone(format)` maps format strings to Pill tones: carousel→gold, series/story→warn, ugc→stop, event→ok, reel→forest, else→default. Used by both files for visual consistency.
+   248→- Lint: `bunx eslint` on both files → zero errors, zero warnings. Full `bun run lint` shows 2 errors but BOTH are in pre-existing files outside this task's scope (`experiments-view.tsx` owned by another agent, and `upload/.../__MACOSX/._ursa.js` macOS metadata artifact).
+   249→- Dev server: latest dev.log entries show `✓ Compiled` and `GET / 200` after the writes.
+   250→- Detailed work record written to `/agent-ctx/2-E-viral-content-calendar-views.md`.
+   251→
+   252→Stage Summary:
+   253→- Two view files created with the exact named exports (`ViralView`, `ContentCalendarView`) and `"use client"` directive, replacing their placeholder stubs.
+   254→- ViralView is content-rich: 7 substantive sections + hero + closing — disclaimer callout, 26 concepts grid, 10-script Accordion with verbatim Spanish caption/CTA blocks, 3 series / 3 briefs / 3 UGC cards, 4-week pilot calendar with format-color-coded cells, 4-step amplification method with stat row, plus cross-links and dossier banner.
+   255→- ContentCalendarView is genuinely interactive: filterable concept library with detail Dialog, script reader with per-script "Copy caption" clipboard, 4-week planner with click-to-assign Dialog picker (state in useState), series tracker with date input + overdue auto-detection, stats panel with format-count bars.
+   256→- Both views use only the verified Ursa palette (browns, greens, cream, gold, terracotta — no blue/indigo), use shared ViewHero/ViewSection/Card/Grid/DossierLinkBanner + BearMark/ArtNouveauDivider/Pill/Callout/StatBlock components, consume verified data from `@/lib/ursa-data`, and cross-link to each other via `useNavigate` from `@/lib/ursa-nav`.
+   257→- No test files created. No other files modified. Only the two specified files were created.
+   258→
+   259→---
+   260→Task ID: 2-H
+   261→Agent: Sources & Origin Atlas view builder (subagent)
+   262→
+   263→Task:
+   264→Build TWO React view files for the Ursa Coffee Strategic Command Center:
+   265→1. `/src/components/ursa/views/sources-view.tsx` — `SourcesView` (Appendix · Sources & Evidence)
+   266→2. `/src/components/ursa/tools/origin-atlas-view.tsx` — `OriginAtlasView` (Extra Tool T7 · Interactive Coffee Origin Atlas)
+   267→
+   268→Work Log:
+   269→- Read worklog.md, BUILD_SPEC.md, view-shell.tsx, ursa-brand.tsx, ursa-data.ts (SOURCES, OPEN_QUESTIONS, URSA_FACTS), ursa-nav.ts, and market-view.tsx + competitors-view.tsx as pattern references.
+   270→- Verified recharts ^2.15.4 is installed; confirmed static dossier `sources-and-evidence.html` exists in `/public/dossier/` and that `evidence.json` / `experiments.json` belong in `/dossier/assets/`.
+   271→
+   272→- File 1 — `sources-view.tsx` (SourcesView, `"use client"`): 10 sections.
+   273→  • Hero — eyebrow "Appendix · Sources & Evidence", title about every claim being traceable; meta Snapshot 2026-08-01 / Public sources only / No proprietary material; tone="forest".
+   274→  • §1 Sources at a glance — 4 StatBlocks (verified/partial/unverified/gap counts computed from SOURCES) + forest Callout on why gaps don't block launch.
+   275→  • §2 Source list — SOURCES rendered as 2-col Card grid. Each card: gold S# ID, label, EvidenceTag, clickable URL (target="_blank" rel="noopener noreferrer"), note. ArtNouveauDivider closes the section.
+   276→  • §3 Evidence status legend — 2×2 Card grid with live EvidenceTag examples for Verified / Partial / Unverified / Gap and a one-paragraph definition for each.
+   277→  • §4 Disambiguation — stop-tone Callout warning about the unrelated URSA in Bridgeport, CT, USA; 3-col Card grid: Subject (Miraflores Ursa — highlighted), Unrelated (Bridgeport URSA — dashed/muted), How to verify (3 confirmations: Miraflores address, @ursacoffeeperu handle, Spanish bio).
+   278→  • §5 Open questions for the owner — highlighted Card rendering OPEN_QUESTIONS as a numbered list with green numbered chips; intro states single grouped clarification; gold Callout on why these don't gate 72-hour launch.
+   279→  • §6 Missing business data — 2-col Card grid with all 10 missing items (monthly budget, average ticket, best/worst sellers, ingredient cost, gross margin, peak capacity, staff capacity, repeat rate, customer database, campaign history), each with CircleSlash icon + note on how scenarios absorb the gap. Forest Callout closes.
+   280→  • §7 Conflicting information — stacked Cards for: hours across platforms, follower count fluctuation, TripAdvisor ~0 reviews, cross-platform menu pricing. Each with AlertTriangle icon.
+   281→  • §8 Methodology — 2-col Card grid with 8 numbered methodology steps (public sources only, Instagram cover sampling, Rappi extraction, CoffeePass cross-reference, TripAdvisor check, competitor website survey, Acquisition.com + FS.blog frameworks, Premios Somos + Fresh Cup industry context) + gold Callout listing 5 things deliberately NOT done.
+   282→  • §9 Structured data files — 2-col Card grid linking evidence.json and experiments.json via custom anchors (`/dossier/assets/...`, target="_blank"); each card has icon + description + inline link with ExternalLink icon. Forest Callout on JSON as source of truth.
+   283→  • §10 DossierLinkBanner for `sources-and-evidence` + "Appendix complete" Pill + navigate button to Experiment Tracker.
+   284→
+   285→- File 2 — `origin-atlas-view.tsx` (OriginAtlasView, `"use client"`, useState + useMemo): 8 sections.
+   286→  • Hero — eyebrow "Extra Tool T7 · Interactive", title "Coffee Origin Atlas"; meta Origins 6 plotted / Verified: Utcubamba → Filtrado Lonya / Snapshot 2026-08-01; tone="forest".
+   287→  • §1 Stats + intro — 4 StatBlocks (origins count, altitude range 1,550–1,900 m, 3 processes, 4 varietals) + forest Callout on what "verified" means (only Utcubamba).
+   288→  • §2 Interactive map + detail panel — 2-col grid (1.25fr/1fr). Custom SVG (viewBox 0 0 320 480) with stylized Peru polygon (wide top, diagonal Pacific coast, eastern bulge, SE hook); all 6 origins positioned by approx lat/lng → x/y mapping; clicking a dot sets selectedId. Utcubamba wears gold ring; selected dot gets dashed forest selection ring. Country labels (Ecuador/Colombia/Brazil/Bolivia/Chile/Pacific Ocean) + Lima/Cusco city markers. Below map: fallback origin-button list for accessibility/mobile. Detail panel: gold-highlighted Card with department eyebrow + Verified Pill, region name h3, BearMark, 2×2 spec grid (altitude/process/varietal/Ursa drink) with Mountain/Droplet/Sparkles/Coffee icons, tasting notes as gold pills, story paragraph, forest Callout describing the selected process.
+   289→  • §3 Flavour wheel — 6-column CSS grid (Fruit / Floral / Sweet / Nutty / Chocolate / Body-Balance). Each column lists origins whose tasting notes fall in that category as clickable pills. Verified Utcubamba in gold; selected non-verified in forest-deep. Clicking a chip loads that origin in the detail panel.
+   290→  • §4 Seasonality — horizontal-scroll 12-month × 6-origin grid with cells highlighted when in that origin's harvest window. Verified origin in gold; others in forest-deep. Legend below. Each origin row label is a clickable button that selects that origin.
+   291→  • §5 Altitude comparison — recharts horizontal BarChart (layout="vertical"), XAxis domain [1400, 2000], YAxis category = origin names, color-coded bars (gold for verified Utcubamba, forest for others), LabelList showing `${altitude}m` to the right of each bar, Tooltip. Gold Callout on altitude's effect on bean density / acidity.
+   292→  • §6 Educational note — 3-col Card grid (Altitude / Process / Varietal) each with icon, definition, 3 example Pills. Forest Callout on how Ursa uses the atlas.
+   293→  • §7 DossierLinkBanner for `03-menu-and-product-development` (closest match — origins feed the menu) + "Atlas complete" Pill + navigate buttons to Menu & Product and Menu Engineering Studio.
+   294→
+   295→- Local ORIGINS array in origin-atlas-view.tsx includes all 6 required regions with the exact altitudes, processes, varietals, and tasting notes from the task spec, plus hand-written story paragraphs and approximate lat/lng coordinates converted to SVG positions inside a stylized Peru polygon.
+   296→
+   297→- Lint: `bun run lint` reports zero errors and zero warnings on both new files. (Only remaining project-wide issues are pre-existing: 3 unused eslint-disable warnings in experiments-view.tsx and 1 parsing error in upload/ursa_extracted/__MACOSX/._ursa.js.)
+   298→- Targeted `npx eslint` on the two files directly: clean (no output).
+   299→- Dev server: multiple `✓ Compiled` entries after writes; `GET / 200` confirms the SPA route renders.
+   300→
+   301→Stage Summary:
+   302→- Two view files created exactly as specified, with the named exports `SourcesView` and `OriginAtlasView`, the `"use client"` directive on both, and full responsiveness.
+   303→- Both use only the verified Ursa palette (browns, greens, cream, gold, terracotta — NO blue/indigo), the shared view-shell + ursa-brand components, BearMark / ArtNouveauDivider motifs, and recharts for the atlas altitude chart.
+   304→- SourcesView delivers the full appendix in 10 sections (source list, evidence legend, disambiguation, open questions, missing data, conflicts, methodology, structured data files, dossier banner) — every claim is traceable and every gap is named.
+   305→- OriginAtlasView is genuinely interactive: clickable SVG Peru map with gold-ringed verified Utcubamba, detail panel with full specs and story, flavour wheel, seasonality grid, altitude comparison bar chart, and a short altitude/process/varietal primer. Selecting an origin updates the detail panel from any of: the map dot, the list button, the flavour-wheel chip, or the seasonality row label.
+   306→- No test files created. No other files modified. Detailed work record at `/agent-ctx/2-H-sources-origin-atlas.md`.
+   307→
+   308→---
+   309→Task ID: 2-G
+   310→Agent: Roadmap + Experiment Tracker builder (subagent)
+   311→
+   312→Task:
+   313→Build TWO React view files for the Ursa Coffee Strategic Command Center:
+   314→1. `src/components/ursa/views/roadmap-view.tsx` — `RoadmapView` (Module 07 · Implementation Roadmap & KPIs)
+   315→2. `src/components/ursa/tools/experiments-view.tsx` — `ExperimentsView` (Extra Tool T4 · Interactive Experiment Tracker)
+   316→
+   317→Work Log:
+   318→- Read worklog.md (full), BUILD_SPEC.md, view-shell.tsx, ursa-brand.tsx, ursa-data.ts (ROADMAP, TWELVE_MONTH_ROADMAP, BUDGET_SCENARIOS, EXPERIMENTS exports), ursa-nav.ts, growth-view.tsx (cross-link + spirit-preservation callout pattern), budget-view.tsx (interactive pattern), competitors-view.tsx (filter pattern). Confirmed shadcn Table, Button, Textarea, Select primitives installed (only Table + Button + Textarea ultimately used).
+   319→- File 1 — `roadmap-view.tsx` (`RoadmapView`, "use client") — 12 sections exactly as specified:
+   320→  • Hero — eyebrow "Module 07 · Implementation Roadmap & KPIs", forest tone, title about an owned, not aspirational 90-day plan with owners/metrics/stop rules. Meta: "72h / 30 / 60 / 90 day plans", "12-month roadmap", "Owners, metrics, stop rules".
+   321→  • Section 01 — First 72 hours: renders ROADMAP[0] as a PhasePhase card (terracotta accent) with 5 numbered commitments (claim GBP, photograph bars, print story cards, set up WhatsApp, brief first creator) + terracotta "why these five, in this order" callout.
+   322→  • Section 02 — 30-day plan: ROADMAP[1] as gold PhasePhase.
+   323→  • Section 03 — 60-day plan: ROADMAP[2] as forest PhasePhase.
+   324→  • Section 04 — 90-day plan: ROADMAP[3] as forest PhasePhase + "Day 90 graduation ritual" callout + navigate buttons to experiments + calculator.
+   325→  • Section 05 — 12-month innovation roadmap: TWELVE_MONTH_ROADMAP rendered as 4 Cards (Q1 highlighted) with quarter, theme, focus, layer label + forest callout on single-theme-per-quarter discipline.
+   326→  • Section 06 — Budget scenarios summary: BUDGET_SCENARIOS as 3 cards (Moderate highlighted) with monthlyPEN StatBlock, progress bar, focus, top-4 line items, phase-tag footer + navigate buttons to budget (gold) and roi (forest outline).
+   327→  • Section 07 — Owners & dependencies: shadcn Table with 8 workstreams (Brand, Content & Social, Paid Media, Creator Programme, Delivery, Community & Events, Retail Beans, B2B & Wholesale) — columns: Workstream+icon, Owner role, Dependency, Primary metric, Stopping rule. Plus gold callout explaining no Marketing Director row.
+   328→  • Section 08 — KPI dashboard: 6 StatBlock/cards (qualified awareness, store visits, average ticket, repeat visits, referrals, distinctive brand recognition) each with metric label, EvidenceTag unverified, baseline (Unknown) → 90-day target (color-coded), methodology note. Plus forest callout on honestly-unknown baselines.
+   329→  • Section 09 — Skeptical revision log: 3 round cards (Round 1 gold = subscription viability → cannibalization model + 50-sub cap; Round 2 forest = bear too childish → confirmed as asset; Round 3 terracotta = 90 days realistic → scoped to owned channels first). Each with Challenge + What changed. Plus gold "Round 4 is yours" callout.
+   330→  • Section 10 — Final spirit-preservation verdict: full-bleed forest-deep gradient panel with Art Nouveau texture overlay, BearMark, headline "The plan preserves the bear, the gram, and the green", 3 preserve pills (Bear / Gram / Green) + 3 cards for permanent system / 6-month reversible skin / seasonal only.
+   331→  • Section 11 — DossierLinkBanner for `07-implementation-roadmap-and-kpis` + navigate buttons to experiments/calculator/budget + closing StatBlock row (72h / 90d / 11 experiments / 8 workstreams).
+   332→  • PhasePhase is a module-scope sub-component (satisfies React Compiler static-components rule).
+   333→- File 2 — `experiments-view.tsx` (`ExperimentsView`, "use client") — 7 sections, fully interactive:
+   334→  • Hero — eyebrow "Extra Tool T4 · Interactive", forest tone. Title "Experiment Tracker — eleven tests, four outcomes, one source of truth." Meta: experiments count, statuses enumeration, "localStorage (per device)".
+   335→  • Section 01 — Summary stats: 4 StatBlocks (total / proposed / running / graduated) + 2 detail cards (Status legend explaining each status; Graduation rate with forest progress bar showing passed+killed % of 11).
+   336→  • Section 02 — Filter: 5 toggle buttons (All / Proposed / Running / Passed / Killed) each with live count + Reset all button (terracotta outline, clears statuses + notes). Active state = forest-deep background.
+   337→  • Section 03 — Experiment cards: 11 EXPERIMENTS as 2-col grid of ExperimentCard sub-components. Each card: ID + status pill, name (display), hypothesis (foam block), Cost pill, Metric (forest), Stop rule (terracotta italic), and a 4-button segmented status selector (Proposed → Running → Passed → Killed) at the bottom with aria-pressed + contextual hint text. Empty-state card when filter yields zero.
+   338→  • Section 04 — Cost summary: highlighted StatBlock showing min–max PEN exposure across Proposed + Running experiments (with count); "What is counted" card; "Honest caveats" card with navigate button to calculator for EXP-11. Plus forest callout on EXP-02 (GBP, free).
+   339→  • Section 05 — Timeline: 90-day Gantt-like CSS grid. Day axis at top (0/15/30/45/60/75/90), 11 rows (one per experiment), each with label column + 90-day track + phase gridlines at 30/60/90 + absolutely-positioned bar colored by current status. Killed bars 50% opacity. Legend below. Warn callout on why some bars are short.
+   340→  • Section 06 — Learning log: 2-col grid of 11 cards, each with ID + status pill + name + Textarea (auto-saved to localStorage) + footer with char count and stop rule. Ok callout on "a note is worth a thousand dashboards".
+   341→  • Section 07 — DossierLinkBanner + navigate buttons to roadmap + calculator + 4 closing StatBlocks (total / active / cost range / graduated %).
+   342→- Persistence architecture: built a `usePersistentState<T>(key, initial)` hook using `useSyncExternalStore` (React 18 canonical pattern). Subscribes to both native `storage` event (cross-tab) and a custom `ursa-local-storage-change` event (same-tab, dispatched on every setValue). `getServerSnapshot` returns `""` so SSR renders with `initial` and client re-hydrates without setState-in-effect. Two stores: `ursa-experiments-status-v1` (Record<id, Status>) and `ursa-experiments-notes-v1` (Record<id, string>).
+   343→- Color coding (all Ursa palette): proposed = ursa-gold, running = ursa-forest-deep, passed = ursa-forest-deep (different bg opacity), killed = ursa-terracotta. No blue/indigo anywhere.
+   344→- Cost parsing: `parseCost("S/. 1,200–3,000")` → `{ min: 1200, max: 3000 }` via en-dash regex; falls back to single-number parsing for "S/. 0".
+   345→- Lint: `bun run lint` reports zero errors in both new files. Only remaining error is the pre-existing `upload/ursa_extracted/__MACOSX/._ursa.js` parsing artifact (not in scope).
+   346→  • Resolved a `react-hooks/set-state-in-effect` error by migrating from `useState + useEffect(localStorage.getItem)` to `useSyncExternalStore`.
+   347→  • Resolved 3 `Unused eslint-disable directive` warnings by removing stale `// eslint-disable-next-line react-hooks/exhaustive-deps` comments.
+   348→- Dev server: dev.log shows clean `✓ Compiled` runs and `GET / 200` after each write.
+   349→- Detailed work record written to `/agent-ctx/2-G-roadmap-experiments-views.md`.
+   350→
+   351→Stage Summary:
+   352→- Both files created with the exact named exports (`RoadmapView`, `ExperimentsView`) and `"use client"` directive.
+   353→- RoadmapView delivers the full Module 07 narrative across 12 substantive sections: hero + 4 phased plans (72h/30/60/90) + 12-month roadmap + budget scenarios + owners table + KPI dashboard + 3-round skeptical revision log + forest spirit-preservation verdict + dossier link. Uses PhasePhase as a module-scope sub-component.
+   354→- ExperimentsView is a genuinely useful interactive tracking tool: 4 StatBlocks summary, 5-way filter with live counts, 11 experiment cards with 4-button status selectors, cost summary with min–max PEN range, 90-day Gantt timeline color-coded by status, per-experiment notes textarea, and full localStorage persistence via `useSyncExternalStore` (no setState-in-effect cascading renders, SSR-safe).
+   355→- Both views consume only the verified Ursa palette (browns, greens, cream, gold, terracotta — no blue/indigo), use the shared ViewHero/ViewSection/Card/Grid/DossierLinkBanner + BearMark/ArtNouveauDivider/Pill/Callout/StatBlock/SectionBadge/EvidenceTag/ProgressBar components, and cross-link to `experiments`, `calculator`, `budget`, `roi`, and `roadmap` where contextually appropriate.
+   356→- No test files created. No other files modified. Only the two specified files were touched. Ready for orchestrator integration.
+   357→

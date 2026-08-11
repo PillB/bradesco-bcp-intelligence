@@ -1,0 +1,655 @@
+     1→"use client";
+     2→
+     3→import { ViewHero, ViewSection, Card, Grid, DossierLinkBanner } from "../view-shell";
+     4→import {
+     5→  BearMark,
+     6→  ArtNouveauDivider,
+     7→  Pill,
+     8→  Callout,
+     9→  StatBlock,
+    10→  SectionBadge,
+    11→  EvidenceTag,
+    12→} from "../ursa-brand";
+    13→import {
+    14→  COMPETITORS,
+    15→  CUSTOMER_VOICE,
+    16→  CUSTOMER_REVIEWS,
+    17→  REVIEW_AGGREGATE_RATINGS,
+    18→  REVIEW_RESEARCH_LOG,
+    19→  URSA_FACTS,
+    20→} from "@/lib/ursa-data";
+    21→import { useNavigate } from "@/lib/ursa-nav";
+    22→import {
+    23→  Compass,
+    24→  Globe,
+    25→  MapPin,
+    26→  Award,
+    27→  GraduationCap,
+    28→  Layers,
+    29→  Coffee,
+    30→  Star,
+    31→  AlertTriangle,
+    32→  ShieldCheck,
+    33→  Lightbulb,
+    34→  Wrench,
+    35→  Megaphone,
+    36→  ArrowRight,
+    37→  Swords,
+    38→  Frown,
+    39→  ThumbsUp,
+    40→  TrendingUp,
+    41→  Quote,
+    42→  ExternalLink,
+    43→  Search,
+    44→  Info,
+    45→} from "lucide-react";
+    46→
+    47→/** One competitor card. */
+    48→function CompetitorCard({ c }: { c: (typeof COMPETITORS)[number] }) {
+    49→  return (
+    50→    <Card className="flex flex-col gap-3 h-full">
+    51→      <div className="flex items-start justify-between gap-3">
+    52→        <div>
+    53→          <h3 className="font-display text-xl font-semibold text-ursa-dark-roast mt-0 mb-1">{c.name}</h3>
+    54→          <div className="flex items-center gap-1.5 text-[0.78rem] text-muted-foreground">
+    55→            <MapPin size={13} className="text-ursa-gold-text" />
+    56→            <span className="font-label tracking-[0.06em] uppercase">{c.area}</span>
+    57→          </div>
+    58→        </div>
+    59→        <Pill tone={c.hasWebsite ? "ok" : "stop"}>
+    60→          <Globe size={11} /> {c.hasWebsite ? "Website" : "No site"}
+    61→        </Pill>
+    62→      </div>
+    63→      <ArtNouveauDivider className="my-1" />
+    64→      <div className="space-y-2.5 text-[0.9rem]">
+    65→        <div>
+    66→          <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">
+    67→            <ThumbsUp size={11} /> Strength
+    68→          </div>
+    69→          <p className="m-0 text-foreground/85">{c.strength}</p>
+    70→        </div>
+    71→        <div>
+    72→          <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-terracotta-text mb-0.5">
+    73→            <Frown size={11} /> Weakness
+    74→          </div>
+    75→          <p className="m-0 text-foreground/85">{c.weakness}</p>
+    76→        </div>
+    77→        <div className="bg-ursa-forest-deep/5 border border-ursa-forest-deep/15 rounded-md px-3 py-2">
+    78→          <div className="flex items-center gap-1.5 font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">
+    79→            <Compass size={11} /> Ursa implication
+    80→          </div>
+    81→          <p className="m-0 text-ursa-dark-roast font-medium">{c.ursaImplication}</p>
+    82→        </div>
+    83→      </div>
+    84→    </Card>
+    85→  );
+    86→}
+    87→
+    88→/** Conversion-to-action card. */
+    89→function ActionCard({
+    90→  icon,
+    91→  title,
+    92→  tone,
+    93→  items,
+    94→}: {
+    95→  icon: React.ReactNode;
+    96→  title: string;
+    97→  tone: "gold" | "forest" | "terracotta";
+    98→  items: string[];
+    99→}) {
+   100→  const toneMap = {
+   101→    gold: { text: "text-ursa-gold-text", bg: "bg-ursa-gold/10", border: "border-ursa-gold/40" },
+   102→    forest: { text: "text-ursa-forest-deep", bg: "bg-ursa-forest-deep/8", border: "border-ursa-forest-deep/25" },
+   103→    terracotta: { text: "text-ursa-terracotta-text", bg: "bg-ursa-terracotta/10", border: "border-ursa-terracotta/30" },
+   104→  }[tone];
+   105→  return (
+   106→    <Card className="flex flex-col gap-3 h-full">
+   107→      <div className="flex items-center gap-2.5">
+   108→        <span className={`flex items-center justify-center w-9 h-9 rounded-lg ${toneMap.bg} ${toneMap.text} border ${toneMap.border}`}>
+   109→          {icon}
+   110→        </span>
+   111→        <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-0">{title}</h3>
+   112→      </div>
+   113→      <ul className="space-y-1.5 m-0 p-0 list-none text-[0.88rem]">
+   114→        {items.map((it) => (
+   115→          <li key={it} className="flex gap-2 leading-snug">
+   116→            <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${toneMap.text}`} style={{ backgroundColor: "currentColor" }} />
+   117→            <span className="text-foreground/85">{it}</span>
+   118→          </li>
+   119→        ))}
+   120→      </ul>
+   121→    </Card>
+   122→  );
+   123→}
+   124→
+   125→export function MarketView() {
+   126→  const navigate = useNavigate();
+   127→
+   128→  const mirafloresCount = COMPETITORS.filter((c) => c.area.includes("Miraflores")).length;
+   129→  const withWebsite = COMPETITORS.filter((c) => c.hasWebsite).length;
+   130→
+   131→  const ownableSpaces = [
+   132→    { name: "Punto Café", owns: "Awards", icon: <Award size={14} /> },
+   133→    { name: "Neira Café Lab", owns: "Scale", icon: <Layers size={14} /> },
+   134→    { name: "Bisetti", owns: "“Escuela de café”", icon: <GraduationCap size={14} /> },
+   135→    { name: "Puku Puku", owns: "Microlotes", icon: <Coffee size={14} /> },
+   136→    { name: "Terrua", owns: "Premium tasting", icon: <Star size={14} /> },
+   137→    { name: "Ursa", owns: "The bear", icon: <BearMark size={14} className="text-ursa-dark-roast" />, ursa: true },
+   138→  ];
+   139→
+   140→  const conversionCards: {
+   141→    icon: React.ReactNode;
+   142→    title: string;
+   143→    tone: "gold" | "forest" | "terracotta";
+   144→    items: string[];
+   145→  }[] = [
+   146→    {
+   147→      icon: <ShieldCheck size={16} />,
+   148→      title: "Standards Ursa must match",
+   149→      tone: "gold",
+   150→      items: [
+   151→        "Award visibility — Punto Café won Premios Somos 2024; Ursa needs a credible awards entry",
+   152→        "Premium tasting quality — Terrua charges US$25; Ursa's cupping must be technically tight",
+   153→        "Educational depth — Bisetti owns the school; Ursa baristas must speak origin fluently",
+   154→        "Bean transparency — Puku Puku lists microlots; Ursa's menu must show origin, process, altitude",
+   155→      ],
+   156→    },
+   157→    {
+   158→      icon: <AlertTriangle size={16} />,
+   159→      title: "Problems to avoid",
+   160→      tone: "terracotta",
+   161→      items: [
+   162→        "Cobrand dilution — Neira's WorkCafé partnership softens its café identity",
+   163→        "Chain feel at scale — Puku Puku trades atmosphere for reach",
+   164→        "Generic sustainability messaging — Café Verde's green copy could be anyone's",
+   165→        "Educational formality — Bisetti's school tone can feel like homework",
+   166→        "Cold or diluted delivery coffee — a recurring Lima complaint",
+   167→      ],
+   168→    },
+   169→    {
+   170→      icon: <TrendingUp size={16} />,
+   171→      title: "Areas to lead",
+   172→      tone: "forest",
+   173→      items: [
+   174→        "Bear-led brand character no competitor owns",
+   175→        "Two-bar theatre (espresso + coldbrew) visible from the street",
+   176→        "Portmanteau drink naming — Ursagroni, Maracumango — as a signature system",
+   177→        "“Un gramo a la vez” as a patient-craft ethos",
+   178→        "Art Nouveau craft language applied consistently across every touchpoint",
+   179→      ],
+   180→    },
+   181→    {
+   182→      icon: <Wrench size={16} />,
+   183→      title: "Customer-experience improvements",
+   184→      tone: "gold",
+   185→      items: [
+   186→        "Verified Google Business Profile — a basic competitors also neglect",
+   187→        "Live “is it busy now?” indicator on the café site",
+   188→        "Clear booking channel for tastings and cuppings",
+   189→        "Bean cards that mark seasonal vs. permanent lots",
+   190→        "Strong Wi-Fi and accessible power outlets for remote workers",
+   191→      ],
+   192→    },
+   193→    {
+   194→      icon: <Lightbulb size={16} />,
+   195→      title: "Product opportunities",
+   196→      tone: "forest",
+   197→      items: [
+   198→        "Tiered tasting flights — accessible entry plus a premium depth vs. Terrua's US$25 ceiling",
+   199→        "Microlot sub-line — borrow Puku Puku's positioning without the chain feel",
+   200→        "Origin-story bean cards — pair with the Filtrado Lonya line vs. RAIZ",
+   201→        "Named-drink rotation — a new portmanteau every season keeps the menu alive",
+   202→        "Subscription with attach-rate economics — see the Subscription Calculator",
+   203→      ],
+   204→    },
+   205→    {
+   206→      icon: <Megaphone size={16} />,
+   207→      title: "Marketing proof points",
+   208→      tone: "terracotta",
+   209→      items: [
+   210→        "“In-house roastery, visible from the bar” — proof of specialty credibility",
+   211→        "“Two bars: espresso + coldbrew” — visible theatre",
+   212→        "“Original drinks you can ask for by name” — Ursagroni, Maracumango",
+   213→        "“Art Nouveau craft, applied consistently” — design language as moat",
+   214→        "“Single-site intimacy” — one Miraflores café, not a chain",
+   215→      ],
+   216→    },
+   217→  ];
+   218→
+   219→  return (
+   220→    <>
+   221→      <ViewHero
+   222→        eyebrow="Module 02 · Market, Competitors & Customer Voice"
+   223→        title={
+   224→          <>
+   225→            Ten Miraflores and Lima competitors, mapped — and the one space none of them owns.
+   226→          </>
+   227→        }
+   228→        lede={
+   229→          <>
+   230→            This module reconstructs the direct competitive set around Ursa's Alcanfores 183 address, reads the
+   231→            customer-voice patterns that surface across them, and converts each finding into something Ursa can match,
+   232→            avoid, or lead on. The bear is not borrowed from the category; it is the one position left uncontested.
+   233→          </>
+   234→        }
+   235→        meta={[
+   236→          { label: "Competitors", value: `${COMPETITORS.length} analysed` },
+   237→          { label: "Scope", value: "Miraflores + Lima" },
+   238→          { label: "Snapshot", value: URSA_FACTS.snapshot },
+   239→        ]}
+   240→      />
+   241→
+   242→      {/* At-a-glance stats */}
+   243→      <ViewSection className="py-8">
+   244→        <Grid cols={4}>
+   245→          <StatBlock value={`${COMPETITORS.length}`} label="Competitors analysed" tone="forest" />
+   246→          <StatBlock value={`${mirafloresCount}`} label="Miraflores-based (incl. clusters)" tone="gold" />
+   247→          <StatBlock value={`${withWebsite}/${COMPETITORS.length}`} label="Competitors with a website" tone="terracotta" />
+   248→          <StatBlock value="1" label="Ownable position — the bear" tone="forest" />
+   249→        </Grid>
+   250→      </ViewSection>
+   251→
+   252→      {/* Competitor landscape */}
+   253→      <ViewSection
+   254→        badge="Competitor landscape"
+   255→        title="The ten names around Ursa"
+   256→        meta="Snapshot 2026-08-01 · verified from public sources"
+   257→      >
+   258→        <p className="text-[0.97rem] leading-relaxed text-foreground/85 max-w-[68ch] mb-6">
+   259→          Five are within Miraflores, three are Lima-wide, and two are clusters or niches that shape the broader
+   260→          category. Each card records what they do well, where they slip, and the implication that follows for Ursa.
+   261→        </p>
+   262→        <Grid cols={3}>
+   263→          {COMPETITORS.map((c) => (
+   264→            <CompetitorCard key={c.name} c={c} />
+   265→          ))}
+   266→        </Grid>
+   267→      </ViewSection>
+   268→
+   269→      {/* Ownable space analysis */}
+   270→      <ViewSection
+   271→        badge="Ownable space"
+   272→        title="Ursa sits orthogonal to the category"
+   273→        meta="Not a better café — a different one"
+   274→      >
+   275→        <Grid cols={2}>
+   276→          <div className="space-y-4">
+   277→            <p className="text-[0.97rem] leading-relaxed text-foreground/85">
+   278→              Every strong Miraflores competitor owns one position. Punto Café owns the award. Neira owns scale. Bisetti
+   279→              owns the school. Puku Puku owns the microlote. Terrua owns the premium tasting. None of them owns an
+   280→              animal, an Art Nouveau design language, or a two-bar theatre — and none of them speaks in portmanteaus.
+   281→            </p>
+   282→            <Callout tone="forest" title="The orthogonality principle">
+   283→              Ursa's ownable space — <strong>bear + two bars + named-drink portmanteaus + “Un gramo a la vez”</strong> —
+   284→              does not compete <em>against</em> the category's existing positions. It sits at a right angle to them. A
+   285→              customer can love Punto Café's award and still choose Ursa for the bear. That is the moat.
+   286→            </Callout>
+   287→            <p className="text-[0.92rem] leading-relaxed text-muted-foreground">
+   288→              The strategic rule that follows: never try to <em>out-award</em> Punto, <em>out-scale</em> Neira, or
+   289→              <em> out-school</em> Bisetti. Instead, be the only café in Lima where the bear, the gram, and the green
+   290→              are visibly the operating system.
+   291→            </p>
+   292→          </div>
+   293→          <Card highlight className="bg-ursa-foam">
+   294→            <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-4 flex items-center gap-2">
+   295→              <Swords size={18} className="text-ursa-gold-text" /> Who owns what
+   296→            </h3>
+   297→            <ul className="space-y-2.5 m-0 p-0 list-none">
+   298→              {ownableSpaces.map((s) => (
+   299→                <li
+   300→                  key={s.name}
+   301→                  className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-md border ${
+   302→                    s.ursa
+   303→                      ? "border-ursa-gold bg-ursa-gold/12 shadow-[0_0_0_3px_rgba(184,146,74,0.12)]"
+   304→                      : "border-ursa-line-soft bg-ursa-paper"
+   305→                  }`}
+   306→                >
+   307→                  <div className="flex items-center gap-2.5">
+   308→                    <span className={`flex items-center justify-center w-7 h-7 rounded-full ${s.ursa ? "bg-ursa-gold text-ursa-dark-roast" : "bg-ursa-forest-deep/10 text-ursa-forest-deep"}`}>
+   309→                      {s.icon}
+   310→                    </span>
+   311→                    <span className="font-medium text-ursa-dark-roast text-[0.95rem]">{s.name}</span>
+   312→                  </div>
+   313→                  <span className={`font-label text-[0.72rem] tracking-[0.1em] uppercase ${s.ursa ? "text-ursa-gold-text font-semibold" : "text-muted-foreground"}`}>
+   314→                    {s.owns}
+   315→                  </span>
+   316→                </li>
+   317→              ))}
+   318→            </ul>
+   319→            <p className="font-label text-[0.7rem] tracking-[0.1em] uppercase text-muted-foreground mt-4 mb-0">
+   320→              Ursa's row is the only one no competitor can claim
+   321→            </p>
+   322→          </Card>
+   323→        </Grid>
+   324→      </ViewSection>
+   325→
+   326→      {/* Customer voice */}
+   327→      <ViewSection
+   328→        badge="Customer voice"
+   329→        title="What Lima's café customers actually say"
+   330→        meta="Four themes · verified from public reviews and direct observation"
+   331→      >
+   332→        <Callout tone="warn" title="Methodology and limitations">
+   333→          <p className="mb-3">
+   334→            The customer-voice themes below are <strong>illustrative, not validated</strong>. They are inferred from
+   335→            competitor review patterns and the dossier&rsquo;s own competitive analysis, not from a coded sample of
+   336→            Ursa&rsquo;s own customers. Read them as direction-setting signal, not as a quantitative read on Ursa&rsquo;s
+   337→            clientele.
+   338→          </p>
+   339→          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mb-3 m-0">
+   340→            <div>
+   341→              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Market boundary</dt>
+   342→              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Miraflores specialty coffee cafés + Lima-wide leaders for benchmarking</dd>
+   343→            </div>
+   344→            <div>
+   345→              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Platforms sampled</dt>
+   346→              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Instagram, Rappi, TripAdvisor, Google Maps, CoffeePass</dd>
+   347→            </div>
+   348→            <div>
+   349→              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Observation period</dt>
+   350→              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">2026-08-01 (point-in-time snapshot)</dd>
+   351→            </div>
+   352→            <div>
+   353→              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Sample</dt>
+   354→              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Public listings and bios of 10 competitors; TripAdvisor review samples where available</dd>
+   355→            </div>
+   356→            <div>
+   357→              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Inclusion criteria</dt>
+   358→              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Direct Miraflores competitors + Lima specialty leaders with public online presence</dd>
+   359→            </div>
+   360→            <div>
+   361→              <dt className="font-label text-[0.66rem] tracking-[0.14em] uppercase text-ursa-forest-deep mb-0.5">Coding</dt>
+   362→              <dd className="m-0 text-ursa-dark-roast text-[0.92rem]">Themes grouped by recurring topic (quality, service, atmosphere, value, accessibility)</dd>
+   363→            </div>
+   364→          </dl>
+   365→          <p className="mb-0">
+   366→            <strong className="text-ursa-dark-roast">Limitation:</strong> Ursa&rsquo;s TripAdvisor has ~0 reviews;
+   367→            customer themes are inferred from competitor review patterns and the dossier&rsquo;s own competitive
+   368→            analysis, <em>not</em> from a coded sample of Ursa&rsquo;s own customers. A proper customer-voice study
+   369→            requires owner-provided POS data, a consented survey, or a review-mining sample of &ge;50 Ursa-specific
+   370→            reviews (not currently available). The real-review sample below supplements these themes with verbatim
+   371→            public mentions but does <em>not</em> replace a coded customer-voice study.
+   372→          </p>
+   373→        </Callout>
+   374→
+   375→        {/* Real customer reviews sample */}
+   376→        <Card className="mb-6 border-ursa-gold/35 bg-ursa-foam">
+   377→          <div className="flex items-start gap-3 mb-3">
+   378→            <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-ursa-gold/15 text-ursa-medium-roast border border-ursa-gold/40 shrink-0">
+   379→              <Search size={16} />
+   380→            </span>
+   381→            <div className="min-w-0">
+   382→              <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">
+   383→                Review sample status · REV-ENRICH
+   384→              </div>
+   385→              <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-1">
+   386→                Real customer reviews &amp; external voice
+   387→              </h3>
+   388→              <p className="m-0 text-[0.88rem] leading-relaxed text-foreground/85">
+   389→                Searched {REVIEW_RESEARCH_LOG.platformsChecked.length} platforms on {REVIEW_RESEARCH_LOG.observationDate}. Found{" "}
+   390→                <strong className="text-ursa-dark-roast">{REVIEW_RESEARCH_LOG.realReviewsFound} real Ursa-specific mentions</strong>{" "}
+   391→                (mostly Instagram posts and reels) and{" "}
+   392→                <strong className="text-ursa-dark-roast">{REVIEW_RESEARCH_LOG.aggregateRatingsFound} aggregate ratings</strong>{" "}
+   393→                from directory platforms. Ursa&rsquo;s public review footprint is <em>thin but not zero</em> — and is
+   394→                concentrated on Instagram and Google, <em>not</em> on TripAdvisor.
+   395→              </p>
+   396→            </div>
+   397→          </div>
+   398→
+   399→          {/* Aggregate ratings row */}
+   400→          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+   401→            {REVIEW_AGGREGATE_RATINGS.map((r) => (
+   402→              <div
+   403→                key={r.platform}
+   404→                className="bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2 text-center"
+   405→              >
+   406→                <div className="font-label text-[0.58rem] tracking-[0.12em] uppercase text-muted-foreground mb-0.5">
+   407→                  {r.platform}
+   408→                </div>
+   409→                <div className="font-display text-lg font-semibold text-ursa-dark-roast leading-none">
+   410→                  {r.rating !== null ? `${r.rating}★` : "—"}
+   411→                </div>
+   412→                <div className="font-label text-[0.66rem] tracking-[0.04em] text-ursa-gold-text mt-0.5">
+   413→                  {r.reviewCount} reviews
+   414→                </div>
+   415→              </div>
+   416→            ))}
+   417→          </div>
+   418→
+   419→          {/* Important correction callout */}
+   420→          <div className="bg-ursa-gold/10 border border-ursa-gold/35 rounded-md px-3 py-2 mb-3 flex items-start gap-2">
+   421→            <Info size={14} className="text-ursa-medium-roast shrink-0 mt-0.5" />
+   422→            <p className="m-0 text-[0.82rem] leading-snug text-ursa-dark-roast">
+   423→              <strong>Correction to prior dossier:</strong> aggregator evidence (addagio.io schema.org
+   424→              <code className="text-[0.74rem] mx-1">LocalBusiness</code>
+   425→              data) shows Ursa has an <strong>active Google Business Profile with ~56 reviews at 4.5 stars</strong>.
+   426→              The prior claim that Ursa&rsquo;s Google profile is &ldquo;missing/unverified&rdquo; was incorrect.
+   427→              The actual friction is weak SEO/GBP optimization (Ursa does not surface in Google&rsquo;s own
+   428→              &ldquo;best Lima cafés&rdquo; guides), not missing presence.
+   429→            </p>
+   430→          </div>
+   431→
+   432→          {/* Methodology note */}
+   433→          <details className="bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2 mb-3">
+   434→            <summary className="cursor-pointer font-label text-[0.7rem] tracking-[0.1em] uppercase text-ursa-forest-deep hover:text-ursa-dark-roast">
+   435→              Platforms checked &amp; limitations ({REVIEW_RESEARCH_LOG.platformsChecked.length} sources)
+   436→            </summary>
+   437→            <div className="mt-2 space-y-2">
+   438→              <div>
+   439→                <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground mb-1">
+   440→                  Platforms checked
+   441→                </div>
+   442→                <ul className="m-0 p-0 list-none grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5 text-[0.78rem] text-foreground/80">
+   443→                  {REVIEW_RESEARCH_LOG.platformsChecked.map((p) => (
+   444→                    <li key={p} className="leading-snug">· {p}</li>
+   445→                  ))}
+   446→                </ul>
+   447→              </div>
+   448→              <div>
+   449→                <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground mb-1">
+   450→                  Methodology
+   451→                </div>
+   452→                <p className="m-0 text-[0.82rem] leading-snug text-foreground/80">
+   453→                  {REVIEW_RESEARCH_LOG.methodology}
+   454→                </p>
+   455→              </div>
+   456→              <div>
+   457→                <div className="font-label text-[0.62rem] tracking-[0.12em] uppercase text-muted-foreground mb-1">
+   458→                  Limitations
+   459→                </div>
+   460→                <ul className="m-0 p-0 list-none space-y-1 text-[0.82rem] text-foreground/80">
+   461→                  {REVIEW_RESEARCH_LOG.limitations.map((l) => (
+   462→                    <li key={l} className="flex gap-1.5 leading-snug">
+   463→                      <span className="text-ursa-terracotta-text shrink-0">·</span>
+   464→                      <span>{l}</span>
+   465→                    </li>
+   466→                  ))}
+   467→                </ul>
+   468→              </div>
+   469→            </div>
+   470→          </details>
+   471→        </Card>
+   472→
+   473→        {/* Real review cards */}
+   474→        <Grid cols={2}>
+   475→          {CUSTOMER_REVIEWS.map((r) => (
+   476→            <Card key={r.source} className="flex flex-col gap-2.5 h-full">
+   477→              <div className="flex items-start justify-between gap-2">
+   478→                <div className="min-w-0">
+   479→                  <div className="flex items-center gap-1.5 mb-0.5">
+   480→                    <Pill tone={r.sentiment === "positive" ? "ok" : r.sentiment === "mixed" ? "warn" : "stop"}>
+   481→                      {r.platform}
+   482→                    </Pill>
+   483→                    <span className="font-label text-[0.6rem] tracking-[0.1em] uppercase text-muted-foreground">
+   484→                      {r.date}
+   485→                    </span>
+   486→                  </div>
+   487→                  <div className="font-medium text-[0.82rem] text-ursa-dark-roast truncate">{r.author}</div>
+   488→                </div>
+   489→                <span
+   490→                  className={`flex items-center justify-center w-7 h-7 rounded-md shrink-0 ${
+   491→                    r.sentiment === "positive"
+   492→                      ? "bg-ursa-forest-deep/10 text-ursa-forest-deep"
+   493→                      : r.sentiment === "mixed"
+   494→                      ? "bg-ursa-gold/15 text-ursa-medium-roast"
+   495→                      : "bg-ursa-terracotta/10 text-ursa-terracotta-text"
+   496→                  }`}
+   497→                  title={r.sentiment}
+   498→                >
+   499→                  {r.sentiment === "positive" ? <ThumbsUp size={13} /> : r.sentiment === "mixed" ? <AlertTriangle size={13} /> : <Frown size={13} />}
+   500→                </span>
+   501→              </div>
+   502→              <div className="flex items-center gap-1.5 flex-wrap">
+   503→                <span className="font-label text-[0.58rem] tracking-[0.1em] uppercase text-ursa-gold-text bg-ursa-gold/10 border border-ursa-gold/25 rounded px-1.5 py-0.5">
+   504→                  <Star size={9} className="inline mr-1" /> {r.theme}
+   505→                </span>
+   506→              </div>
+   507→              <div className="relative bg-ursa-paper border border-ursa-line-soft rounded-md px-3 py-2.5 text-[0.86rem] leading-relaxed text-foreground/90 flex gap-2">
+   508→                <Quote size={14} className="text-ursa-gold-text shrink-0 mt-0.5" />
+   509→                <p className="m-0">{r.text}</p>
+   510→              </div>
+   511→              {r.notes && (
+   512→                <p className="m-0 text-[0.74rem] leading-snug text-muted-foreground italic">
+   513→                  {r.notes}
+   514→                </p>
+   515→              )}
+   516→              <a
+   517→                href={r.source}
+   518→                target="_blank"
+   519→                rel="noopener noreferrer"
+   520→                className="mt-auto inline-flex items-center gap-1 text-[0.74rem] text-ursa-forest-deep hover:text-ursa-dark-roast hover:underline self-start"
+   521→              >
+   522→                <ExternalLink size={11} /> Source
+   523→              </a>
+   524→            </Card>
+   525→          ))}
+   526→        </Grid>
+   527→
+   528→        {/* Spacer before illustrative themes */}
+   529→        <div className="mt-8 mb-2 flex items-center gap-3">
+   530→          <div className="h-px flex-1 bg-ursa-line-soft" />
+   531→          <span className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">
+   532→            Illustrative themes below are inferred from competitor patterns
+   533→          </span>
+   534→          <div className="h-px flex-1 bg-ursa-line-soft" />
+   535→        </div>
+   536→
+   537→        <Grid cols={2}>
+   538→          {CUSTOMER_VOICE.map((theme, i) => {
+   539→            const tones = [
+   540→              { icon: <ThumbsUp size={15} />, tone: "forest" as const, label: "Value" },
+   541→              { icon: <Frown size={15} />, tone: "terracotta" as const, label: "Pain" },
+   542→              { icon: <AlertTriangle size={15} />, tone: "gold" as const, label: "Friction" },
+   543→              { icon: <TrendingUp size={15} />, tone: "forest" as const, label: "Lead" },
+   544→            ][i % 4];
+   545→            return (
+   546→              <Card key={theme.theme} className="flex flex-col gap-3 h-full">
+   547→                <div className="flex items-center gap-2.5">
+   548→                  <span className={`flex items-center justify-center w-8 h-8 rounded-lg ${
+   549→                    tones.tone === "forest"
+   550→                      ? "bg-ursa-forest-deep/10 text-ursa-forest-deep"
+   551→                      : tones.tone === "terracotta"
+   552→                      ? "bg-ursa-terracotta/10 text-ursa-terracotta-text"
+   553→                      : "bg-ursa-gold/15 text-ursa-medium-roast"
+   554→                  }`}>
+   555→                    {tones.icon}
+   556→                  </span>
+   557→                  <div>
+   558→                    <div className="font-label text-[0.62rem] tracking-[0.16em] uppercase text-muted-foreground">
+   559→                      Theme {String(i + 1).padStart(2, "0")} · {tones.label}
+   560→                    </div>
+   561→                    <h3 className="font-display text-lg font-semibold text-ursa-dark-roast mt-0 mb-0">{theme.theme}</h3>
+   562→                  </div>
+   563→                </div>
+   564→                <ul className="space-y-2 m-0 p-0 list-none text-[0.9rem]">
+   565→                  {theme.points.map((p) => (
+   566→                    <li key={p} className="flex gap-2.5 leading-snug">
+   567→                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ursa-gold shrink-0" />
+   568→                      <span className="text-foreground/85">{p}</span>
+   569→                    </li>
+   570→                  ))}
+   571→                </ul>
+   572→              </Card>
+   573→            );
+   574→          })}
+   575→        </Grid>
+   576→      </ViewSection>
+   577→
+   578→      {/* Conversion to action */}
+   579→      <ViewSection
+   580→        badge="Conversion to action"
+   581→        title="From findings to a 90-day worklist"
+   582→        meta="Six lanes · each traceable to a competitor or customer-voice theme"
+   583→      >
+   584→        <p className="text-[0.97rem] leading-relaxed text-foreground/85 max-w-[68ch] mb-6">
+   585→          Every card below is a direct conversion of a finding above. Where a card references a competitor, the
+   586→          implication is explicit. Where it references a customer-voice theme, the friction point is named. None of
+   587→          this is speculative.
+   588→        </p>
+   589→        <Grid cols={3}>
+   590→          {conversionCards.map((c) => (
+   591→            <ActionCard key={c.title} icon={c.icon} title={c.title} tone={c.tone} items={c.items} />
+   592→          ))}
+   593→        </Grid>
+   594→      </ViewSection>
+   595→
+   596→      {/* The website gap */}
+   597→      <ViewSection
+   598→        badge="The website gap"
+   599→        title="All five main Miraflores competitors have a website. Ursa does not."
+   600→        meta="Surfaced in deep-dive research · 30-day priority"
+   601→      >
+   602→        <Callout tone="stop" title="This is the single most visible infrastructure gap in the dossier">
+   603→          <p className="mb-3">
+   604→            Punto Café, Neira Café Lab, Terrua, True Artisan, and Café Verde all maintain a public website. Ursa's
+   605→            discoverable presence is Instagram only. A first-time visitor who searches “café de especialidad
+   606→            Miraflores” on Google finds five competitors and one unverified Business Profile in return. The bear is
+   607→            invisible at the moment of greatest intent.
+   608→          </p>
+   609→          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 my-4">
+   610→            {["Punto Café", "Neira Café Lab", "Terrua", "True Artisan", "Café Verde"].map((n) => (
+   611→              <div key={n} className="flex items-center gap-1.5 bg-ursa-paper border border-ursa-line-soft rounded-md px-2.5 py-2">
+   612→                <Globe size={13} className="text-ursa-forest-deep" />
+   613→                <span className="text-[0.78rem] font-medium text-ursa-dark-roast">{n}</span>
+   614→              </div>
+   615→            ))}
+   616→          </div>
+   617→          <p className="mb-0">
+   618→            <strong className="text-ursa-dark-roast">30-day priority:</strong> ship a single-page site that carries the
+   619→            verified identity — address, hours, signature drinks, the bear, the Art Nouveau craft language, and a
+   620→            booking channel for tastings. The full design system already exists in Module 01. The signature drinks are
+   621→            verified in Module 03. This is assembly, not invention.
+   622→          </p>
+   623→        </Callout>
+   624→        <div className="flex flex-wrap items-center gap-3 mt-5">
+   625→          <button
+   626→            onClick={() => navigate("brand")}
+   627→            className="inline-flex items-center gap-2 bg-ursa-forest-deep text-ursa-cream font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-dark-roast transition"
+   628→          >
+   629→            <ArrowRight size={14} /> Open Brand Audit (Module 01)
+   630→          </button>
+   631→          <button
+   632→            onClick={() => navigate("competitors")}
+   633→            className="inline-flex items-center gap-2 border border-ursa-gold text-ursa-gold-text font-label text-[0.74rem] tracking-[0.14em] uppercase px-4 py-2.5 rounded-md hover:bg-ursa-gold hover:text-ursa-dark-roast transition"
+   634→          >
+   635→            <Swords size={14} /> Open the interactive Competitor Dashboard
+   636→          </button>
+   637→        </div>
+   638→      </ViewSection>
+   639→
+   640→      {/* Dossier link */}
+   641→      <ViewSection className="py-8">
+   642→        <div className="flex flex-wrap items-center justify-between gap-4">
+   643→          <div className="flex items-center gap-3">
+   644→            <EvidenceTag status="verified" />
+   645→            <span className="text-[0.85rem] text-muted-foreground">
+   646→              All competitor claims are sourced and snapshot-dated. See Sources &amp; Evidence for full citations.
+   647→            </span>
+   648→          </div>
+   649→          <DossierLinkBanner moduleId="02-market-competitors-and-customer-voice" />
+   650→        </div>
+   651→      </ViewSection>
+   652→    </>
+   653→  );
+   654→}
+   655→

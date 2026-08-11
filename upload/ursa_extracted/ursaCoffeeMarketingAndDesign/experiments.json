@@ -1,0 +1,133 @@
+{
+  "schema": "ursa-dossier-experiments-v1",
+  "compiled_on": "2026-08-01",
+  "philosophy": "Every recommendation with material uncertainty is paired with a low-cost test, a success metric, and a stopping rule. Adapted from Rory Sutherland's 'inexpensive experiments' principle and Hormozi's test-then-scale discipline.",
+  "experiments": [
+    {
+      "id": "EXP-01",
+      "name": "Two-Bar First-Visit Offer",
+      "hypothesis": "A first-visit bundle that lets a new customer try BOTH the espresso bar and the coldbrew bar at a single bundled price will increase first-ticket value by >=15% and 30-day return rate by >=20% versus a generic 20% off.",
+      "design": "Offer a fixed 'Doble Barra Ursa' bundle: one espresso-based drink + one coldbrew + one house pastry at a bundled price. Promote via a single in-store table card and one Instagram Story series for 14 days. Compare against the same 14-day window previous year if data exists; otherwise against the immediately preceding 14 days.",
+      "sample_size_target": "150 first-time transactions over 14 days",
+      "success_metric": "First-ticket average value >= S/. 22; >=25% of bundle buyers return within 30 days.",
+      "stop_rule": "If after 7 days first-ticket value is below S/. 18 OR fewer than 8 bundles per day are sold, kill the bundle and revert to 20% off promotion.",
+      "cost_to_run_pEN": "120 (table card print + Story design time)",
+      "owner": "Store manager + social lead"
+    },
+    {
+      "id": "EXP-02",
+      "name": "Bean Origin Story Card A/B",
+      "hypothesis": "Adding a small story card (origin, altitude, producer, roast date, suggested brew method) to retail bean bags will increase retail bean attach rate from <=8% to >=14% of café transactions.",
+      "design": "Print 200 story cards for the top-selling single origin. Insert into half of retail bags at random (treatment) and leave the other half without (control). Track attach rate and ask every retail buyer 'What made you pick this bag today?' for 14 days.",
+      "sample_size_target": "200 retail bean transactions",
+      "success_metric": "Attach rate of treatment group is >=30% higher than control; >=40% of treatment buyers mention the card unprompted.",
+      "stop_rule": "If after 14 days attach rate differential is <10%, abandon card program; revert to standard bag label.",
+      "cost_to_run_pEN": "180 (card design + 200 print run)",
+      "owner": "Roaster + retail lead"
+    },
+    {
+      "id": "EXP-03",
+      "name": "Saturday Cupping Mini-Lab",
+      "hypothesis": "A free 20-minute Saturday cupping at the bar will drive >=3 new retail bean purchases per session and >=1 new Instagram follow per attendee.",
+      "design": "Run cupping at 11am and 4pm every Saturday for 4 weeks. Cap at 6 seats. Promote via Instagram Stories only (no paid). Capture email/WhatsApp with consent at sign-up.",
+      "sample_size_target": "48 attendees across 8 sessions",
+      "success_metric": "Average >=2 retail bean purchases per session; >=60% of attendees follow @ursacoffeeperu within 7 days.",
+      "stop_rule": "If sessions are <50% full by Friday for two consecutive weeks, discontinue; if attendance is high but conversion is <1 retail purchase per session, redesign the cupping script.",
+      "cost_to_run_pEN": "0 incremental (uses existing staff and beans); opportunity cost is 2 staff-hours/Saturday",
+      "owner": "Head barista"
+    },
+    {
+      "id": "EXP-04",
+      "name": "Reels 'Un Gramo a la Vez' Series",
+      "hypothesis": "A weekly Reel series showing the same single brew technique measured to the gram will reach >=8,000 accounts within 4 episodes and drive >=5 saved-contact sign-ups per episode.",
+      "design": "4 weekly Reels, each 22-35 seconds, each opening with the same 'Un gramo a la vez' hook but a different preparation (V60, Aeropress, Chemex, espresso). Same on-screen text style, same bear watermark, same end card with WhatsApp opt-in.",
+      "sample_size_target": "4 episodes",
+      "success_metric": "Cumulative reach >=8,000 unique accounts; >=20 saved contacts total.",
+      "stop_rule": "If episode 2 reach is <1,200 accounts, redesign the hook and retest with 2 more episodes before scaling.",
+      "cost_to_run_pEN": "0 (in-house production)",
+      "owner": "Social lead"
+    },
+    {
+      "id": "EXP-05",
+      "name": "Hotel Concierge Sampling",
+      "hypothesis": "Dropping 30 sample bean bags + a one-page 'Breakfast Coffee Guide for Guests' at 8 hotels within 6 blocks will generate >=10 attributed visits and >=5 retail purchases in 30 days.",
+      "design": "Identify 8 boutique hotels / hostels in Miraflores (Alcanfores, Malecón, Larco corridor). Deliver a sample bag + guide + a unique QR promo code per hotel. Track QR scans and code redemptions for 30 days.",
+      "sample_size_target": "8 hotels, 30-day window",
+      "success_metric": ">=10 visits via unique code; >=5 retail bean purchases; >=1 hotel agrees to stock Ursa retail bags.",
+      "stop_rule": "If after 21 days zero codes have been redeemed, abandon outreach to remaining hotels and redesign the guide / sample.",
+      "cost_to_run_pEN": "240 (30 sample bags at S/. 8 cost)",
+      "owner": "Owner / partnerships lead"
+    },
+    {
+      "id": "EXP-06",
+      "name": "WhatsApp 'Bean Drop' Notify List",
+      "hypothesis": "A WhatsApp broadcast list announcing each new single-origin bean drop 24 hours before public release will sell >=60% of each drop's first 30 bags to the list within 6 hours.",
+      "design": "Collect WhatsApp opt-ins at the counter and via Reels end-cards for 4 weeks. At the next 3 single-origin drops, broadcast to the list 24 hours before store release. Track time-to-sellthrough for the first 30 bags.",
+      "sample_size_target": "3 drops",
+      "success_metric": "Average sellthrough of first 30 bags within 6 hours of broadcast; list grows to >=120 contacts.",
+      "stop_rule": "If list grows below 30 contacts in 4 weeks, redesign opt-in mechanic. If a single drop sells <40% of first 30 bags via list, redesign the broadcast message.",
+      "cost_to_run_pEN": "0 (WhatsApp Business free)",
+      "owner": "Social lead + roaster"
+    },
+    {
+      "id": "EXP-07",
+      "name": "Google Business Profile Photos Refresh",
+      "hypothesis": "Replacing Google Business Profile photos with 12 high-quality, branded, caption-tagged images will lift Google 'Get directions' calls-to-action by >=25% in 30 days.",
+      "design": "Audit current GBP photos. Upload 12 new photos (storefront, espresso pour, coldbrew tap, bear motif detail, interior, three signature drinks, retail bags, pastry case, two barista portraits, one cupping). Tag each with category. Track GBP insights for 30 days.",
+      "sample_size_target": "30-day window vs preceding 30 days",
+      "success_metric": "Direction requests +25%; call clicks +15%; website clicks +20%.",
+      "stop_rule": "If after 30 days direction requests are flat or negative, redesign photo set and retest.",
+      "cost_to_run_pEN": "0 (uses existing photo assets or one in-house shoot day)",
+      "owner": "Owner"
+    },
+    {
+      "id": "EXP-08",
+      "name": "Miraflores Office Coffee Subscription Pilot",
+      "hypothesis": "Offering 5 small Miraflores offices a 4-week pilot subscription (1kg beans + filter loan + weekly check-in) will convert >=2 to paid monthly subscriptions at >=S/. 280/month.",
+      "design": "Identify 5 offices within 1km (coworking spaces, agencies, studios). Loan a V60 or French press kit + deliver 1kg/week for 4 weeks. At week 4, present a paid monthly plan. Track conversion.",
+      "sample_size_target": "5 offices",
+      "success_metric": ">=2 convert to paid subscription; >=1 referral to another office.",
+      "stop_rule": "If after week 2 of pilot <3 offices are actively using the beans, abandon; if at week 4 conversion is <1, redesign pricing or scope.",
+      "cost_to_run_pEN": "560 (4kg beans per office at S/. 28 cost over 4 weeks, 5 offices)",
+      "owner": "Owner + B2B lead"
+    },
+    {
+      "id": "EXP-09",
+      "name": "Cata Privada Paid Tasting Tier",
+      "hypothesis": "A paid private tasting at S/. 45/person (2-person minimum) — well below Terrua's US$25 (~S/. 93) anchor — will generate >=2 bookings/month with >=70% customer satisfaction and >=1 retail bean purchase per booking.",
+      "design": "Launch Cata Privada as bookable via WhatsApp. Format: 90 minutes, 4 single origins, paired pastries, take-home 100g bag, roaster Q&A. Promote via Instagram Story sequence and a permanent in-store table card. Run for 60 days. Track bookings, satisfaction (post-event WhatsApp rating), and retail attach.",
+      "sample_size_target": "8 bookings over 60 days (2-person minimum = 16+ attendees)",
+      "success_metric": ">=2 bookings/month average; >=70% rate 5/5; >=1 retail bean purchase per booking average.",
+      "stop_rule": "If after 60 days bookings are <1/month, kill and rework as drop-in Saturday paid tier instead. If satisfaction is <70% 5/5, rework format before re-launching.",
+      "cost_to_run_pEN": "180 (8 bookings x S/. 22 variable cost: 90min staff time + 4 sample beans + 100g retail bag + 4 pastries)",
+      "owner": "Head barista + owner"
+    },
+    {
+      "id": "EXP-10",
+      "name": "WorkCafé Cobrand Partnership Pilot",
+      "hypothesis": "A WorkCafé-style cobrand with 1 Miraflores coworking space (mirroring Neira x Comunal) will generate >=15 attributed visits/month from coworking members and >=2 office subscription conversions within 90 days.",
+      "design": "Identify 3 Miraflores coworking spaces (Comunal Av. Benavides 871, Selina, Aetión, Impact Hub). Pitch WorkCafé Ursa cobrand: Ursa supplies beans + bi-weekly cupping at the space; coworking space promotes Ursa to members with unique QR code. Sign 90-day pilot with one space. Track QR scans, attributed visits, and conversions.",
+      "sample_size_target": "1 coworking space, 90-day pilot",
+      "success_metric": ">=15 attributed visits/month via unique QR; >=2 office subscription conversions; >=1 social media cobrand post per month from coworking partner.",
+      "stop_rule": "If after 45 days QR scans are <10/month, redesign cobrand offer or switch partner. If after 90 days 0 office conversions, kill and refocus on direct B2B (EXP-08).",
+      "cost_to_run_pEN": "420 (sample beans for cuppings + materials; ~S/. 140/month for 3 months)",
+      "owner": "Owner + partnerships lead"
+    },
+    {
+      "id": "EXP-11",
+      "name": "Ursa Mañana Subscription Pilot (unlimited coffee 7-10am, S/. 20/month)",
+      "hypothesis": "A S/. 20/month subscription offering unlimited non-milk coffee (espresso, americano, filter, coldbrew) Mon-Fri 7-10am, in-store only, 1 cup per visit, will be profitable at marginal-cost economics when side attach rate >=50% and cannibalization-adjusted profit per subscriber >=S/. 8/month by day 60.",
+      "design": "90-day capped pilot. Maximum 100 subscribers. WhatsApp sign-up. POS tracks per-subscriber visits, cups, sides, retail. Side-pushing strategy (Module 08 §8.3) is mandatory staff training. First-visit free cookie to seed attach habit. Cannibalization measured by comparing pre-subscription spend (from POS history for known customers) vs post-subscription spend.",
+      "sample_size_target": "100 subscribers over 90 days",
+      "success_metric": "Attach rate >=50% AND cannibalization-adjusted profit >=S/. 8/subscriber/month at day 60. New-customer acquisition via subscription >=20% of subscribers (i.e., >=20 of 100 are net-new customers, not cannibalized).",
+      "stop_rule": "Kill if cannibalization-adjusted profit per subscriber <S/. 0 at day 60. Iterate if 30<attach rate<45% at day 30 (redesign side-pushing for 30 more days). Hard ceiling: 100 active subscribers in pilot to avoid crowding the 7-10am window.",
+      "cost_to_run_pEN": "150 (WhatsApp Business setup + table card print + first-visit cookie fund for 100 subscribers @ S/. 1.50 each)",
+      "owner": "Owner + store manager + head barista (side-pushing training)"
+    }
+  ],
+  "decision_rules": {
+    "scale_up": "If success_metric is met within the planned window AND stop_rule has not triggered, scale the experiment into a permanent program with a quarterly review.",
+    "iterate": "If success_metric is partially met (50-80%) AND the stop_rule has not triggered, redesign one variable (offer, channel, copy) and run a second 14-30 day iteration.",
+    "kill": "If stop_rule triggers, kill cleanly. Document the finding in sources-and-evidence.html so future experiments do not repeat the same hypothesis in the same form."
+  }
+}

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 · Ruta de Implementación &amp; KPIs — Dossier Ursa Coffee Roasters</title>
+<meta name="description" content="Plan de primeras 72 horas, planes de 30/60/90 días y roadmap de innovación a 12 meses para Ursa Coffee Roasters. Cada workstream tiene owners, dependencias, métricas y reglas de parada. Tres escenarios de presupuesto en PEN. Incluye bitácora de revisión escéptica y veredicto final de preservación del espíritu.">
+<link rel="stylesheet" href="assets/ursa.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' aria-hidden="true"><circle cx='16' cy='16' r='15' fill='%233B2417'/><circle cx='16' cy='16' r='13' fill='none' stroke='%23B8924A' stroke-width='1'/><text x='16' y='22' font-family='Georgia' font-size='16' fill='%23F4EBD9' text-anchor='middle'>U</text></svg>">
+</head>
+<body>
+
+<header class="ursa-header">
+  <div class="ursa-header__row">
+    <a href="index.es.html" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+      <span class="ursa-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img" aria-label="Marca Ursa">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#3B2417" stroke-width="1.4"/>
+          <circle cx="14" cy="14" r="3" fill="#3B2417"/>
+          <circle cx="26" cy="14" r="3" fill="#3B2417"/>
+          <circle cx="20" cy="22" r="9" fill="#3B2417"/>
+          <circle cx="17" cy="21" r="1.1" fill="#F4EBD9"/>
+          <circle cx="23" cy="21" r="1.1" fill="#F4EBD9"/>
+          <path d="M18 25 Q20 27 22 25" stroke="#F4EBD9" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>
+        <div class="ursa-header__title">Ursa Coffee Roasters</div>
+        <div class="ursa-header__sub">Módulo 07 · Ruta &amp; KPIs</div>
+      </span>
+    </a>
+    <div class="ursa-lang-toggle" role="group" aria-label="Idioma">
+      <a href="07-implementation-roadmap-and-kpis.html" class="ursa-lang-toggle__btn" lang="en">EN</a>
+      <span class="ursa-lang-toggle__sep" aria-hidden="true">·</span>
+      <a href="07-implementation-roadmap-and-kpis.es.html" class="ursa-lang-toggle__btn" aria-current="true" lang="es">ES</a>
+    </div>
+    <nav class="ursa-header__nav" aria-label="Secciones del dossier">
+      <a href="index.es.html">Índice</a>
+      <a href="01-brand-audit-and-design-system.es.html">01 · Marca</a>
+      <a href="02-market-competitors-and-customer-voice.es.html">02 · Mercado</a>
+      <a href="03-menu-and-product-development.es.html">03 · Carta</a>
+      <a href="04-marketing-growth-and-retention-plan.es.html">04 · Crecimiento</a>
+      <a href="05-viral-content-laboratory.es.html">05 · Lab Viral</a>
+      <a href="06-creative-campaign-prototypes.es.html">06 · Creativo</a>
+      <a href="07-implementation-roadmap-and-kpis.es.html" aria-current="page">07 · Ruta</a>
+      <a href="08-subscription-economics-and-calculator.es.html">08 · Sub y Calc</a>
+      <a href="sources-and-evidence.es.html">Fuentes</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="ursa-hero">
+  <div class="ursa-wrap">
+    <span class="ursa-hero__eyebrow">Módulo 07 · Ruta de Implementación &amp; KPIs</span>
+    <h1 class="ursa-hero__title">Un plan que dice quién hace qué, para cuándo, con qué métrica y cuándo parar.</h1>
+    <p class="ursa-hero__lede">Este módulo convierte cada recomendación del dossier en un plan secuenciado, con owner, medido y cronometrado: primeras 72 horas, 30 días, 60 días, 90 días y un roadmap de innovación a 12 meses. Cada workstream nombra a su owner, dependencia, métrica y regla de parada. Tres escenarios de presupuesto en PEN. Incluye la bitácora de revisión escéptica y el veredicto final de preservación del espíritu que exige el estándar de completitud.</p>
+    <div class="ursa-hero__meta">
+      <span><b>Horizontes</b> · 72h · 30d · 60d · 90d · 12m</span>
+      <span><b>Escenarios de presupuesto</b> · lean / moderate / growth (PEN)</span>
+      <span><b>Workstreams</b> · 9</span>
+      <span><b>Veredicto final</b> · Espíritu preservado</span>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.1</span>
+      <h2 class="ursa-section__title">Primeras 72 horas — la secuencia de lanzamiento</h2>
+    </div>
+
+    <p>Las primeras 72 horas establecen los cimientos. Todo en esta ventana cuesta S/. 0–200 en cash y depende solo del tiempo del dueño y del staff. Nada aquí es irreversible.</p>
+
+    <div class="ursa-timeline">
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Hora 0–4 · Día 1 en la mañana</div>
+        <h3 class="ursa-timeline__title">Auditar &amp; alinear</h3>
+        <p class="ursa-timeline__body">El dueño lee los Módulos 01–04 completos. Confirma o corrige los marcadores de identidad verificados en §1.1. Responde las seis preguntas abiertas en Fuentes &amp; Evidencia si puede. Identifica el escenario de presupuesto (lean / moderate / growth) para los primeros 30 días.</p>
+        <p class="small muted"><strong>Owner</strong> · Dueño · <strong>Dependencia</strong> · Ninguna · <strong>Output</strong> · Escenario de presupuesto seleccionado; preguntas abiertas respondidas o diferidas</p>
+      </div>
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Hora 4–12 · Día 1 en la tarde</div>
+        <h4 class="ursa-timeline__title">Refresco de Google Business Profile (EXP-07)</h4>
+        <p class="ursa-timeline__body">El dueño reclama o actualiza el Google Business Profile. Sube 12 fotos usando la dirección de fotografía de §1.8 (fachada, vertido de espresso, grifo de coldbrew, detalle del motivo del oso, interior, tres bebidas signature, bolsas de retail, vitrina de repostería, dos retratos de baristas, una catación). Etiqueta cada una con categoría. Verifica que los horarios coincidan con la bio de Instagram.</p>
+        <p class="small muted"><strong>Owner</strong> · Dueño · <strong>Dependencia</strong> · Assets de fotos existentes · <strong>Costo</strong> · S/. 0 · <strong>Métrica</strong> · 12 fotos en vivo para el final del Día 1</p>
+      </div>
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Hora 12–24 · Día 1 en la noche</div>
+        <h4 class="ursa-timeline__title">Primer Reel publicado (Guion 1)</h4>
+        <p class="ursa-timeline__body">El líder de redes graba y publica el Guion 1 (Un Gramo a la Vez — V60) usando un celular, una balanza y la barra de V60. Sin producción profesional. Capturar alcance baseline en 24 horas.</p>
+        <p class="small muted"><strong>Owner</strong> · Líder de redes · <strong>Dependencia</strong> · Ninguna · <strong>Costo</strong> · S/. 0 · <strong>Métrica</strong> · Reel en vivo a las 8pm del Día 1</p>
+      </div>
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Hora 24–48 · Día 2</div>
+        <h4 class="ursa-timeline__title">Señalética de dos barras + tarjeta de primera visita en mesa</h4>
+        <p class="ursa-timeline__body">Imprimir el Prototipo 6.7 (tarjeta de mesa) y un letrero "Barra Espresso / Barra Coldbrew" para cada barra. Colocar en mesas y barras. Entrenar al staff en el bundle de primera visita (P-01 / EXP-01) — el staff le pregunta a cada cara nueva "¿Tu primera vez?" y ofrece el bundle.</p>
+        <p class="small muted"><strong>Owner</strong> · Gerente de tienda · <strong>Dependencia</strong> · Acceso a impresora · <strong>Costo</strong> · S/. 80 · <strong>Métrica</strong> · Tarjetas de mesa en vivo; staff entrenado; ≥5 ofertas de bundle en el Día 2</p>
+      </div>
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Hora 48–72 · Día 3</div>
+        <h4 class="ursa-timeline__title">WhatsApp Business + tarjeta de service-recovery</h4>
+        <p class="ursa-timeline__body">Configurar WhatsApp Business (gratis). Imprimir la variante de tarjeta de service-recovery del Prototipo 6.7: "Si algo no estuvo bien, cuéntanos aquí" con link de WhatsApp. Colocar en cada cuenta. Entrenar al staff para pedir reseñas en Google a los habitués contentos (un pedido por visita, máximo).</p>
+        <p class="small muted"><strong>Owner</strong> · Dueño + gerente de tienda · <strong>Dependencia</strong> · Celular con WhatsApp · <strong>Costo</strong> · S/. 40 · <strong>Métrica</strong> · WhatsApp en vivo; tarjetas en cuentas; ≥2 pedidos de reseña en el Día 3</p>
+      </div>
+    </div>
+
+    <div class="ursa-callout ursa-callout--ok">
+      <h4>Criterios de éxito de 72 horas</h4>
+      <ul class="list-tight" style="margin:0">
+        <li>Google Business Profile totalmente poblado con 12 fotos etiquetadas</li>
+        <li>Primer Reel publicado; alcance baseline capturado</li>
+        <li>Señalética de dos barras y bundle de primera visita en vivo en tienda</li>
+        <li>Cuenta de WhatsApp Business en vivo; tarjetas de service-recovery en circulación</li>
+        <li>El dueño ha seleccionado un escenario de presupuesto y respondido (o diferido) las seis preguntas abiertas</li>
+      </ul>
+      <p style="margin:8px 0 0"><strong>Costo total en cash de las primeras 72 horas</strong> · S/. 120–200. <strong>Tiempo total del dueño</strong> · 8–12 horas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.2</span>
+      <h2 class="ursa-section__title">Plan de 30 días</h2>
+    </div>
+
+    <p>El plan de 30 días corre el piloto de contenido de cuatro semanas de §5.6, los primeros tres experimentos en vivo (EXP-01, EXP-03, EXP-07) y la primera ronda de colaboraciones con creators. Al día 30, el equipo tiene data real de qué está funcionando.</p>
+
+    <div class="ursa-table-wrap">
+    <table class="ursa-table">
+      <caption>Tabla 7.2 — Workstreams de 30 días</caption>
+      <thead><tr><th>Workstream</th><th>Owner</th><th>Dependencia</th><th>Métrica a 30 días</th><th>Regla de parada / revisión</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Piloto de contenido (§5.6)</strong></td><td>Líder de redes</td><td>Tiempo de staff para shoots</td><td>12 piezas publicadas; alcance acumulado 15,000; ≥20 sign-ups en WhatsApp</td><td>Según método test/amplify de §5.7</td></tr>
+        <tr><td><strong>EXP-01 · Bundle Doble Barra</strong></td><td>Gerente de tienda</td><td>Botón en POS; tarjeta de mesa</td><td>≥150 transacciones de primera vez; ≥25% retorno en 30 días</td><td>Si después de 7 días &lt;8 bundles/día, revertir a 20% off</td></tr>
+        <tr><td><strong>EXP-03 · Catación sabatina</strong></td><td>Barista principal</td><td>Guion; kit de catación</td><td>4 sesiones; ≥2 compras de grano de retail/sesión; ≥60% siguen a @ursacoffeeperu</td><td>Si &lt;50% de lleno por 2 semanas, discontinuar</td></tr>
+        <tr><td><strong>EXP-07 · Fotos GBP</strong></td><td>Dueño</td><td>Día de sesión de fotos</td><td>+25% pedidos de dirección; +15% clicks en llamada</td><td>Si plano o negativo al día 30, rediseñar set de fotos</td></tr>
+        <tr><td><strong>Siembra de TripAdvisor</strong></td><td>Dueño</td><td>Habitués conocidos</td><td>Primeras 5 reseñas publicadas</td><td>Si 0 reseñas al día 30, escalar a guion de pedido activo</td></tr>
+        <tr><td><strong>Colaboración con creator 1</strong></td><td>Líder de redes</td><td>Brief A en §5.4</td><td>1 Reel + 1 Story en vivo; alcance acumulado 4,000</td><td>Si alcance &lt;2,000, rediseñar brief o elegir otro creator</td></tr>
+        <tr><td><strong>Refresco de listing en Rappi</strong></td><td>Gerente de tienda</td><td>App partner de Rappi</td><td>Fotos del listing refrescadas; horarios de delivery alineados con horarios de tienda</td><td>Si Rappi no permite alinear horarios, documentar la brecha</td></tr>
+        <tr><td><strong>Outreach a CoffeePass</strong></td><td>Dueño</td><td>Contacto en CoffeePass</td><td>Colocación destacada negociada por 30 días</td><td>Si CoffeePass declina, documentar y seguir</td></tr>
+        <tr><td><strong>Web de una página en vivo</strong></td><td>Dueño + líder de redes</td><td>Dominio (ursacoffee.pe o similar); HTML de 1 página</td><td>ursacoffee.pe en vivo con: horarios, dirección, mapa, carta, botón de WhatsApp, link a Instagram. Los 5 competidores principales de Miraflores (Punto, Neira, Bisetti, Puku Puku, Terrua) tienen web — Ursa es la única sin web.</td><td>Si no está en vivo al día 30, escalar a build pago estilo Squarespace simple</td></tr>
+        <tr><td><strong>Decisión de política pet + señalética</strong></td><td>Dueño</td><td>Solo decisión</td><td>Política pet declarada explícitamente en la bio de Instagram, en señalética de puerta y en la nueva web. Punto Café es "pet friendly" — Ursa debería decidir su posición y comunicarla.</td><td>Si sigue sin definirse al día 30, default a "pet-friendly con restricciones" y revisar al día 60</td></tr>
+        <tr><td><strong>Review semanal de métricas</strong></td><td>Dueño + líder de redes</td><td>Slot de 30 min los viernes</td><td>4 reviews completados; dashboard de KPIs en vivo</td><td>Si se saltan 2 semanas, escalar al dueño</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="ursa-callout">
+      <h3>Puerta de decisión Día 30</h3>
+      <p style="margin:0">Al final de la semana 4, revisar el dashboard de KPIs (Tabla 4.9) contra los targets de 30 días. Si 6 o más de 12 KPIs pegan target, escalar el escenario de presupuesto (lean → moderate, o moderate → growth). Si 4 o menos pegan, bajar un nivel de escenario y diagnosticar qué workstreams underperformaron. Nunca escalar presupuesto sin antes identificar qué funcionó.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.3</span>
+      <h2 class="ursa-section__title">Plan de 60 días</h2>
+    </div>
+
+    <p>Los días 31–60 escalan lo que funcionó en los días 1–30, agregan el piloto de muestras para conserjes de hotel (EXP-05) y la lista WhatsApp Bean Drop (EXP-06), y lanzan la segunda colaboración con creator. El sistema de diseño Level-2 (marcas companion, cartas pareadas) arranca rollout.</p>
+
+    <div class="ursa-table-wrap">
+    <table class="ursa-table">
+      <caption>Tabla 7.3 — Workstreams de 60 días (además de continuar los de 30 días)</caption>
+      <thead><tr><th>Workstream</th><th>Owner</th><th>Dependencia</th><th>Métrica a 60 días</th><th>Regla de parada / revisión</th></tr></thead>
+      <tbody>
+        <tr><td><strong>EXP-05 · Muestras para conserjes de hotel</strong></td><td>Dueño</td><td>8 hoteles identificados; bolsas de muestra + guías impresos</td><td>≥10 visitas atribuidas vía QR; ≥5 compras de retail; ≥1 hotel acepta stockear Ursa</td><td>Si 0 redenciones al día 51, rediseñar kit</td></tr>
+        <tr><td><strong>EXP-06 · Lista WhatsApp Bean Drop</strong></td><td>Líder de redes + tostador</td><td>Lista WhatsApp construida durante los días 1–30</td><td>3 drops transmitidos; ≥60% sellthrough de las primeras 30 bolsas en 6 horas</td><td>Según reglas de parada de EXP-06</td></tr>
+        <tr><td><strong>Colaboración con creator 2</strong></td><td>Líder de redes</td><td>Brief B en §5.4</td><td>1 Reel en vivo; alcance 3,000; ≥5 redenciones de bundle de primera visita atribuidas</td><td>Si alcance &lt;1,500, cambiar a creator Brief C</td></tr>
+        <tr><td><strong>Rollout de sistema de diseño Level-2</strong></td><td>Dueño + diseñador</td><td>Pack de assets provisto por el dueño (pregunta abierta Q6)</td><td>Marcas companion en vivo en plantillas de redes; carta pareada impresa; etiqueta de bolsa de grano rediseñada</td><td>Si no se recibe el pack de assets al día 45, diferir al día 90</td></tr>
+        <tr><td><strong>EXP-02 · Tarjeta de historia de origen del grano</strong></td><td>Tostador + líder de retail</td><td>200 tarjetas impresas</td><td>Attach rate ≥14% de transacciones de café; ≥40% de compradores del tratamiento mencionan la tarjeta sin que se les pregunte</td><td>Según reglas de parada de EXP-02</td></tr>
+        <tr><td><strong>Catación sabatina — programa completo</strong></td><td>Barista principal</td><td>Éxito de EXP-03</td><td>8 sesiones; cronograma permanente establecido; pineado en la bio de Instagram</td><td>Si EXP-03 fue matado, rediseñar solo como mensual</td></tr>
+        <tr><td><strong>Línea de grano de retail — expandir a 5 SKUs</strong></td><td>Tostador</td><td>Capacidad de tostaduría</td><td>5 single origins en el shelf de retail; cada uno con tarjeta de info de grano (Prototipo 6.9)</td><td>Si algún SKU vende &lt;5 bolsas/mes, rotarlo fuera</td></tr>
+        <tr><td><strong>Lanzamiento de piloto B2B oficinas Miraflores</strong></td><td>Dueño</td><td>Diseño de EXP-08</td><td>5 oficinas en piloto; piloto de 4 semanas en marcha</td><td>Según reglas de parada de EXP-08</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="ursa-callout ursa-callout--warn">
+      <h3>Puerta de decisión Día 60</h3>
+      <p style="margin:0">Al día 60, el equipo debería tener 8 semanas de data. Tres preguntas: (1) ¿Qué canal de adquisición produjo las más visitas atribuidas por S/. gastado? Duplicarlo. (2) ¿Qué mecanismo de retención produjo la mayor tasa de retorno? Hacerlo permanente. (3) ¿Qué experimento falló? Matar de forma limpia y documentar en <code>experiments.json</code>. No extender experimentos fallidos por lealtad de sunk-cost.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.4</span>
+      <h2 class="ursa-section__title">Plan de 90 días</h2>
+    </div>
+
+    <p>Los días 61–90 consolidan. El sistema ahora produce contenido consistente, cataciones consistentes, drops de retail consistentes y recolección de reseñas consistente. El plan de 90 días agrega la primera expresión seasonal (Level 3) y prepara el terreno para el roadmap de 12 meses.</p>
+
+    <div class="ursa-table-wrap">
+    <table class="ursa-table">
+      <caption>Tabla 7.4 — Workstreams de 90 días (además de continuar los de 30 y 60 días)</caption>
+      <thead><tr><th>Workstream</th><th>Owner</th><th>Dependencia</th><th>Métrica a 90 días</th><th>Regla de parada / revisión</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rotación de carta seasonal — primera edición</strong></td><td>Tostador + barista principal</td><td>Testing de recetas</td><td>1 bebida seasonal (nombrada según convención Ursa) + 1 pastry seasonal + 1 bolsa de grano limitada; ≥4 unidades/día de cada una</td><td>Si &lt;4 unidades/día al día 21, matar o pasar a la próxima temporada</td></tr>
+        <tr><td><strong>Colaboración con creator 3</strong></td><td>Líder de redes</td><td>Brief C en §5.4</td><td>1 Reel long-form en vivo; alcance 5,000; ≥10 compras de grano de retail atribuidas</td><td>Si alcance &lt;2,500, volver a creator Brief A/B</td></tr>
+        <tr><td><strong>Lanzamiento de kit home-brew starter (P-07)</strong></td><td>Dueño + líder de retail</td><td>20 kits armados; 1 Reel producido</td><td>≥80% sellthrough en 30 días; ≥30% de compradores se unen a lista WhatsApp</td><td>Si &lt;50% sellthrough, rediseñar kit</td></tr>
+        <tr><td><strong>Lanzamiento de mecanismo UGC UGC-1</strong></td><td>Líder de redes</td><td>Hashtag #MiMañanaUrsa</td><td>≥8 posts UGC en 30 días</td><td>Si &lt;3 posts/mes, rediseñar recompensa</td></tr>
+        <tr><td><strong>TripAdvisor — llegar a 15 reseñas</strong></td><td>Dueño</td><td>Guion de pedido activo</td><td>≥15 reseñas; ≥4.5 rating promedio</td><td>Si &lt;10 reseñas al día 90, escalar a pedido por email a habitués conocidos</td></tr>
+        <tr><td><strong>Conversión de suscripción de oficinas</strong></td><td>Dueño</td><td>Piloto EXP-08 completo</td><td>≥2 oficinas convertidas a suscripción mensual paga</td><td>Si &lt;1 conversión, rediseñar precio o alcance</td></tr>
+        <tr><td><strong>Review trimestral &amp; reset de roadmap</strong></td><td>Dueño + equipo completo</td><td>Todas las métricas recolectadas</td><td>1 sesión de review; roadmap para meses 4–6 confirmado</td><td>Si algún workstream se perdió su métrica de 90 días por &gt;50%, escalar al dueño para rediseño</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="ursa-callout ursa-callout--ok">
+      <h3>Criterios de éxito Día 90</h3>
+      <ul class="list-tight" style="margin:0">
+        <li>Dashboard de KPIs muestra ≥8 de 12 KPIs pegando target</li>
+        <li>Sistema de diseño Level-1 totalmente en su lugar; growth skin Level-2 en vivo</li>
+        <li>Primera expresión seasonal (Level 3) testeada y sea graduada a recurrente o matada</li>
+        <li>Lista WhatsApp ≥150 contactos</li>
+        <li>TripAdvisor ≥15 reseñas, Google ≥20 reseñas</li>
+        <li>≥1 suscripción de oficina convertida; ≥1 alianza de hotel activa</li>
+        <li>El dueño ha seleccionado el escenario de presupuesto para meses 4–6 basado en data, no en intuición</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.5</span>
+      <h2 class="ursa-section__title">Roadmap de innovación a 12 meses</h2>
+    </div>
+
+    <p>Más allá de 90 días, el roadmap secuencia cuatro movimientos de tamaño trimestral. Cada movimiento es una hipótesis testeada contra la misma estructura de métricas usada en el plan de 90 días. Ninguno de estos movimientos está comprometido; son escenarios para que el dueño elija según los resultados de 90 días.</p>
+
+    <div class="ursa-timeline">
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Meses 4–6 · Trimestre 2</div>
+        <h3 class="ursa-timeline__title">Q2 · Pipeline de turismo &amp; hospitalidad</h3>
+        <p class="ursa-timeline__body">Si EXP-05 (muestras en hotel) tuvo éxito, formalizar un pipeline de turismo Miraflores: 15+ hoteles stockeados con guías de Ursa, 2 hosts de Airbnb Experience incluyendo Ursa, 1 visita a productor alojada en tienda. Testear un kit de minibar "Ursa en tu habitación" con 1 hotel boutique. Meta: visitas atribuidas a turismo = 15% del tráfico mensual total.</p>
+        <p class="small muted"><strong>Owner</strong> · Dueño · <strong>Dependencia</strong> · Éxito de EXP-05 · <strong>Métrica</strong> · 15% visitas atribuidas a turismo · <strong>Stop</strong> · Si &lt;8% al mes 6, diferir turismo a Q4 y pivotear a B2B</p>
+      </div>
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Meses 7–9 · Trimestre 3</div>
+        <h4 class="ursa-timeline__title">Q3 · B2B &amp; wholesale</h4>
+        <p class="ursa-timeline__body">Si EXP-08 (suscripción de oficina) tuvo éxito, escalar a 10+ suscripciones de oficina activas y explorar wholesale a 2–3 restaurantes de Miraflores para su café post-comida. Testear un add-on de catación semanal "Ursa en la oficina" para clientes de suscripción. Meta: revenue B2B = 20% del total mensual.</p>
+        <p class="small muted"><strong>Owner</strong> · Dueño + líder B2B · <strong>Dependencia</strong> · Éxito de EXP-08 · <strong>Métrica</strong> · 20% revenue B2B · <strong>Stop</strong> · Si &lt;10% al mes 9, diferir wholesale y reenfocar en retail</p>
+      </div>
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Meses 10–12 · Trimestre 4</div>
+        <h4 class="ursa-timeline__title">Q4 · Aniversario &amp; hipótesis de segundo local</h4>
+        <p class="ursa-timeline__body">Usar el aniversario de Ursa (o fin de año) para publicar el montaje "Un año de gramos" (Guion 10) y un agradecimiento público. Correr un test de hipótesis de 30 días: "¿Hay demanda para un segundo local de Ursa en Barranco o San Isidro?" Testear vía landing page + encuesta en Instagram + data geográfica de Rappi. <strong>Estudiar el playbook de expansión de Neira</strong> (Palacios → Aurora → Chacarilla → cobrand WorkCafé con Comunal — ver E-22) como el precedente limeño más cercano. No abrir un segundo local basado en demanda de vanidad; solo si el test produce ≥200 sign-ups explícitos y una tesis operativa defendible.</p>
+        <p class="small muted"><strong>Owner</strong> · Dueño · <strong>Dependencia</strong> · Data financiera de 90 días · <strong>Métrica</strong> · ≥200 sign-ups para segundo local · <strong>Stop</strong> · Si &lt;200 sign-ups, matar la hipótesis de segundo local por 12 meses</p>
+      </div>
+      <div class="ursa-timeline__item">
+        <div class="ursa-timeline__when">Fin del Año 1</div>
+        <h4 class="ursa-timeline__title">Review de fin de año &amp; roadmap de año 2</h4>
+        <p class="ursa-timeline__body">Review de año completo contra el dashboard de KPIs. Comparar Mes 12 vs Mes 1 en los 12 KPIs. Identificar los top 3 workstreams por ROI y los bottom 3 por ROI. Cortar los bottom 3. Construir el roadmap de año 2 con los top 3 más 2 hipótesis nuevas. <strong>Monitorear Premios Somos</strong> (premio de la industria que Punto Café ganó en 2024 — ver E-21): si Ursa tiene tracción demostrable al Q3, postular para consideración; si no, diferir. Actualizar <code>evidence.json</code> y <code>experiments.json</code> con los hallazgos de año 1.</p>
+        <p class="small muted"><strong>Owner</strong> · Dueño + equipo completo · <strong>Dependencia</strong> · Toda la data recolectada · <strong>Métrica</strong> · Roadmap de año 2 documentado · <strong>Stop</strong> · N/A</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.6</span>
+      <h2 class="ursa-section__title">Owners, dependencias &amp; reglas de parada — resumen</h2>
+    </div>
+
+    <p>Cada workstream en el plan de 90 días nombra a un owner (quién es accountable), una dependencia (qué debe ser verdad para empezar), una métrica (cómo se mide el éxito) y una regla de parada (cuándo matar o revisar). El resumen abajo es la versión cheat-sheet.</p>
+
+    <div class="ursa-grid ursa-grid--2">
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Owners (5 roles distintos)</h3>
+        <ul class="list-tight" style="margin:0">
+          <li><strong>Dueño</strong> — decisiones estratégicas, alianzas, presupuesto, B2B, sourcing de pack de assets.</li>
+          <li><strong>Gerente de tienda</strong> — operaciones en tienda, Rappi, ejecución del bundle de primera visita, service recovery.</li>
+          <li><strong>Barista principal</strong> — programa de cataciones, disciplina de dial-in, entrenamiento de baristas, visibilidad de craft en tienda.</li>
+          <li><strong>Tostador</strong> — sourcing de grano, perfiles de tueste, línea de grano de retail, tarjetas de info de grano.</li>
+          <li><strong>Líder de redes</strong> — producción de contenido, colaboraciones con creators, lista WhatsApp, mecanismos UGC, review semanal de métricas.</li>
+        </ul>
+        <p class="muted small" style="margin:8px 0 0">Para una cafetería chica, una persona puede tener dos roles (por ejemplo, Dueño + Gerente de tienda). El plan no asume cinco personas distintas.</p>
+      </div>
+      <div class="ursa-card">
+        <h3 class="ursa-card__title">Reglas de parada — principios universales</h3>
+        <ul class="list-tight" style="margin:0">
+          <li><strong>Matar de forma limpia.</strong> Un experimento fallido se mata dentro de 14–30 días de que su regla de parada se dispare. Sin extensiones por lealtad de sunk-cost.</li>
+          <li><strong>Documentar el fracaso.</strong> Cada kill se loguea en <code>experiments.json</code> con la razón. Experimentos futuros no repiten la misma hipótesis en la misma forma.</li>
+          <li><strong>Iterar una vez.</strong> Si un workstream está funcionando parcialmente (50–80% del target), rediseñar una variable y retestear una vez. Si la segunda iteración también falla, matar.</li>
+          <li><strong>Nunca doblar la apuesta sobre el fracaso.</strong> La amplificación paga nunca rescata contenido orgánico que underperforma (según §5.7).</li>
+          <li><strong>Escalar al dueño.</strong> Si un workstream es crítico para los criterios de éxito de 90 días y está fallando, escalar al dueño dentro de los 7 días de detectado.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.7</span>
+      <h2 class="ursa-section__title">Tres escenarios de presupuesto (PEN, por mes) — recap</h2>
+    </div>
+
+    <p>Traído desde §4.10 para facilidad de referencia. El dueño elige un escenario al día 0; el plan se ajusta en cada puerta de decisión (día 30, 60, 90).</p>
+
+    <div class="ursa-table-wrap">
+    <table class="ursa-table">
+      <thead><tr><th>Escenario</th><th>Cash mensual</th><th>Tiempo del dueño/mes</th><th>Qué financia</th><th>Qué no financia</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Lean</strong></td><td>S/. 2,500</td><td>20 hrs</td><td>Print, contingencia, operaciones básicas.</td><td>Media paga, fees de creators, muestras en hotel, fotografía, piloto B2B.</td></tr>
+        <tr><td><strong>Moderate (recomendado)</strong></td><td>S/. 7,200</td><td>40 hrs</td><td>Lean + Instagram paga + colaboraciones con creators + muestras en hotel + fotografía + piloto B2B + producción de merch.</td><td>Tiempo adicional de ventas B2B, segundo día de sesión de fotos, presupuestos más grandes para creators.</td></tr>
+        <tr><td><strong>Growth</strong></td><td>S/. 16,500</td><td>60 hrs</td><td>Moderate + presupuestos más grandes para creators + 2 días de sesión de fotos + B2B expandido + producción de eventos + software de analytics.</td><td>Segundo local (fuera de scope para el plan de 90 días; se testea en Q4 del roadmap de 12 meses).</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.8</span>
+      <h2 class="ursa-section__title">Bitácora de revisión escéptica (3 rondas)</h2>
+    </div>
+
+    <p>El estándar de completitud exige hasta tres rondas de revisión escéptica. La bitácora abajo registra qué desafió cada escéptico y cómo respondió el plan. Esta es la pasada de revisión final registrada; el dossier ahora está estable.</p>
+
+    <div class="ursa-grid ursa-grid--3">
+      <div class="ursa-card">
+        <h3>Ronda 1 · ¿Es el plan muy agresivo para una cafetería chica?</h3>
+        <p><strong>Desafío</strong> · "Ursa es una cafetería de un solo local con staff limitado. El plan de 90 días y el roadmap de 12 meses asumen una capacidad operativa que puede no existir."</p>
+        <p><strong>Respuesta</strong> · El plan se re-chequeó contra capacidad. El plan de 72 horas cuesta S/. 120–200 y 8–12 horas de tiempo del dueño. El plan de 30 días lo puede correr un dueño + 1 líder de redes + staff existente. Los planes de 60 y 90 días difieren explícitamente el rollout de diseño Level-2 y el scaling B2B si se pierde la puerta de decisión de 30 días. El roadmap se degrada de forma elegante: si algún workstream falla, el plan continúa con los workstreams restantes.</p>
+        <p class="muted small">Outcome: el plan se sostiene, con paths de degradación explícitos agregados a cada puerta de decisión.</p>
+      </div>
+      <div class="ursa-card">
+        <h4>Ronda 2 · ¿El espíritu de Ursa está realmente preservado?</h4>
+        <p><strong>Desafío</strong> · "El plan agrega marcas companion, cartas pareadas y expresiones seasonals. ¿No diluye esto la marca existente?"</p>
+        <p><strong>Respuesta</strong> · Cada adición se chequéo contra los marcadores de identidad verificados de §1.1. Las marcas companion (pata, silueta, constelación, línea de perfil) extienden la identidad del oso sin tocar el logo oficial. La carta pareada de dos barras operacionaliza el concepto verificado de dos barras. Las expresiones seasonals Level-3 son reversibles y limitadas a 4–6 semanas. El logo oficial se trata como inmutable a lo largo del dossier. La dirección de refinamiento conservador (Level 1 primero, Level 2 desde el mes 4, Level 3 solo seasonal) asegura que nada se reemplaza — solo se refina.</p>
+        <p class="muted small">Outcome: el plan se sostiene, con las reglas de gramática del oso de §1.4 y las reglas de nivel de evolución de §1.9 ajustadas para prohibir cualquier adición que diluya la marca oficial.</p>
+      </div>
+      <div class="ursa-card">
+        <h4>Ronda 3 · ¿Las métricas son realistas?</h4>
+        <p><strong>Desafío</strong> · "Targets como +25% pedidos de dirección, ≥30% tasa de retorno y 15% visitas atribuidas a turismo son conjeturas. ¿Cómo sabemos que son alcanzables?"</p>
+        <p><strong>Respuesta</strong> · No lo sabemos — y el plan lo dice. Cada métrica está emparejada con una regla de parada que se dispara si el target se pierde por &gt;50%. La puerta de decisión de 30 días baja explícitamente el escenario de presupuesto si 4 o menos de 12 KPIs pegan target. Las métricas están calibradas para ser suficientemente ambiciosas para motivar pero no tan ambiciosas que incentiven el gaming. Si el rendimiento real está consistentemente por debajo del target, los targets mismos se revisan en el review trimestral.</p>
+        <p class="muted small">Outcome: el plan se sostiene, con lenguaje explícito de "los targets son hipótesis, no promesas" agregado a las puertas de decisión.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ursa-section">
+  <div class="ursa-wrap">
+    <div class="ursa-section__head">
+      <span class="ursa-section__num">7.9</span>
+      <h2 class="ursa-section__title">Veredicto final de preservación del espíritu</h2>
+    </div>
+
+    <p>El estándar de completitud exige un veredicto final de preservación del espíritu. El veredicto abajo es la palabra final del dossier sobre si el plan preserva la identidad existente de Ursa.</p>
+
+    <div class="ursa-callout ursa-callout--ok" style="border-left-width:6px">
+      <h3 style="font-size:1.4rem; font-family:var(--f-display); font-style:italic; color:var(--ursa-forest-deep)">Veredicto · Espíritu preservado.</h3>
+      <p style="margin:0 0 12px">El plan documentado en este dossier preserva y refina la identidad verificada de Ursa Coffee Roasters — inclinación Art Nouveau, paleta de marrones y verdes, motivo del oso, tostaduría in-house, arquitectura de dos barras, tagline "Un gramo a la vez", bebidas con portmanteau nombrado, programa de comida in-house y voz de experto cálido. Ningún elemento de la identidad verificada se elimina. Ningún elemento del logo oficial se altera, se parodia ni se falsifica.</p>
+      <p style="margin:0 0 12px">El plan agrega estructura (paleta codificada, tipografía, voz, dirección de fotografía, gramática del oso), operacionaliza assets existentes (concepto de dos barras, tagline, convención de pairing, convención de bebida nombrada) y testea hipótesis nuevas de producto y canal a través de experimentos baratos con reglas de parada explícitas. Cada adición es reversible; cada experimento se puede matar de forma limpia; cada escenario de presupuesto se degrada de forma elegante.</p>
+      <p style="margin:0">La dirección recomendada es <strong>refinamiento conservador (Level 1) como sistema permanente, growth distintivo (Level 2) como skin desde el mes 4, y expresión seasonal experimental (Level 3) solo por períodos limitados</strong>. El rebrand total está explícitamente fuera de la mesa. El oso, el gramo y el verde se protegen a lo largo de todo el plan.</p>
+    </div>
+
+    <p style="font-family:var(--f-display); font-style:italic; font-size:1.4rem; color:var(--ursa-medium-roast); text-align:center; margin-top:32px">Un gramo a la vez.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="ursa-footer">
+  <div class="ursa-wrap">
+    <div class="ursa-footer__row">
+      <div>
+        <h4>Ursa Coffee Roasters — Dossier Estratégico</h4>
+        <p style="font-size:0.92rem">Módulo 07 · Ruta de Implementación &amp; KPIs. Compilado 2026-08-01. Plan de primeras 72 horas, planes de 30/60/90 días, roadmap de innovación a 12 meses. Owners, dependencias, métricas y reglas de parada para cada workstream. Tres escenarios de presupuesto en PEN. Tres rondas de revisión escéptica completadas. Veredicto final de preservación del espíritu: Espíritu preservado.</p>
+      </div>
+      <div>
+        <h4>Módulos</h4>
+        <p style="font-size:0.88rem">
+          <a href="index.es.html">Índice</a><br>
+          <a href="01-brand-audit-and-design-system.es.html">01 · Auditoría de Marca</a><br>
+          <a href="02-market-competitors-and-customer-voice.es.html">02 · Mercado &amp; Voz</a><br>
+          <a href="03-menu-and-product-development.es.html">03 · Carta &amp; Producto</a><br>
+          <a href="04-marketing-growth-and-retention-plan.es.html">04 · Crecimiento &amp; Retención</a><br>
+          <a href="05-viral-content-laboratory.es.html">05 · Lab Viral</a><br>
+          <a href="06-creative-campaign-prototypes.es.html">06 · Creativo</a><br>
+          <a href="sources-and-evidence.es.html">Fuentes &amp; Evidencia</a> →
+        </p>
+      </div>
+      <div>
+        <h4>Fin del dossier</h4>
+        <p style="font-size:0.88rem">Gracias por leer. El próximo paso es del dueño: elegir un escenario de presupuesto, responder las seis preguntas abiertas si puede, y correr la secuencia de lanzamiento de 72 horas de §7.1.</p>
+      </div>
+    </div>
+    <div class="ursa-footer__small">
+      <button data-action="print" style="background:transparent; border:1px solid var(--ursa-gold-soft); color:var(--ursa-gold-soft); padding:6px 14px; border-radius:99px; font-family:var(--f-label); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer">Imprimir este módulo</button>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ursa.js"></script>
+</body>
+</html>

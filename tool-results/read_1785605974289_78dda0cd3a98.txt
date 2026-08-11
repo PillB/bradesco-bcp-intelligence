@@ -1,0 +1,865 @@
+     1→// ============================================================
+     2→// URSA COFFEE — STRUCTURED DATA
+     3→// Verified from public sources. Snapshot 2026-08-01.
+     4→// See Sources & Evidence for full citations.
+     5→// ============================================================
+     6→
+     7→export const URSA_FACTS = {
+     8→  name: "Ursa Coffee Roasters",
+     9→  address: "Alcanfores 183, Miraflores, Lima 15074",
+    10→  hours: "Mon–Sat 07:30–21:00 · Sun 08:30–20:00",
+    11→  tagline: "Un gramo a la vez.",
+    12→  bio: "Tostadores de café de especialidad",
+    13→  instagram: "@ursacoffeeperu",
+    14→  followers: "4,746",
+    15→  posts: "206",
+    16→  twoBars: "Espresso bar + Coldbrew bar",
+    17→  delivery: "Rappi active",
+    18→  membership: "CoffeePass Perú",
+    19→  snapshot: "2026-08-01",
+    20→};
+    21→
+    22→export const PALETTE = [
+    23→  { name: "Green Bean", hex: "#6F5B3D", role: "Roast spectrum · lightest", provenance: "approximate" as const },
+    24→  { name: "Light Roast", hex: "#8B6240", role: "Warm mid-tone", provenance: "approximate" as const },
+    25→  { name: "Medium Roast", hex: "#6F4A2E", role: "Primary brown", provenance: "approximate" as const },
+    26→  { name: "Dark Roast", hex: "#3B2417", role: "Headers · deep brown", provenance: "approximate" as const },
+    27→  { name: "Espresso", hex: "#211208", role: "Footer · darkest", provenance: "approximate" as const },
+    28→  { name: "Forest Deep", hex: "#2D4A36", role: "Bear habitat · primary green", provenance: "approximate" as const },
+    29→  { name: "Forest", hex: "#3E6149", role: "Secondary green", provenance: "approximate" as const },
+    30→  { name: "Sage", hex: "#8FA68B", role: "Muted green", provenance: "approximate" as const },
+    31→  { name: "Leaf", hex: "#B7C9A8", role: "Soft accent", provenance: "approximate" as const },
+    32→  { name: "Cream", hex: "#F4EBD9", role: "Background · paper", provenance: "approximate" as const },
+    33→  { name: "Paper", hex: "#FAF5EC", role: "Card surface", provenance: "proposed" as const },
+    34→  { name: "Foam", hex: "#FFFCF6", role: "Lightest surface", provenance: "proposed" as const },
+    35→  { name: "Gold", hex: "#B8924A", role: "Art Nouveau accent", provenance: "approximate" as const },
+    36→  { name: "Gold Soft", hex: "#D9BC7E", role: "Light gold", provenance: "proposed" as const },
+    37→  { name: "Terracotta", hex: "#C16E4B", role: "Warm contrast", provenance: "proposed" as const },
+    38→  { name: "Ink", hex: "#1A140C", role: "Text · darkest", provenance: "proposed" as const },
+    39→];
+    40→
+    41→export const TYPOGRAPHY = [
+    42→  { name: "Cormorant Garamond", role: "Display · headings, hero, menu items", className: "font-display", sample: "Un gramo a la vez" },
+    43→  { name: "Inter", role: "Body · readable prose, UI", className: "font-body", sample: "Specialty coffee, roasted in Miraflores" },
+    44→  { name: "Oswald", role: "Labels · eyebrows, nav, tags", className: "font-label", sample: "TOSTADORES DE CAFÉ" },
+    45→];
+    46→
+    47→export const VERIFIED_BEVERAGES = [
+    48→  { name: "Ursagroni", desc: "Signature named drink — espresso-tonic-portmanteau concept", status: "verified" as const },
+    49→  { name: "Filtrado Lonya", desc: "Pour-over of Utcubamba, Amazonas origin", status: "verified" as const },
+    50→  { name: "Durazno Clarificado Coldbrew", desc: "Peach-clarified cold brew", status: "verified" as const },
+    51→  { name: "Maracumango Coldbrew", desc: "Passionfruit-mango cold brew", status: "verified" as const },
+    52→];
+    53→
+    54→export const VERIFIED_FOOD = [
+    55→  { name: "Financier de pera", desc: "Pear financier pastry", status: "verified" as const },
+    56→  { name: "Empanada de carne con bechamel", desc: "Beef empanada with béchamel", status: "verified" as const },
+    57→  { name: "House-made cookies", desc: "In-house cookies", status: "verified" as const },
+    58→];
+    59→
+    60→export const COMPETITORS = [
+    61→  {
+    62→    name: "Punto Café",
+    63→    area: "Miraflores",
+    64→    strength: "Premios Somos 2024 winner; strong local recognition",
+    65→    weakness: "Limited roastery identity; less Art Nouveau craft",
+    66→    ursaImplication: "Match award visibility; lead on roastery + bear craft",
+    67→    hasWebsite: true,
+    68→  },
+    69→  {
+    70→    name: "Neira Café Lab",
+    71→    area: "Miraflores + 3 more",
+    72→    strength: "4+ locations incl. WorkCafé cobrand; scale",
+    73→    weakness: "Cobrand dilutes pure-café identity",
+    74→    ursaImplication: "Lead on single-site intimacy; avoid cobrand dilution",
+    75→    hasWebsite: true,
+    76→  },
+    77→  {
+    78→    name: "Bisetti",
+    79→    area: "Barranco",
+    80→    strength: "Owns 'escuela de café' (coffee school) positioning",
+    81→    weakness: "Educational focus can feel formal",
+    82→    ursaImplication: "Compete on education but make it warmer/experiential",
+    83→    hasWebsite: true,
+    84→  },
+    85→  {
+    86→    name: "Puku Puku",
+    87→    area: "Multiple Lima",
+    88→    strength: "Owns 'microlotes' (microlot) positioning; retail reach",
+    89→    weakness: "Chain feel at scale",
+    90→    ursaImplication: "Lead on crafted atmosphere; microlots as a sub-line",
+    91→    hasWebsite: true,
+    92→  },
+    93→  {
+    94→    name: "Terrua",
+    95→    area: "Miraflores",
+    96→    strength: "US$25 paid tasting — premium experience pricing",
+    97→    weakness: "High price ceiling limits frequency",
+    98→    ursaImplication: "Tiered tastings; accessible entry + premium depth",
+    99→    hasWebsite: true,
+   100→  },
+   101→  {
+   102→    name: "True Artisan",
+   103→    area: "Miraflores",
+   104→    strength: "Artisan positioning",
+   105→    weakness: "Less differentiated visual identity",
+   106→    ursaImplication: "Bear + Art Nouveau is more ownable",
+   107→    hasWebsite: true,
+   108→  },
+   109→  {
+   110→    name: "Café Verde",
+   111→    area: "Miraflores",
+   112→    strength: "Sustainability narrative",
+   113→    weakness: "Green messaging can feel generic",
+   114→    ursaImplication: "Make sustainability specific (origin stories)",
+   115→    hasWebsite: true,
+   116→  },
+   117→  {
+   118→    name: "Puku Puku / Urqu / Origen / Cate / Arabica",
+   119→    area: "Miraflores cluster",
+   120→    strength: "Density creates a coffee destination",
+   121→    weakness: "Crowded; hard to stand out",
+   122→    ursaImplication: "Two-bar + named-drink identity as differentiator",
+   123→    hasWebsite: true,
+   124→  },
+   125→  {
+   126→    name: "Ciclos",
+   127→    area: "Lima",
+   128→    strength: "Bike + coffee community niche",
+   129→    weakness: "Niche limits audience",
+   130→    ursaImplication: "Cross-pollinate with cycling/tourism partners",
+   131→    hasWebsite: true,
+   132→  },
+   133→  {
+   134→    name: "RAIZ",
+   135→    area: "Lima",
+   136→    strength: "Farm-to-cup story",
+   137→    weakness: "Less retail presence",
+   138→    ursaImplication: "Origin stories via Filtrado Lonya line",
+   139→    hasWebsite: true,
+   140→  },
+   141→];
+   142→
+   143→/**
+   144→ * CUSTOMER_REVIEWS — Real review snippets and external voice found by web research.
+   145→ *
+   146→ * Searched 2026-08-01 across Google, Instagram, TripAdvisor, Facebook, Yelp,
+   147→ * Corner.inc, mindtrip.ai, NovaCircle, addagio.io, Lima Gourmet Company,
+   148→ * Barista Magazine, Wanderlog, and Coffee Pass.
+   149→ *
+   150→ * Result: Ursa's public review footprint is THIN but NOT ZERO, as the prior
+   151→ * dossier assumed. TripAdvisor still shows ~0 Ursa-specific reviews and
+   152→ * Facebook shows 0 ratings, but Instagram carries several real customer
+   153→ * mentions (verified via web search snippets), and aggregator platforms
+   154→ * (addagio.io, mindtrip.ai) report an active Google Business Profile with
+   155→ * 56–66 reviews averaging 4.5–4.8 stars.
+   156→ *
+   157→ * IMPORTANT CORRECTION: The prior dossier claim that Ursa's Google Business
+   158→ * Profile is "missing/unverified" is contradicted by aggregator evidence
+   159→ * (addagio.io schema.org LocalBusiness aggregateRating: 4.5/5, 234 reviews
+   160→ * total, 56+ on Google). Ursa's Google listing appears active and well-rated.
+   161→ *
+   162→ * All review text below is quoted or paraphrased from real public sources.
+   163→ * No review has been fabricated. Where the original text is in Spanish, the
+   164→ * verbatim quote is preserved with an English gloss in parentheses.
+   165→ */
+   166→export const CUSTOMER_REVIEWS = [
+   167→  {
+   168→    platform: "Instagram",
+   169→    source: "https://www.instagram.com/p/DJsSzjkNYGB",
+   170→    author: "@flying__espresso",
+   171→    date: "2025-05-15",
+   172→    sentiment: "positive" as const,
+   173→    theme: "Quality",
+   174→    text:
+   175→      "“Probablemente, el mejor espresso que he probado en Lima. Gracias @ursacoffeeperu.” " +
+   176→      "(Probably the best espresso I’ve had in Lima. Thanks @ursacoffeeperu.)",
+   177→    notes: "Public Instagram post. 22 likes, 2 comments at time of capture.",
+   178→  },
+   179→  {
+   180→    platform: "Instagram",
+   181→    source: "https://www.instagram.com/reel/DNtjbrC0gE1",
+   182→    author: "@rutadelcafeperuano",
+   183→    date: "2025-08-23",
+   184→    sentiment: "positive" as const,
+   185→    theme: "Barista skill / Competition",
+   186→    text:
+   187→      "“Paulo Sierra de @ursacoffeeperu es nuestro campeón de Aeropress ❤️❤️❤️❤️ ¡Bravo!” " +
+   188→      "(Paulo Sierra of @ursacoffeeperu is our Aeropress champion. Bravo!)",
+   189→    notes: "564 likes, 18 comments — high-engagement community endorsement.",
+   190→  },
+   191→  {
+   192→    platform: "Instagram",
+   193→    source: "https://www.instagram.com/reel/DR-LkBYDodK",
+   194→    author: "Coffee reviewer (handle in reel)",
+   195→    date: "2026-01-03",
+   196→    sentiment: "positive" as const,
+   197→    theme: "Return visits / Tasting experience",
+   198→    text:
+   199→      "“Hay cafés que siempre da gusto volver y Ursa es uno de ellos… Hace poco fue nombrada como una de las cinco mejores cafeterías de especialidad de Lima, así que aproveché la ocasión para volver a visitarla…” " +
+   200→      "(There are cafés you always enjoy returning to and Ursa is one of them… It was recently named one of the five best specialty coffee shops in Lima, so I took the occasion to revisit it.) " +
+   201→      "Reviewer describes a 3-coffee tasting with paired flights, “un plan ideal para visitar con amigos”.",
+   202→    notes: "Reel-format review by a Lima coffee reviewer; references the CAM Café Perú 2025 top-5 finding.",
+   203→  },
+   204→  {
+   205→    platform: "Instagram",
+   206→    source: "https://www.instagram.com/p/DYarhgdxPZR",
+   207→    author: "Customer (tagged Ursa in launch post)",
+   208→    date: "2026-06-02",
+   209→    sentiment: "positive" as const,
+   210→    theme: "Quality / Recommendation",
+   211→    text:
+   212→      "“Si te gusta el café de especialidad y probar cosas nuevas, TIENES QUE VENIR A @ursacoffeeperu. Absolutamente todo 10/10. Muchisimas gracias❤️ ☕️” " +
+   213→      "(If you like specialty coffee and trying new things, YOU HAVE TO COME TO @ursacoffeeperu. Absolutely everything 10/10. Thank you so much.)",
+   214→    notes: "Customer comment on Ursa’s new-selection launch post.",
+   215→  },
+   216→  {
+   217→    platform: "Instagram",
+   218→    source: "https://www.instagram.com/reel/DZiNFaJgKmp",
+   219→    author: "@ursacoffeeperu (own post, customer-relevant)",
+   220→    date: "2026-06-13",
+   221→    sentiment: "positive" as const,
+   222→    theme: "Specialty beans / Patient craft",
+   223→    text:
+   224→      "“Si hay un café que recompensa la paciencia, es Kangal.” (If there is a coffee that rewards patience, it is Kangal.)",
+   225→    notes: "Ursa’s own brand-voice post on a slow-curve bean; included as evidence of the craft-led positioning customers respond to.",
+   226→  },
+   227→  {
+   228→    platform: "Corner.inc",
+   229→    source: "https://www.corner.inc/place/pqGK5KMpViS2",
+   230→    author: "Corner.inc editorial listing",
+   231→    date: "2026 (snapshot)",
+   232→    sentiment: "positive" as const,
+   233→    theme: "Atmosphere / Education / Quality",
+   234→    text:
+   235→      "“Intimate Peruvian roastery where passionate baristas educate over perfect pour-overs.” “Minimalist space with visible roasting equipment creates a workshop feel. Perfect for coffee nerds wanting to learn about origin and brewing techniques.”",
+   236→    notes: "Editorial summary on the Corner.inc discovery platform. No individual user reviews visible.",
+   237→  },
+   238→  {
+   239→    platform: "NovaCircle",
+   240→    source:
+   241→      "https://www.novacircle.com/spots/south-america/peru/lima/miraflores/lima/ursa-coffee-roasters-29b5ae",
+   242→    author: "NovaCircle AI-generated profile",
+   243→    date: "2025-12-19 (updated 2026-01-07)",
+   244→    sentiment: "mixed" as const,
+   245→    theme: "Quality / Service / Atmosphere / Value",
+   246→    text:
+   247→      "Pros: “High-quality, specialty coffee. Friendly and knowledgeable staff. Cozy and inviting atmosphere. Commitment to sustainability and local sourcing.” " +
+   248→      "Cons: “Seating can be limited during peak hours. The café can get crowded, especially on weekends. Prices are slightly higher than average, reflecting the quality of the offerings.”",
+   249→    notes:
+   250→      "AI-aggregated profile (total_recommendations: 0 — no real user reviews left on NovaCircle itself). Pros/cons reflect a summarised read of public commentary, not verbatim quotes. Treat as direction, not evidence.",
+   251→  },
+   252→  {
+   253→    platform: "Lima Gourmet Company (travel guide)",
+   254→    source:
+   255→      "https://www.limagourmetcompany.com/lima-travel-tips-travel-guide-to-lima-peru/best-cafes-in-peru-a-coffee-lovers-travel-guide",
+   256→    author: "Lima Gourmet Company editorial",
+   257→    date: "2026 (snapshot)",
+   258→    sentiment: "positive" as const,
+   259→    theme: "Quality / Craft / Espresso",
+   260→    text:
+   261→      "“A boutique coffee roastery and café, Ursa focuses on carefully sourced beans and precise preparation. Its small footprint and focus on craft make it a rewarding stop for espresso enthusiasts or those curious about roast profiles and tasting notes.”",
+   262→    notes: "Editorial inclusion in a Lima/Cusco coffee travel guide. Ursa is listed alongside Neira Café Lab and Puku Puku Café Larco.",
+   263→  },
+   264→];
+   265→
+   266→/**
+   267→ * REVIEW_AGGREGATE_RATINGS — Aggregated star ratings from third-party
+   268→ * directory platforms. These are summary numbers, not individual reviews.
+   269→ * Useful as directional evidence that Ursa's Google footprint is larger
+   270→ * than TripAdvisor's ~0 reviews suggested.
+   271→ */
+   272→export const REVIEW_AGGREGATE_RATINGS = [
+   273→  {
+   274→    platform: "Google (via addagio.io)",
+   275→    rating: 4.5,
+   276→    reviewCount: "56+",
+   277→    source: "https://addagio.io/directory/coffee-shops/lima",
+   278→    snapshot: "2026-08-01",
+   279→    notes:
+   280→      "Addagio.io schema.org LocalBusiness aggregateRating reports 4.5/5 with 234 total reviews across platforms, of which 56+ are attributed to Google. Indicates Ursa has an active Google Business Profile — contradicting the prior dossier claim of an unverified/missing GBP.",
+   281→  },
+   282→  {
+   283→    platform: "Google + others (via mindtrip.ai)",
+   284→    rating: 4.8,
+   285→    reviewCount: "66",
+   286→    source: "https://mindtrip.ai/restaurant/lima-central-peru/ursa-coffee-roasters/re-5CeuedW6",
+   287→    snapshot: "2026-08-01",
+   288→    notes:
+   289→      "Mindtrip.ai aggregated rating of 4.8/5 across 66 reviews. Aggregator data; treat as directional, not authoritative.",
+   290→  },
+   291→  {
+   292→    platform: "TripAdvisor",
+   293→    rating: null,
+   294→    reviewCount: "~0",
+   295→    source:
+   296→      "https://www.tripadvisor.com/Restaurant_Review-g294316-d32878304-Reviews-Ursa_Coffee_Roasters-Lima_Lima_Region.html",
+   297→    snapshot: "2026-08-01",
+   298→    notes:
+   299→      "Ursa’s TripAdvisor listing exists but shows “No reviews for this property yet” / “Todavía no hay opiniones para este establecimiento” across .com, .pe, .es and .mx mirrors. Confirms prior dossier claim.",
+   300→  },
+   301→  {
+   302→    platform: "Facebook",
+   303→    rating: null,
+   304→    reviewCount: "0",
+   305→    source: "https://www.facebook.com/UrsaCoffeePeru",
+   306→    snapshot: "2026-08-01",
+   307→    notes: "Facebook page active but “Not yet rated (0 Reviews)” at time of capture.",
+   308→  },
+   309→];
+   310→
+   311→/**
+   312→ * REVIEW_RESEARCH_LOG — Platforms checked and observation date for the
+   313→ * real-reviews research task (REV-ENRICH). Documents the search effort
+   314→ * honestly so a future analyst can repeat or extend it.
+   315→ */
+   316→export const REVIEW_RESEARCH_LOG = {
+   317→  observationDate: "2026-08-01",
+   318→  platformsChecked: [
+   319→    "Google Search (web_search via z-ai SDK)",
+   320→    "Google Maps (indirect — via aggregator schema.org data on addagio.io)",
+   321→    "Instagram public posts and reels tagging @ursacoffeeperu",
+   322→    "TripAdvisor (.com, .pe, .es, .mx mirrors)",
+   323→    "Facebook (UrsaCoffeePeru page)",
+   324→    "Yelp (returned unrelated Bridgeport, CT Ursa Coffee Roasters — different business)",
+   325→    "Corner.inc listing",
+   326→    "mindtrip.ai listing",
+   327→    "NovaCircle spot profile",
+   328→    "addagio.io directory",
+   329→    "Lima Gourmet Company travel guide",
+   330→    "Barista Magazine (Feb 2025 Lima cafés article — Ursa NOT mentioned)",
+   331→    "Wanderlog (34 best coffee roasters in Lima — Ursa NOT in list)",
+   332→    "Coffee Pass Peru brand page",
+   333→    "Rappi (delivery menu only — no public reviews visible)",
+   334→    "TikTok #ursaecafe tag (visible but not text-mineable via search)",
+   335→  ],
+   336→  realReviewsFound: 8,
+   337→  aggregateRatingsFound: 4,
+   338→  methodology:
+   339→    "Search-engine snippets via z-ai web_search; deep page extraction via z-ai page_reader where the target page did not block automated access (TripAdvisor blocked by DataDome; Corner.inc returned Vercel security checkpoint; Instagram returned JS-only SPA — review text recovered from search-result snippets).",
+   340→  limitations: [
+   341→    "TripAdvisor captcha-blocked; review text could not be read directly. Snippet evidence is consistent: Ursa has ~0 TripAdvisor reviews.",
+   342→    "Instagram page-reader extraction did not return caption text; review text was recovered from Google/Bing search-result snippets that quote Instagram posts verbatim.",
+   343→    "NovaCircle’s pros/cons section is AI-generated summary text, not direct user quotes — flagged accordingly.",
+   344→    "addagio.io and mindtrip.ai aggregate ratings are aggregator scraped data; the underlying Google Business Profile was not directly accessible for verification.",
+   345→    "Sample size (8 real mentions + 4 aggregate ratings) is too small for coded theme analysis. The CUSTOMER_VOICE themes above remain illustrative; this Real Reviews section is the verifiable supplement.",
+   346→  ],
+   347→};
+   348→
+   349→export const CUSTOMER_VOICE = [
+   350→  {
+   351→    theme: "What customers value strongly",
+   352→    points: [
+   353→      "In-house roasting visible from the bar — proof of specialty credibility",
+   354→      "Named, original drinks (not just 'cappuccino') — gives a story to share",
+   355→      "Warm, crafted atmosphere that feels like a third place, not a chain",
+   356→      "Knowledgeable baristas who can talk origin and process",
+   357→    ],
+   358→  },
+   359→  {
+   360→    theme: "What competitors do poorly",
+   361→    points: [
+   362→      "Inconsistent espresso quality between baristas and shifts",
+   363→      "Slow service during peak with no clear queue or wait communication",
+   364→      "Menus that list drinks without origin, process, or flavour notes",
+   365→      "Weak Wi-Fi and limited power outlets for remote workers",
+   366→      "Delivery coffee arriving cold or diluted",
+   367→    ],
+   368→  },
+   369→  {
+   370→    theme: "What is made difficult or frustrating",
+   371→    points: [
+   372→      "Finding the café on Google Maps (REV-ENRICH correction: aggregator evidence shows Ursa DOES have an active Google Business Profile with ~56 reviews at 4.5 stars — the prior 'missing/unverified' claim was incorrect. The real friction is that Ursa's GBP is not surfaced in Google's own 'best Lima cafés' guides, suggesting weak SEO/GBP optimization rather than missing presence.)",
+   373→      "Understanding which beans are seasonal vs. permanent",
+   374→      "Booking a tasting or cupping — often no clear channel",
+   375→      "Knowing whether the café is busy before arriving",
+   376→    ],
+   377→  },
+   378→  {
+   379→    theme: "Where Ursa can lead",
+   380→    points: [
+   381→      "Bear-led brand character no competitor owns",
+   382→      "Two-bar (espresso + coldbrew) as a visible theatre",
+   383→      "Portmanteau drink naming (Ursagroni, Maracumango) as a signature system",
+   384→      "'Un gramo a la vez' as a patient-craft ethos",
+   385→      "Art Nouveau craft language applied consistently",
+   386→    ],
+   387→  },
+   388→];
+   389→
+   390→export const HORMOZI_PRINCIPLES = [
+   391→  {
+   392→    principle: "Value Equation",
+   393→    adapted:
+   394→      "Increase Dream Outcome (become the person who knows good coffee), increase Likelihood of Achievement (guaranteed good cup via roastery), decrease Time Delay (7am opening), decrease Effort & Sacrifice (subscription removes per-cup decision).",
+   395→    apply: true,
+   396→    caveat: "Do not promise transformational outcomes a café cannot deliver.",
+   397→  },
+   398→  {
+   399→    principle: "Offer Design & Stacks",
+   400→    adapted:
+   401→      "Bundle a core drink + a side + a bean sample + a story card. Anchor against à la carte total. Continuity via subscription.",
+   402→    apply: true,
+   403→    caveat: "Anchors must be truthful, not inflated.",
+   404→  },
+   405→  {
+   406→    principle: "Lead Magnets",
+   407→    adapted:
+   408→      "Free 'origin flavour wheel' PDF or a free mini-cupping ticket with first retail bean purchase — not a discount.",
+   409→    apply: true,
+   410→    caveat: "Lead magnet must be genuinely useful, not a coupon in disguise.",
+   411→  },
+   412→  {
+   413→    principle: "Retention & Repeat Purchase",
+   414→    adapted:
+   415→      "Subscription + named-drink rotation + seasonal Lonya origins create a reason to return weekly.",
+   416→    apply: true,
+   417→    caveat: "Do not over-discount; protect specialty margin perception.",
+   418→  },
+   419→  {
+   420→    principle: "More, Better, New",
+   421→    adapted:
+   422→      "More (delivery, retail), Better (consistency, service), New (seasonal drinks, workshops). Sequence Better before More.",
+   423→    apply: true,
+   424→    caveat: "New without Better erodes trust.",
+   425→  },
+   426→];
+   427→
+   428→export const SUTHERLAND_PRINCIPLES = [
+   429→  {
+   430→    principle: "Perceived value > objective value",
+   431→    adapted:
+   432→      "A story card describing origin, altitude, and process raises perceived value more than a bigger cup at the same cost.",
+   433→    apply: true,
+   434→  },
+   435→  {
+   436→    principle: "Inexpensive experiments",
+   437→    adapted:
+   438→      "Test named-drink story cards, table signs, and bear-character captions before any expensive redesign. Most cost S/. 0–200.",
+   439→    apply: true,
+   440→  },
+   441→  {
+   442→    principle: "Psychological pricing & anchoring",
+   443→    adapted:
+   444→      "A S/. 28 tasting flight makes a S/. 14 pour-over feel reasonable. Anchor, then offer the accessible tier.",
+   445→    apply: true,
+   446→  },
+   447→  {
+   448→    principle: "Context shapes perception",
+   449→    adapted:
+   450→      "The two-bar layout, the Art Nouveau details, and the roaster visible from the counter are context that makes the same coffee taste better.",
+   451→    apply: true,
+   452→  },
+   453→  {
+   454→    principle: "Irrational-but-testable ideas",
+   455→    adapted:
+   456→      "A 'bear recommends' pairing on the menu, a morning ritual greeting, or a weekly 'gram of the week' bean highlight.",
+   457→    apply: true,
+   458→    caveat: "Test cheaply; keep only what improves repeat or ticket.",
+   459→  },
+   460→];
+   461→
+   462→export const CONTENT_CONCEPTS = [
+   463→  { id: "C01", title: "'Un gramo a la vez' — the weighing ritual", format: "Reel", hook: "Watch a barista weigh 18.0g while explaining why a single gram changes the shot." },
+   464→  { id: "C02", title: "Bear tracks around Miraflores", format: "Reel series", hook: "A bear paw stamp appears at landmarks near Alcanfores — a local-discovery treasure trail." },
+   465→  { id: "C03", title: "Two-bar theatre: espresso vs coldbrew side by side", format: "Reel", hook: "Split screen: a hot shot pulled while a cold brew clarifies — same bean, two temperatures." },
+   466→  { id: "C04", title: "Origin minute: Utcubamba, Amazonas", format: "Carousel", hook: "Where does the Filtrado Lonya come from? A 60-second trip to the farm via photos and altitude." },
+   467→  { id: "C05", title: "Name that drink: Ursagroni etymology", format: "Reel", hook: "Why is it called Ursagroni? The barista who named it tells the story in 30 seconds." },
+   468→  { id: "C06", title: "Maracumango taste-along", format: "Reel + UGC", hook: "Customers react to their first sip of passionfruit-mango cold brew. Hook the colour change." },
+   469→  { id: "C07", title: "Bear barista challenge", format: "UGC mechanism", hook: "Customers film their best latte-art attempt; the bear picks a weekly winner." },
+   470→  { id: "C08", title: "The 7am club", format: "Series", hook: "Why do the same five people show up at 7:03 every morning? Mini-profiles of the morning regulars." },
+   471→  { id: "C09", title: "Roast curve time-lapse", format: "Reel", hook: "A 12-minute roast compressed to 40 seconds, with the temperature curve overlay." },
+   472→  { id: "C10", title: "How to order if you don't know coffee", format: "Carousel", hook: "A non-judgmental guide for the person who just wants 'something good'." },
+   473→  { id: "C11", title: "Cookie-to-coffee pairing card", format: "Table sign + Reel", hook: "Which cookie goes with which drink? A small pairing matrix customers photograph." },
+   474→  { id: "C12", title: "The gram of the week", format: "Series", hook: "Each week, highlight one micro-lot with its story, altitude, and tasting notes." },
+   475→  { id: "C13", title: "Miraflores walk-to-Ursa directions", format: "Reel", hook: "Filmed POV walk from Parque Kennedy to Alcanfores 183 — 'it's closer than you think.'" },
+   476→  { id: "C14", title: "Behind the coldbrew clarification", format: "Reel", hook: "The science of clarified milk / clarified juice — why it looks different and tastes cleaner." },
+   477→  { id: "C15", title: "Customer cupping night", format: "Event + Reel", hook: "Footage from a monthly cupping where customers learn to slurp and score." },
+   478→  { id: "C16", title: "Hotel concierge card unboxing", format: "Reel", hook: "Delivering branded origin cards to 8 nearby hotels — a B2B moment made visible." },
+   479→  { id: "C17", title: "The bear's morning ritual", format: "Series", hook: "A recurring animated/illustrated bear opens the café each morning — a branded opener." },
+   480→  { id: "C18", title: "Espresso machine deep-clean", format: "Reel", hook: "The 9pm close-down ritual — backflush, brush, polish. Trust through transparency." },
+   481→  { id: "C19", title: "Seasonal drink launch: the reveal", format: "Reel", hook: "A new seasonal drink is revealed by lifting a cloth off the menu board. Build anticipation." },
+   482→  { id: "C20", title: "Barista one-question interview", format: "Series", hook: "Each barista answers one question: 'What did you learn about coffee this week?'" },
+   483→  { id: "C21", title: "The maths of a subscription", format: "Carousel + Calculator", hook: "How S/. 20/month unlimited coffee actually works — a transparent breakdown." },
+   484→  { id: "C22", title: "Delivery packing ritual", format: "Reel", hook: "How a delivery order is packed so it arrives hot — the insulation, the tape, the note." },
+   485→  { id: "C23", title: "Bean bag label close-up", format: "Reel", hook: "Macro shots of the Art Nouveau label, the roast date stamp, the seal." },
+   486→  { id: "C24", title: "Customer review reply of the week", format: "Story series", hook: "A real (consented) review read aloud, with the owner's honest reply." },
+   487→  { id: "C25", title: "The 10-second pour-over", format: "Reel", hook: "A sped-up pour-over with bloom, pulse pours, and the final drawdown — mesmerising." },
+   488→  { id: "C26", title: "Why we charge what we charge", format: "Carousel", hook: "A transparent cost breakdown of one cup — bean, milk, labour, rent, roastery." },
+   489→];
+   490→
+   491→export const SCRIPTS = [
+   492→  {
+   493→    id: "S01",
+   494→    concept: "C01",
+   495→    title: "'Un gramo a la vez' — the weighing ritual",
+   496→    hook: "A single gram is the difference between a good shot and a great one.",
+   497→    duration: "25–30s",
+   498→    beats: [
+   499→      "OPEN: macro shot of a silver pour-over scale reading 0.00g.",
+   500→      "Barista hand places a portafilter on the scale. Close-up of grounds being distributed.",
+   501→      "Scale ticks: 17.8… 18.0g. Barista pauses. 'Un gramo a la vez.'",
+   502→      "Cut to the extraction — honey-blonde espresso pouring into a warm cup.",
+   503→      "Barista tastes, nods. End card: 'Ursa Coffee Roasters · Alcanfores 183.'",
+   504→    ],
+   505→    caption: "Un solo gramo cambia todo. Un gramo a la vez. ☕️🐻 #UrsaCoffee #SpecialtyCoffee #Miraflores",
+   506→    cta: "Ven a probar la diferencia. Lun–Sáb desde 7:30am.",
+   507→  },
+   508→  {
+   509→    id: "S02",
+   510→    concept: "C02",
+   511→    title: "Bear tracks around Miraflores",
+   512→    hook: "A bear is loose in Miraflores. Follow the tracks.",
+   513→    duration: "20–25s",
+   514→    beats: [
+   515→      "OPEN: a stamped bear paw appears on the sidewalk near Parque Kennedy.",
+   516→      "Quick cuts of paws at Malecón, at a hotel entrance, at a bookstore.",
+   517→      "Final paw leads to the door of Alcanfores 183.",
+   518→      "Bear mark fills the frame. 'Te estábamos esperando.'",
+   519→    ],
+   520→    caption: "El oso te espera en Alcanfores 183. 🐾🐻 Sigue las huellas por Miraflores.",
+   521→    cta: "¿Encontraste una huella? Cuéntanos en stories.",
+   522→  },
+   523→  {
+   524→    id: "S03",
+   525→    concept: "C03",
+   526→    title: "Two-bar theatre: hot vs cold",
+   527→    hook: "Same bean. Two temperatures. Two completely different cups.",
+   528→    duration: "30–35s",
+   529→    beats: [
+   530→      "SPLIT SCREEN. Left: espresso machine, 92°C. Right: cold brew tower, room temp.",
+   531→      "Left: shot pulls in 28s. Right: drip, drip, drip over hours (time-lapse).",
+   532→      "Both cups placed side by side. Barista: 'Mismo grano, dos mundos.'",
+   533→      "Tasting reaction. End card with both drink names.",
+   534→    ],
+   535→    caption: "Mismo grano, dos mundos. ¿Cuál es el tuyo? ☕️🧊 #UrsaCoffee #TwoBars",
+   536→    cta: "Pruébalo en persona. Espresso bar + Coldbrew bar.",
+   537→  },
+   538→  {
+   539→    id: "S04",
+   540→    concept: "C04",
+   541→    title: "Origin minute: Utcubamba, Amazonas",
+   542→    hook: "This cup started 1,400km from here, at 1,750m.",
+   543→    duration: "60s",
+   544→    beats: [
+   545→      "OPEN: map zoom from Miraflores to Utcubamba, Amazonas.",
+   546→      "Farm photos: cherries ripening on the branch, a hand sorting.",
+   547→      "Altitude card: 1,750m. Process: washed. Varietal: Bourbon.",
+   548→      "Cut to Ursa: the roast, the grind, the pour.",
+   549→      "Barista: 'Esto es el Filtrado Lonya. Pruébalo y siente la montaña.'",
+   550→    ],
+   551→    caption: "Del norte del Perú a tu taza. Filtrado Lonya · Utcubamba, Amazonas. 🏔️",
+   552→    cta: "Pídelo en filtrado. Solo mientras dure el lote.",
+   553→  },
+   554→  {
+   555→    id: "S05",
+   556→    concept: "C05",
+   557→    title: "Name that drink: Ursagroni",
+   558→    hook: "Why did we call it Ursagroni? The barista who named it explains.",
+   559→    duration: "30s",
+   560→    beats: [
+   561→      "OPEN: the Ursagroni on the bar — espresso, tonic, garnish.",
+   562→      "Barista (to camera): 'Everyone asks where the name comes from.'",
+   563→      "'Ursa — the bear. Negroni — the cocktail structure. Espresso + tonic + bitter.'",
+   564→      "Pour and stir. 'It's our most photographed drink. Now you know why.'",
+   565→    ],
+   566→    caption: "Ursa + groni. El café que se parece a un cóctel. 🐻🍹 #Ursagroni",
+   567→    cta: "Pídelo sin alcohol pero con carácter.",
+   568→  },
+   569→  {
+   570→    id: "S06",
+   571→    concept: "C06",
+   572→    title: "Maracumango taste-along",
+   573→    hook: "First sip of passionfruit-mango cold brew. Watch their faces.",
+   574→    duration: "20s",
+   575→    beats: [
+   576→      "OPEN: three customers blindfolded (or just eyes on the cup).",
+   577→      "The colour is vivid orange-yellow. They sip.",
+   578→      "Reactions: eyes widen, smiles. '¿Esto es café?'",
+   579→      "Reveal card: Maracumango Coldbrew. Passionfruit + mango + cold brew.",
+   580→    ],
+   581→    caption: "Sí, es café. Maracumango Coldbrew. 🥭💛 #Maracumango #Coldbrew",
+   582→    cta: "¿Te atreves? Solo en la coldbrew bar.",
+   583→  },
+   584→  {
+   585→    id: "S07",
+   586→    concept: "C09",
+   587→    title: "Roast curve time-lapse",
+   588→    hook: "12 minutes. One roast. Watch the bean change colour.",
+   589→    duration: "45s",
+   590→    beats: [
+   591→      "OPEN: green beans pour into the drum. Temperature: 0°C rising.",
+   592→      "Time-lapse: yellowing at 5 min, first crack at 9 min, development to 12 min.",
+   593→      "Temperature curve overlay: a clean S-curve.",
+   594→      "Barista: 'El desarrollo ocurre entre el primer y segundo crack. Ahí decidimos parar.'",
+   595→      "Beans cool on the tray. End card: roast date stamp.",
+   596→    ],
+   597→    caption: "12 minutos que cambian todo. Curva de tueste de hoy. 🔥☕️",
+   598→    cta: "Pregunta por el lote de la semana.",
+   599→  },
+   600→  {
+   601→    id: "S08",
+   602→    concept: "C13",
+   603→    title: "Walk to Ursa from Parque Kennedy",
+   604→    hook: "You're probably closer to great coffee than you think.",
+   605→    duration: "25s",
+   606→    beats: [
+   607→      "POV walking shot from Parque Kennedy. Timer in corner: 0:00.",
+   608→      "Quick steps down the street, past landmarks. 4:30. 6:00.",
+   609→      "Arrive at Alcanfores 183 at 7:12. Door opens.",
+   610→      "A hot cup is placed on the bar. 'Bienvenido.'",
+   611→    ],
+   612→    caption: "7 minutos desde Parque Kennedy. Más cerca de lo que creías. 🚶🐻",
+   613→    cta: "Alcanfores 183, Miraflores.",
+   614→  },
+   615→  {
+   616→    id: "S09",
+   617→    concept: "C18",
+   618→    title: "The 9pm close-down ritual",
+   619→    hook: "This is what 9pm looks like when you actually care.",
+   620→    duration: "30s",
+   621→    beats: [
+   622→      "OPEN: lights dimming. The last customer leaves.",
+   623→      "Barista backflushes the machine. Brushes the group head. Polishes the steam wand.",
+   624→      "Wipes down the bar in slow, deliberate strokes.",
+   625→      "Counts the till. Writes the closing note.",
+   626→      "Turns off the roaster. Locks the door. Bear mark on the window catches the streetlight.",
+   627→    ],
+   628→    caption: "El cierre es parte del oficio. Hasta mañana. 🌙🐻",
+   629→    cta: "Abrimos otra vez a las 7:30.",
+   630→  },
+   631→  {
+   632→    id: "S10",
+   633→    concept: "C21",
+   634→    title: "The maths of a subscription",
+   635→    hook: "S/. 20/month for unlimited coffee. Here's the honest maths.",
+   636→    duration: "40s",
+   637→    beats: [
+   638→      "OPEN: a receipt and a calculator on the bar.",
+   639→      "'S/. 20 al mes. Café ilimitado de 7 a 10am.'",
+   640→      "Card: marginal cost per cup for a roaster = S/. 1.20–1.80.",
+   641→      "'Si vienes 3 veces por semana y compras un acompañamiento la mitad de las veces...'",
+   642→      "Calculator shows: net profit per subscriber. 'Funciona porque tú ganas y nosotros ganamos.'",
+   643→      "End: 'Ursa Mañana. Próximamente. Pilot limitado.'",
+   644→    ],
+   645→    caption: "Matemática honesta del café ilimitado. S/.20/mes. 🧮☕️ #UrsaMañana",
+   646→    cta: "Anota tu interés en la barra. Cupo piloto limitado.",
+   647→  },
+   648→];
+   649→
+   650→export const REPEATABLE_SERIES = [
+   651→  {
+   652→    name: "The 7am Club",
+   653→    cadence: "Weekly",
+   654→    concept: "Mini-profile of a morning regular — why they come, what they order, what they do. Humanises the café and rewards loyalty with recognition.",
+   655→    episodes: "Ongoing; one regular per week.",
+   656→  },
+   657→  {
+   658→    name: "Gram of the Week",
+   659→    cadence: "Weekly",
+   660→    concept: "Highlight one micro-lot bean with its origin story, altitude, process, and tasting notes. Drives retail bean sales and origin literacy.",
+   661→    episodes: "One per week, aligned to the current retail bean.",
+   662→  },
+   663→  {
+   664→    name: "Bear's Morning Ritual",
+   665→    cadence: "Daily (Stories)",
+   666→    concept: "A short illustrated/animated bear opens the café each morning — turns on the roaster, weighs the first shot, greets the first customer. A branded daily opener.",
+   667→    episodes: "Daily Stories; reusable animated template.",
+   668→  },
+   669→];
+   670→
+   671→export const CREATOR_BRIFS = [
+   672→  {
+   673→    name: "Lima food & travel micro-creator (5–30k)",
+   674→    objective: "Local discovery — 'closer than you think' walk-to-Ursa content",
+   675→    deliverable: "1 Reel + 1 Story set; Miraflores POV walk + café visit",
+   676→    keyMessage: "7 minutes from Parque Kennedy; in-house roastery; two bars",
+   677→    assetsProvided: "Brand colour guide, bear mark, origin card template",
+   678→    metric: "Saves + profile visits + 'directions' clicks",
+   679→  },
+   680→  {
+   681→    name: "Specialty-coffee educator (10–100k)",
+   682→    objective: "Credibility — origin and process education",
+   683→    deliverable: "1 carousel on Utcubamba origin + 1 Reel on the roast curve",
+   684→    keyMessage: "Roastery-led; named drinks; 'un gramo a la vez'",
+   685→    assetsProvided: "Origin photos, roast log sample, cupping notes",
+   686→    metric: "Saves + shares + DMs asking about retail beans",
+   687→  },
+   688→  {
+   689→    name: "Lifestyle / morning-routine creator (5–50k)",
+   690→    objective: "Subscription pilot awareness — Ursa Mañana",
+   691→    deliverable: "1 Reel framed as a 'morning routine' featuring the 7–10am window",
+   692→    keyMessage: "S/. 20/month unlimited coffee; the café as a morning ritual",
+   693→    assetsProvided: "Subscription one-pager, calculator screenshot",
+   694→    metric: "Pilot sign-ups + waitlist additions",
+   695→  },
+   696→];
+   697→
+   698→export const UGC_MECHANISMS = [
+   699→  {
+   700→    name: "Bear Barista Challenge",
+   701→    mechanism: "Customers film their best latte-art attempt at the bar. The bear picks a weekly winner who gets a free drink + a featured Story.",
+   702→    consent: "Explicit consent to repost; handle minors with parental permission.",
+   703→  },
+   704→  {
+   705→    name: "Huella de Oso (Bear Paw) photo hunt",
+   706→    mechanism: "Customers who spot a stamped bear paw around Miraflores post it tagging @ursacoffeeperu. Each find enters a monthly bean-bag draw.",
+   707→    consent: "Public tag = consent to repost; DM for featured highlight.",
+   708→  },
+   709→  {
+   710→    name: "Tu primer Maracumango",
+   711→    mechanism: "Customers film their first Maracumango Coldbrew reaction. The most genuine reaction each month wins a tasting flight for two.",
+   712→    consent: "Consent prompt on the cup sleeve; opt-in to repost.",
+   713→  },
+   714→];
+   715→
+   716→export const EXPERIMENTS = [
+   717→  { id: "EXP-01", name: "Story card on pour-over", hypothesis: "Adding an origin story card raises perceived value and willingness to pay.", cost: "S/. 0–80", metric: "% customers who ask about origin; pour-over attach", stopRule: "No lift in 14 days", status: "proposed" as const },
+   718→  { id: "EXP-02", name: "Google Business Profile claim", hypothesis: "A verified GBP with photos + menu increases 'directions' calls.", cost: "S/. 0", metric: "Directions calls per week", stopRule: "If GBP cannot be verified within 7 days, escalate", status: "proposed" as const },
+   719→  { id: "EXP-03", name: "Hotel concierge card drop", hypothesis: "Distributing origin cards to 8 nearby hotels drives tourist visits.", cost: "S/. 200–400", metric: "Coupon code redemptions from hotel cards", stopRule: "0 redemptions in 30 days", status: "proposed" as const },
+   720→  { id: "EXP-04", name: "Named-drink menu board", hypothesis: "Featuring Ursagroni + Maracumango prominently raises their share of orders.", cost: "S/. 0–150", metric: "% of orders that are named drinks", stopRule: "No shift in 21 days", status: "proposed" as const },
+   721→  { id: "EXP-05", name: "Cookie pairing table sign", hypothesis: "A pairing card raises side attach rate.", cost: "S/. 0–60", metric: "Side attach rate", stopRule: "No lift in 14 days", status: "proposed" as const },
+   722→  { id: "EXP-06", name: "Weekly cupping night", hypothesis: "A monthly cupping builds community and retail bean sales.", cost: "S/. 200–560", metric: "Attendance; retail bean sales post-event", stopRule: "Attendance <6 for 2 consecutive months", status: "proposed" as const },
+   723→  { id: "EXP-07", name: "Creator pilot (3 creators)", hypothesis: "3 targeted creator posts drive profile visits and saves.", cost: "S/. 1,200–3,000", metric: "Profile visits, saves, directions clicks", stopRule: "CPM-equivalent > S/. 40 with no store-visit lift", status: "proposed" as const },
+   724→  { id: "EXP-08", name: "WhatsApp consent list", hypothesis: "A consented WhatsApp list drives repeat visits with low cost.", cost: "S/. 0–150", metric: "List growth; redemption rate of WhatsApp offers", stopRule: "Unsubscribe rate > 5% per send", status: "proposed" as const },
+   725→  { id: "EXP-09", name: "Rappi menu optimisation", hypothesis: "Re-photographing delivery items + adding bundles raises delivery AOV.", cost: "S/. 0–400", metric: "Delivery AOV; bundle share", stopRule: "No AOV lift in 30 days", stop: false, status: "proposed" as const },
+   726→  { id: "EXP-10", name: "TripAdvisor claiming", hypothesis: "Claiming the TripAdvisor listing (currently 0 reviews) unlocks review-channel growth.", cost: "S/. 0", metric: "Reviews per month; average rating", stopRule: "If claim fails, move to Google-first", status: "proposed" as const },
+   727→  { id: "EXP-11", name: "Ursa Mañana subscription pilot", hypothesis: "S/. 20/month unlimited coffee (7–10am) is net-profitable at ≥60% side attach.", cost: "S/. 0–300 (pilot setup)", metric: "Subscribers; side attach; net profit/subscriber; cannibalization %", stopRule: "Blended profit/subscriber < 0 after 60 days", status: "proposed" as const },
+   728→];
+   729→
+   730→export const BUDGET_SCENARIOS = [
+   731→  {
+   732→    name: "Lean",
+   733→    monthlyPEN: 2500,
+   734→    focus: "Free + owned channels first: GBP, WhatsApp, organic Reels, hotel cards, story cards",
+   735→    items: [
+   736→      { item: "Google Business Profile optimisation", cost: 0 },
+   737→      { item: "Story cards + table signs (print)", cost: 300 },
+   738→      { item: "Hotel concierge cards (8 hotels)", cost: 300 },
+   739→      { item: "1 creator pilot (micro)", cost: 800 },
+   740→      { item: "WhatsApp list tooling + consent", cost: 150 },
+   741→      { item: "Reel production (in-house, 4/month)", cost: 600 },
+   742→      { item: "Contingency", cost: 350 },
+   743→    ],
+   744→  },
+   745→  {
+   746→    name: "Moderate",
+   747→    monthlyPEN: 7200,
+   748→    focus: "Add paid social, 2–3 creators, cupping nights, Rappi optimisation",
+   749→    items: [
+   750→      { item: "Lean baseline", cost: 2500 },
+   751→      { item: "Paid social (Meta, Miraflores radius)", cost: 1800 },
+   752→      { item: "2 additional creators", cost: 1600 },
+   753→      { item: "Monthly cupping night", cost: 560 },
+   754→      { item: "Rappi menu re-photography + bundles", cost: 400 },
+   755→      { item: "Landing page + email tooling", cost: 340 },
+   756→    ],
+   757→  },
+   758→  {
+   759→    name: "Growth",
+   760→    monthlyPEN: 16500,
+   761→    focus: "Add tourism partnerships, B2B office sampling, subscription pilot, photographer",
+   762→    items: [
+   763→      { item: "Moderate baseline", cost: 7200 },
+   764→      { item: "Tourism / hotel partnership programme", cost: 2400 },
+   765→      { item: "B2B office sampling (10 offices)", cost: 1800 },
+   766→      { item: "Subscription pilot build + support", cost: 1200 },
+   767→      { item: "Contract photographer (monthly)", cost: 1500 },
+   768→      { item: "Paid search + maps ads", cost: 1400 },
+   769→      { item: "Contingency", cost: 1000 },
+   770→    ],
+   771→  },
+   772→];
+   773→
+   774→export const ROADMAP = [
+   775→  {
+   776→    phase: "First 72 hours",
+   777→    items: [
+   778→      "Claim / verify Google Business Profile with photos, hours, menu link",
+   779→      "Photograph the two bars, named drinks, and bean bags in good light",
+   780→      "Print story cards + cookie-pairing table signs (EXP-01, EXP-05)",
+   781→      "Add a WhatsApp business number and consent prompt at the till",
+   782→      "Pin a 'directions' Reel concept and brief the first creator",
+   783→    ],
+   784→  },
+   785→  {
+   786→    phase: "30 days",
+   787→    items: [
+   788→      "Launch the Gram of the Week series and Bear's Morning Ritual Stories",
+   789→      "Run EXP-01 through EXP-05; review at day 21",
+   790→      "Distribute hotel concierge cards to 8 nearby properties (EXP-03)",
+   791→      "Publish the first 8 Reels from the content calendar",
+   792→      "Claim TripAdvisor listing (EXP-10); request reviews from regulars",
+   793→    ],
+   794→  },
+   795→  {
+   796→    phase: "60 days",
+   797→    items: [
+   798→      "Launch the first paid social campaign (Miraflores radius, 3km)",
+   799→      "Run the first monthly cupping night (EXP-06)",
+   800→      "Begin creator pilot with 3 creators (EXP-07)",
+   801→      "Optimise Rappi menu: re-photography + bundles (EXP-09)",
+   802→      "Open the Ursa Mañana subscription waitlist (EXP-11 prep)",
+   803→    ],
+   804→  },
+   805→  {
+   806→    phase: "90 days",
+   807→    items: [
+   808→      "Launch Ursa Mañana subscription pilot (capped at 50 subscribers)",
+   809→      "Evaluate all experiments; kill or graduate each",
+   810→      "Publish the first quarterly origin report (transparency piece)",
+   811→      "Begin B2B office sampling if Growth budget approved",
+   812→      "Decide on Level-2 (distinctive growth system) brand rollout",
+   813→    ],
+   814→  },
+   815→];
+   816→
+   817→export const TWELVE_MONTH_ROADMAP = [
+   818→  { quarter: "Q1", theme: "Foundations & discovery", focus: "GBP, organic content, experiments 01–05, first cupping" },
+   819→  { quarter: "Q2", theme: "Distribution & creators", focus: "Paid social, creator network, Rappi optimisation, hotel pipeline" },
+   820→  { quarter: "Q3", theme: "Continuity & community", focus: "Subscription pilot, membership tier, second cupping cohort" },
+   821→  { quarter: "Q4", theme: "B2B & wholesale", focus: "Office sampling, wholesale bean accounts, seasonal Lonya release" },
+   822→];
+   823→
+   824→export const SOURCES = [
+   825→  // First-party observations (Ursa's own channels) — observed, not independently verified
+   826→  { id: "S1", label: "Instagram @ursacoffeeperu", url: "https://www.instagram.com/ursacoffeeperu/", status: "partial" as const, note: "Bio, posts, reels covers sampled 2026-08-01. First-party observation — confirms what Ursa says about itself." },
+   827→  { id: "S2", label: "Facebook /UrsaCoffeePeru", url: "https://www.facebook.com/UrsaCoffeePeru/", status: "partial" as const, note: "Public page; limited post access. First-party." },
+   828→  { id: "S3", label: "Rappi — Ursa Coffee Roasters", url: "https://www.rappi.com.pe/restaurantes/77182-ursa-coffee-roasters", status: "partial" as const, note: "Delivery menu and pricing. First-party platform listing." },
+   829→  { id: "S4", label: "CoffeePass Perú — Ursa", url: "https://coffeepass.pe/marcas/ursa-coffee-roasters/", status: "partial" as const, note: "Membership platform listing. First-party." },
+   830→  { id: "S5", label: "TripAdvisor — Ursa Coffee Roasters", url: "https://www.tripadvisor.com.pe/Restaurant_Review-g294316-d32878304-Reviews-Ursa_Coffee_Roasters-Lima_Lima_Region.html", status: "partial" as const, note: "Listing exists; ~0 reviews at snapshot (2026-08-01). Re-checked 2026-08-01: still 'No reviews for this property yet'." },
+   831→  { id: "S6", label: "Corner.inc — Ursa Coffee Roasters", url: "https://www.corner.inc/place/pqGK5KMpViS2", status: "verified" as const, note: "Independent listing aggregator. Updated Dec 26, 2025. Confirms roastery, address, hours, 'baristas double as coffee educators'." },
+   832→  { id: "S7", label: "mindtrip.ai — Ursa listing", url: "https://mindtrip.ai/restaurant/lima-central-peru/ursa-coffee-roasters/re-5CeuedW6", status: "partial" as const, note: "Independent listing. Confirms address. Phone +51 938 636 645 (conflicts with Instagram +51 973 619 428 — unresolved)." },
+   833→  // Framework references — suggestive, not empirically validated for cafés
+   834→  { id: "S8", label: "Acquisition.com — Offers training", url: "https://www.acquisition.com/training/offers", status: "partial" as const, note: "Hormozi framework reference. Framework, not café-specific empirical evidence." },
+   835→  { id: "S9", label: "Acquisition.com — Leads start here", url: "https://www.acquisition.com/training/leads/start-here", status: "partial" as const, note: "Lead generation reference. Framework." },
+   836→  { id: "S10", label: "Rory Sutherland — FS Knowledge Project", url: "https://fs.blog/knowledge-project-podcast/rory-sutherland-2/", status: "partial" as const, note: "Behavioral marketing reference. Influential, not café-specific." },
+   837→  // Industry context
+   838→  { id: "S11", label: "Fresh Cup — 2025 café trends", url: "https://www.freshcup.com/", status: "partial" as const, note: "Industry trend reference. Context, not Ursa-specific." },
+   839→  { id: "S12", label: "Premios Somos 2024 — Punto Café", url: "n/a", status: "verified" as const, note: "Competitor award (Punto Café won 'Best Specialty Café in Peru' 2024). Verifiable fact about a competitor." },
+   840→  { id: "S13", label: "CAM Café Perú — EXPERIENCE 2025 Competition", url: "https://camcafeperu.com.pe/EN/article.php?id=237", status: "verified" as const, note: "NEW (2026-08-01): Ursa Coffee is in the TOP 5 of the Specialty Coffee Shop category. 1st: Monótono Coffee, 2nd: Punto Café. Jury visited 40+ shops across 17 districts. Published Dec 10, 2025." },
+   841→  { id: "S14", label: "World's 100 Best Coffee Shops — Puku Puku nomination", url: "n/a", status: "verified" as const, note: "Puku Puku nominated. Verifiable competitor fact." },
+   842→  // Competitor observations
+   843→  { id: "S15", label: "Punto Café (competitor)", url: "n/a", status: "partial" as const, note: "Miraflores direct competitor. Observed via public listings." },
+   844→  { id: "S16", label: "Neira Café Lab (competitor)", url: "n/a", status: "partial" as const, note: "Miraflores + 3 locations. Founder: barista champion Harrysson Neira." },
+   845→  { id: "S17", label: "Tostaduría Bisetti (competitor)", url: "n/a", status: "partial" as const, note: "Barranco pioneer. 'Escuela de café' positioning." },
+   846→  { id: "S18", label: "Puku Puku (competitor)", url: "n/a", status: "partial" as const, note: "Multiple Lima locations. 'Microlotes' positioning." },
+   847→  { id: "S19", label: "Terrua Café (competitor)", url: "n/a", status: "partial" as const, note: "Miraflores. US$25 paid tasting — premium experience pricing." },
+   848→  { id: "S20", label: "Monótono Coffee (competitor)", url: "n/a", status: "partial" as const, note: "NEW: Barranco. 1st place CAM Café 2025. Previously not in dossier." },
+   849→  // Benchmarks
+   850→  { id: "S21", label: "Specialty coffee marginal cost benchmark", url: "n/a", status: "partial" as const, note: "US$0.75–1.20/cup industry benchmark. Not Ursa-specific; used for calculator defaults." },
+   851→  { id: "S22", label: "Lima subscription market gap", url: "n/a", status: "partial" as const, note: "No Lima specialty café currently offers unlimited-cup subscription. Market observation, not verified exhaustively." },
+   852→  // Owner statement — unverified
+   853→  { id: "S23", label: "Owner brief — brand direction", url: "n/a", status: "unverified" as const, note: "Owner-described: Art Nouveau, browns/greens, bear motif, specialty roasting. Starting lead, not independently verified." },
+   854→];
+   855→
+   856→export const OPEN_QUESTIONS = [
+   857→  "Monthly marketing budget range (lean / moderate / growth)?",
+   858→  "Average ticket size and best / worst sellers from POS?",
+   859→  "Current repeat-visit rate or any loyalty data?",
+   860→  "Size of existing customer email / WhatsApp list with consent?",
+   861→  "Staff capacity for classes, cuppings, or creator collaborations?",
+   862→  "Owner-supplied logo and packaging asset pack for visual verification of the Art Nouveau / bear motif / palette?",
+   863→];
+
+[showing lines 1-863 of 864; use offset=864 with limit to continue reading]

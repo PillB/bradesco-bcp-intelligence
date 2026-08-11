@@ -1,0 +1,106 @@
+{
+  "schema": "ursa-baseline-defects/v1",
+  "compiled": "2026-08-01",
+  "auditor": "orchestrator-macrocycle-1",
+  "defects": [
+    {
+      "id": "BD-01",
+      "title": "Evidence count mismatch between static and interactive",
+      "severity": "major",
+      "status": "confirmed",
+      "description": "Static evidence.json contains 29 evidence items; interactive ursa-data.ts SOURCES array contains only 10. Interactive app undercounts the evidence base by 19 items.",
+      "static_count": 29,
+      "interactive_count": 10,
+      "evidence": "md5 comparison of public/dossier/assets/evidence.json vs grep of src/lib/ursa-data.ts SOURCES array",
+      "fix": "Add missing evidence items to interactive SOURCES, or add a link from the interactive Sources view to the full static evidence.json",
+      "blocked_by": []
+    },
+    {
+      "id": "BD-02",
+      "title": "Evidence status inflation toward 'verified'",
+      "severity": "major",
+      "status": "confirmed",
+      "description": "28 of 29 evidence items (96.6%) in evidence.json are marked status:verified. This rate is not credible for public-source research based on Instagram bios, Rappi listings, and search snippets.",
+      "verified_count": 28,
+      "total_count": 29,
+      "verified_rate": 0.966,
+      "evidence": "python3 analysis of evidence.json status field distribution",
+      "fix": "Re-grade evidence statuses: items based on single-platform observation -> 'observed'; items from multiple independent sources -> 'verified'; items inferred -> 'partial'; gaps -> 'gap'",
+      "blocked_by": []
+    },
+    {
+      "id": "BD-03",
+      "title": "Archives referenced in execution prompt do not exist",
+      "severity": "minor",
+      "status": "confirmed",
+      "description": "Execution prompt references workspace-*.tar, workspace-*.zip, ursaCoffeeMarketingAndDesign(1).zip, and Pasted text(26).txt. None exist on the filesystem.",
+      "missing_archives": [
+        "Pasted text(26).txt",
+        "workspace-56d257a3-476b-4b2f-8aca-2615c87e944e(1).tar",
+        "workspace-56d257a3-476b-4b2f-8aca-2615c87e944e.zip",
+        "ursaCoffeeMarketingAndDesign(1).zip"
+      ],
+      "evidence": "find command returned no matches",
+      "fix": "Proceed with available archives; document the absence",
+      "blocked_by": []
+    },
+    {
+      "id": "BD-04",
+      "title": "Social statistics hardcoded and may be stale",
+      "severity": "moderate",
+      "status": "risk-confirmed",
+      "description": "Dashboard reports '4,746 followers, 206 posts' for @ursacoffeeperu, hardcoded in ursa-data.ts from a 2026-08-01 snapshot. No retrieval-date mechanism refreshes them.",
+      "evidence": "grep of URSA_FACTS in ursa-data.ts shows hardcoded follower/post counts",
+      "fix": "Add retrieval date next to social stats; add a note that counts are point-in-time snapshots",
+      "blocked_by": []
+    },
+    {
+      "id": "BD-05",
+      "title": "Financial headline may be stronger than scenario inputs justify",
+      "severity": "moderate",
+      "status": "risk-confirmed",
+      "description": "Dashboard headline states 'net profit is S/. 35.60/subscriber/month' for Ursa Mañana. This is a default-scenario output, not a validated range across sensitivity.",
+      "evidence": "calculator-view.tsx default PRESETS produce S/. 35.59 at default inputs",
+      "fix": "Ensure headline always reads 'at default assumptions' and links to the sensitivity table; add worst-case scenario to the headline area",
+      "blocked_by": []
+    },
+    {
+      "id": "BD-06",
+      "title": "Customer-voice findings lack reproducible sampling method",
+      "severity": "major",
+      "status": "confirmed",
+      "description": "Market view reports customer-voice themes without documenting sample size, observation period, coding methodology, or inclusion/exclusion criteria.",
+      "evidence": "market-view.tsx CUSTOMER_VOICE array has no method documentation",
+      "fix": "Add a methodology callout to the market view documenting the sample, period, platforms, and coding approach; or downgrade the claims to 'illustrative themes requiring validation'",
+      "blocked_by": []
+    },
+    {
+      "id": "BD-07",
+      "title": "Proposed colors presented without official/observed/proposed labels",
+      "severity": "moderate",
+      "status": "risk-confirmed",
+      "description": "Brand audit presents a 16-color palette with hex values but does not distinguish which are official (from owner guidelines), observed (sampled from social media), approximate, or proposed.",
+      "evidence": "brand-audit-view.tsx PALETTE array has no provenance field",
+      "fix": "Add a provenance field to each palette token: official | observed | approximate | proposed | unknown",
+      "blocked_by": []
+    },
+    {
+      "id": "BD-08",
+      "title": "Static and interactive reports may disagree on counts",
+      "severity": "minor",
+      "status": "partially-confirmed",
+      "description": "Static dossier reports 29 evidence items; interactive reports 10 sources. Experiments match (11=11). Content concepts (26) and competitors (10) are interactive-only with no static equivalent.",
+      "evidence": "cross-comparison of evidence.json vs ursa-data.ts",
+      "fix": "Synchronize counts; add interactive-only data to static dossier or vice versa",
+      "blocked_by": ["BD-01"]
+    }
+  ],
+  "summary": {
+    "total_defects": 8,
+    "confirmed": 5,
+    "risk_confirmed": 3,
+    "major": 3,
+    "moderate": 3,
+    "minor": 2
+  }
+}
