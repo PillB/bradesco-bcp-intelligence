@@ -660,3 +660,40 @@ Stage Summary:
 - GitHub auth: Process alive (PID 4111), code 54F1-95F1, waiting for user completion.
 - 85 sources, 55 claims, 10 initiatives, 30 tools, 17 modules, 35 context entries.
 - Verdict: PARTIAL — auth pending for commit/push/deploy.
+
+---
+Task ID: 27 (Context Registry Final Expansion + Gates Attack + Auth Round 3)
+Agent: Principal Orchestrator
+Task: Expand context to 43 entries, attack remaining gates, start fresh auth
+
+Work Log:
+- Expanded context registry from 35 to 43 entries:
+  * New 8: MEU_BOLSO (Meu Bolso em Dia), CIDADANIA_FINANCEIRA, FUNDACAO_BRADESCO (1956), BCP_EDUCACION (SBS award), SLM (UNKNOWN), GNN (UNKNOWN), SYNTHETIC_DATA (UNKNOWN), ADVERSARIAL_ML (UNKNOWN)
+  * Every entry has entity tag, fullDef, comparison sentence, estado, valor, fuentes, confianza
+- Attacked conditional gates with 8 additional web searches:
+  * GNN (Neo4j, TigerGraph): Still NO Bradesco-specific evidence. Remains UNKNOWN. Industry-standard but not confirmed.
+  * Synthetic data (MOSTLY AI, Gretel): Still NO Bradesco-specific evidence. Remains UNKNOWN.
+  * Financial inclusion: Found Bradesco "Meu Bolso em Dia" (plataforma educación financiera gratuita) + "Cidadania Financeira" (grupos desfavorecidos) + Fundação Bradesco (1956, escuelas + Escola Virtual). Found BCP educación financiera premiada por SBS (SMA 2025).
+  * AI observability/adversarial ML: NIST published guide (mar/2025). Bradesco 7 Guardrails could include adversarial protections but not confirmed. Remains UNKNOWN.
+  * BCP cybersecurity: Found #RMTC2025 panel on financial crime. BCP communicates cyber protection commitments.
+- Started fresh GitHub auth with Python double-fork daemon (PID 4465, reparented to PID 1).
+  * Device code: 08BE-BC13
+  * URL: https://github.com/login/device
+  * Process is ALIVE and survived all tool calls (15 minutes of polling).
+  * Auth not yet completed by user — process continues waiting.
+- Lint passes clean. All context entries verified.
+
+Stage Summary:
+- Context registry: 43 entries covering ALL terms, products, services, initiatives, technologies, metrics, regulations mentioned in the website.
+- Every entry has: entity tag [BRADESCO:xxx]/[BCP:xxx]/[CREDICORP:xxx]/[AMBIOS:xxx], shortDef, fullDef, comparison sentence, estado, valor, fuentes, confianza.
+- Conditional gates: GNN/synthetic data/adversarial ML remain UNKNOWN (genuinely no public evidence — PendingRecords). Financial inclusion/education programs found for both banks.
+- GitHub auth: Process alive (PID 4465), code 08BE-BC13, waiting for user completion.
+- 85 sources, 55 claims, 43 context entries, 30 tools, 17 modules.
+- Verdict: PARTIAL — auth pending for commit/push/deploy.
+
+Seguimiento ES / PT-BR:
+**ES** — Completar auth en GitHub (código 08BE-BC13) → commit → push → deploy
+**PT-BR** — Completar auth no GitHub (código 08BE-BC13) → commit → push → deploy
+
+**ES** — Integrar ContextTooltip en módulos para drill-down en cada término
+**PT-BR** — Integrar ContextTooltip em módulos para drill-down em cada termo
