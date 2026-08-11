@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
 import { EvidenceTag, SourcePill } from "@/components/scif/evidence";
 import { ROADMAP, KPIS } from "@/lib/scif/data";
+import { KpiGaugeDashboard } from "@/components/scif/tools/kpi-gauge-dashboard";
 import { Target, Flag, TrendingUp } from "lucide-react";
 
 const STATUS_COLORS: Record<string, string> = {
@@ -41,6 +42,10 @@ export function Module15Roadmap() {
               </Card>
             ))}
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Dashboard animado" title="Gauges de KPIs — progreso visual">
+          <KpiGaugeDashboard />
         </ViewSection>
 
         <ViewSection eyebrow="KPIs" title="Métricas clave con trazabilidad">

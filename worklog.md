@@ -286,3 +286,27 @@ Stage Summary:
 - Source count: 38, Claim count: 25 (unchanged — focus on advanced visualization).
 - Verdict: CONDITIONALLY_READY (very strong) — comprehensive visualization suite covering positioning, timeline, and evidence quality dimensions.
 - The dossier now has 21 interactive tools across 17 modules — a complete strategic intelligence command center.
+
+---
+Task ID: 16 (webDevReview round 8)
+Agent: Principal Orchestrator (cron-triggered webDevReview)
+Task: QA, KPI Gauge Dashboard, Comparative Sankey, Dependency Graph — 3 new advanced tools
+
+Work Log:
+- Reviewed worklog: project had 17 modules + 21 tools, 38 sources, 25 claims, all stable.
+- QA via agent-browser: all 17 modules confirmed rendering (zero crashes, zero console errors).
+- Built 3 new advanced interactive tools:
+  1. kpi-gauge-dashboard.tsx — KPI Gauge Dashboard: 8 animated circular gauges (ROAE Bradesco, ROAE BCP, ROAE Seguros, Eficiencia, Retención BIA, Casos Bridge, Reducción fraude, NPS BCP). Progress arcs with drop-shadow glow, target marker (dashed line), center value display, trend indicators (up/down with YoY values). Entity filter (All/Bradesco/BCP/Credicorp). 28 circles confirmed.
+  2. comparative-sankey.tsx — Comparative Sankey Flow: 3-level flow diagram (Entidad → Segmento → Rentabilidad) with 9 nodes and 8 curved flow paths. Width ∝ contribution. Bradesco flows to Banca (65%) + Seguros (35%); BCP flows to Banca (76%) + Disruptivas (24%). Outcomes: Alta rentabilidad (>20% ROAE), Mejorando (15-20%), Escalando (<15%). Hover highlights connected flows. 92 paths confirmed.
+  3. dependency-graph.tsx — Dependency Graph: 3-column layout (Recomendaciones → Claims → Fuentes) showing reasoning chain for all 5 recommendations. Each REC connects to supporting claims, each claim connects to up to 3 sources. Hover highlights full dependency chain. Detail panel shows recommendation title, transferability, confidence, "what would change my mind". 58 circles confirmed.
+- Integrated tools: KpiGaugeDashboard→m15 (roadmap), ComparativeSankey→m02 (scale), DependencyGraph→m14 (lessons).
+- QA verification: all 17 modules render (zero crashes); roadmap 2009→2899 (41 SVGs, 28 circles, 24 buttons), scale 6055→6868 (92 paths), lessons 6412→7251 (37 SVGs, 58 circles); ESLint passes clean.
+
+Stage Summary:
+- 3 new advanced tools (total 24 tools now): KPI Gauge Dashboard, Comparative Sankey, Dependency Graph.
+- Module 02 (scale): now has Scale Comparator + Metric Normalizer + Comparative Sankey (3 scale tools).
+- Module 14 (lessons): now has Recommendations + Dependency Graph + Scenario Builder (3 lesson tools).
+- Module 15 (roadmap): now has Roadmap items + KPI Gauge Dashboard + KPI table (3 metric tools).
+- Source count: 38, Claim count: 25 (unchanged — focus on advanced visualization).
+- Verdict: CONDITIONALLY_READY (very strong) — 24 interactive tools covering scale, flow, dependency, and KPI dimensions.
+- The dossier is now a comprehensive strategic intelligence command center with 24 tools across 17 modules.

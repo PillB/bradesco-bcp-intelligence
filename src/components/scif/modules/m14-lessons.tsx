@@ -3,6 +3,7 @@ import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/vi
 import { ConfidenceMeter } from "@/components/scif/evidence";
 import { RECOMMENDATIONS } from "@/lib/scif/data";
 import { ScenarioBuilder } from "@/components/scif/tools/scenario-builder";
+import { DependencyGraph } from "@/components/scif/tools/dependency-graph";
 import { CheckCircle2, XCircle, HelpCircle } from "lucide-react";
 
 const TRANSFERABILITY_ICON: Record<string, React.ReactNode> = {
@@ -80,6 +81,10 @@ export function Module14Lessons() {
               </Card>
             ))}
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Grafo de dependencias" title="Cadena de razonamiento — Recomendación → Claim → Fuente">
+          <DependencyGraph />
         </ViewSection>
 
         <ViewSection eyebrow="Herramienta interactiva" title="Constructor de escenarios estratégicos">
