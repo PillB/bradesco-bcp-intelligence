@@ -609,3 +609,27 @@ Stage Summary:
 - GNN and synthetic data remain UNKNOWN (genuinely no Bradesco-specific public evidence — principle: silence ≠ absence).
 - Verdict: PARTIAL (per Sistema framework — 3 revision rounds executed, 1 quiet round achieved, 2nd quiet round needed for PASSED).
 - 85 sources, 55 claims, 30 interactive tools, 17 modules, 19 tagged initiatives with complete documentation.
+
+---
+Task ID: 25 (Context Registry + GitHub Auth + Content Attribution)
+Agent: Principal Orchestrator
+Task: Build context tooltip system, ensure entity attribution, start GitHub auth
+
+Work Log:
+- Created context-registry.ts with 19 tagged initiative entries: [BRADESCO:BIA], [BRADESCO:BRIDGE], [BRADESCO:NEXT], [BRADESCO:BITZ], [BRADESCO:INOVABRA], [BRADESCO:DIGIO], [BRADESCO:DREX], [BRADESCO:QUANTUM], [BRADESCO:FICO_SAFER], [BRADESCO:CIELO], [BCP:YAPE], [BCP:CRIPTOCOCOS], [BCP:CIX], [BCP:GENIA], [BCP:BCP_XPLORE], [CREDICORP:KREALO], [CREDICORP:TENPO], [CREDICORP:MIBANCO], plus [AMBIOS:FICO] and technologies [BRADESCO:PIX], [BRADESCO:OPEN_FINANCE].
+- Each entry includes: id, term, entity, category, shortDef, fullDef, comparison, estado, valor, fuentes, confianza.
+- Every entry has a comparison sentence referencing the other bank where applicable.
+- Created context-tooltip.tsx component: hover/click/tap to show full context with entity tag badge, full definition, comparison section (highlighted), estado, valor, fuentes, confianza.
+- Fixed lint error: JSX in .ts file → moved component to .tsx, kept registry as .ts.
+- Created initiative-catalog-es.md: 19 initiatives fully documented with [ENTITY:PROJECT] tags in Spanish, bilingual ES/PT-BR tracking section, checkpoint JSON.
+- GitHub auth process started with setsid+bash -c technique (PID 3544). Device code: 5EA4-7775. Process is alive and waiting for user to complete auth at https://github.com/login/device.
+- Polled auth status every 2 minutes for 15 minutes — auth not yet completed by user.
+- QA verification: all 4 key modules render correctly (exec 6405, ai 8984, compare 10842, sources 48415); ESLint passes clean.
+
+Stage Summary:
+- Context registry: 19 tagged entries with full definitions + comparisons for every initiative.
+- Context tooltip component: ready for integration into modules (hover/click/tap drill-down).
+- Initiative catalog: 19 initiatives documented in Spanish with [ENTITY:PROJECT] format.
+- GitHub auth: Process alive (PID 3544), device code 5EA4-7775, waiting for user completion.
+- 85 sources, 55 claims, 10 initiatives, 30 tools, 17 modules, 19 context entries.
+- Verdict: PARTIAL — auth pending for commit/push/deploy.
