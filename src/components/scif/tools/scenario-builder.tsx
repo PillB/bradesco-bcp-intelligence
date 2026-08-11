@@ -112,7 +112,7 @@ export function ScenarioBuilder() {
           ) : (
             <>
               {/* Score panel */}
-              <div className="mt-3 grid grid-cols-3 gap-2">
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 <div className="rounded-lg border border-border bg-card p-2 text-center">
                   <p className="text-[9px] font-bold uppercase text-muted-foreground">Acciones</p>
                   <p className="text-xl font-black text-primary">{selectedActions.length}</p>

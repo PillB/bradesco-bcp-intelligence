@@ -104,7 +104,7 @@ export function ConfidenceDashboard() {
 
       <div className="mt-4 border-t border-border pt-3">
         <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">Fuentes por tier</p>
-        <div className="grid grid-cols-5 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
           {(["A", "B", "C", "D", "E"] as const).map((t) => {
             const count = tierCounts[t] ?? 0;
             const cfg = theme.tier[t];

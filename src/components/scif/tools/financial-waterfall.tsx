@@ -122,7 +122,7 @@ export function FinancialWaterfall() {
       </div>
 
       {/* Summary stats */}
-      <div className="mt-4 grid grid-cols-3 gap-2 border-t border-border pt-3">
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2 border-t border-border pt-3">
         <div className="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center dark:border-gray-800 dark:bg-gray-950/30">
           <p className="text-[9px] font-bold uppercase text-muted-foreground">Base 2024</p>
           <p className="text-lg font-black text-gray-600">R$ 19,6B</p>

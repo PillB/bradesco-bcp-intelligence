@@ -31,7 +31,7 @@ export function Module04Products() {
                     <p className="text-[10px] font-semibold uppercase tracking-wide text-primary">{p.category}</p>
                   </div>
                 </div>
-                <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
+                <div className="mt-3 grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
                   <div>
                     <EntityBadge entity="BRADESCO" />
                     <p className="mt-1 text-muted-foreground">{p.bradesco}</p>

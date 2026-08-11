@@ -44,6 +44,7 @@ export function Module02Scale() {
                   {e.entity_id === "BCP" && <span className="rounded bg-[#0F766E] px-1.5 py-0.5 text-[10px] font-bold text-white">BCP</span>}
                   {e.entity_id === "CREDICORP" && <span className="rounded bg-[#7C3AED] px-1.5 py-0.5 text-[10px] font-bold text-white">CREDICORP</span>}
                 </div>
+                <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <tbody>
                     {e.metrics.map((m) => (
@@ -59,6 +60,7 @@ export function Module02Scale() {
                     ))}
                   </tbody>
                 </table>
+                </div>
               </Card>
             ))}
           </div>

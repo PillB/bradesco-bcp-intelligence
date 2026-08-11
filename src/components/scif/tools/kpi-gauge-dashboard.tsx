@@ -105,7 +105,7 @@ export function KpiGaugeDashboard() {
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 overflow-x-auto">
         {filtered.map((kpi) => <GaugeSVG key={kpi.id} kpi={kpi} />)}
       </div>
 

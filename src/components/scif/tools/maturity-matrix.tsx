@@ -155,7 +155,7 @@ export function MaturityMatrix() {
       </div>
 
       {/* Summary */}
-      <div className="mt-3 grid grid-cols-3 gap-2 border-t border-border pt-3">
+      <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2 border-t border-border pt-3">
         <div className="rounded-lg border border-red-200 bg-red-50 p-2 text-center dark:border-red-800 dark:bg-red-950/30">
           <p className="text-[9px] font-bold uppercase text-red-600">Bradesco lidera</p>
           <p className="text-lg font-black text-red-600">{MATRIX.filter((r) => r.bradesco.level - r.bcp.level > 0).length}</p>

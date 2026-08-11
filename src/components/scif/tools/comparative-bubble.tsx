@@ -108,7 +108,7 @@ export function ComparativeBubble() {
                 <span className="font-mono text-[10px] font-bold" style={{ color: hoveredBubble.color }}>{hoveredBubble.id}</span>
               </div>
               <p className="mt-1 text-xs font-bold">{hoveredBubble.name}</p>
-              <div className="mt-2 grid grid-cols-3 gap-1 text-[10px]">
+              <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-1 text-[10px]">
                 <div className="rounded border border-border p-1 text-center"><p className="font-bold uppercase text-muted-foreground">Activos</p><p className="text-xs font-black">${hoveredBubble.x}B</p></div>
                 <div className="rounded border border-border p-1 text-center"><p className="font-bold uppercase text-muted-foreground">ROAE</p><p className="text-xs font-black">{hoveredBubble.y}%</p></div>
                 <div className="rounded border border-border p-1 text-center"><p className="font-bold uppercase text-muted-foreground">Digital</p><p className="text-xs font-black">{hoveredBubble.size}M</p></div>

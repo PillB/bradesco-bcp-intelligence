@@ -147,7 +147,7 @@ export function RiskHeatmap() {
                 <span className="rounded px-1.5 py-0.5 text-[9px] font-bold text-white" style={{ backgroundColor: CATEGORY_COLORS[selectedRisk.category] }}>{selectedRisk.category}</span>
               </div>
               <p className="mt-2 text-xs font-medium">{selectedRisk.label}</p>
-              <div className="mt-2 grid grid-cols-3 gap-1 text-[10px]">
+              <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 text-[10px]">
                 <div className="rounded border border-border p-1 text-center">
                   <p className="font-bold uppercase text-muted-foreground">Prob.</p>
                   <p className="text-sm font-black">{selectedRisk.likelihood}/5</p>

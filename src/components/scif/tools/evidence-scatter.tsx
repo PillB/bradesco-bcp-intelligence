@@ -94,7 +94,7 @@ export function EvidenceScatter() {
               <p className="font-mono text-xs font-bold text-primary">{hoveredPoint.id}</p>
               <p className="mt-1 text-[10px] text-muted-foreground">{hoveredPoint.entity.replace(/_/g, " ")}</p>
               <p className="text-[10px] text-muted-foreground">Topic: {hoveredPoint.topic}</p>
-              <div className="mt-2 grid grid-cols-2 gap-1 text-[10px]">
+              <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1 text-[10px]">
                 <div className="rounded border border-border p-1 text-center"><p className="font-bold uppercase text-muted-foreground">Conf.</p><p className="text-sm font-black">{hoveredPoint.x}%</p></div>
                 <div className="rounded border border-border p-1 text-center"><p className="font-bold uppercase text-muted-foreground">Fuentes</p><p className="text-sm font-black">{hoveredPoint.y}</p></div>
               </div>

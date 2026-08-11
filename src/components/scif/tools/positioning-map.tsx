@@ -126,7 +126,7 @@ export function PositioningMap() {
                 <span className="rounded px-1.5 py-0.5 text-[9px] font-bold text-white" style={{ backgroundColor: hoveredPos.color }}>{hoveredPos.category}</span>
               </div>
               <p className="mt-2 text-sm font-bold">{hoveredPos.name}</p>
-              <div className="mt-2 grid grid-cols-2 gap-1 text-[10px]">
+              <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1 text-[10px]">
                 <div className="rounded border border-border p-1.5"><p className="font-bold uppercase text-muted-foreground">Escala</p><p className="text-sm font-black" style={{ color: hoveredPos.color }}>{hoveredPos.x}/100</p></div>
                 <div className="rounded border border-border p-1.5"><p className="font-bold uppercase text-muted-foreground">Innovación</p><p className="text-sm font-black" style={{ color: hoveredPos.color }}>{hoveredPos.y}/100</p></div>
               </div>

@@ -61,7 +61,7 @@ export function MetricNormalizer() {
       </div>
 
       {/* FX controls */}
-      <div className="mt-3 grid grid-cols-2 gap-3">
+      <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="rounded-lg border border-border p-2.5">
           <label className="text-[10px] font-bold uppercase text-muted-foreground">FX BRL → USD</label>
           <div className="mt-1 flex items-center gap-2">
