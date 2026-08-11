@@ -990,3 +990,31 @@ Stage Summary:
 - Live site is DEPLOYED and WORKING at https://pillb.github.io/bradesco-bcp-intelligence/
 - Token scopes: 'gist', 'read:org', 'repo' (no 'workflow' yet)
 - gh-pages branch strategy working as fallback
+
+---
+Task ID: 35 (Auth Complete — Commit, Deploy, Cleanup)
+Agent: Principal Orchestrator
+Task: Auth completed with workflow scope, push workflow, deploy via Actions, cleanup
+
+Work Log:
+- AUTH COMPLETE! ✅ Token now has scopes: 'gist', 'read:org', 'repo', 'workflow'
+- Created .github/workflows/deploy.yml (GitHub Actions auto-deploy workflow)
+- Committed: 132def4 "Add GitHub Actions workflow for auto-deploy + cleanup"
+- Pushed to main: 7872cd7..132def4 main -> main ✅
+- GitHub Actions workflow ran: completed success (49s) ✅
+- Switched Pages build_type from "legacy" to "workflow" ✅
+- Live site verified: HTTP 200, title correct ✅
+- Deleted gh-pages branch (no longer needed — Actions handles deploy) ✅
+- Only branch remaining: main (clean) ✅
+- Local vs remote SHA parity: 132def493f6feb8be964e4c6cf080ce372b0140a ✅
+
+FINAL STATE:
+- Repo: https://github.com/PillB/bradesco-bcp-intelligence (bespoke repo)
+- Live: https://pillb.github.io/bradesco-bcp-intelligence/ (HTTP 200)
+- Title: "Bradesco × BCP — Strategic Intelligence Command Center" ✅
+- Actions: auto-deploy on push to main (completed success) ✅
+- Branches: main only (gh-pages deleted) ✅
+- Token scopes: gist, read:org, repo, workflow ✅
+- SHA parity: 132def493f6feb8be964e4c6cf080ce372b0140a ✅
+- 89 sources, 56 claims, 44 context entries, 30 tools, 17 modules
+- Verdict: CONDITIONALLY_READY → approaching READY_FOR_EXECUTIVE_REVIEW
