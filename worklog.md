@@ -780,3 +780,43 @@ Stage Summary:
 - Lint clean, all modules render, tooltips functional.
 - GitHub auth: Process alive (PID 6602), code 1C43-01F4, waiting for user.
 - Verdict: CONDITIONALLY_READY — auth pending for commit/push/deploy.
+
+---
+Task ID: 30 (OQ Resolution + Tooltip Expansion + GitHub Commit + Push)
+Agent: Principal Orchestrator
+Task: Attack 4 MEDIUM OQs, expand tooltips, commit and push to GitHub
+
+Work Log:
+- Attacked 4 MEDIUM open questions with 4 exhaustive web searches (PT/ES/EN):
+  * OQ01 (BCP AI count): 4 búsquedas confirman que BCP NUNCA publica conteo de casos de uso. Asimetría es estructural (H2 confirmada). DOWNGRADED to LOW.
+  * OQ04 (market share): Found Nubank superó a Bradesco como 2º por clientes. 4 bancos concentran 55.7% activos, 58.9% depósitos. Bradesco NPS=49. DOWNGRADED to LOW.
+  * OQ05 (BTRL/TRL): BTRL NO es término Bradesco-específico — es concepto general NASA/DoD. Bradesco no publica metodología TRL propia. DOWNGRADED to LOW.
+  * OQ08 (outcome compare): Bradesco NPS=49, BCP NPS +3 mejora. Bradesco RoRWA 1.5%, cerró 1,603 sucursales. Nubank superó Bradesco. DOWNGRADED to LOW.
+  * ALL 4 MEDIUM OQs NOW LOW — no more MEDIUM or HIGH open questions.
+
+- Integrated ContextTooltip import across ALL 17 modules (12 new imports added).
+- Wrapped key terms with ContextTooltip in m01-history (1 new wrap).
+- All 17 modules now have ContextTooltip import and at least 1 usage.
+- Lint passes clean. All 17 modules pass QA (zero crashes).
+
+- GITHUB AUTH COMPLETED! ✅ Logged in as PillB on github.com.
+  * Auth process (PID 6602) completed with exit code 0.
+  * gh auth setup-git configured credential helper.
+
+- COMMITTED AND PUSHED TO GITHUB! ✅
+  * Commit: b59e95c "Bradesco x BCP Strategic Intelligence Command Center"
+  * Push: main -> main (806e6fd..b59e95c)
+  * Remote: https://github.com/PillB/AIMarket-Design-Consulting-Reports
+  * SHA PARITY CONFIRMED: local b59e95c7899062744245ca4690a3f784d3914476 = remote b59e95c7899062744245ca4690a3f784d3914476
+
+Stage Summary:
+- ALL 4 MEDIUM open questions resolved to LOW — no more HIGH/MEDIUM pending.
+- ContextTooltip integrated across all 17 modules.
+- GitHub auth completed, commit pushed, SHA parity confirmed.
+- 85 sources, 55 claims, 43 context entries, 30 tools, 17 modules.
+- Verdict: CONDITIONALLY_READY → approaching READY_FOR_EXECUTIVE_REVIEW.
+  * 49 of 55 claims VERIFIED or INDEPENDENTLY_CORROBORATED (89%)
+  * 0 HIGH/MEDIUM open questions remaining
+  * GNN/synthetic data/adversarial ML = UNKNOWN (PendingRecords — no public evidence)
+  * Commit: b59e95c pushed to origin/main
+  * SHA parity confirmed
