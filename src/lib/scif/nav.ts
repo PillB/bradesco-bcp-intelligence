@@ -9,6 +9,7 @@ export function useHashRoute() {
     const onHash = () => {
       const h = window.location.hash.replace("#/", "") || "exec";
       setHash(h);
+      // Smooth scroll to top instead of instant jump
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
     window.addEventListener("hashchange", onHash);

@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import { MODULES, PROJECT } from "@/lib/scif/data";
 import { useHashRoute } from "@/lib/scif/nav";
+import { Tutorial } from "@/components/scif/tutorial";
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   LayoutDashboard, Building2, TrendingUp, Users, Package, Smartphone,
@@ -70,8 +71,9 @@ export function CommandCenterShell({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <Tutorial />
       {/* Top header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="frosted-header sticky top-0 z-40 border-b border-border/60">
         <div className="flex h-14 items-center gap-3 px-4 sm:px-6">
           <button
             onClick={() => setMobileOpen((o) => !o)}
@@ -126,7 +128,7 @@ export function CommandCenterShell({ children }: { children: React.ReactNode }) 
         {/* Sidebar */}
         <aside
           className={cn(
-            "fixed inset-y-0 left-0 z-30 w-72 transform border-r border-border bg-card pt-14 transition-transform duration-200 lg:sticky lg:top-14 lg:z-0 lg:h-[calc(100vh-3.5rem)] lg:translate-x-0 lg:pt-0",
+            "frosted-sidebar fixed inset-y-0 left-0 z-30 w-72 transform border-r border-border/60 pt-14 transition-transform duration-300 lg:sticky lg:top-14 lg:z-0 lg:h-[calc(100vh-3.5rem)] lg:translate-x-0 lg:pt-0",
             mobileOpen ? "translate-x-0" : "-translate-x-full"
           )}
         >
@@ -214,7 +216,7 @@ export function CommandCenterShell({ children }: { children: React.ReactNode }) 
       )}
 
       {/* Sticky footer */}
-      <footer className="no-print mt-auto border-t border-border bg-card">
+      <footer className="frosted-header no-print mt-auto border-t border-border/60">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-2 text-[11px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">

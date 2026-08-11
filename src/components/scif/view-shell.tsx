@@ -16,12 +16,14 @@ export function ViewHero({
   children?: React.ReactNode;
 }) {
   return (
-    <header className="relative overflow-hidden border-b border-border/60 bg-gradient-to-br from-card via-background to-muted/30">
-      <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-primary/5 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/4 h-24 w-64 rounded-full bg-primary/3 blur-3xl" />
+    <header className="relative overflow-hidden border-b border-border/60 bg-gradient-to-br from-card via-background to-muted/20">
+      {/* Metallic gradient overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-primary/8 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-1/4 h-24 w-64 rounded-full bg-primary/5 blur-3xl" />
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex items-start gap-4">
-          <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 text-2xl font-black text-primary-foreground shadow-lg shadow-primary/20">
+          <div className="metallic-btn relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl font-black text-primary-foreground">
             {number}
             <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-background bg-primary scif-pulse" />
           </div>
@@ -79,7 +81,7 @@ export function ViewSection({
 
 export function Card({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={cn("group/card relative rounded-xl border border-border bg-card p-4 shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/30 sm:p-5", className)}>{children}</div>
+    <div className={cn("metallic-card rounded-xl border border-border/40 p-4 transition-all duration-300 hover:border-primary/20 hover:shadow-lg sm:p-5", className)}>{children}</div>
   );
 }
 
