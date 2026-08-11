@@ -1,0 +1,18 @@
+{
+  "partnerships": [
+    {"partner": "IBM", "type": "TECH_VENDOR", "scope": "Watson (BIA legacy engine, 2016-); evolved to GenAI integration", "status": "EVOLVED", "evidence": "S05", "perimeter": "BRADESCO_BANK"},
+    {"partner": "Microsoft Azure", "type": "CLOUD_PROVIDER", "scope": "Next digital bank cloud; analytics migration target", "status": "ACTIVE", "evidence": "S06,S07", "perimeter": "BRADESCO_BANK/NEXT"},
+    {"partner": "Amazon Web Services (AWS)", "type": "CLOUD_PROVIDER", "scope": "Digio and (former) Bitz cloud", "status": "ACTIVE", "evidence": "S06", "perimeter": "DIGIO"},
+    {"partner": "Oracle", "type": "CLOUD_PROVIDER", "scope": "Bradesco Seguros cloud", "status": "ACTIVE", "evidence": "S06", "perimeter": "BRADESCO_SEGUROS"},
+    {"partner": "Teradata", "type": "DATA_VENDOR", "scope": "Hybrid analytical environment; QueryGrid virtualization", "status": "ACTIVE", "evidence": "S07", "perimeter": "BRADESCO_BANK", "bias_note": "Vendor case study — promotional"},
+    {"partner": "WeWork", "type": "OPERATING_PARTNER", "scope": "Inovabra habitat physical space operation", "status": "ACTIVE_SINCE_2018", "evidence": "S08,S09", "perimeter": "INOVABRA"},
+    {"partner": "Banco do Brasil (former)", "type": "JV_PARTNER_DIVESTED", "scope": "Former 49,99% JV partner in Digio; bought out 2021-2022 for R$625M", "status": "DIVESTED", "evidence": "S06", "perimeter": "DIGIO"},
+    {"partner": "Startups (Inovabra network)", "type": "OPEN_INNOVATION", "scope": "230 startups in habitat (2026)", "status": "ACTIVE", "evidence": "S08", "perimeter": "INOVABRA"},
+    {"partner": "Universities", "type": "RESEARCH", "scope": "Not researched in depth in this round", "status": "UNKNOWN", "evidence": [], "perimeter": "ORG_BRADESCO", "note": "PendingRecord"}
+  ],
+  "credicorp_partnerships": [
+    {"partner": "Startups (Krealo portfolio)", "type": "CORPORATE_VENTURE", "scope": "Krealo fund investments", "status": "ACTIVE", "evidence": "S14", "perimeter": "CREDICORP"},
+    {"partner": "Culqi", "type": "ACQUIRED_SUBSIDIARY", "scope": "Payment gateway", "status": "INTEGRATED", "evidence": "S12", "perimeter": "CREDICORP"},
+    {"partner": "Open Banking ecosystem (Peru)", "type": "STANDARDS", "scope": "BCP Xplore APIs", "status": "ACTIVE", "evidence": "S15", "perimeter": "BCP"}
+  ]
+}

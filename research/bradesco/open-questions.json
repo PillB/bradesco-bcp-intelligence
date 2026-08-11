@@ -1,0 +1,60 @@
+{
+  "open_questions": [
+    {
+      "oq_id": "OQ01",
+      "question": "¿Cuántos casos de uso de IA en producción tiene BCP/Credicorp, comparable a los '500 casos de uso' de Bradesco Bridge?",
+      "context": "La cifra de 500 es auto-reportada por Bradesco; no hay equivalente público de BCP. Sin esa métrica, la comparación 'Bradesco tiene más IA' es asimétrica.",
+      "what_would_resolve": "Una fuente primaria de Credicorp/BCP sobre conteo de casos de uso de IA en producción, o una decisión explícita de no comparar granularidad de casos de uso.",
+      "priority": "HIGH"
+    },
+    {
+      "oq_id": "OQ02",
+      "question": "¿Cuál es el retorno económico agregado de Inovabra habitat (ingresos generados, soluciones llevadas a producción bancaria)?",
+      "context": "Solo hay conteos de participantes (190→230 startups) y contratos firmados en 2019. No hay métrica de ROI agregada pública.",
+      "what_would_resolve": "Un reporte de impacto más reciente y específico de Bradesco sobre Inovabra.",
+      "priority": "MEDIUM"
+    },
+    {
+      "oq_id": "OQ03",
+      "question": "¿Cuál es el verdadero estado de madurez de Bridge (los 500 casos de uso)?",
+      "context": "Fuente primaria única (CTO feb-2026); sin corroboración independiente Tier C.",
+      "what_would_resolve": "Cobertura independiente de prensa especializada o un reporte de auditoría externa que confirme la escala operativa.",
+      "priority": "HIGH"
+    },
+    {
+      "oq_id": "OQ04",
+      "question": "Normalización de tamaño ajustada por PIB/población bancarizada entre Brasil y Perú",
+      "context": "La comparación de tamaño absoluto (R$2,33T vs S/204,9B) es NOT_DIRECTLY_COMPARABLE sin normalización.",
+      "what_would_resolve": "Cálculo de market share doméstico o ratio activos/PIB para cada banco.",
+      "priority": "MEDIUM"
+    },
+    {
+      "oq_id": "OQ05",
+      "question": "¿Existe un 'Technology Radar' formal (tipo ThoughtWorks) o un método BTRL de readiness en Bradesco?",
+      "context": "El prompt maestro asume BTRL/readiness. No se encontró evidencia pública de un radar formal publicado por Bradesco en esta ronda.",
+      "what_would_resolve": "Documentación oficial de Bradesco sobre su método de evaluación de madurez tecnológica.",
+      "priority": "MEDIUM"
+    },
+    {
+      "oq_id": "OQ06",
+      "question": "Estado actual de CIX-BCP (proyecto de innovación 2018 en GitHub)",
+      "context": "Evidencia histórica sugiere plataforma interna de exhibición de proyectos. No hay evidencia reciente de actividad.",
+      "what_would_resolve": "Confirmación oficial de BCP/Credicorp sobre el estado actual del proyecto CIX.",
+      "priority": "LOW"
+    },
+    {
+      "oq_id": "OQ07",
+      "question": "Bradesco: deep-dive en digital identity, biometría, GNN, datos sintéticos, quantum/QKD, DLT/tokenization, stablecoins",
+      "context": "Estos temas del prompt maestro no fueron investigados en profundidad en esta sesión por restricción de alcance/tiempo. Clasificados UNKNOWN.",
+      "what_would_resolve": "Ciclos de investigación adicionales dedicados a cada tema.",
+      "priority": "MEDIUM"
+    },
+    {
+      "oq_id": "OQ08",
+      "question": "¿La diferencia observada en volumen de iniciativas de IA (Bradesco > BCP) refleja madurez real o diferencia de comunicación corporativa?",
+      "context": "Hipótesis H1-H4 activas. No hay evidencia que discrimine concluyentemente.",
+      "what_would_resolve": "Métricas comparables deoutcome (e.g., cost-to-serve, NPS digital, conversion) entre ambos bancos.",
+      "priority": "HIGH"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "hypotheses": [
+    {
+      "hypothesis_id": "H1",
+      "observation": "Bradesco comunica públicamente un volumen mayor de iniciativas de IA/tecnología (Bridge, BIA, 500+ casos de uso) que Credicorp para BCP en el mismo período.",
+      "hypothesis": "Bradesco tiene mayor madurez real (H1 — madurez real superior)",
+      "explanation": "El banco efectivamente ha centralizado y escalado más casos de uso de IA en producción, apoyado por una inversión tecnológica mayor en términos absolutos (justificada por su escala de mercado).",
+      "evidence_supporting": ["+22% tech investment 2025", "10,500 tech professionals", "Bridge centralized platform claim"],
+      "evidence_against": ["500 use cases is single-source", "no audited definition of 'use case'"],
+      "discriminative_test": "Métricas comparables de outcome (cost-to-serve, NPS digital, conversion) entre ambos bancos.",
+      "status": "PLAUSIBLE_NOT_CONFIRMED"
+    },
+    {
+      "hypothesis_id": "H2",
+      "observation": "Same observation as H1.",
+      "hypothesis": "Diferencia de estilo de comunicación corporativa (H2)",
+      "explanation": "Bradesco, como emisor listado en NYSE bajo escrutinio de analistas globales, tiene incentivos más fuertes para narrar transformación tecnológica cuantificada. Credicorp comunica innovación en términos de contribución a ingresos (lenguaje financiero distinto, no directamente comparable en granularidad de 'casos de uso').",
+      "evidence_supporting": ["Credicorp IR communicates '10% of risk-adjusted revenue' — financial framing, not use-case counts", "Bradesco CTO interview style is highly metric-forward"],
+      "evidence_against": ["Does not disprove H1"],
+      "discriminative_test": "Análisis de disclosure: ¿Bradesco y Credicorp difieren en la granularidad de métricas de IA que publican, controlando por escala?",
+      "status": "PLAUSIBLE_NOT_CONFIRMED"
+    },
+    {
+      "hypothesis_id": "H3",
+      "observation": "Same observation as H1.",
+      "hypothesis": "El tamaño permite mayor volumen de experimentación, sin mejor conversión por unidad (H3)",
+      "explanation": "Bradesco puede ejecutar más experimentos por su tamaño absoluto, pero su tasa de conversión a producción por unidad de inversión puede no ser superior.",
+      "evidence_supporting": ["Scale asymmetry is real (Brazil ≈10× Peru)"],
+      "evidence_against": ["No public data on conversion rates per unit of investment for either bank"],
+      "discriminative_test": "Ratio de iniciativas que escalan a PRODUCTION sobre total iniciadas, normalizado por inversión.",
+      "status": "PLAUSIBLE_NOT_CONFIRMED"
+    },
+    {
+      "hypothesis_id": "H4",
+      "observation": "Same observation as H1.",
+      "hypothesis": "Diferencias regulatorias y de infraestructura de mercado explican la brecha (H4)",
+      "explanation": "Brasil tiene un ecosistema de Open Finance y Pix más maduro y de adopción obligatoria más temprana que el marco peruano, lo que genera más casos de uso digital observables independientemente de la capacidad interna relativa.",
+      "evidence_supporting": ["Brazil Open Finance is mandatory since 2021", "Pix is national instant-payment system (2020)", "Peru's framework is less mature"],
+      "evidence_against": ["Does not explain BIA/Bridge GenAI claims (not directly Open Finance dependent)"],
+      "discriminative_test": "Comparar casos de uso NO dependientes de infraestructura regulatoria (e.g., GenAI document processing) entre ambos bancos.",
+      "status": "PARTIALLY_SUPPORTED"
+    }
+  ],
+  "synthesis": "No se encontró evidencia pública que permita discriminar concluyentemente entre H1-H4. Declaradas como OPEN_QUESTIONS explícitas (OQ08). La conclusión reportada evita asignar la diferencia observada a una sola hipótesis."
+}

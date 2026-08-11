@@ -1,0 +1,19 @@
+{
+  "timeline": [
+    {"year": 1943, "event": "Fundación de Banco Bradesco em Marília, São Paulo", "type": "FOUNDING", "significance": "Origen del grupo; posterior traslado a Osasco."},
+    {"year": 1962, "event": "Creación de Bradesco Seguros", "type": "DIVERSIFICATION", "significance": "Apertura del brazo de seguros; base de la multi-negocio actual."},
+    {"year": 1988, "event": "Fundación de Fundação Bradesco (educación)", "type": "CSR", "significance": "Inversión social temprana."},
+    {"year": 2008, "event": "Adquisición de Ágora Corretora", "type": "ACQUISITION", "significance": "Entrada en corretaje y wealth management."},
+    {"year": 2016, "event": "Lanzamiento de BIA sobre IBM Watson", "type": "PRODUCT_LAUNCH", "significance": "Primer asistente virtual bancario de Brasil a gran escala."},
+    {"year": 2017, "event": "Lanzamiento de Next — primer banco 100% digital de Bradesco", "type": "PRODUCT_LAUNCH", "significance": "Apuesta digital por segmento joven; posteriormente reincorporado."},
+    {"year": 2018, "event": "Inauguración de Inovabra habitat (22.000 m², São Paulo, con WeWork)", "type": "INNOVATION_LAB", "significance": "Espacio de co-innovación con startups y corporaciones."},
+    {"year": 2020, "event": "Lanzamiento de Bitz (cartera digital)", "type": "PRODUCT_LAUNCH", "significance": "Cartera de pagos digital; posteriormente cerrada en 2023."},
+    {"year": 2021, "event": "Adquisición del 49,99% de Digio a Banco do Brasil por R$625M", "type": "ACQUISITION", "significance": "Consolidación total de Digio; infraestructura AWS separada."},
+    {"year": 2023, "event": "Cierre de Bitz; migración de clientes a Digio", "type": "SUNSET", "significance": "Decisión consciente de consolidación de marcas digitales."},
+    {"year": 2024, "event": "Reincorporación de Next al banco matriz como segmento de atención", "type": "REORGANIZATION", "significance": "Fin de Next como entidad separada; marca y app continúan."},
+    {"year": 2024, "event": "Declaración de estrategia multicloud (cloud-first para nuevos sistemas)", "type": "TECH_STRATEGY", "significance": "35% de cargas en nube al anuncio; legado migrado solo por necesidad."},
+    {"year": 2025, "event": "BIA 100% integrada con IA generativa; Bridge en producción con 500+ casos de uso", "type": "AI_MILESTONE", "significance": "Madurez de IA: BIA PRODUCTION/SCALING, Bridge PRODUCTION."},
+    {"year": 2025, "event": "ROAE 4T25 15,2% supera costo de capital por primera vez según management", "type": "FINANCIAL_MILESTONE", "significance": "Inflexión de rentabilidad; meta eficiencia 40% para 2028."},
+    {"year": 2026, "event": "Inversión en tecnología +16% (proyectado); 10.500 profesionales de tecnología", "type": "INVESTMENT", "significance": "Continuación de la inversión en capacidad de ingeniería."}
+  ]
+}

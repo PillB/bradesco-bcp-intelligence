@@ -1,0 +1,35 @@
+{
+  "innovation_os": {
+    "bradesco": {
+      "structure": "Habitat model — open co-innovation space (Inovabra) + internal R&D + corporate venture (via acquisitions like Digio)",
+      "signal_to_scale": [
+        {"stage": "SIGNAL", "mechanism": "Inovabra habitat curation; startups must have mature product"},
+        {"stage": "RESEARCH", "mechanism": "Internal tech teams; BTRL-like readiness evaluation (not publicly formalized as 'BTRL' in this round — OPEN_QUESTION)"},
+        {"stage": "EXPERIMENT", "mechanism": "Bridge sandbox for GenAI use cases; internal experimentation"},
+        {"stage": "PILOT", "mechanism": "BIA evolution; Bridge 500+ use cases (70 at scale)"},
+        {"stage": "PRODUCTION", "mechanism": "Bridge centralized platform; BIA at 24M users"},
+        {"stage": "SCALE", "mechanism": "Tech investment +22% (2025) / +16% (2026); 10,500 tech professionals"}
+      ],
+      "governance": "CTO-led (Cíntia Scovine); centralized GenAI guardrails via Bridge; multicloud strategy",
+      "partnerships": ["WeWork (Inovabra space)", "IBM (Watson legacy→GenAI evolution)", "Microsoft Azure (Next)", "AWS (Digio)", "Oracle (Seguros)", "Teradata (hybrid analytics)"],
+      "universities": "Not researched in depth in this round — PendingRecord",
+      "training": "+35% developers since 2024; 10,500 tech professionals total",
+      "radar_history_note": "Bradesco does not publicly publish a formal 'Technology Radar' in the ThoughtWorks sense; maturity is inferred from executive disclosures. See technology-radar-history.json for reconstructed versions."
+    },
+    "credicorp_bcp": {
+      "structure": "Portfolio model — disruptive initiatives managed as a VC-like portfolio (Yape, Tenpo, Culqi, iO) + Krealo corporate venture fund + BCP Xplore Open Banking unit",
+      "signal_to_scale": [
+        {"stage": "SIGNAL", "mechanism": "Krealo scouting; BCP Xplore API ecosystem"},
+        {"stage": "RESEARCH", "mechanism": "Internal product teams for each initiative"},
+        {"stage": "EXPERIMENT", "mechanism": "Each disruptive initiative runs semi-independently"},
+        {"stage": "PILOT", "mechanism": "Yape reached profitability ahead of projection"},
+        {"stage": "PRODUCTION", "mechanism": "Yape at scale; BCP Xplore APIs in production"},
+        {"stage": "SCALE", "mechanism": "Target: 10% of risk-adjusted group revenue from disruptive initiatives by 2026"}
+      ],
+      "governance": "Portfolio-level metrics (contribution to group revenue); each initiative has own P&L",
+      "partnerships": ["Open innovation via Krealo investments", "Culqi (payment gateway, acquired)", "CIX-BCP (2018, status UNKNOWN)"],
+      "key_difference": "Credicorp communicates innovation as financial contribution to group revenue; Bradesco communicates as use-case counts and tech investment — different languages, not directly comparable."
+    }
+  },
+  "comparison_note": "Inovabra (open habitat, physical co-innovation) vs Credicorp disruptive-portfolio (internal ventures with revenue targets) are structurally different instruments. Comparing them as 'which is better at innovation' is a category error without first agreeing on the metric (network breadth vs portfolio ROI)."
+}

@@ -1,0 +1,108 @@
+{
+  "initiatives": [
+    {
+      "initiative_id": "NEXT",
+      "name": "Next (banco digital)",
+      "category": "Digital bank",
+      "lifecycle": "INTEGRATED",
+      "first_seen": "2017-06",
+      "last_seen": "2026-06",
+      "original_promise": "Primer banco 100% digital de Bradesco dirigido a público joven; operación separada y ágil",
+      "later_outcome": "Reincorporado al banco matriz como segmento de atención (fines 2023-2024). App sigue activo y actualizado (Google Play jun-2026).",
+      "interpretation": "INTEGRATED ≠ FAILED. Decisión consciente de consolidar tras madurez digital del banco matriz.",
+      "evidence_status": "INDEPENDENTLY_CORROBORATED",
+      "source_ids": ["S03","S10"]
+    },
+    {
+      "initiative_id": "BITZ",
+      "name": "Bitz (cartera digital)",
+      "category": "Digital wallet",
+      "lifecycle": "SUNSET",
+      "first_seen": "2020",
+      "last_seen": "2023",
+      "original_promise": "Cartera digital de pagos para captar clientes no bancarizados",
+      "later_outcome": "Cerrada en 2023; clientes migrados a Digio",
+      "interpretation": "SUNSET confirmado. Consolidación hacia Digio como marca digital única de bajo costo.",
+      "evidence_status": "INDEPENDENTLY_CORROBORATED",
+      "source_ids": ["S03","S06"]
+    },
+    {
+      "initiative_id": "DIGIO",
+      "name": "Digio (banco digital subsidiario)",
+      "category": "Digital bank",
+      "lifecycle": "PRODUCTION",
+      "first_seen": "2021 (adquisición)",
+      "last_seen": "2026",
+      "original_promise": "Banco digital low-cost; operación separada con infraestructura propia AWS",
+      "later_outcome": "100% controlado; infraestructura AWS mantenida separada de Next (Azure); management declaró intención de mantenerlo independiente",
+      "interpretation": "PRODUCTION. Estrategia dual-cloud deliberada: Next/Azure y Digio/AWS coexistieron antes de la reincorporación de Next.",
+      "evidence_status": "INDEPENDENTLY_CORROBORATED",
+      "source_ids": ["S06","S01"]
+    },
+    {
+      "initiative_id": "BIA",
+      "name": "BIA (asistente virtual)",
+      "category": "Conversational AI",
+      "lifecycle": "PRODUCTION_SCALING",
+      "first_seen": "2016",
+      "last_seen": "2026",
+      "original_promise": "Asistente virtual basado en IBM Watson para atender clientes en app",
+      "later_outcome": "Evolucionó a 100% GenAI; 24M+ usuarios; 90% retención digital en 4T25",
+      "interpretation": "SUCCESS — evolución tecnológica sostenida por 10 años; caso de adaptación de plataforma (Watson→GenAI).",
+      "evidence_status": "STRONGLY_SUPPORTED",
+      "source_ids": ["S03","S05"]
+    },
+    {
+      "initiative_id": "BRIDGE",
+      "name": "Bridge (plataforma GenAI corporativa)",
+      "category": "GenAI platform",
+      "lifecycle": "PRODUCTION",
+      "first_seen": "2024 (approx.)",
+      "last_seen": "2026-02",
+      "original_promise": "Centralizar IA generativa corporativa con guardrails responsables",
+      "later_outcome": "500+ casos de uso en producción, 70 a escala (según CTO feb-2026)",
+      "interpretation": "PRODUCTION, pero cifra auto-reportada requiere corroboración independiente. Aún temprano para clasificar SUCCESS —需要一个完整周期.",
+      "evidence_status": "STRONGLY_SUPPORTED",
+      "source_ids": ["S04"]
+    },
+    {
+      "initiative_id": "INOVABRA",
+      "name": "Inovabra habitat",
+      "category": "Innovation lab",
+      "lifecycle": "MATURE",
+      "first_seen": "2018-02",
+      "last_seen": "2026",
+      "original_promise": "Espacio físico de co-innovación con startups y corporaciones",
+      "later_outcome": "Crecimiento: 190 startups (2019) → 230 startups, 80 empresas, 8 hubs (2026)",
+      "interpretation": "MATURE como programa. Retorno económico agregado no cuantificado públicamente — OPEN_QUESTION.",
+      "evidence_status": "VERIFIED",
+      "source_ids": ["S08","S09"]
+    },
+    {
+      "initiative_id": "BRADESCO_SEGUROS_DIGITAL",
+      "name": "Bradesco Seguros digital platform",
+      "category": "Insurance digital",
+      "lifecycle": "PRODUCTION",
+      "first_seen": "pre-2020",
+      "last_seen": "2026",
+      "original_promise": "Digitalización de seguros sobre Oracle cloud",
+      "later_outcome": "ROAE 21,9% en 2025 — más rentable que el brazo bancario",
+      "interpretation": "SUCCESS — el brazo de seguros supera al bancario en rentabilidad.",
+      "evidence_status": "VERIFIED",
+      "source_ids": ["S01","S06"]
+    },
+    {
+      "initiative_id": "TERADATA_AZURE_MIGRATION",
+      "name": "Migración analítica Teradata → Azure",
+      "category": "Data architecture",
+      "lifecycle": "PRODUCTION",
+      "first_seen": "2024 (approx.)",
+      "last_seen": "2025-07",
+      "original_promise": "Migración híbrida del entorno analítico a Azure con QueryGrid",
+      "later_outcome": "400+ TB, 190.000 tablas migradas (según caso Teradata jul-2025)",
+      "interpretation": "PRODUCTION, pero evidencia de vendor case study (sesgo promocional).",
+      "evidence_status": "STRONGLY_SUPPORTED",
+      "source_ids": ["S07"]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "contradictions": [
+    {
+      "ct_id": "CT01",
+      "claim_ids": ["C005"],
+      "type": "DEFINITIONAL_DRIFT",
+      "description": "La cifra de retención de BIA pasó de '85-90%' (jun-2025) a '90%' (4T25). No está claro si la definición de 'retención' es idéntica entre ambas fechas o si hubo ajuste metodológico.",
+      "status": "UNRESOLVED",
+      "resolution_note": "Asumir 85-90% como rango y 90% como punto más reciente. No afecta la clasificación PRODUCTION_SCALING."
+    },
+    {
+      "ct_id": "CT02",
+      "claim_ids": ["C006"],
+      "type": "SINGLE_SOURCE",
+      "description": "La cifra de '500 casos de uso en producción' para Bridge proviene de una única entrevista con la CTO (feb-2026). No hay corroboración independiente Tier C.",
+      "status": "UNRESOLVED",
+      "resolution_note": "Clasificado STRONGLY_SUPPORTED (no VERIFIED ni INDEPENDENTLY_CORROBORATED). Pendiente de búsqueda independiente (OQ03)."
+    },
+    {
+      "ct_id": "CT03",
+      "claim_ids": ["C008"],
+      "type": "TEMPORAL_STALENESS",
+      "description": "La cifra de '35% workloads in cloud' es de feb-2024. Es probable que haya aumentado para 2026, pero no hay cifra actualizada públicamente.",
+      "status": "PARTIALLY_RESOLVED",
+      "resolution_note": "Tratada como historical baseline; la estrategia cloud-first sigue vigente (no contradicha), pero el % exacto es stale."
+    },
+    {
+      "ct_id": "CT04",
+      "claim_ids": ["C013","C002"],
+      "type": "COMPARABILITY_TENSION",
+      "description": "ROAE Bradesco 15.2% vs BCP 24.7%. Ambas son ROAE pero la base de capital, la estructura de ingresos y el ciclo de crédito difieren entre Brasil y Perú.",
+      "status": "RESOLVED_BY_LABELING",
+      "resolution_note": "Etiquetado COMPARABLE (dimensión), pero con nota explícita: la diferencia puede reflejar ciclo de crédito y estructura de mercado, no solo capacidad operativa."
+    }
+  ]
+}

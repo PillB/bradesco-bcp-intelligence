@@ -1,0 +1,147 @@
+{
+  "genealogies": [
+    {
+      "source_id": "S01",
+      "publisher": "Banco Bradesco IR",
+      "original_origin": "SEC EDGAR 20-F",
+      "upstream_url": "https://www.sec.gov/cgi-bin/browse-edgar",
+      "publication_date": "2026-03-15",
+      "retrieved_at": "2026-01-10",
+      "independence_cluster": "CLUSTER_BRADESCO_RI",
+      "source_tier": "A",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S02",
+      "publisher": "Banco Bradesco IR",
+      "original_origin": "SEC EDGAR 6-K 4T25",
+      "independence_cluster": "CLUSTER_BRADESCO_RI",
+      "source_tier": "A",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S03",
+      "publisher": "Bradesco earnings call",
+      "original_origin": "Bradesco IR earnings call",
+      "independence_cluster": "CLUSTER_BRADESCO_IR_EARNINGS",
+      "source_tier": "B",
+      "detected_patterns": [],
+      "note": "Distinct from S01/S02 (different channel: transcript vs filing)"
+    },
+    {
+      "source_id": "S04",
+      "publisher": "CTO interview",
+      "original_origin": "Press interview (Bradesco corporate)",
+      "independence_cluster": "CLUSTER_BRADESCO_EXEC_INTERVIEW",
+      "source_tier": "B",
+      "detected_patterns": [],
+      "note": "Executive interview — promotional bias risk"
+    },
+    {
+      "source_id": "S05",
+      "publisher": "Bradesco IR presentation jun-2025",
+      "original_origin": "Bradesco IR",
+      "independence_cluster": "CLUSTER_BRADESCO_IR_EARNINGS",
+      "source_tier": "B",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S06",
+      "publisher": "Bradesco multicloud announcement",
+      "original_origin": "Bradesco corporate communications",
+      "independence_cluster": "CLUSTER_BRADESCO_CORP_COMMS",
+      "source_tier": "B",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S07",
+      "publisher": "Teradata / Possible event case study",
+      "original_origin": "Teradata customer case study",
+      "independence_cluster": "CLUSTER_TERADATA_VENDOR",
+      "source_tier": "B",
+      "detected_patterns": ["VENDOR_CASE_STUDY_DEPENDENCE"],
+      "note": "Vendor-authored — promotional bias. Should be corroborated by Bradesco-side evidence for material claims."
+    },
+    {
+      "source_id": "S08",
+      "publisher": "Inovabra official site",
+      "original_origin": "inovabra.com",
+      "independence_cluster": "CLUSTER_INOVABRA_OFFICIAL",
+      "source_tier": "A",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S09",
+      "publisher": "Inovabra 2019 press review",
+      "original_origin": "Bradesco press / Brazilian business press",
+      "independence_cluster": "CLUSTER_BRADESCO_CORP_COMMS",
+      "source_tier": "B",
+      "detected_patterns": ["PRESS_RELEASE_SYNDICATION"]
+    },
+    {
+      "source_id": "S10",
+      "publisher": "Google Play — Next app",
+      "original_origin": "Google Play Store",
+      "independence_cluster": "CLUSTER_PLAY_STORE_NEXT",
+      "source_tier": "D",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S11",
+      "publisher": "Credicorp 20-F FY2025",
+      "original_origin": "SEC EDGAR 20-F",
+      "independence_cluster": "CLUSTER_CREDICORP_RI",
+      "source_tier": "A",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S12",
+      "publisher": "Credicorp IR investor update",
+      "original_origin": "Credicorp IR",
+      "independence_cluster": "CLUSTER_CREDICORP_IR",
+      "source_tier": "A",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S13",
+      "publisher": "SBS Peru public registry",
+      "original_origin": "SBS",
+      "independence_cluster": "CLUSTER_SBS_REGULATOR",
+      "source_tier": "A",
+      "detected_patterns": []
+    },
+    {
+      "source_id": "S16",
+      "publisher": "GitHub CIX-BCP archive",
+      "original_origin": "github.com",
+      "independence_cluster": "CLUSTER_GITHUB_CIX",
+      "source_tier": "D",
+      "detected_patterns": [],
+      "entity_match": "AMBIGUOUS",
+      "note": "Cannot support material claims; logged for transparency"
+    },
+    {
+      "source_id": "S17",
+      "publisher": "Brazilian financial press (Valor/InfoMoney)",
+      "original_origin": "Brazilian financial press",
+      "independence_cluster": "CLUSTER_BR_PRESS",
+      "source_tier": "C",
+      "detected_patterns": ["PRESS_RELEASE_SYNDICATION"],
+      "note": "Often republishes Bradesco IR releases with light rewriting — same origin cluster as Bradesco IR for syndicated items, but independent editorial for original reporting"
+    }
+  ],
+  "independence_clusters_used": [
+    "CLUSTER_BRADESCO_RI (Tier A)",
+    "CLUSTER_BRADESCO_IR_EARNINGS (Tier B)",
+    "CLUSTER_BRADESCO_EXEC_INTERVIEW (Tier B)",
+    "CLUSTER_BRADESCO_CORP_COMMS (Tier B)",
+    "CLUSTER_INOVABRA_OFFICIAL (Tier A)",
+    "CLUSTER_PLAY_STORE_NEXT (Tier D)",
+    "CLUSTER_CREDICORP_RI (Tier A)",
+    "CLUSTER_CREDICORP_IR (Tier A/B)",
+    "CLUSTER_SBS_REGULATOR (Tier A)",
+    "CLUSTER_TERADATA_VENDOR (Tier B vendor)",
+    "CLUSTER_GITHUB_CIX (Tier D, AMBIGUOUS)",
+    "CLUSTER_BR_PRESS (Tier C)"
+  ]
+}

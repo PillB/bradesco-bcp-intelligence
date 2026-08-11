@@ -1,0 +1,80 @@
+{
+  "scorecard": {
+    "bradesco_bank": {
+      "entity_id": "BRADESCO_BANK",
+      "perimeter": "OPERATING_BANK",
+      "geography": "Brazil",
+      "currency": "BRL",
+      "as_of": "2025-12-31",
+      "metrics": [
+        {"metric": "total_assets", "value": 2.33e12, "display": "R$ 2,33 trilhões", "yoy": "+12.6%", "source": "S01"},
+        {"metric": "recurrent_income", "value": 24.7e9, "display": "R$ 24,7 bilhões", "yoy": "+26.1%", "source": "S02"},
+        {"metric": "roae", "value": 15.2, "display": "15,2%", "yoy": "improving", "source": "S02", "note": "4T25; primeira vez > custo de capital"},
+        {"metric": "efficiency_ratio", "value": 50, "display": "50,0%", "target": "40% by 2028", "source": "S03"},
+        {"metric": "loan_book", "value": 1.089e12, "display": "R$ 1,089 trilhão", "yoy": "+11,0%", "source": "S02"},
+        {"metric": "deposits", "value": 727.9e9, "display": "R$ 727,9 bilhões", "yoy": "+12,2%", "source": "S01"},
+        {"metric": "digital_customers_m", "value": 28, "display": "28 milhões", "note": "1T26 (19M fin-2025)", "source": "S03"}
+      ]
+    },
+    "bradesco_seguros": {
+      "entity_id": "BRADESCO_SEGUROS",
+      "perimeter": "INSURANCE_ARM",
+      "geography": "Brazil",
+      "currency": "BRL",
+      "as_of": "2025-12-31",
+      "metrics": [
+        {"metric": "net_income", "value": 10.1e9, "display": "R$ 10,1 bilhões", "source": "S01"},
+        {"metric": "roae", "value": 21.9, "display": "21,9%", "source": "S01"},
+        {"metric": "total_assets", "value": 507.8e9, "display": "R$ 507,8 bilhões", "source": "S01"}
+      ]
+    },
+    "bcp": {
+      "entity_id": "BCP",
+      "perimeter": "OPERATING_BANK",
+      "geography": "Peru",
+      "currency": "PEN",
+      "as_of": "2025-12-31",
+      "metrics": [
+        {"metric": "total_assets", "value": 204.9e9, "display": "S/ 204,9 mil millones", "yoy": "+3,8%", "source": "S13"},
+        {"metric": "roae", "value": 24.7, "display": "24,7%", "source": "S13", "note": "impulsado por caída del costo de riesgo 2,13%→1,28%"},
+        {"metric": "cost_of_risk", "value": 1.28, "display": "1,28%", "yoy": "from 2,13%", "source": "S13"}
+      ]
+    },
+    "credicorp": {
+      "entity_id": "CREDICORP",
+      "perimeter": "CONSOLIDATED_GROUP",
+      "geography": "Peru",
+      "currency": "PEN",
+      "as_of": "2025-12-31",
+      "metrics": [
+        {"metric": "total_assets", "value": 267.4e9, "display": "S/ 267,4 mil millones", "source": "S11"},
+        {"metric": "net_income_attributable", "value": 6.9254e9, "display": "S/ 6.925,4 millones", "yoy": "+25,9%", "source": "S11"},
+        {"metric": "roae", "value": 19.0, "display": "19,0%", "source": "S11"},
+        {"metric": "bcp_share_of_group_assets", "value": 75.6, "display": "75,6%", "source": "S11"}
+      ]
+    }
+  },
+  "cross_comparisons": [
+    {
+      "comparison": "ROAE (operating bank, dimensionless)",
+      "bradesco": 15.2,
+      "bcp": 24.7,
+      "comparability": "COMPARABLE",
+      "note": "BCP significantmente más rentable; Bradesco mejorando (+26.1% recurrent income)"
+    },
+    {
+      "comparison": "Total assets (absolute, NOT directly comparable)",
+      "bradesco": "R$ 2,33T",
+      "bcp": "S/ 204,9B",
+      "comparability": "NOT_DIRECTLY_COMPARABLE",
+      "note": "Currency + market scale differ; requires normalization"
+    },
+    {
+      "comparison": "Efficiency ratio",
+      "bradesco": "50% (target 40% by 2028)",
+      "bcp": "not publicly disclosed with same definition",
+      "comparability": "PARTIAL",
+      "note": "Directional comparison only"
+    }
+  ]
+}

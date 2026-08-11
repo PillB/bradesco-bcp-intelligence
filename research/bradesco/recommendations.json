@@ -1,0 +1,64 @@
+{
+  "recommendations": [
+    {
+      "rec_id": "REC01",
+      "title": "Centralizar una plataforma de IA generativa con gobernanza única (patrón tipo Bridge)",
+      "audience": "Líderes de emerging-technology / new-products en BCP Perú",
+      "transferability": "REASONABLE_TO_TRANSFER",
+      "supporting_claim_ids": ["C006","C005","C007"],
+      "contradicting_claim_ids": [],
+      "assumptions": ["La lógica de una capa horizontal de servicios de IA (documentos, voz, texto, agentes) con guardrails centralizados no depende del tamaño del banco, aunque el volumen de casos de uso sí escala con los recursos disponibles."],
+      "confidence": 0.7,
+      "what_would_change_my_mind": "Evidencia de que BCP ya tiene una capa equivalente centralizada y publicada, o de que el modelo distribuido por unidad de negocio produce mejores resultados en bancos del tamaño de BCP.",
+      "action": "Diseñar/auditar una capa horizontal de GenAI con guardrails de cumplimiento centralizados, reutilizable por todas las unidades de negocio, con métricas de adopción internas."
+    },
+    {
+      "rec_id": "REC02",
+      "title": "Evaluar la consolidación de marcas digitales fragmentadas cuando el banco matriz alcanza madurez digital propia",
+      "audience": "Líderes de estrategia digital en Credicorp/BCP",
+      "transferability": "CONDITIONAL",
+      "supporting_claim_ids": ["C010","C011","C012"],
+      "contradicting_claim_ids": [],
+      "assumptions": ["La fragmentación de marcas digitales puede generar costos de coordinación que superan sus beneficios de posicionamiento una vez que el banco matriz alcanza cierto nivel de madurez digital propia."],
+      "confidence": 0.6,
+      "what_would_change_my_mind": "Evidencia de que Yape/Tenpo/Culqi generan valor marginal superior bajo operación independiente que bajo consolidación (e.g., captura de segmentos no solapados).",
+      "action": "Realizar un análisis de costos de coordinación vs beneficios de segmentación de las marcas digitales del grupo cada 18-24 meses."
+    },
+    {
+      "rec_id": "REC03",
+      "title": "No adoptar el modelo 'habitat' físico de Inovabra sin evaluar el modelo de cartera de venture interno ya existente en Credicorp",
+      "audience": "Líderes de innovación en Credicorp/BCP",
+      "transferability": "NOT_EVIDENCE_BASED",
+      "supporting_claim_ids": ["C009","C015"],
+      "contradicting_claim_ids": [],
+      "assumptions": ["No hay evidencia comparativa de retorno que permita recomendar la transferencia de un modelo sobre el otro sin más investigación."],
+      "confidence": 0.5,
+      "what_would_change_my_mind": "Un benchmark cuantitativo de ROI entre modelos de habitat abierto vs cartera de venture interno, controlado por escala de mercado.",
+      "action": "Documentar el ROI del modelo actual (cartera Yape/Tenpo/Krealo) antes de considerar replicar el modelo habitat."
+    },
+    {
+      "rec_id": "REC04",
+      "title": "No usar cifras específicas de Bradesco como benchmarks objetivos para BCP sin ajuste",
+      "audience": "Equipos de emerging-technology y new-products en Perú",
+      "transferability": "DO_NOT_TRANSFER",
+      "supporting_claim_ids": ["C005","C006","C017"],
+      "contradicting_claim_ids": [],
+      "assumptions": ["Las cifras de Bradesco (90% retención BIA, 500 casos Bridge, 40x reducción de costo) son auto-reportadas y dependen de definiciones internas y de escala de mercado."],
+      "confidence": 0.8,
+      "what_would_change_my_mind": "Normalización explícita de definiciones (qué es 'caso de uso', 'retención', 'lead time') entre Bradesco y BCP, con auditoría externa.",
+      "action": "Antes de citar cualquier cifra de Bradesco como benchmark, exigir reconciliación de definición de métrica y ajuste por escala."
+    },
+    {
+      "rec_id": "REC05",
+      "title": "Aprovechar la madurez regulatoria brasileña (Open Finance obligatorio, Pix) como horizonte de preparación para Perú",
+      "audience": "Líderes regulatorios y de tecnología en BCP",
+      "transferability": "REASONABLE_TO_LEARN_FROM",
+      "supporting_claim_ids": [],
+      "contradicting_claim_ids": [],
+      "assumptions": ["Perú avanzará (a su ritmo) hacia marcos de Open Finance e instant payments más maduros."],
+      "confidence": 0.65,
+      "what_would_change_my_mind": "Evidencia de que el marco peruano seguirá un camino estructuralmente distinto (no basado en estándares internacionales).",
+      "action": "Mapear las capacidades que Bradesco tuvo que construir para Open Finance Brasil/Pix y anticipar las equivalentes para BCP en el horizonte peruano."
+    }
+  ]
+}

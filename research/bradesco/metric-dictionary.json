@@ -1,0 +1,82 @@
+{
+  "metrics": [
+    {
+      "metric_id": "TOTAL_ASSETS_BRL",
+      "name": "Activos totales",
+      "definition": "Total consolidated assets under IFRS, end of period.",
+      "unit": "currency",
+      "currency": "BRL",
+      "accounting_basis": "IFRS",
+      "comparability_note": "Direct comparison across currencies (BRL vs PEN) requires conversion at period-end FX or PPP normalization."
+    },
+    {
+      "metric_id": "ROAE",
+      "name": "Retorno sobre patrimonio promedio (ROAE)",
+      "definition": "Annualized net income / average shareholders' equity. Dimensionless ratio.",
+      "unit": "percent",
+      "currency": null,
+      "accounting_basis": "IFRS",
+      "comparability_note": "Comparable across banks if period aligned. Reflects profitability relative to capital, not absolute profit."
+    },
+    {
+      "metric_id": "EFFICIENCY_RATIO",
+      "name": "Índice de eficiencia",
+      "definition": "Administrative expenses / financial margin (Brazilian convention, Banco Bradesco). Personnel + other admin costs over recurring income.",
+      "unit": "percent",
+      "currency": null,
+      "accounting_basis": "IFRS / local GAAP convention",
+      "comparability_note": "Definitions vary slightly by jurisdiction (Brazilian vs Peruvian banking convention). Comparable directionally, not to the basis point without definitional reconciliation."
+    },
+    {
+      "metric_id": "LOAN_BOOK",
+      "name": "Cartera de crédito ampliada",
+      "definition": "Total loan portfolio including expanded scope (Bradesco convention).",
+      "unit": "currency",
+      "currency": "BRL",
+      "accounting_basis": "IFRS"
+    },
+    {
+      "metric_id": "DEPOSITS",
+      "name": "Depósitos totales",
+      "definition": "Total customer deposits.",
+      "unit": "currency",
+      "currency": "BRL",
+      "accounting_basis": "IFRS"
+    },
+    {
+      "metric_id": "AI_USE_CASES_PRODUCTION",
+      "name": "Casos de uso de IA en producción (auto-reportado)",
+      "definition": "Number of distinct AI use-cases reported as running in production by the organization. Self-reported; no standard external definition.",
+      "unit": "count",
+      "currency": null,
+      "accounting_basis": "self-reported",
+      "comparability_note": "NOT_DIRECTLY_COMPARABLE across banks. Definitions vary (what counts as a 'use case'), and self-reporting is promotional. Compare with caution; prefer qualitative maturity classification."
+    },
+    {
+      "metric_id": "DIGITAL_CUSTOMERS_M",
+      "name": "Clientes plenamente digitales (millones)",
+      "definition": "Active customers served through fully-digital channels.",
+      "unit": "millions",
+      "currency": null,
+      "accounting_basis": "self-reported",
+      "comparability_note": "Definitions of 'digital customer' differ; do not rank without definitional reconciliation."
+    },
+    {
+      "metric_id": "RECURRENT_INCOME",
+      "name": "Resultado recurrente",
+      "definition": "Recurring net income (excluding non-recurring items).",
+      "unit": "currency",
+      "currency": "BRL",
+      "accounting_basis": "IFRS"
+    },
+    {
+      "metric_id": "COST_OF_RISK",
+      "name": "Costo de riesgo",
+      "definition": "Loan loss provisions / average loan portfolio. Annualized.",
+      "unit": "percent",
+      "currency": null,
+      "accounting_basis": "IFRS",
+      "comparability_note": "Comparable across jurisdictions if period aligned."
+    }
+  ]
+}

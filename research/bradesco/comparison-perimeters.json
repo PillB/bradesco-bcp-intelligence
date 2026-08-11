@@ -1,0 +1,35 @@
+{
+  "comparison_a": {
+    "label": "Banco Bradesco S.A. vs BCP Stand-alone",
+    "entity_left": { "id": "BRADESCO_BANK", "perimeter": "OPERATING_BANK", "geography": "Brazil", "currency": "BRL" },
+    "entity_right": { "id": "BCP", "perimeter": "OPERATING_BANK", "geography": "Peru", "currency": "PEN" },
+    "validity": "VALID_WITH_NORMALIZATION",
+    "caveats": [
+      "Currencies differ (BRL vs PEN) — must convert or compare ratios, not absolute values.",
+      "Market sizes differ radically (Brazil GDP ≈ 10× Peru GDP).",
+      "Comparability requires metric normalization (market share, ROAE, efficiency) rather than absolute scale."
+    ]
+  },
+  "comparison_b": {
+    "label": "Organização Bradesco vs Credicorp (group-level)",
+    "entity_left": { "id": "ORG_BRADESCO", "perimeter": "CONSOLIDATED_GROUP", "geography": "Brazil", "currency": "BRL" },
+    "entity_right": { "id": "CREDICORP", "perimeter": "CONSOLIDATED_GROUP", "geography": "Peru", "currency": "PEN" },
+    "validity": "CONDITIONALLY_VALID",
+    "caveats": [
+      "Both are multi-business holdings (banking + insurance + digital).",
+      "Asymmetry of market scale persists at group level.",
+      "Useful for structural comparison (business-mix), not for absolute-size ranking."
+    ]
+  },
+  "invalid_mixes": [
+    "BCP + Credicorp + Yape + BCP Bolivia merged into one number",
+    "Bradesco Seguros compared against BCP stand-alone (perimeter mismatch)",
+    "Next compared against Yape as if both were independent banks (Next is a brand-within-bank; Yape is a payment-app-within-BCP)"
+  ],
+  "labels": {
+    "absolute_size": "NOT_DIRECTLY_COMPARABLE",
+    "absolute_size_note": "R$2.33T vs S/204.9B mixes currency + market scale without normalization.",
+    "profitability_ratios": "COMPARABLE (ROAE, efficiency ratio — dimensionless, definitionally aligned)",
+    "market_share": "COMPARABLE (within respective domestic markets)"
+  }
+}

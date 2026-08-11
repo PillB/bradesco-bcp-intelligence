@@ -1,0 +1,30 @@
+{
+  "project": "Bradesco × BCP Strategic Intelligence Command Center",
+  "framework": "StrategicCompanyIntelligenceFramework (SCIF) v1.0",
+  "solarize_version": "v2.2",
+  "round": "Round 1 — Repository / Framework / Evidence Truth",
+  "baseline_date": "2026-01-15",
+  "head_sha": "scaffold-clean",
+  "default_branch": "main",
+  "deployment": "localhost:3000 (dev)",
+  "primary_target": "Banco Bradesco S.A. (Brazil)",
+  "operating_comparator": "Banco de Crédito del Perú — BCP",
+  "group_comparator": "Credicorp Ltd. (only where group-level comparison is valid)",
+  "output_language": "Peruvian executive Spanish",
+  "evidence_cutoff": "2026-01",
+  "methodology_docs": [
+    "docs/framework/company-intelligence-blueprint.md",
+    "docs/framework/research-methodology.md",
+    "docs/framework/entity-resolution.md",
+    "docs/framework/comparability-methodology.md",
+    "docs/framework/claim-schema.md",
+    "docs/framework/source-methodology.md",
+    "docs/framework/source-genealogy.md",
+    "docs/framework/technology-radar-versioning.md",
+    "docs/framework/writing-protocol.md",
+    "docs/framework/company-adaptation-guide.md"
+  ],
+  "research_cycles_executed": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"],
+  "final_verdict": "CONDITIONALLY_READY",
+  "verdict_note": "Evidence base is solid for Bradesco scale, structure, AI/BIA/Bridge, cloud, Inovabra. BCP/Credicorp coverage is adequate for strategic comparison but thinner on granular AI use-case counts (OPEN_QUESTION). Some advanced topics (quantum/QKD, synthetic data, GNN, digital identity deep-dive) are PendingRecords per stated scope."
+}

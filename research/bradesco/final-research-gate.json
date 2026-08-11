@@ -1,0 +1,40 @@
+{
+  "gate_date": "2026-01-15",
+  "round": "Round 1+2 (condensed)",
+  "cycles_executed": ["01","02","03","04","05","06","07","08","09","10"],
+  "artifacts_present": [
+    "baseline.json","entity-registry.json","comparison-perimeters.json","metric-dictionary.json",
+    "source-ledger.jsonl","source-genealogy.json","claim-ledger.jsonl","strategic-timeline.json",
+    "scale-scorecard.json","technology-capabilities.json","technology-radar-history.json",
+    "innovation-operating-system.json","initiative-lifecycle.json","partnership-network.json",
+    "alternative-hypotheses.json","open-questions.json","recommendations.json","contradiction-register.json"
+  ],
+  "artifacts_pending_or_condensed": [
+    "segment-map.json (condensed into TypeScript data layer)",
+    "channel-map.json (condensed into TypeScript data layer)",
+    "product-ecosystem.json (condensed into TypeScript data layer)",
+    "platform-map.json (condensed into TypeScript data layer)",
+    "journey-map.json (condensed into TypeScript data layer)",
+    "external-signals.json (condensed into TypeScript data layer)",
+    "customer-friction.json (condensed into TypeScript data layer)",
+    "talent-signals.json (condensed into TypeScript data layer)",
+    "cycle-01..10.json (synthesized into the above artifacts)",
+    "search-ledger.jsonl (searches logged implicitly via source-ledger)"
+  ],
+  "evidence_quality": {
+    "verified_claims": ["C001","C004","C009","C013","C014"],
+    "independently_corroborated": ["C002","C010","C011","C012"],
+    "strongly_supported": ["C003","C005","C006","C007","C008","C015","C016","C017"],
+    "inferred": ["biometrics inferred from regulatory context"],
+    "unresolved_unknown": ["GNN","synthetic_data","quantum_qkd","DLT_tokenization","CIX-BCP current status","BTRL formal existence"]
+  },
+  "comparability_gate_status": "PASSED — Comparison A (Bradesco bank vs BCP bank) labeled VALID_WITH_NORMALIZATION; absolute-size comparison labeled NOT_DIRECTLY_COMPARABLE.",
+  "entity_resolution_gate_status": "PASSED — EntityRegistry populated; blacklisted homonyms documented.",
+  "final_verdict": "CONDITIONALLY_READY",
+  "conditions": [
+    "Bridge '500 use cases' remains single-source (OQ03) — displayed with STRONGLY_SUPPORTED badge, not VERIFIED.",
+    "BCP granular AI use-case count not publicly available (OQ01) — comparison framed as asymmetric, not ranked.",
+    "Advanced topics (quantum/QKD, GNN, synthetic data, digital identity deep-dive) are PendingRecords (OQ07)."
+  ],
+  "independence_statement": "Análisis estratégico independiente. No implica afiliación ni respaldo por parte de Bradesco, BCP o Credicorp."
+}

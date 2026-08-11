@@ -1,0 +1,68 @@
+{
+  "radar_versions": [
+    {
+      "version_id": "RADAR_2022",
+      "organization": "Banco Bradesco",
+      "publication_date": "2022-06-01",
+      "evidence_date": "2022-06-01",
+      "source": "Reconstructed from Bradesco IR + press disclosures (no formal published radar)",
+      "note": "Bradesco does not publish a formal Technology Radar (ThoughtWorks-style). This version is reconstructed from public disclosures.",
+      "technology_items": [
+        {"name": "Watson-based BIA", "maturity": "PRODUCTION", "category": "Conversational AI"},
+        {"name": "Cloud migration (early)", "maturity": "EXPERIMENT_PILOT", "category": "Cloud"},
+        {"name": "Biometrics (facial)", "maturity": "PRODUCTION", "category": "Digital identity"},
+        {"name": "Open Finance readiness", "maturity": "PILOT", "category": "Open Finance"}
+      ]
+    },
+    {
+      "version_id": "RADAR_2024",
+      "organization": "Banco Bradesco",
+      "publication_date": "2024-02-20",
+      "evidence_date": "2024-02-20",
+      "source": "Multicloud announcement + IR disclosures",
+      "technology_items": [
+        {"name": "BIA (Watson + GenAI transition)", "maturity": "PRODUCTION", "category": "Conversational AI", "changed_from": "RADAR_2022: still Watson-primary → now GenAI-integrated"},
+        {"name": "Multicloud (Azure/AWS/Oracle)", "maturity": "SCALING", "category": "Cloud", "changed_from": "RADAR_2022: EXPERIMENT_PILOT → SCALING (35% workloads)"},
+        {"name": "Open Finance compliance", "maturity": "MATURE", "category": "Open Finance", "changed_from": "RADAR_2022: PILOT → MATURE (mandatory)"},
+        {"name": "Pix integration", "maturity": "MATURE", "category": "Payments", "first_seen": true},
+        {"name": "GenAI pilots (pre-Bridge)", "maturity": "EXPERIMENT", "category": "GenAI", "first_seen": true}
+      ]
+    },
+    {
+      "version_id": "RADAR_2026",
+      "organization": "Banco Bradesco",
+      "publication_date": "2026-02-10",
+      "evidence_date": "2026-02-10",
+      "source": "CTO interview + 4T25 earnings call",
+      "technology_items": [
+        {"name": "BIA (100% GenAI)", "maturity": "PRODUCTION_SCALING", "category": "Conversational AI", "changed_from": "RADAR_2024: PRODUCTION → PRODUCTION_SCALING (90% retention)"},
+        {"name": "Bridge (GenAI platform)", "maturity": "PRODUCTION", "category": "GenAI", "changed_from": "RADAR_2024: EXPERIMENT → PRODUCTION (500+ use cases)", "first_seen": false, "note": "Bridge named explicitly as centralized platform"},
+        {"name": "Multicloud (hybrid)", "maturity": "SCALING", "category": "Cloud"},
+        {"name": "Multi-agent architectures", "maturity": "EXPERIMENT_PILOT", "category": "Agentic AI", "first_seen": true, "note": "Referenced within Bridge; no scale disclosed"},
+        {"name": "Data virtualization (QueryGrid)", "maturity": "PRODUCTION", "category": "Data architecture", "first_seen": true},
+        {"name": "AI observability/guardrails", "maturity": "PRODUCTION", "category": "AI governance", "first_seen": true},
+        {"name": "Quantum / QKD", "maturity": "UNKNOWN", "category": "Emerging", "note": "Not on radar — PendingRecord"},
+        {"name": "DLT / tokenization", "maturity": "UNKNOWN", "category": "Emerging", "note": "Not on radar — PendingRecord"},
+        {"name": "GNN (fraud)", "maturity": "UNKNOWN", "category": "Fraud/AML", "note": "Not on radar — PendingRecord"},
+        {"name": "Synthetic data", "maturity": "UNKNOWN", "category": "Data/Model risk", "note": "Not on radar — PendingRecord"}
+      ]
+    }
+  ],
+  "disappearance_analysis": [
+    {
+      "technology": "Watson-primary BIA",
+      "present_in": ["RADAR_2022"],
+      "absent_in": ["RADAR_2024", "RADAR_2026"],
+      "interpretation": "NOT_FAILURE — graduated to GenAI-integrated BIA. The platform evolved (Watson→GenAI), not disappeared.",
+      "evidence": "BIA still exists; underlying engine changed."
+    },
+    {
+      "technology": "Bitz wallet",
+      "present_in": ["RADAR_2022 (implicit)"],
+      "absent_in": ["RADAR_2024", "RADAR_2026"],
+      "interpretation": "SUNSET confirmed (closed 2023). Genuine disappearance.",
+      "evidence": "S03, S06 confirm closure."
+    }
+  ],
+  "note_on_absence": "Per technology-radar-versioning.md: a technology's disappearance from a later radar version is NEVER automatically interpreted as failure. Plausible alternative explanations actively checked: graduated to mainstream, renamed, merged into broader category, maturity changed, deprioritized, or simply stopped being publicly reported."
+}

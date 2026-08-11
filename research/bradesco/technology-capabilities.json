@@ -1,0 +1,147 @@
+{
+  "capabilities": [
+    {
+      "tech_id": "GENAI_PLATFORM",
+      "name": "Bridge — GenAI platform",
+      "category": "GenAI",
+      "maturity": "PRODUCTION",
+      "maturity_evidence": "CTO interview feb-2026: 500+ use cases in production, 70 at scale",
+      "source_ids": ["S04"],
+      "confidence": 0.7,
+      "evidence_status": "STRONGLY_SUPPORTED",
+      "notes": "Centralized GenAI with guardrails; multi-agent, real-time voice services. Pending independent corroboration."
+    },
+    {
+      "tech_id": "CONVERSATIONAL_AI",
+      "name": "BIA — virtual assistant",
+      "category": "Conversational AI",
+      "maturity": "PRODUCTION_SCALING",
+      "maturity_evidence": "24M+ users; 90% retention 4T25; 100% GenAI integrated",
+      "source_ids": ["S03","S05"],
+      "confidence": 0.85,
+      "evidence_status": "STRONGLY_SUPPORTED",
+      "notes": "Started on IBM Watson 2016; evolved to GenAI. Multi-source consistency 2023-2026."
+    },
+    {
+      "tech_id": "MULTICLOUD",
+      "name": "Multi-cloud architecture",
+      "category": "Cloud",
+      "maturity": "SCALING",
+      "maturity_evidence": "35% workloads cloud (Feb-2024); cloud-first for new systems",
+      "source_ids": ["S06","S07"],
+      "confidence": 0.75,
+      "evidence_status": "STRONGLY_SUPPORTED",
+      "notes": "Next=Azure, Digio=AWS, Seguros=Oracle, parent=mixed. Hybrid Teradata→Azure migration (400+TB). No 100% cloud target date."
+    },
+    {
+      "tech_id": "AGENTIC_AI",
+      "name": "Multi-agent architectures",
+      "category": "Agentic AI",
+      "maturity": "EXPERIMENT_PILOT",
+      "maturity_evidence": "CTO mentioned reusable multi-agent services within Bridge",
+      "source_ids": ["S04"],
+      "confidence": 0.5,
+      "evidence_status": "PARTIAL",
+      "notes": "Referenced but no specific production scale disclosed. Likely pilot/early."
+    },
+    {
+      "tech_id": "DATA_VIRTUALIZATION",
+      "name": "QueryGrid data virtualization (Teradata↔Azure)",
+      "category": "Data architecture",
+      "maturity": "PRODUCTION",
+      "maturity_evidence": "Vendor case study: 400+ TB, 190,000 tables migrated",
+      "source_ids": ["S07"],
+      "confidence": 0.65,
+      "evidence_status": "STRONGLY_SUPPORTED",
+      "notes": "Vendor case study — promotional bias. Hybrid analytical environment."
+    },
+    {
+      "tech_id": "AI_OBSERVABILITY",
+      "name": "AI observability / guardrails",
+      "category": "AI governance",
+      "maturity": "PRODUCTION",
+      "maturity_evidence": "Bridge described with centralized guardrails of responsible AI",
+      "source_ids": ["S04"],
+      "confidence": 0.6,
+      "evidence_status": "PARTIAL",
+      "notes": "Mentioned in executive interview; no technical detail disclosed."
+    },
+    {
+      "tech_id": "BIOMETRICS",
+      "name": "Biometric authentication",
+      "category": "Digital identity",
+      "maturity": "PRODUCTION",
+      "maturity_evidence": "Standard in Brazilian banking app; facial biometrics per BACEN Open Finance requirements",
+      "source_ids": ["S01"],
+      "confidence": 0.7,
+      "evidence_status": "INFERRED",
+      "notes": "Inferred from regulatory context (BACEN requires biometrics for Open Finance consent); no Bradesco-specific deep-dive executed in this round."
+    },
+    {
+      "tech_id": "OPEN_FINANCE",
+      "name": "Open Finance Brasil compliance",
+      "category": "Open Finance",
+      "maturity": "MATURE",
+      "maturity_evidence": "Mandatory BACEN framework; Bradesco is participating institution",
+      "source_ids": ["S01"],
+      "confidence": 0.85,
+      "evidence_status": "VERIFIED",
+      "notes": "Brazil has mandatory Open Finance since 2021; Bradesco compliant. Peru's framework is less mature — structural market difference."
+    },
+    {
+      "tech_id": "PIX",
+      "name": "Pix integration",
+      "category": "Payments",
+      "maturity": "MATURE",
+      "maturity_evidence": "Pix is national instant-payment system; all major Brazilian banks integrated",
+      "source_ids": ["S01"],
+      "confidence": 0.9,
+      "evidence_status": "VERIFIED",
+      "notes": "Brazil's Pix (launched 2020) is more mature than Peru's equivalent instant-payment infrastructure."
+    },
+    {
+      "tech_id": "GNN",
+      "name": "Graph Neural Networks (fraud)",
+      "category": "Fraud / AML",
+      "maturity": "UNKNOWN",
+      "maturity_evidence": "No public Bradesco-specific evidence found in this round",
+      "source_ids": [],
+      "confidence": 0.2,
+      "evidence_status": "UNRESOLVED",
+      "notes": "PendingRecord — not researched in depth; common in large-bank fraud but no Bradesco-specific public claim verified."
+    },
+    {
+      "tech_id": "SYNTHETIC_DATA",
+      "name": "Synthetic data for model training",
+      "category": "Data / Model risk",
+      "maturity": "UNKNOWN",
+      "maturity_evidence": "No public Bradesco-specific evidence found",
+      "source_ids": [],
+      "confidence": 0.2,
+      "evidence_status": "UNRESOLVED",
+      "notes": "PendingRecord."
+    },
+    {
+      "tech_id": "QUANTUM_QKD",
+      "name": "Quantum computing / QKD",
+      "category": "Emerging",
+      "maturity": "UNKNOWN",
+      "maturity_evidence": "No public Bradesco-specific evidence found",
+      "source_ids": [],
+      "confidence": 0.15,
+      "evidence_status": "UNRESOLVED",
+      "notes": "PendingRecord. Brazilian banks have research collaborations (e.g., with CBPF) but Bradesco-specific production claims not verified."
+    },
+    {
+      "tech_id": "DLT_TOKENIZATION",
+      "name": "DLT / tokenization",
+      "category": "Emerging",
+      "maturity": "UNKNOWN",
+      "maturity_evidence": "No public Bradesco-specific production evidence found in this round",
+      "source_ids": [],
+      "confidence": 0.2,
+      "evidence_status": "UNRESOLVED",
+      "notes": "PendingRecord. Brazil has regulatory sandbox for cryptoassets; Bradesco participation not confirmed in this round."
+    }
+  ]
+}
