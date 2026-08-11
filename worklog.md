@@ -633,3 +633,30 @@ Stage Summary:
 - GitHub auth: Process alive (PID 3544), device code 5EA4-7775, waiting for user completion.
 - 85 sources, 55 claims, 10 initiatives, 30 tools, 17 modules, 19 context entries.
 - Verdict: PARTIAL — auth pending for commit/push/deploy.
+
+---
+Task ID: 26 (Context Registry Expansion + GitHub Auth Round 2)
+Agent: Principal Orchestrator
+Task: Expand context registry to 35 entries, start GitHub auth with Python double-fork daemon
+
+Work Log:
+- Expanded context registry from 19 to 35 entries, covering ALL terms mentioned in the website:
+  * Original 19: BIA, BRIDGE, NEXT, BITZ, INOVABRA, DIGIO, DREX, QUANTUM, FICO_SAFER, CIELO, YAPE, CRIPTOCOCOS, CIX, GENIA, BCP_XPLORE, KREALO, TENPO, MIBANCO, FICO
+  * New 16: QUANTUM_SAFE, AGENTIC_AI, MULTIMODAL_AI, TERRAFORM, COPILOT, ROAE, EFICIENCIA, OPEN_FINANCE_BRASIL, SUNAT, CVM, MULTICLOUD, BBI, AGORA, SEGUROS, STABLECOIN, ESG, CAPITAL_INCREASE
+- Every entry includes: entity tag, shortDef, fullDef, comparison sentence (referencing other bank), estado, valor, fuentes, confianza.
+- Every comparison sentence explicitly references what the other bank has or doesn't have.
+- Created context-tooltip.tsx component for hover/click/tap drill-down.
+- Fixed lint error (JSX in .ts file → component moved to .tsx).
+- GitHub auth started with Python double-fork daemon (PID 4111, reparented to PID 1).
+  * Device code: 54F1-95F1
+  * URL: https://github.com/login/device
+  * Process is ALIVE and survived all tool calls (15 minutes of polling).
+  * Auth not yet completed by user — process continues waiting.
+- Lint passes clean. All modules render correctly.
+
+Stage Summary:
+- Context registry: 35 entries with full definitions + entity tags + comparison sentences.
+- Every product/service/initiative/technology/metric mentioned in the website now has a context entry explaining what it is, how it works, what entity it belongs to, and how it compares to the other bank.
+- GitHub auth: Process alive (PID 4111), code 54F1-95F1, waiting for user completion.
+- 85 sources, 55 claims, 10 initiatives, 30 tools, 17 modules, 35 context entries.
+- Verdict: PARTIAL — auth pending for commit/push/deploy.
