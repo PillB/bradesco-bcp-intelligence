@@ -3,6 +3,7 @@ import { ViewHero, ViewSection, Card, Grid, StatBlock, Callout } from "@/compone
 import { EvidenceTag, SourcePill, ConfidenceMeter } from "@/components/scif/evidence";
 import { SCALE_ENTITIES, CLAIMS } from "@/lib/scif/data";
 import { ScaleComparator } from "@/components/scif/tools/scale-comparator";
+import { MetricNormalizer } from "@/components/scif/tools/metric-normalizer";
 import * as React from "react";
 
 export function Module02Scale() {
@@ -77,6 +78,10 @@ export function Module02Scale() {
 
         <ViewSection eyebrow="Herramienta interactiva" title="Comparador de escala con normalización (OQ04)">
           <ScaleComparator />
+        </ViewSection>
+
+        <ViewSection eyebrow="Calculadora avanzada" title="Normalizador de métricas — ajusta FX en tiempo real">
+          <MetricNormalizer />
         </ViewSection>
 
         <ViewSection eyebrow="Comparación B" title="Organização Bradesco vs Credicorp (grupo)">

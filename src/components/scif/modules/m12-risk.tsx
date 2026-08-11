@@ -40,17 +40,17 @@ export function Module12Risk() {
           </Callout>
         </ViewSection>
 
-        <ViewSection eyebrow="Identidad digital y biometría" title="Capacidades — Bradesco">
+        <ViewSection eyebrow="Identidad digital y biometría" title="Capacidades — Bradesco (VERIFICADO)">
           <Grid>
             <Card>
               <Fingerprint className="h-6 w-6 text-primary" />
-              <h3 className="mt-2 font-bold text-sm">Biometría facial</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Estándar en banca brasileña; requerida por BACEN para Open Finance consent.</p>
+              <h3 className="mt-2 font-bold text-sm">Biometría facial + voz</h3>
+              <p className="mt-1 text-xs text-muted-foreground">ATMs con biometría facial, Fone Fácil (reconocimiento de voz), biometria por voz en app. Confirmado por sitio oficial de seguridad.</p>
               <div className="mt-2 flex items-center gap-2">
                 <LifecycleTag status="PRODUCTION" />
-                <EvidenceTag status="INFERRED" />
+                <EvidenceTag status="VERIFIED" />
               </div>
-              <p className="mt-1 text-[10px] text-muted-foreground">Inferido de contexto regulatorio — no deep-dive Bradesco-específico en esta ronda.</p>
+              <p className="mt-1 text-[10px] text-muted-foreground">UPGRADE from INFERRED → VERIFIED. Fuente: S34 (seguranca.bradesco.com.br).</p>
             </Card>
             <Card>
               <Lock className="h-6 w-6 text-primary" />
@@ -61,8 +61,18 @@ export function Module12Risk() {
           </Grid>
         </ViewSection>
 
-        <ViewSection eyebrow="Fraude y AML" title="Capacidades — clasificación">
+        <ViewSection eyebrow="Fraude y AML" title="Capacidades — FICO Platform en producción">
           <Grid>
+            <Card>
+              <ShieldCheck className="h-6 w-6 text-emerald-500" />
+              <h3 className="mt-2 font-bold text-sm">FICO Platform — fraude</h3>
+              <p className="mt-1 text-xs text-muted-foreground">Bradesco implementó FICO Platform para detección de fraude. <strong>1B transacciones mensuales</strong>, <strong>-25% rechazos</strong>.</p>
+              <div className="mt-2 flex items-center gap-2">
+                <LifecycleTag status="PRODUCTION" />
+                <EvidenceTag status="STRONGLY_SUPPORTED" />
+              </div>
+              <p className="mt-1 text-[10px] text-muted-foreground">Fuente: S32 (FICO case study). Vendor bias risk pero métricas cuantificadas.</p>
+            </Card>
             <Card>
               <AlertTriangle className="h-6 w-6 text-amber-500" />
               <h3 className="mt-2 font-bold text-sm">GNN (Graph Neural Networks) para fraude</h3>

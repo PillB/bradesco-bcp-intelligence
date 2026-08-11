@@ -85,6 +85,22 @@ export function Module07AI() {
           </Grid>
         </ViewSection>
 
+        <ViewSection eyebrow="Outcome metrics (OQ08)" title="Resultados medibles de IA — no solo comunicación">
+          <Grid>
+            <StatBlock label="Resolución al primer nivel" value="82%" sub="Bradesco + Azure AI (oct-2024)" accent="primary" />
+            <StatBlock label="Retención digital" value="89%" sub="Bradesco + Azure AI (oct-2024)" accent="primary" />
+            <StatBlock label="Reducción de rechazos (fraude)" value="-25%" sub="FICO Platform · 1B tx/mes" accent="primary" />
+            <StatBlock label="NPS improvement (BCP)" value="+3 pts" sub="Credicorp 4Q25 — digital + IA" accent="teal" />
+          </Grid>
+          <Callout type="success" title="OQ08 parcialmente resuelto — outcomes reales en ambos bancos">
+            La diferencia Bradesco vs BCP en IA <strong>no es solo comunicación</strong>. Bradesco tiene outcomes cuantificados
+            (82% resolución, 89% retención, -25% rechazos fraude via FICO con 1B transacciones mensuales). BCP tiene NPS +3 puntos
+            atribuido a digital + IA. Ambos bancos tienen resultados medibles — las métricas no son directamente comparables
+            (resolution rate vs NPS), pero la hipótesis H1 (madurez real) y H2 (comunicación) están ambas parcialmente confirmadas.
+            <span className="mt-1 block text-[10px] italic">Fuentes: Microsoft case study (S31), FICO case study (S32), Credicorp 4Q25 (S33). Vendor bias risk en S31/S32.</span>
+          </Callout>
+        </ViewSection>
+
         <ViewSection eyebrow="Visualización interactiva" title="Radar de tecnología — comparación versionada">
           <RadarChart />
         </ViewSection>

@@ -203,3 +203,73 @@
   animation: scif-pulse 2s ease-in-out infinite;
 }
 
+/* Shimmer for skeleton loaders */
+@keyframes scif-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-pulse {
+  background-image: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: scif-shimmer 1.8s ease-in-out infinite;
+}
+
+/* Table row hover enhancement */
+table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+/* Smooth scroll for scrollable containers */
+.overflow-y-auto, .overflow-x-auto {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for scrollable areas */
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: oklch(0.75 0.01 240);
+  border-radius: 3px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb:hover,
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.52 0.21 12);
+}
+
+/* Focus ring for interactive elements */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid oklch(0.52 0.21 12);
+  outline-offset: 2px;
+}
+
+/* Range input styling */
+input[type="range"] {
+  height: 6px;
+  border-radius: 3px;
+  background: oklch(0.91 0.004 240);
+  appearance: none;
+  cursor: pointer;
+}
+.dark input[type="range"] {
+  background: oklch(0.27 0.01 240);
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: oklch(0.52 0.21 12);
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.dark input[type="range"]::-webkit-slider-thumb {
+  background: oklch(0.62 0.2 12);
+  border-color: oklch(0.16 0.008 240);
+}
+
+

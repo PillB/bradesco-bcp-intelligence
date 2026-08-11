@@ -79,7 +79,21 @@ export function ViewSection({
 
 export function Card({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={cn("rounded-xl border border-border bg-card p-4 shadow-sm transition-shadow hover:shadow-md sm:p-5", className)}>{children}</div>
+    <div className={cn("group/card relative rounded-xl border border-border bg-card p-4 shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/30 sm:p-5", className)}>{children}</div>
+  );
+}
+
+export function Skeleton({ className }: { className?: string }) {
+  return <div className={cn("animate-pulse rounded-md bg-muted", className)} />;
+}
+
+export function EmptyState({ icon, title, description }: { icon?: React.ReactNode; title: string; description?: string }) {
+  return (
+    <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border py-12 text-center">
+      {icon && <div className="mb-3 text-muted-foreground/40">{icon}</div>}
+      <p className="text-sm font-semibold text-muted-foreground">{title}</p>
+      {description && <p className="mt-1 max-w-sm text-xs text-muted-foreground/70">{description}</p>}
+    </div>
   );
 }
 

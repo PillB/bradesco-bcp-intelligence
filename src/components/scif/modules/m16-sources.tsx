@@ -4,6 +4,7 @@ import { EvidenceTag, TierBadge, SourcePill, ConfidenceMeter, ClaimRef } from "@
 import { SOURCES, CLAIMS, CONTRADICTIONS, OPEN_QUESTIONS } from "@/lib/scif/data";
 import { ConfidenceDashboard } from "@/components/scif/tools/confidence-dashboard";
 import { ClaimExplorer } from "@/components/scif/tools/claim-explorer";
+import { FreshnessMonitor } from "@/components/scif/tools/freshness-monitor";
 import * as React from "react";
 
 export function Module16Sources() {
@@ -32,6 +33,10 @@ export function Module16Sources() {
 
         <ViewSection eyebrow="Dashboard" title="Confianza de evidencia — vista consolidada">
           <ConfidenceDashboard />
+        </ViewSection>
+
+        <ViewSection eyebrow="Monitor de frescura" title="Staleness de fuentes — detección de evidencia desactualizada">
+          <FreshnessMonitor />
         </ViewSection>
 
         <ViewSection eyebrow="Explorador interactivo" title="Grafo de claims y fuentes">

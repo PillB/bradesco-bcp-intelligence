@@ -116,3 +116,55 @@ Stage Summary:
 - Styling: module transition animations, back-to-top button, enhanced footer with live indicator.
 - Verdict upgraded: CONDITIONALLY_READY → stronger CONDITIONALLY_READY (closer to READY_FOR_EXECUTIVE_REVIEW pending OQ08 resolution).
 - Next focus areas (for future rounds): resolve OQ08 (Bradesco vs BCP IA maturity — real vs communication), deeper GNN/synthetic data research, biometrics deep-dive, BTRL formal existence.
+
+---
+Task ID: 11 (webDevReview round 3)
+Agent: Principal Orchestrator (cron-triggered webDevReview)
+Task: QA, deeper research (GNN/synthetic/biometrics/OQ08), 2 new tools, styling polish
+
+Work Log:
+- Reviewed worklog: project had 17 modules + 8 tools, 30 sources, 21 claims, 1 HIGH priority OQ.
+- QA via agent-browser: all 17 modules confirmed rendering (zero crashes, zero console errors).
+- Conducted deeper web research (6 searches):
+  * GNN: No Bradesco-specific public evidence found. Remains UNKNOWN (genuinely no public claim). Industry-standard but not confirmed for Bradesco.
+  * Synthetic data: No Bradesco-specific public evidence found. Remains UNKNOWN.
+  * OQ08 outcome metrics — MAJOR FINDINGS:
+    - Microsoft case study (oct-2024): Bradesco achieved 82% resolution rate + 89% retention integrating Azure AI.
+    - FICO Platform case study (may-2025): Bradesco implemented FICO for fraud detection — 1B monthly transactions, -25% transaction rejections.
+    - Credicorp 4Q25 earnings call (feb-2026): "consolidating our NPS advantage, with digital tools and AI-driven risk analytics"; NPS +3 points.
+  * Biometrics deep-dive: Found Bradesco official security page (seguranca.bradesco.com.br) confirming facial biometrics at ATMs, voice recognition (Fone Fácil), voice biometrics in app. UPGRADE from INFERRED → VERIFIED.
+- Added 5 new sources (S31-S35): Microsoft case study, FICO case study, Credicorp 4Q25 earnings, Bradesco security page, Valor International transformation plan.
+- Added 3 new claims (C022-C024):
+  * C022: Bradesco outcome metrics (82% resolution, 89% retention, -25% fraud rejections, 1B tx/month)
+  * C023: BCP outcome metrics (NPS +3 points, digital + AI-driven risk analytics)
+  * C024: Biometrics VERIFIED (facial + voice, PRODUCTION confirmed)
+- Updated tech capabilities: BIOMETRICS UPGRADED from INFERRED → VERIFIED; added FICO_FRAUD as PRODUCTION tech capability.
+- Updated OQ08: HIGH → MEDIUM priority, partially resolved. Both banks have measurable outcomes (not just communication). H1 and H2 both partially confirmed.
+- Built 2 new interactive tools:
+  1. metric-normalizer.tsx — Interactive FX calculator with 2 range sliders (BRL→USD, PEN→USD). Real-time conversion table showing 9 columns: original, USD, per-capita, % GDP for each bank + ratio. Color-coded ratio badges.
+  2. freshness-monitor.tsx — Evidence Freshness Monitor: classifies sources by age (fresh ≤6m / ok 6-12m / stale 12-24m / very-stale >24m). Timeline bar, filterable list with age indicators, stale warning alert.
+- Integrated tools: MetricNormalizer→m02, FreshnessMonitor→m16.
+- Updated module 07 (AI) with new "Outcome metrics (OQ08)" section showing 4 StatBlocks (82% resolution, 89% retention, -25% fraud, +3 NPS) + Callout explaining OQ08 partial resolution.
+- Updated module 12 (Risk): biometrics section upgraded to VERIFIED with facial+voice detail; added FICO Platform fraud detection card (PRODUCTION, 1B tx/month, -25% rejections).
+- Styling enhancements:
+  - Skeleton component + EmptyState component added to view-shell.tsx.
+  - Shimmer animation for skeleton loaders (linear-gradient sweep).
+  - Card hover: border-color transition to primary/30 + shadow-md.
+  - Range input custom styling (crimson thumb, track, dark mode variants).
+  - Custom scrollbar for scrollable areas (6px, crimson hover).
+  - Table row hover transition.
+  - Focus-visible rings for all interactive elements.
+  - Smooth scroll for overflow containers.
+- QA verification: all 17 modules render (zero crashes); MetricNormalizer has 2 interactive range sliders; FreshnessMonitor integrated (sources module: 54 buttons, 2 selects); range slider appearance confirmed; ESLint passes clean.
+
+Stage Summary:
+- Evidence base further strengthened: biometrics VERIFIED (was INFERRED), FICO fraud detection PRODUCTION confirmed, outcome metrics quantified for both banks.
+- Source count: 30 → 35 sources.
+- Claim count: 21 → 24 claims (3 new: C022-C024).
+- OQ08: HIGH → MEDIUM priority (partially resolved with outcome metrics from both banks).
+- Tech capabilities: biometrics upgraded, FICO fraud added (total 15 capabilities).
+- 2 new interactive tools (total 10 tools now): Metric Normalizer with FX sliders, Evidence Freshness Monitor.
+- Styling: skeleton loaders, empty states, shimmer animation, range slider styling, card hover micro-interactions, custom scrollbars.
+- Module content enriched: m07 (outcome metrics section), m12 (verified biometrics + FICO fraud), m02 (metric normalizer), m16 (freshness monitor).
+- Verdict: CONDITIONALLY_READY (strong) — no HIGH priority open questions remain; all major evidence gaps addressed except GNN and synthetic data (genuinely no public Bradesco-specific evidence).
+- Next focus areas (for future rounds): BTRL formal existence (OQ05), CIX-BCP current status (OQ06), expanded comparative visualizations, executive summary PDF export.
