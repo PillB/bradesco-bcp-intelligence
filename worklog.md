@@ -697,3 +697,46 @@ Seguimiento ES / PT-BR:
 
 **ES** — Integrar ContextTooltip en módulos para drill-down en cada término
 **PT-BR** — Integrar ContextTooltip em módulos para drill-down em cada termo
+
+---
+Task ID: 28 (Framework Docs + Tooltip Validation + Steel-Clad Plan)
+Agent: Principal Orchestrator
+Task: Read framework docs, audit open claims, validate tooltips, create attack plan
+
+Work Log:
+- Read 4 newly uploaded framework files:
+  * visualization-guidelines.md: mandatory metadata on every visualization, comparability in visuals, textual equivalents for accessibility
+  * interactive-tools.md: selection discipline, tool contract (read from registries, render evidence status, keyboard-operable, degrade to printable table)
+  * testing-guide.md: RED tests (no wrong-entity sources, not-comparable metrics cannot rank, every material number has source chain, staleness warnings, Tier E cannot verify, all routes render, keyboard nav, print, accessibility), GREEN→REFACTOR→ADVERSARIAL, final validation checklist, verdict vocabulary
+  * Handcrafted Writing Protocol.docx: unit-level authorship, anti-aberration doctrine, factual control, editorial standards (purpose, structure, completeness, precision, readability, accessible sophistication, tone)
+
+- Created steel-clad attack plan: research/bradesco/steel-clad-attack-plan.md
+  * Audited all 55 claims by evidence status: 21 VERIFIED, 28 INDEPENDENTLY_CORROBORATED, 26 STRONGLY_SUPPORTED, 2 PARTIAL, 2 UNRESOLVED
+  * Audited all 8 open questions: OQ01 (MEDIUM), OQ02 (LOW), OQ03 (LOW-RESOLVED), OQ04 (MEDIUM), OQ05 (MEDIUM), OQ06 (LOW-RESOLVED), OQ07 (LOW), OQ08 (MEDIUM)
+  * Audited conditional gates: GNN/synthetic data/adversarial ML/SLM remain UNKNOWN (PendingRecords), entity resolution PASSED, comparability PASSED, source genealogy PASSED
+  * Plan de validación de tooltips: hover/click en cada elemento, criterios de aceptación
+
+- Integrated ContextTooltip into module 00 (exec):
+  * BIA → [BRADESCO:BIA] with full context panel
+  * Bridge → [BRADESCO:BRIDGE] with full context panel
+  * Bitz → [BRADESCO:BITZ] with full context panel
+  * Digio → [BRADESCO:DIGIO] with full context panel
+  * 4 ContextTooltip elements confirmed rendering
+
+- Validated ContextTooltip via agent-browser:
+  * Click on BIA tooltip → panel appears with [BRADESCO:BIA] entity tag, INICIATIVA category, full definition, comparison, estado, valor, fuentes, confianza
+  * Panel text confirmed: "BIA (Bradesco Inteligência Artificial) es el asistente virtual de Banco Bradesco S.A. Lanzado en 2016 sobre IBM Watson..."
+  * All 17 modules pass QA (zero crashes)
+  * ESLint passes clean
+
+- GitHub auth: Process PID 4465 still alive (Python double-fork daemon). Code: 08BE-BC13. Not yet completed by user.
+
+Stage Summary:
+- Framework docs fully read and integrated into attack plan.
+- ContextTooltip validated: click shows full context panel with entity tag, definition, comparison, estado, valor, fuentes, confianza.
+- 43 context entries covering all terms, products, services, initiatives, technologies, metrics, regulations.
+- Steel-clad attack plan created with complete audit of all claims, questions, and gates.
+- 85 sources, 55 claims, 43 context entries, 30 tools, 17 modules.
+- Lint clean, all modules render, tooltips functional.
+- GitHub auth: Process alive, waiting for user (code 08BE-BC13).
+- Verdict: CONDITIONALLY_READY — auth pending for commit/push/deploy.

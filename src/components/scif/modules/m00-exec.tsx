@@ -4,6 +4,7 @@ import { ViewHero, ViewSection, Card, Grid, StatBlock, Callout, EntityBadge, Dos
 import { EvidenceTag, ConfidenceMeter, SourcePill, ClaimRef } from "@/components/scif/evidence";
 import { SCALE_ENTITIES, CLAIMS, OPEN_QUESTIONS, RECOMMENDATIONS, TECH_CAPABILITIES, INITIATIVES, SOURCES, PROJECT } from "@/lib/scif/data";
 import { ExecutiveSummary } from "@/components/scif/tools/executive-summary";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { TrendingUp, TrendingDown, AlertCircle, Brain, Cloud, Lightbulb, GitBranch, FileQuestion } from "lucide-react";
 
 export function Module00Exec() {
@@ -79,7 +80,7 @@ export function Module00Exec() {
             <Card>
               <div className="flex items-center gap-2">
                 <Brain className="h-5 w-5 text-primary" />
-                <h3 className="font-bold">BIA — Asistente IA</h3>
+                <h3 className="font-bold"><ContextTooltip term="BIA">BIA</ContextTooltip> — Asistente IA de Bradesco</h3>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">24M+ usuarios · 90% retención 4T25 · 100% GenAI</p>
               <div className="mt-2 flex items-center gap-2">
@@ -91,7 +92,7 @@ export function Module00Exec() {
             <Card>
               <div className="flex items-center gap-2">
                 <Brain className="h-5 w-5 text-primary" />
-                <h3 className="font-bold">Bridge — Plataforma GenAI</h3>
+                <h3 className="font-bold"><ContextTooltip term="BRIDGE">Bridge</ContextTooltip> — Plataforma GenAI de Bradesco</h3>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">500+ casos de uso · 70 a escala · multiagente</p>
               <div className="mt-2 flex items-center gap-2">
@@ -131,8 +132,8 @@ export function Module00Exec() {
           <div className="mt-3">
             <Callout type="success" title="Distinción crítica: INTEGRATED ≠ FAILED">
               Next fue reincorporado al banco matriz como segmento de atención (fines 2023-2024) — <strong>no es un sunset ni un fracaso</strong>.
-              La marca y el app continúan operando y actualizados (Google Play, jun-2026). Bitz sí fue formalmente cerrada (SUNSET),
-              con clientes migrados a Digio. Esta distinción es un requisito del framework: nunca clasificar silencio o
+              La marca y el app continúan operando y actualizados (Google Play, jun-2026). <ContextTooltip term="BITZ">Bitz</ContextTooltip> sí fue formalmente cerrada (SUNSET),
+              con clientes migrados a <ContextTooltip term="DIGIO">Digio</ContextTooltip>. Esta distinción es un requisito del framework: nunca clasificar silencio o
               reorganización como fracaso.
             </Callout>
           </div>
