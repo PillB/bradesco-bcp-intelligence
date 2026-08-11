@@ -4,6 +4,7 @@ import { ConfidenceMeter } from "@/components/scif/evidence";
 import { RECOMMENDATIONS } from "@/lib/scif/data";
 import { ScenarioBuilder } from "@/components/scif/tools/scenario-builder";
 import { DependencyGraph } from "@/components/scif/tools/dependency-graph";
+import { DecisionTree } from "@/components/scif/tools/decision-tree";
 import { CheckCircle2, XCircle, HelpCircle } from "lucide-react";
 
 const TRANSFERABILITY_ICON: Record<string, React.ReactNode> = {
@@ -81,6 +82,10 @@ export function Module14Lessons() {
               </Card>
             ))}
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Árbol de decisiones" title="Rutas de decisión para BCP — basadas en aprendizajes Bradesco">
+          <DecisionTree />
         </ViewSection>
 
         <ViewSection eyebrow="Grafo de dependencias" title="Cadena de razonamiento — Recomendación → Claim → Fuente">

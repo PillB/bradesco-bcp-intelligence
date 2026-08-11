@@ -6,6 +6,7 @@ import { ComparativeSWOT } from "@/components/scif/tools/comparative-swot";
 import { ComparativeCharts } from "@/components/scif/tools/comparative-charts";
 import { MaturityMatrix } from "@/components/scif/tools/maturity-matrix";
 import { PositioningMap } from "@/components/scif/tools/positioning-map";
+import { ComparativeBubble } from "@/components/scif/tools/comparative-bubble";
 import { Scale, GitCompare, AlertTriangle } from "lucide-react";
 
 export function Module13Compare() {
@@ -127,6 +128,10 @@ export function Module13Compare() {
               </tbody>
             </table>
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Bubble chart" title="Escala × Rentabilidad × Digital — 3 dimensiones">
+          <ComparativeBubble />
         </ViewSection>
 
         <ViewSection eyebrow="Mapa de posicionamiento" title="Posicionamiento competitivo — Escala × Innovación">
