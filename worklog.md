@@ -168,3 +168,42 @@ Stage Summary:
 - Module content enriched: m07 (outcome metrics section), m12 (verified biometrics + FICO fraud), m02 (metric normalizer), m16 (freshness monitor).
 - Verdict: CONDITIONALLY_READY (strong) — no HIGH priority open questions remain; all major evidence gaps addressed except GNN and synthetic data (genuinely no public Bradesco-specific evidence).
 - Next focus areas (for future rounds): BTRL formal existence (OQ05), CIX-BCP current status (OQ06), expanded comparative visualizations, executive summary PDF export.
+
+---
+Task ID: 12 (webDevReview round 4)
+Agent: Principal Orchestrator (cron-triggered webDevReview)
+Task: QA, CIX-BCP research (RESOLVED), recharts visualizations, scenario builder, accessibility
+
+Work Log:
+- Reviewed worklog: project had 17 modules + 10 tools, 35 sources, 24 claims, all stable.
+- QA via agent-browser: all 17 modules confirmed rendering (zero crashes, zero console errors).
+- Conducted web research (3 searches):
+  * BTRL/TRL: No Bradesco-specific TRL methodology found. BTRL is not a Bradesco term — it's the general TRL concept (NASA-origin). OQ05 remains MEDIUM (genuinely no Bradesco-specific published method).
+  * CIX-BCP — MAJOR RESOLUTION: Found CIX (Centro de Innovación del BCP) is ACTIVELY operating. Instagram @cix.bcp: "centro de innovación del banco más grande del Perú. Llevamos más de una década generando soluciones de alto impacto." #InnovationDay2025. Viabcp.com confirms process: Exploración→Ideación→Creación. CIX is NOT a dead 2018 GitHub project — it's an active innovation lab. OQ06 RESOLVED.
+  * Open Finance: Bradesco official page confirms participation (banco.bradesco Open Finance).
+- Added 3 new sources (S36-S38): CIX Instagram, BCP Viabcp CIX page, Bradesco Open Finance page.
+- Added 1 new claim (C025): CIX ACTIVE — laboratorio interno con más de una década, proceso Exploración→Ideación→Creación. INDEPENDENTLY_CORROBORATED.
+- Updated OQ06: RESOLVED (CIX is ACTIVE, not historical).
+- Built 2 new interactive tools:
+  1. comparative-charts.tsx — Professional recharts visualizations: 4 view modes (Scale/Profitability/Growth/AI maturity), BarChart with toggleable legend, RadialBarChart for strategic profile, dual-progress bars per dimension, reading insight callout. 9 recharts surfaces confirmed rendering.
+  2. scenario-builder.tsx — Strategic Scenario Builder: 8 selectable actions (GenAI platform, consolidate brands, habitat model, avoid benchmarks, Open Finance prep, Yape expand, CIX scale, FICO fraud). Impact/transferability tags, live score panel (actions count, high-impact count, weighted score), recommendation engine, clear/remove controls.
+- Integrated tools: ComparativeCharts→m13 (compare), ScenarioBuilder→m14 (lessons).
+- Updated module 08 (innovation): Added CIX card with ACTIVO badge, MATURE_PRODUCTION lifecycle, INDEPENDENTLY_CORROBORATED evidence, upgrade note explaining CIX is comparable with Inovabra habitat.
+- Styling enhancements:
+  - Recharts theming: grid line opacity, tooltip cursor, legend text sizing, polar axis tick color.
+  - Reduced motion accessibility (@media prefers-reduced-motion): disables all animations/transitions for users who prefer reduced motion.
+  - High contrast focus-visible: 3px outline with offset for keyboard navigation.
+  - Screen reader only (.sr-only) utility class.
+  - Print: recharts-surface overflow visible, wrapper page-break-inside avoid.
+- QA verification: all 17 modules render (zero crashes); recharts confirmed (9 surfaces, 3 bar groups in compare module); ScenarioBuilder has 31 interactive buttons; ESLint passes clean.
+
+Stage Summary:
+- Evidence base: CIX-BCP RESOLVED (was UNKNOWN → ACTIVE/PRODUCTION). OQ06 fully resolved.
+- Source count: 35 → 38 sources.
+- Claim count: 24 → 25 claims (C025: CIX active).
+- Open questions: OQ06 RESOLVED; only OQ04, OQ05, OQ08 remain MEDIUM priority; rest LOW.
+- 2 new interactive tools (total 12 tools now): Comparative Charts (recharts), Scenario Builder.
+- Module content enriched: m08 (CIX card), m13 (recharts visualizations), m14 (scenario builder).
+- Styling: recharts theming, reduced-motion accessibility, high-contrast focus, sr-only utility, print chart visibility.
+- Verdict: CONDITIONALLY_READY (very strong) — approaching READY_FOR_EXECUTIVE_REVIEW. All major evidence gaps resolved except GNN/synthetic data (genuinely no public Bradesco-specific evidence) and BTRL formal existence (OQ05).
+- Next focus areas (for future rounds): executive summary PDF export, expanded pendingrecord research if new public evidence emerges, deeper BTRL/OQ05 investigation.

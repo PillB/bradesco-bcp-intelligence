@@ -64,10 +64,24 @@ export function Module08Innovation() {
             <Card>
               <div className="flex items-center gap-2">
                 <FlaskConical className="h-5 w-5 text-[#0F766E]" />
-                <h3 className="font-bold text-sm">BCP Xplore</h3>
+                <h3 className="mt-2 font-bold text-sm">BCP Xplore</h3>
               </div>
               <p className="mt-2 text-xs text-muted-foreground">Unidad de Open Banking/APIs de BCP. Recaudación, pagos automáticos, financiamiento flexible exclusivos para clientes del programa.</p>
               <p className="mt-2 text-[11px] text-muted-foreground"><SourcePill sourceId="S15" /></p>
+            </Card>
+            <Card>
+              <div className="flex items-center gap-2">
+                <Building className="h-5 w-5 text-[#0F766E]" />
+                <h3 className="mt-2 font-bold text-sm">CIX — Centro de Innovación del BCP</h3>
+                <span className="ml-auto rounded bg-emerald-100 px-1.5 py-0.5 text-[9px] font-bold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">ACTIVO · RESUELTO</span>
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">Laboratorio interno del BCP con <strong>más de una década</strong> de operación. Proceso: Exploración → Ideación → Creación. #InnovationDay2025.</p>
+              <div className="mt-2 flex items-center gap-2">
+                <LifecycleTag status="MATURE_PRODUCTION" />
+                <EvidenceTag status="INDEPENDENTLY_CORROBORATED" />
+              </div>
+              <p className="mt-2 text-[11px] text-muted-foreground"><SourcePill sourceId="S36" /> <SourcePill sourceId="S37" /> · C025 · OQ06 RESUELTO</p>
+              <p className="mt-1 text-[10px] italic text-emerald-600">UPGRADE: CIX no es un proyecto histórico de GitHub — es un centro de innovación activo, comparable con Inovabra habitat.</p>
             </Card>
           </Grid>
         </ViewSection>

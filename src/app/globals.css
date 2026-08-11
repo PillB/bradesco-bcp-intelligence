@@ -272,4 +272,63 @@ input[type="range"]::-webkit-slider-thumb {
   border-color: oklch(0.16 0.008 240);
 }
 
+/* Recharts theming */
+.recharts-cartesian-grid line {
+  stroke-opacity: 0.4;
+}
+.recharts-tooltip-cursor {
+  fill-opacity: 0.15;
+}
+.recharts-legend-item-text {
+  font-size: 11px !important;
+}
+.recharts-polar-angle-axis-tick-value,
+.recharts-text {
+  fill: hsl(var(--muted-foreground));
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scif-pulse, .scif-animate, .animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* High contrast focus for keyboard navigation */
+:focus-visible {
+  outline: 3px solid oklch(0.52 0.21 12);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Print: ensure charts are visible */
+@media print {
+  .recharts-surface {
+    overflow: visible !important;
+  }
+  .recharts-wrapper {
+    page-break-inside: avoid;
+  }
+}
+
+
 

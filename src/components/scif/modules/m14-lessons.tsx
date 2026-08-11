@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
 import { ConfidenceMeter } from "@/components/scif/evidence";
 import { RECOMMENDATIONS } from "@/lib/scif/data";
+import { ScenarioBuilder } from "@/components/scif/tools/scenario-builder";
 import { CheckCircle2, XCircle, HelpCircle } from "lucide-react";
 
 const TRANSFERABILITY_ICON: Record<string, React.ReactNode> = {
@@ -79,6 +80,10 @@ export function Module14Lessons() {
               </Card>
             ))}
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Herramienta interactiva" title="Constructor de escenarios estratégicos">
+          <ScenarioBuilder />
         </ViewSection>
 
         <ViewSection eyebrow="Síntesis" title="Qué es razonablemente transferible">

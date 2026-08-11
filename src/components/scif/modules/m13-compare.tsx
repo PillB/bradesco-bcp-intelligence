@@ -3,6 +3,7 @@ import { ViewHero, ViewSection, Card, Grid, Callout, EntityBadge } from "@/compo
 import { EvidenceTag } from "@/components/scif/evidence";
 import { HYPOTHESES, CLAIMS } from "@/lib/scif/data";
 import { ComparativeSWOT } from "@/components/scif/tools/comparative-swot";
+import { ComparativeCharts } from "@/components/scif/tools/comparative-charts";
 import { Scale, GitCompare, AlertTriangle } from "lucide-react";
 
 export function Module13Compare() {
@@ -124,6 +125,10 @@ export function Module13Compare() {
               </tbody>
             </table>
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Visualización recharts" title="Gráficos comparativos interactivos">
+          <ComparativeCharts />
         </ViewSection>
 
         <ViewSection eyebrow="Herramienta interactiva" title="SWOT comparativo Bradesco vs BCP">
