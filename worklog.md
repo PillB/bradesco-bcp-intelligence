@@ -430,3 +430,44 @@ Stage Summary:
 - Comprehensive bilingual (PT-BR + ES) research document with year-by-year timeline, services, tech architecture, successes/failures, social media, comparison, next steps, sources by cluster.
 - Verdict: CONDITIONALLY_READY (very strong) — 60 sources, 37 claims, 30 interactive tools, 17 modules.
 - GNN and synthetic data remain UNKNOWN (genuinely no public Bradesco-specific evidence — principle: silence ≠ absence).
+
+---
+Task ID: 21 (Colleague Report Integration + Deep Research Round 3)
+Agent: Principal Orchestrator
+Task: Read colleague artifacts (74 files), conduct additional research, integrate all findings into data layer
+
+Work Log:
+- Read all 74 colleague artifact files from 3 zip archives (artifacts-1of3, 2of3, 3of3.zip).
+- Read colleague main report: "Bradesco × BCP — Inteligencia Estratégica Comparativa.md" (26KB, 10 sections + references).
+- Read colleague addenda: ronda-4 (capital + financial data), ronda-5 (red team + contingencies), emerging tech addendum.
+- Read colleague JSON artifacts: comparative-strategy.json, final-research-gate.json, claim-ledger (2).jsonl (20 claims), open-questions (2).json, scale-scorecard (2).json, contradiction-register (2).json.
+- Colleague verdict: READY_FOR_EXECUTIVE_REVIEW (stricter than ours — they applied red-team and verified with real-time financial data provider).
+- Key new findings from colleague NOT in our data layer:
+  * Drex pilot: Bradesco participates in BCB Drex (real digital) — tokenized CDB, debentures, credit collateralization. BC pivoted Drex without blockchain for short-term 2026 phase. Status: EXPERIMENT.
+  * CriptoCocos (BCP): First crypto banking platform in Peru (oct/2025). Bitcoin + USDC. SBS sandbox. BitGo custody. ~3000 clients. Status: PILOT.
+  * Blockchain Gifts (BCP): First crypto payment in Peruvian regulated banking (sep/2025). GIFT token on Polygon, Fireblocks custody. Status: EXPERIMENT.
+  * BCRP CBDC pilot: BCP/Yape participates. 107,226 users, ~41,000 daily transactions (jul/2025). Status: PILOT.
+  * 2T26 results: Bradesco ROAE 16,2% (10th consecutive quarter of improvement). Lucro R$7,05B (+16,2%). Receitas R$37,6B. Supersedes 4T25 15,2%.
+  * Capital increase: R$10B (jul/2026). Controllers commit R$8B. JCP R$6,5B advanced. Capital Principal +0,9pp to ~12,7% pro forma.
+  * SUNAT dispute (Credicorp): S/1.568B (~23% annual net income), paid under protest, active litigation.
+  * CVM process (Bradesco): BEM DTVM sanctioned (may/2025) for UEG Araucaria. Tax contingencies R$38,29B (possible risk). R$1,78B 2T26 PTI impact.
+  * ESG: Bradesco MSCI AA, Sustainalytics 14.9. Credicorp MSCI AA, Sustainalytics 22.1. Both DJSI.
+  * BCP fraud: Lynx Tech AI -30% fraud reduction. Deep Learning + RNN for Yape. -21,7% digital fraud claims (fin 2024).
+  * SAFER/FICO detail: 25M Pix tx/day, -89% manual reviews (more detailed than previous 1B tx/month claim).
+  * Perú AI growth: 3.9x multiplier in AI spending within total IT (2025) — highest LatAm rate (Lenovo/IDC).
+  * Colleague red-team: 8 questions answered, all controlled. Comparison A and B kept separate. Perimeters enforced.
+- Conducted 12 additional web searches to validate colleague findings: Drex, CriptoCocos, Blockchain Gifts, capital increase, 2T26, BCRP CBDC, SUNAT, CVM, ESG, Credicorp ESG, BCP fraud Lynx, SAFER/FICO.
+- Added 15 new sources (S61-S75): BCB Drex, BitGo CriptoCocos, BusinessWire, Seu Dinheiro 2T26, InfoMoney 2T26, Noronha LinkedIn, Credicorp SUNAT, CVM, MSCI Bradesco, MSCI Credicorp, Lynx Tech, FICO SAFER detail, BCP Blockchain Gifts, BCRP CBDC, Lenovo/IDC.
+- Added 12 new claims (C038-C049): Drex experiment, CriptoCocos PILOT, Blockchain Gifts EXPERIMENT, 2T26 ROAE 16.2%, capital increase R$10B, SUNAT dispute, CVM risk, ESG ratings, BCP fraud AI Lynx, SAFER detail, BCRP CBDC, Perú AI growth 3.9x.
+- Source count: 60 → 75 sources.
+- Claim count: 37 → 49 claims.
+- Initiative count: 10 (unchanged).
+- Key evidence upgrades from colleague: Drex (EXPERIMENT, not production), CriptoCocos (BCP ahead in crypto retail — inverts IA asymmetry), 2T26 ROAE 16.2% (supersedes 15.2%), SUNAT/CVM regulatory risk comparison, ESG ratings comparison, BCP fraud AI corroborated.
+- QA verification: server HTTP 200; all modules render (exec 6405, sources 42968, compare 10842, ai 8984); ESLint passes clean.
+
+Stage Summary:
+- Colleague report fully integrated: 74 artifact files read, key findings extracted and validated with 12 additional web searches.
+- Data layer significantly expanded: 75 sources, 49 claims, 10 initiatives.
+- Key new dimensions added: Drex/tokenization (Bradesco EXPERIMENT), CriptoCocos/crypto retail (BCP PILOT — ahead of Bradesco), CBDC pilots (both banks), 2T26 updated results (ROAE 16.2%), regulatory risk comparison (SUNAT vs CVM), ESG ratings, BCP fraud AI (Lynx Tech), SAFER/FICO detail, Perú AI growth 3.9x.
+- Verdict: CONDITIONALLY_READY (very strong) — approaching READY_FOR_EXECUTIVE_REVIEW. Colleague's stricter verdict noted; we maintain CONDITIONALLY_READY pending GNN/synthetic data resolution (genuinely no public evidence).
+- The dossier now reflects ALL information from both our research and the colleague's report, validated with additional web searches.
