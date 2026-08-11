@@ -7,6 +7,7 @@ import { ClaimExplorer } from "@/components/scif/tools/claim-explorer";
 import { FreshnessMonitor } from "@/components/scif/tools/freshness-monitor";
 import { KnowledgeGraph } from "@/components/scif/tools/knowledge-graph";
 import { EvidenceHeatmap } from "@/components/scif/tools/evidence-heatmap";
+import { EvidenceScatter } from "@/components/scif/tools/evidence-scatter";
 import * as React from "react";
 
 export function Module16Sources() {
@@ -43,6 +44,10 @@ export function Module16Sources() {
 
         <ViewSection eyebrow="Monitor de frescura" title="Staleness de fuentes — detección de evidencia desactualizada">
           <FreshnessMonitor />
+        </ViewSection>
+
+        <ViewSection eyebrow="Scatter plot" title="Confianza × Diversidad de fuentes — calidad de evidencia">
+          <EvidenceScatter />
         </ViewSection>
 
         <ViewSection eyebrow="Heatmap temporal" title="Densidad de evidencia por mes — patrón de publicación">

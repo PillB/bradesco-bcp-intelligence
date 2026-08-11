@@ -5,6 +5,7 @@ import { HYPOTHESES, CLAIMS } from "@/lib/scif/data";
 import { ComparativeSWOT } from "@/components/scif/tools/comparative-swot";
 import { ComparativeCharts } from "@/components/scif/tools/comparative-charts";
 import { MaturityMatrix } from "@/components/scif/tools/maturity-matrix";
+import { PositioningMap } from "@/components/scif/tools/positioning-map";
 import { Scale, GitCompare, AlertTriangle } from "lucide-react";
 
 export function Module13Compare() {
@@ -126,6 +127,10 @@ export function Module13Compare() {
               </tbody>
             </table>
           </div>
+        </ViewSection>
+
+        <ViewSection eyebrow="Mapa de posicionamiento" title="Posicionamiento competitivo — Escala × Innovación">
+          <PositioningMap />
         </ViewSection>
 
         <ViewSection eyebrow="Matriz de madurez" title="Comparación dimensional — niveles 0-4">

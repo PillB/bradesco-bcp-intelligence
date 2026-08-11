@@ -3,6 +3,7 @@ import { ViewHero, ViewSection, Card, Grid, Callout, EntityBadge } from "@/compo
 import { EvidenceTag, SourcePill, LifecycleTag, ClaimRef } from "@/components/scif/evidence";
 import { TIMELINE, CLAIMS } from "@/lib/scif/data";
 import { TimelineVisualizer } from "@/components/scif/tools/timeline-visualizer";
+import { StrategicGantt } from "@/components/scif/tools/strategic-gantt";
 import * as Lucide from "lucide-react";
 
 const ENTITIES = [
@@ -89,6 +90,10 @@ export function Module01History() {
 
         <ViewSection eyebrow="Visualización interactiva" title="Línea temporal estratégica — explorador">
           <TimelineVisualizer />
+        </ViewSection>
+
+        <ViewSection eyebrow="Gantt estratégico" title="Timeline de iniciativas — vista Gantt con hitos">
+          <StrategicGantt />
         </ViewSection>
 
         <ViewSection eyebrow="Línea temporal estratégica" title="Eras y eventos clave (1943–2026)">
