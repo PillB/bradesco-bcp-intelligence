@@ -330,5 +330,67 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 
+/* Glassmorphism effect for elevated cards on hover */
+.group\/card:hover {
+  backdrop-filter: blur(8px);
+}
+
+/* Gradient text utility */
+.gradient-text-primary {
+  background: linear-gradient(135deg, oklch(0.52 0.21 12), oklch(0.62 0.2 12));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Subtle glow for active/important elements */
+.glow-primary {
+  box-shadow: 0 0 20px oklch(0.52 0.21 12 / 0.15);
+}
+.glow-primary:hover {
+  box-shadow: 0 0 30px oklch(0.52 0.21 12 / 0.25);
+}
+
+/* Stagger animation for list items */
+@keyframes scif-stagger-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.scif-stagger > * {
+  animation: scif-stagger-in 0.3s ease-out backwards;
+}
+.scif-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.scif-stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.scif-stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.scif-stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.scif-stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.scif-stagger > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* Tooltip enhancement */
+[data-title]:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border: 1px solid hsl(var(--border));
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+}
+
+
 
 

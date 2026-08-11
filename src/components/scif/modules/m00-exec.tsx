@@ -3,6 +3,7 @@ import * as React from "react";
 import { ViewHero, ViewSection, Card, Grid, StatBlock, Callout, EntityBadge, DossierLinkBanner } from "@/components/scif/view-shell";
 import { EvidenceTag, ConfidenceMeter, SourcePill, ClaimRef } from "@/components/scif/evidence";
 import { SCALE_ENTITIES, CLAIMS, OPEN_QUESTIONS, RECOMMENDATIONS, TECH_CAPABILITIES, INITIATIVES, SOURCES, PROJECT } from "@/lib/scif/data";
+import { ExecutiveSummary } from "@/components/scif/tools/executive-summary";
 import { TrendingUp, TrendingDown, AlertCircle, Brain, Cloud, Lightbulb, GitBranch, FileQuestion } from "lucide-react";
 
 export function Module00Exec() {
@@ -34,6 +35,10 @@ export function Module00Exec() {
       </ViewHero>
 
       <div className="space-y-8">
+        <ViewSection eyebrow="Exportable" title="Resumen ejecutivo — síntesis del dossier">
+          <ExecutiveSummary />
+        </ViewSection>
+
         <ViewSection eyebrow="Pregunta maestra" title="¿Qué es Bradesco hoy?">
           <Card>
             <p className="text-sm leading-relaxed text-foreground/90">
