@@ -5,6 +5,7 @@ import { SCALE_ENTITIES, CLAIMS } from "@/lib/scif/data";
 import { ScaleComparator } from "@/components/scif/tools/scale-comparator";
 import { MetricNormalizer } from "@/components/scif/tools/metric-normalizer";
 import { ComparativeSankey } from "@/components/scif/tools/comparative-sankey";
+import { FinancialWaterfall } from "@/components/scif/tools/financial-waterfall";
 import * as React from "react";
 
 export function Module02Scale() {
@@ -96,6 +97,10 @@ export function Module02Scale() {
               Útil para comparación estructural (mix de negocio), no para ranking absoluto — la asimetría de escala de mercado persiste.
             </p>
           </Card>
+        </ViewSection>
+
+        <ViewSection eyebrow="Waterfall financiero" title="Descomposición drivers — Resultado recurrente 2024→2025">
+          <FinancialWaterfall />
         </ViewSection>
 
         <ViewSection eyebrow="Flujo Sankey" title="Flujo Entidad → Segmento → Rentabilidad">

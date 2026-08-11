@@ -310,3 +310,27 @@ Stage Summary:
 - Source count: 38, Claim count: 25 (unchanged — focus on advanced visualization).
 - Verdict: CONDITIONALLY_READY (very strong) — 24 interactive tools covering scale, flow, dependency, and KPI dimensions.
 - The dossier is now a comprehensive strategic intelligence command center with 24 tools across 17 modules.
+
+---
+Task ID: 17 (webDevReview round 9)
+Agent: Principal Orchestrator (cron-triggered webDevReview)
+Task: QA, Capability Treemap, Tech Radar Viz, Financial Waterfall — 3 new chart tools
+
+Work Log:
+- Reviewed worklog: project had 17 modules + 24 tools, 38 sources, 25 claims, all stable.
+- QA via agent-browser: all 17 modules confirmed rendering (zero crashes, zero console errors).
+- Built 3 new advanced chart tools:
+  1. capability-treemap.tsx — Capability Treemap: squarified treemap algorithm with 16 capabilities. Area ∝ confidence (larger = stronger evidence). Color = maturity (green=production, amber=experiment, gray=unknown). Hover highlights + detail panel (category, maturity, confidence, evidence). Category summary sidebar. 33 rects confirmed.
+  2. tech-radar-viz.tsx — Technology Radar (ThoughtWorks-style): 4 quadrants (IA & Datos / Plataformas & Cloud / Seguridad & Identidad / Tech Emergente) × 4 rings (Adopt/Trial/Assess/Hold). 16 blips positioned by quadrant + maturity-to-ring mapping. Quadrant background colors, ring labels, blip hover detail. 63 circles confirmed.
+  3. financial-waterfall.tsx — Financial Waterfall: 6-step decomposition of Bradesco FY2025 resultado recurrente (R$19.6B 2024 → R$24.7B 2025). Start/positive/negative/end bars with connecting dashed lines. Hover tooltips with driver notes. Summary stats (base, positive drivers, investments). 26 rects confirmed.
+- Fixed lint error: financial-waterfall had `running` mutation inside useMemo map callback — refactored to forEach with push to satisfy react-hooks/immutability rule.
+- Integrated tools: CapabilityTreemap + TechRadarViz→m07 (AI), FinancialWaterfall→m02 (scale).
+- QA verification: all 17 modules render (zero crashes); ai 7363→8984 (41 SVGs, 33 rects, 63 circles), scale 6868→7680 (33 SVGs, 26 rects); ESLint passes clean.
+
+Stage Summary:
+- 3 new chart tools (total 27 tools now): Capability Treemap, Tech Radar Viz, Financial Waterfall.
+- Module 02 (scale): now has Scale Comparator + Metric Normalizer + Financial Waterfall + Comparative Sankey (4 scale tools).
+- Module 07 (AI): now has BIA/Bridge + Outcome metrics + Capability Treemap + Tech Radar Viz + Radar Chart + Radar versioned (6 AI tools — richest module).
+- Source count: 38, Claim count: 25 (unchanged — focus on advanced charting).
+- Verdict: CONDITIONALLY_READY (very strong) — 27 interactive tools with comprehensive charting (treemap, radar, waterfall, sankey, scatter, gauge, network, gantt, heatmap, matrix).
+- The dossier is now a full-spectrum strategic intelligence command center with 27 tools across 17 modules.

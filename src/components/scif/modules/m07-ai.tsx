@@ -3,6 +3,8 @@ import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/compone
 import { EvidenceTag, SourcePill, ConfidenceMeter, ClaimRef, LifecycleTag } from "@/components/scif/evidence";
 import { RADAR_VERSIONS, CLAIMS } from "@/lib/scif/data";
 import { RadarChart } from "@/components/scif/tools/radar-chart";
+import { CapabilityTreemap } from "@/components/scif/tools/capability-treemap";
+import { TechRadarViz } from "@/components/scif/tools/tech-radar-viz";
 import { BrainCircuit, Bot, MessageSquare, ShieldCheck, GitBranch, Database as DatabaseIcon, Cpu } from "lucide-react";
 import { theme } from "@/lib/scif/theme";
 
@@ -99,6 +101,14 @@ export function Module07AI() {
             (resolution rate vs NPS), pero la hipótesis H1 (madurez real) y H2 (comunicación) están ambas parcialmente confirmadas.
             <span className="mt-1 block text-[10px] italic">Fuentes: Microsoft case study (S31), FICO case study (S32), Credicorp 4Q25 (S33). Vendor bias risk en S31/S32.</span>
           </Callout>
+        </ViewSection>
+
+        <ViewSection eyebrow="Treemap de capacidades" title="Mapa jerárquico — área ∝ confianza">
+          <CapabilityTreemap />
+        </ViewSection>
+
+        <ViewSection eyebrow="Radar tecnológico" title="Radar estilo ThoughtWorks — 4 cuadrantes × 4 anillos">
+          <TechRadarViz />
         </ViewSection>
 
         <ViewSection eyebrow="Visualización interactiva" title="Radar de tecnología — comparación versionada">
