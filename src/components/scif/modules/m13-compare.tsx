@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout, EntityBadge } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag } from "@/components/scif/evidence";
 import { HYPOTHESES, CLAIMS } from "@/lib/scif/data";
 import { ComparativeSWOT } from "@/components/scif/tools/comparative-swot";

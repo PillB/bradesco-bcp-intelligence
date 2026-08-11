@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, SourcePill, ConfidenceMeter, ClaimRef, LifecycleTag } from "@/components/scif/evidence";
 import { RADAR_VERSIONS, CLAIMS } from "@/lib/scif/data";
 import { RadarChart } from "@/components/scif/tools/radar-chart";

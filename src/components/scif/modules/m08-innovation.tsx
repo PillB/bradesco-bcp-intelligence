@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, SourcePill, LifecycleTag, ClaimRef } from "@/components/scif/evidence";
 import { CLAIMS } from "@/lib/scif/data";
 import { Lightbulb, Building, Users, FlaskConical } from "lucide-react";
@@ -56,7 +57,7 @@ export function Module08Innovation() {
             <Card>
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-[#0F766E]" />
-                <h3 className="font-bold text-sm">Krealo</h3>
+                <h3 className="font-bold text-sm"><ContextTooltip term="KREALO">Krealo</ContextTooltip></h3>
               </div>
               <p className="mt-2 text-xs text-muted-foreground">Fondo de venture corporativo del grupo, con enfoque "hands-on" tipo VC y salidas estructuradas.</p>
               <p className="mt-2 text-[11px] text-muted-foreground"><SourcePill sourceId="S14" /></p>

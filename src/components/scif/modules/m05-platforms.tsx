@@ -1,5 +1,6 @@
 "use client";
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
+import { ContextTooltip } from "@/components/scif/context-tooltip";
 import { EvidenceTag, LifecycleTag, SourcePill, ClaimRef } from "@/components/scif/evidence";
 import { PLATFORMS, CLAIMS } from "@/lib/scif/data";
 
@@ -99,7 +100,7 @@ export function Module05Platforms() {
         <ViewSection eyebrow="Comparación BCP" title="Yape y BCP Xplore">
           <Grid>
             <Card>
-              <h3 className="font-bold text-sm">Yape</h3>
+              <h3 className="font-bold text-sm"><ContextTooltip term="YAPE">Yape</ContextTooltip></h3>
               <p className="mt-1 text-xs text-muted-foreground">App de pagos que opera dentro del perímetro de BCP. Alcanzó rentabilidad antes de lo proyectado. Meta 2026: 16,5M usuarios activos y S/600 mil millones en transacciones anuales.</p>
               <div className="mt-2"><LifecycleTag status="PRODUCTION_SCALING" /></div>
             </Card>

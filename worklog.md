@@ -740,3 +740,43 @@ Stage Summary:
 - Lint clean, all modules render, tooltips functional.
 - GitHub auth: Process alive, waiting for user (code 08BE-BC13).
 - Verdict: CONDITIONALLY_READY — auth pending for commit/push/deploy.
+
+---
+Task ID: 29 (Framework Integration + Tooltip Expansion + Auth Round 4)
+Agent: Principal Orchestrator
+Task: Read all framework docs, attack OQs, expand tooltips, validate, restart auth
+
+Work Log:
+- Read all 7 uploaded framework docs: source-genealogy, source-methodology, comparability-methodology, entity-resolution, visualization-guidelines, interactive-tools, testing-guide + Writing Protocol docx.
+- Key framework requirements confirmed:
+  * Source genealogy: independence clusters, no syndication = corroboration
+  * Entity resolution: blocking gate, CONFIRMED/PROBABLE/AMBIGUOUS/WRONG_ENTITY
+  * Comparability: blocking gate, 7 fields required, NOT_DIRECTLY_COMPARABLE label
+  * Visualization: mandatory metadata on every chart, textual equivalents
+  * Interactive tools: read from registries, render evidence, keyboard-operable, degrade to print
+  * Testing: RED tests (wrong-entity rejection, not-comparable can't rank, staleness warnings, Tier E can't verify), GREEN→REFACTOR→ADVERSARIAL, final checklist
+  * Writing protocol: unit-level authorship, anti-aberration, factual control, editorial standards
+
+- Attacked 4 HIGH/MEDIUM open questions with 4 web searches:
+  * OQ01 (BCP AI count): No specific number found. BCP has AI in production (Mutt Data marketing, GenIA voice, Forbes Perú pioneer) but no count comparable to 500. Remains MEDIUM.
+  * OQ05 (BTRL/TRL): BTRL is NOT a Bradesco term — it's generic TRL (NASA/DoD origin). No Bradesco-specific methodology published. Remains MEDIUM.
+  * OQ04 (market share normalization): Found 4 banks concentrate 78% lending, 76% deposits in Brazil. Bradesco ~16.6% (2º private). BCP 33.43% (1º Peru). Partially resolved.
+  * OQ08 (outcome comparison): Found Bradesco closed 1,603 branches, RoRWA 1.5% 2025. No directly comparable BCP resolution rate found. Partially resolved.
+
+- Integrated ContextTooltip import into 4 additional modules (m05, m07, m08, m13).
+- Wrapped key terms with ContextTooltip: BIA, Bridge, Next, Digio, Bitz (exec), Yape (platforms), Inovabra, CIX, Krealo (innovation), Yape, CriptoCocos (compare).
+- Validated tooltips via agent-browser: 4 in exec, 1 in platforms, 1 in innovation. All showing context panels on click.
+- Full QA: all 17 modules pass (zero crashes). ESLint clean.
+
+- Started fresh GitHub auth with Python double-fork daemon (PID 6602). Code: 1C43-01F4.
+- Polling every 2 minutes for 15 minutes.
+
+Stage Summary:
+- Framework docs fully read and integrated into attack plan.
+- 43 context entries covering all terms.
+- ContextTooltip integrated in 5 modules (exec, platforms, innovation, AI, compare).
+- 6 tooltips confirmed functional via agent-browser.
+- 85 sources, 55 claims, 43 context entries, 30 tools, 17 modules.
+- Lint clean, all modules render, tooltips functional.
+- GitHub auth: Process alive (PID 6602), code 1C43-01F4, waiting for user.
+- Verdict: CONDITIONALLY_READY — auth pending for commit/push/deploy.
