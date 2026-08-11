@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout, StatBlock } from "@/components/scif/view-shell";
 import { EvidenceTag, SourcePill, LifecycleTag } from "@/components/scif/evidence";
 import { INITIATIVES } from "@/lib/scif/data";
+import { InitiativeFunnel } from "@/components/scif/tools/initiative-funnel";
 import { theme } from "@/lib/scif/theme";
 
 export function Module09Lifecycle() {
@@ -24,6 +25,10 @@ export function Module09Lifecycle() {
               );
             })}
           </Grid>
+        </ViewSection>
+
+        <ViewSection eyebrow="Visualización interactiva" title="Funnel de iniciativas — SIGNAL → PRODUCTION → MATURE">
+          <InitiativeFunnel />
         </ViewSection>
 
         <ViewSection eyebrow="Explorador de iniciativas" title="Promesa original vs resultado">

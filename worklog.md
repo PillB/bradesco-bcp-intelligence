@@ -238,3 +238,27 @@ Stage Summary:
 - Source count: 38, Claim count: 25 (unchanged this round — focus on visualization/export).
 - Verdict: CONDITIONALLY_READY (very strong) — now with executive summary export capability, approaching READY_FOR_EXECUTIVE_REVIEW.
 - Next focus areas: PDF export with proper styling, additional research if new public evidence emerges, performance optimization for large graphs.
+
+---
+Task ID: 14 (webDevReview round 6)
+Agent: Principal Orchestrator (cron-triggered webDevReview)
+Task: QA, Initiative Funnel, Risk Heatmap, Maturity Matrix — 3 new analytical tools
+
+Work Log:
+- Reviewed worklog: project had 17 modules + 15 tools, 38 sources, 25 claims, all stable.
+- QA via agent-browser: all 17 modules confirmed rendering (zero crashes, zero console errors).
+- Built 3 new interactive analytical tools:
+  1. initiative-funnel.tsx — Initiative Funnel Chart: Sankey-style visualization showing initiatives/capabilities through 6 phases (SIGNAL → EXPERIMENT → PILOT → PRODUCTION → MATURE → EXIT). Toggle between Initiatives and Tech Caps. Animated bars with staggered margins. Hover expands items in phase. 4 conversion rate metrics (Signal→Production, Production→Mature, success rate, exit/sunset rate).
+  2. risk-heatmap.tsx — Risk Heatmap: 5×5 matrix plotting 12 risks by Probability × Impact. Shape-coded by entity (circle=Bradesco, square=BCP, triangle=Ambos). Color-coded by category (regulatory/competitive/tech/financial/operational). Click risk for detail panel with score, mitigation. Risk level color gradient (green→amber→red). Full legend.
+  3. maturity-matrix.tsx — Comparative Maturity Matrix: 10-dimension comparison Bradesco vs BCP with 0-4 level scale. Dot indicators (4 dots per cell), level labels (N/A/Básico/En desarrollo/Producción/Maduro), evidence references, diff badges (BRA +N / BCP +N / =). Summary panel: Bradesco leads / BCP leads / Parity counts.
+- Integrated tools: InitiativeFunnel→m09 (lifecycle), RiskHeatmap→m12 (risk), MaturityMatrix→m13 (compare).
+- QA verification: all 17 modules render (zero crashes); lifecycle 4152→4945, risk 2663→3088 (32 buttons, 32 SVGs), compare 7180→9392 (44 SVGs, 2 tables); ESLint passes clean.
+
+Stage Summary:
+- 3 new analytical tools (total 18 tools now): Initiative Funnel, Risk Heatmap, Maturity Matrix.
+- Module 09 (lifecycle): now has interactive funnel visualization with conversion rates.
+- Module 12 (risk): now has 5×5 risk matrix with 12 mapped risks and mitigations.
+- Module 13 (compare): now has 10-dimension maturity matrix + recharts + SWOT (3 comparative tools).
+- Source count: 38, Claim count: 25 (unchanged — focus on analytical visualization).
+- Verdict: CONDITIONALLY_READY (very strong) — comprehensive analytical toolset now covers funnel, risk, and maturity dimensions.
+- Next focus areas: performance optimization for large graphs, additional research if new evidence emerges, executive dashboard polish.

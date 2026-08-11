@@ -2,6 +2,7 @@
 import { ViewHero, ViewSection, Card, Grid, Callout } from "@/components/scif/view-shell";
 import { EvidenceTag, LifecycleTag, SourcePill } from "@/components/scif/evidence";
 import { ShieldCheck, Lock, Fingerprint, Scale, AlertTriangle } from "lucide-react";
+import { RiskHeatmap } from "@/components/scif/tools/risk-heatmap";
 
 export function Module12Risk() {
   return (
@@ -91,6 +92,10 @@ export function Module12Risk() {
             profundidad en esta ronda por restricción de alcance (OQ07). Clasificados UNKNOWN — no inferir presencia ni
             ausencia.
           </Callout>
+        </ViewSection>
+
+        <ViewSection eyebrow="Heatmap de riesgos" title="Matriz Probabilidad × Impacto — riesgos mapeados">
+          <RiskHeatmap />
         </ViewSection>
 
         <ViewSection eyebrow="Open Finance / Open Banking" title="Capacidades comparadas">
