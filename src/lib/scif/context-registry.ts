@@ -590,6 +590,19 @@ export const CONTEXT_REGISTRY: Record<string, ContextEntry> = {
     fuentes: ["NIST Technical Series Publication (mar/2025)"],
     confianza: "BAJA (UNRESOLVED — PendingRecord)",
   },
+  "CLARA": {
+    id: "CLARA",
+    term: "Clara",
+    entity: "BCP",
+    category: "iniciativa",
+    shortDef: "Asistente virtual de BCP con IA generativa. Disponible en WhatsApp (993-119-898). Equivalente funcional de BIA de Bradesco.",
+    fullDef: "Clara es la asistente virtual de Banco de Crédito del Perú (BCP), lanzada en julio 2024 en la Banca por Teléfono. En enero 2025 se actualizó con IA Generativa. Disponible vía WhatsApp (993-119-898) y web. Resuelve consultas de saldos, movimientos, tarjetas de crédito, número de cuenta, productos y servicios 24/7. Clara aprende de cada conversación y se adapta a preferencias del usuario (personalización). BCP es la primera empresa del grupo Credicorp en implementar IA generativa en voz para atención de clientes.",
+    comparison: "Clara (BCP) es el equivalente funcional directo de BIA (Bradesco). Ambas son asistentes virtuales con IA generativa. BIA: 24M+ usuarios, 90% retención, evolución Watson→GenAI (2016-2025). Clara: lanzada jul/2024, IA Gen desde ene/2025, disponible WhatsApp + Banca por Teléfono + web. BIA tiene mayor escala documentada (24M+ vs Clara sin métrica pública de usuarios). Ambas son PRODUCTION_SCALING. Diferencia clave: BIA tiene 10 años de evolución (2016-2026), Clara tiene 2 años (2024-2026).",
+    estado: "PRODUCTION_SCALING (IA Gen desde ene/2025, disponible WhatsApp + web + Banca por Teléfono)",
+    valor: "Atención 24/7 vía WhatsApp · personalización · consulta saldos/movimientos · resolución consultas · primera IA Gen voice en Credicorp",
+    fuentes: ["viabcp.com (official)", "facebook.com (BCP official)", "peru-retail.com (oct/2024)", "semanaeconomica.com (ene/2025)", "es.linkedin.com", "corresponsables.com (jul/2024)"],
+    confianza: "ALTA (INDEPENDENTLY_CORROBORATED)",
+  },
 };
 
 // Helper function to get context by term
