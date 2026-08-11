@@ -14,7 +14,7 @@ export function Module10Partnerships() {
   return (
     <>
       <ViewHero number="10" title="Alianzas, Startups y Adquisiciones" subtitle="Red de socios y M&A"
-        description="Mapa de partnerships: cloud providers (Azure, AWS, Oracle), data vendor (Teradata), operating partner (WeWork), open innovation (230 startups Inovabra), corporate venture (Krealo). M&A: Ágora (2008), Digio (2021-22), Culqi." />
+        description="BCP (Banco de Crédito del Perú). Mapa de partnerships: cloud providers (Azure, AWS, Oracle), data vendor (Teradata), operating partner (WeWork), open innovation (230 startups Inovabra), corporate venture (Krealo). M&A: Ágora (2008), Digio (2021-22), Culqi." />
       <div className="space-y-8">
         <ViewSection eyebrow="Red de partnerships" title="Bradesco — socios estratégicos">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

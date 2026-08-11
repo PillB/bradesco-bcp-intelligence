@@ -13,7 +13,7 @@ export function Module07AI() {
   return (
     <>
       <ViewHero number="07" title="IA, Datos y Tecnologías Emergentes" subtitle="BIA, Bridge, GenAI, agentic, radar versionado"
-        description="Capacidades de IA: BIA (asistente, PRODUCTION_SCALING), Bridge (plataforma GenAI, PRODUCTION). Radar de tecnología versionado (2022, 2024, 2026). Temas UNKNOWN (quantum, GNN, synthetic data) son PendingRecords explícitos." />
+        description="BCP (Banco de Crédito del Perú). Capacidades de IA: BIA (asistente, PRODUCTION_SCALING), Bridge (plataforma GenAI, PRODUCTION). Radar de tecnología versionado (2022, 2024, 2026). Temas UNKNOWN (quantum, GNN (Graph Neural Networks), synthetic data) son PendingRecords explícitos." />
       <div className="space-y-8">
         <ViewSection eyebrow="Estado de IA" title="BIA y Bridge — núcleo de IA de Bradesco">
           <Grid>
@@ -179,10 +179,10 @@ export function Module07AI() {
         <ViewSection eyebrow="PendingRecords" title="Tecnologías emergentes — UNKNOWN">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: "Quantum / QKD", icon: Cpu },
+              { name: "Quantum / QKD (Quantum Key Distribution)", icon: Cpu },
               { name: "GNN (fraude)", icon: GitBranch },
               { name: "Synthetic data", icon: DatabaseIcon },
-              { name: "DLT / tokenization", icon: GitBranch },
+              { name: "DLT (Distributed Ledger Technology) / tokenization", icon: GitBranch },
             ].map((t) => {
               const Icon = t.icon;
               return (

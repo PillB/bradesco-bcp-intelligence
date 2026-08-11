@@ -72,7 +72,7 @@ export function Module02Scale() {
             <StatBlock label="Costo de riesgo BCP" value="1,28%" sub="Cayó de 2,13% — impulsor del ROAE" accent="teal" />
           </Grid>
           <Callout type="warn" title="¿Por qué BCP es más rentable?">
-            El ROAE de BCP (24,7%) supera al de Bradesco (15,2%) en parte por una caída fuerte del costo de riesgo
+            El ROAE (Retorno sobre Patrimonio Promedio — mide rentabilidad sobre patrimonio promedio) de BCP (24,7%) supera al de Bradesco (15,2%) en parte por una caída fuerte del costo de riesgo
             (de 2,13% a 1,28% en 2025) y en parte por la diferencia de ciclo de crédito y estructura de mercado entre
             Brasil y Perú. La diferencia puede reflejar <strong>ciclo y estructura, no solo capacidad operativa</strong>.
             Etiquetado COMPARABLE (dimensión) con nota explícita.

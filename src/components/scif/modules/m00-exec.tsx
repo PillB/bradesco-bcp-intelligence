@@ -45,7 +45,7 @@ export function Module00Exec() {
             <p className="text-sm leading-relaxed text-foreground/90">
               Banco Bradesco S.A. es un banco múltiple brasileño con sede en Osasco (São Paulo), que opera bajo
               dos segmentos reportables: <strong>banca</strong> y <strong>seguros/previsión/capitalización</strong>. Al cierre de 2025,
-              los activos totales consolidados bajo IFRS alcanzaron <strong>R$2,33 billones</strong> (trillion en nomenclatura anglosajona),
+              los activos totales consolidados bajo IFRS (International Financial Reporting Standards — normas contables internacionales) alcanzaron <strong>R$2,33 billones</strong> (trillion en nomenclatura anglosajona),
               con un resultado recurrente de <strong>R$24,7 mil millones</strong> (+26,1% a/a) y un ROAE (Retorno sobre Patrimonio Promedio) de 4T25 de <strong>15,2%</strong> —
               la primera vez, según management, que dicho retorno supera el costo de capital de la entidad.
               <ClaimRef claimId="C001" /><ClaimRef claimId="C002" />
@@ -118,7 +118,7 @@ export function Module00Exec() {
             <Callout type="info" title="Radar de tecnología — versionado">
               Bradesco <strong>no publica un Technology Radar formal</strong> (estilo ThoughtWorks). Las versiones en este dossier
               están reconstruidas a partir de disclosures públicos (2022, 2024, 2026). {prodTech} capacidades en producción/maduras,
-              {" "}{unknownTech} clasificadas UNKNOWN (PendingRecords: GNN, synthetic data, quantum/QKD, DLT/tokenization).
+              {" "}{unknownTech} clasificadas UNKNOWN (PendingRecords: GNN (Graph Neural Networks), synthetic data, quantum/QKD (Quantum Key Distribution), DLT (Distributed Ledger Technology)/tokenization).
             </Callout>
           </div>
         </ViewSection>

@@ -85,7 +85,7 @@ export function Module13Compare() {
                   <td className="px-3 py-2"><span className="rounded bg-red-100 px-1.5 py-0.5 text-[10px] font-bold text-red-700 dark:bg-red-950/40 dark:text-red-300">NOT_COMPARABLE</span></td>
                 </tr>
                 <tr className="border-b border-border/50">
-                  <td className="px-3 py-2 font-medium">ROAE</td>
+                  <td className="px-3 py-2 font-medium">ROAE<sup class="text-[9px] text-muted-foreground ml-0.5" title="ROAE (Retorno sobre Patrimonio Promedio — mide rentabilidad sobre patrimonio promedio)">?</sup></td>
                   <td className="px-3 py-2">15,2%</td>
                   <td className="px-3 py-2">24,7%</td>
                   <td className="px-3 py-2"><span className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">COMPARABLE</span></td>

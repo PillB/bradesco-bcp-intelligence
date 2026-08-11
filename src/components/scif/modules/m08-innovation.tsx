@@ -9,7 +9,7 @@ export function Module08Innovation() {
   return (
     <>
       <ViewHero number="08" title="Innovación, I+D y Open Innovation" subtitle="Inovabra, cartera disruptiva, Krealo"
-        description="Comparación de modelos de innovación: Inovabra (habitat abierto, co-innovación física) vs Credicorp (cartera de iniciativas disruptivas con métricas de venture). Estructuras distintas — no comparables como el mismo instrumento." />
+        description="BCP (Banco de Crédito del Perú). Comparación de modelos de innovación: Inovabra (habitat abierto, co-innovación física) vs Credicorp (cartera de iniciativas disruptivas con métricas de venture). Estructuras distintas — no comparables como el mismo instrumento." />
       <div className="space-y-8">
         <ViewSection eyebrow="Modelo Bradesco" title="Inovabra habitat — co-innovación abierta">
           <Card>

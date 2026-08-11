@@ -8,7 +8,7 @@ export function Module03Customers() {
   return (
     <>
       <ViewHero number="03" title="Clientes, Segmentos y Canales" subtitle="Mapa de segmentos y canales"
-        description="Segmentos (retail, affluent, private, SME, corporate, digital-native, microfinanzas, seguros) y canales (sucursales, app, WhatsApp, BIA, ATMs, Open Finance, Pix/Yape). Comparación estructural Bradesco vs BCP." />
+        description="BACEN = Banco Central do Brasil (regulador bancario brasileño). Segmentos (retail, affluent, private, SME, corporate, digital-native, microfinanzas, seguros) y canales (sucursales, app, WhatsApp, BIA, ATMs, Open Finance, Pix/Yape). Comparación estructural Bradesco vs BCP." />
       <div className="space-y-8">
         <ViewSection eyebrow="Mapa de segmentos" title="Bradesco vs BCP — por segmento de cliente">
           <div className="overflow-x-auto">

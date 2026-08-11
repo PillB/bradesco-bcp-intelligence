@@ -8,7 +8,7 @@ export function Module05Platforms() {
   return (
     <>
       <ViewHero number="05" title="Plataformas Digitales y Journeys" subtitle="Apps, wallets, asistentes, APIs"
-        description="Mapa de plataformas: App Bradesco+BIA, Next, Digio, Bridge, Bradesco Seguros, Inovabra. BCP: App BCP+Yape, BCP Xplore, Krealo. Verificación de estado actual de marcas históricas (Next=INTEGRATED, Bitz=SUNSET)." />
+        description="BCP (Banco de Crédito del Perú). Mapa de plataformas: App Bradesco+BIA, Next, Digio, Bridge, Bradesco Seguros, Inovabra. BCP: App BCP+Yape, BCP Xplore, Krealo. Verificación de estado actual de marcas históricas (Next=INTEGRATED, Bitz=SUNSET)." />
       <div className="space-y-8">
         <ViewSection eyebrow="Mapa de plataformas" title="Estado actual de cada plataforma">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

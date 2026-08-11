@@ -31,7 +31,7 @@ export function Module01History() {
   return (
     <>
       <ViewHero number="01" title="Compañía, Perímetro e Historia" subtitle="Estructura societaria y eras estratégicas"
-        description="Entity resolution gate superado. Organização Bradesco (grupo) se distingue de Banco Bradesco S.A. (banco operativo). Las marcas digitales Next y Digio son subsidiarias controladas con perímetros distintos." />
+        description="ROAE = Retorno sobre Patrimonio Promedio (mide rentabilidad). Entity resolution gate superado. Organização Bradesco (grupo) se distingue de Banco Bradesco S.A. (banco operativo). Las marcas digitales Next y Digio son subsidiarias controladas con perímetros distintos." />
       <div className="space-y-8">
         <ViewSection eyebrow="Entity registry" title="Mapa de entidades — Organização Bradesco">
           <Callout type="warn" title="Gate de resolución de entidades — bloqueante">

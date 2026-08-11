@@ -30,7 +30,7 @@ export function Module06Tech() {
             <Card>
               <Cloud className="h-6 w-6 text-red-500" />
               <h3 className="mt-2 font-bold text-sm">Oracle Cloud</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Bradesco Seguros — brazo de seguros con ROAE 21,9%</p>
+              <p className="mt-1 text-xs text-muted-foreground">Bradesco Seguros — brazo de seguros con ROAE (Retorno sobre Patrimonio Promedio — mide rentabilidad sobre patrimonio promedio) 21,9%</p>
               <p className="mt-2 text-[11px] text-muted-foreground"><SourcePill sourceId="S06" /></p>
             </Card>
             <Card>
@@ -108,7 +108,7 @@ export function Module06Tech() {
           <TechHeatmap />
           <div className="mt-3">
           <Callout type="warn" title="PendingRecords — tecnologías UNKNOWN">
-            GNN (fraude), datos sintéticos, quantum/QKD, y DLT/tokenization están clasificados UNKNOWN. No hay evidencia
+            GNN (Graph Neural Network — red neuronal para datos estructurados en grafos) (fraude), datos sintéticos, quantum/QKD (Quantum Key Distribution), y DLT (Distributed Ledger Technology)/tokenization están clasificados UNKNOWN. No hay evidencia
             pública específica de Bradesco en esta ronda. <strong>Silencio no es evidencia de ausencia</strong> — estos temas
             quedan como PendingRecords (OQ07) para futuras rondas de investigación.
           </Callout>

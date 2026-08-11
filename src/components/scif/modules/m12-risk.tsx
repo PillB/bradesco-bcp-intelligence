@@ -9,7 +9,7 @@ export function Module12Risk() {
   return (
     <>
       <ViewHero number="12" title="Riesgo, Regulación, Cyber y Resiliencia" subtitle="Fraude, AML, identidad digital"
-        description="Marco regulatorio: Brasil (BACEN, Open Finance obligatorio, Pix) vs Perú (SBS). Capacidades de fraude, AML, cyber, identidad digital. Algunos temas (GNN, synthetic data, quantum) son PendingRecords." />
+        description="Marco regulatorio: Brasil (BACEN (Banco Central do Brasil), Open Finance obligatorio, Pix) vs Perú (SBS). Capacidades de fraude, AML, cyber, identidad digital. Algunos temas (GNN, synthetic data, quantum) son PendingRecords." />
       <div className="space-y-8">
         <ViewSection eyebrow="Marco regulatorio" title="Brasil vs Perú — diferencia estructural">
           <Grid>
@@ -26,7 +26,7 @@ export function Module12Risk() {
             </Card>
             <Card>
               <ShieldCheck className="h-6 w-6 text-[#0F766E]" />
-              <h3 className="mt-2 font-bold text-sm">Perú — SBS / SMV</h3>
+              <h3 className="mt-2 font-bold text-sm">Perú — SBS (Superintendencia de Banca, Seguros y AFP — regulador bancario peruano) / SMV</h3>
               <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
                 <li>• SBS — superintendencia de banca</li>
                 <li>• Open Banking en desarrollo</li>
